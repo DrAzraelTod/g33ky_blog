@@ -29,15 +29,21 @@ menu:
       Identifier: "feed"
       URL: "/index.xml"
 Author:
-  - name: "Dr. Azrael Tod"
+  drazraeltod:
+    name: "Dr. Azrael Tod"
     email: "blog@g33ky.de"
     github: "DrAzraelTod"
     twitter: "DrAzraelTod"
-  - name: "profmakx"
-  - name: "Toranor"
-  - name: "kleine Zuzi"
-  - name: "Cindy"
+  profmakx:
+    name: "profmakx"
+  toranor:
+    name: "Toranor"
+  zuzi:
+    name: "kleine Zuzi"
+  cindy:
+    name: "Cindy"
 permalinks:
   posts = "/:year/:month/:day/:filename/"
 taxonomies:
   tag: "tags"
+  author: "author"
