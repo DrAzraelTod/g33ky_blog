@@ -1,0 +1,11 @@
+hugo
+public*
+/.idea
+*.prof
+nohup.out
+cover.out
+*.swp
+*.swo
+.DS_Store
+*~
+/.*
