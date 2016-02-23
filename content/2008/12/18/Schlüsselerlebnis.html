@@ -1,0 +1,140 @@
++++
+title = "Schlüsselerlebnis"
+date = "2008-12-18T11:12:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/1129"
+aliases = "blog/1129"
++++
+
+<p>Feststellung 1: mein bisheriger <a href="http://de.wikipedia.org/wiki/Pretty_Good_Privacy" target="_blank">GPG</a>-Schl&uuml;ssel l&auml;uft mit Ende diesen Jahres ab.</p>
+<p>Feststellung 2: der &ouml;ffentliche Schl&uuml;ssel war auf Webspace der FH gehostet den ich eh nichtmehr hab</p>
+<p>Schlussfolgerung: Es gibt ein Update meines &ouml;ffentlichen Schl&uuml;ssels <a href="http://privatepaste.com/da0UvsUxbs" target="_blank">auf Privatepaste</a>&nbsp;&nbsp;(Fingerprint:&nbsp;1811 4AE5 F27F FC99 FF58 BDCE 7214 7457 7D24 D34B&nbsp;)</p>
+<p><!--more-->An dieser Stelle sollte nochmal allen ans Herz gelegt sein Verschl&uuml;sselung und Signaturen zu verwenden. &nbsp;Die Sache ist erheblich einfacher als es klingt und es gibt auch <a href="http://www.gnupg.org/documentation/howtos.de.html" target="_blank">mehr als genug Anleitungen</a>. Die entsprechende Software gibt es &uuml;brigens als kostenlose OpenSource-Version, bei Linux wird sie eigentlich immer mitgeliefert und <a href="http://www.gpg4win.org/index-de.html" target="_blank">bei Windows ist sie auch schnell installiert</a>.</p>
+<p>Grunds&auml;tzlich kann man das Thema etwa so zusammenfassen (die mathematische Technik dahinter mal au&szlig;er Acht lassend):<br/></p><ul><br/> <li>jeder kann sich ein Schl&uuml;sselpaar aus &ouml;ffentlichem und privatem Schl&uuml;ssel erstellen</li><br/> <li>der &ouml;ffentliche Schl&uuml;ssel wird an alle Leute verteilt die es interessiert</li><br/> <li>private Schl&uuml;ssel m&uuml;ssen geheim bleiben</li><br/> <li>mit einem privatem Schl&uuml;ssel kann man Dokumente (z.B. beliebige Dateien, E-Mails, Jabber-Nachrichten) signieren, also f&uuml;r jeden der den &ouml;ffentlichen Schl&uuml;ssel hat best&auml;tigen dass dieses Dokument in seiner aktuellen und unver&auml;nderten Form so vom Besitzer des privaten Schl&uuml;ssels unterschrieben wurde</li><br/> <li>mit dem &ouml;ffentlichen Schl&uuml;ssel kann jeder dann auch beliebige Dokumente verschl&uuml;sseln, so dass nur wer den privaten Schl&uuml;ssel besitzt diese auch wieder lesbar machen kann</li><br/> <li>Man kann Schl&uuml;ssel von Freunden signieren, andere sehen das wenn sie sich den Schl&uuml;ssel des Freundes ansehen und wissen dass demjenigen von Signierenden vertraut wird. (Das hat nat&uuml;rlich nur dann Sinn wenn man dem Signierenden traut und er nicht jeden Schl&uuml;ssel wahllos unterzeichnet sondern darauf achtet dass der Schl&uuml;ssel auch wirklich zur betreffenden Person geh&ouml;rt -&gt; <a href="http://de.wikipedia.org/wiki/Keysigning-Party" target="_blank">Keysigning-Party</a> oder Best&auml;tigung des Schl&uuml;ssels via Telefon)</li><br/></ul><br/>BTW: Danke an Thorben f&uuml;r die mehrmalige Korrektur des Bl&ouml;dsinns den ich hier teilweise von mir gegeben habe. (Korrekturlesen war noch nie meine St&auml;rke und ich sollte direkt nach dem Aufstehen wohl doch nicht bloggen sondern erstmal wach werden.) -.-
+      
+    
+  <div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1007" onclick="set_comment_reference(1007)" title="auf diesen Kommentar antworten">#1007</a>:
+    18.Dec.2008 08:12
+    von
+    
+      
+        <a href="http://blog.cowboy-of-bottrop.de/" target="_blank">
+          Markus
+        </a>
+</p>
+<p>Ich habe mir erlaubt, den Key in meinen Schl&uuml;sselbund zu nehmen und nach Verifizierung des Fingerprint auch zu unterschreiben.</p>
+<p>Der unterschriebene Key liegt auf dem von Enigmail Standard-Server subkeys.pgp.net</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1013">
+<p class="infos">
+<a href="#comment_1013" onclick="set_comment_reference(1013)" title="auf diesen Kommentar antworten">#1013</a>:
+    15.Apr.2009 06:04
+    von
+    
+      
+        <a href="http://" target="_blank">
+          Ben
+        </a>
+</p>
+<p>"Nach verifizierung"<br/>
+Man sollte Keys nur - und nur dann - unterschreiben, wenn man<br/>
+a) Die Person getroffen hat<br/>
+b) Sich den Personalausweis o.&auml;. hat zeigen lassen<br/>
+c) von der Person gleichzeitig einen Ausdruck des Fingerprints mitbekommt</p>
+<p>Danach sollte man den unterschriebenen Key pro E-Mailadresse aufteilen und diesen verschl&uuml;sselt an genau diese Adresse schicken. Dabei kontrolliert man n&auml;mlich gleich, ob die E-Mailadresse echt ist oder nicht, bzw. ob privater Schl&uuml;ssel und Mailadresse und Person zusammenpassen.</p>
+<p>Das heraufladen eines unterschriebenen Schl&uuml;ssels kann Schaden, da er mit etwas Pech nie gefunden wird.</p>
+<p>Gr&uuml;&szlig;e</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1014">
+<p class="infos">
+<a href="#comment_1014" onclick="set_comment_reference(1014)" title="auf diesen Kommentar antworten">#1014</a>:
+    15.Apr.2009 02:04
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Das sollte man.. wird aber nicht durchsetzbar sein, von daher w&uuml;rde ich pers&ouml;nlich mal davon ausgeht dass es reicht wenn man die Person pers&ouml;nlich kennt (einmal treffen ist nicht kennen) und sich 100%ig sicher ist dass es auch derjenige ist als der er/sie sich ausgibt.<br/>
+Ich lasse mir selten die Personalausweise von meinen Freunden zeigen und wenn mir jemand von denen seine Schl&uuml;ssel-ID diktiert, bin ich mir eigentlich ziemlich sicher dass ich demjenigen trauen kann.</p>
+<p>Ein absolut sicheres Schl&uuml;sselsystem w&auml;re sicherlich sinnvoll.. aber was bringt das, wenn es keiner nutzt?</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_1008" onclick="set_comment_reference(1008)" title="auf diesen Kommentar antworten">#1008</a>:
+    18.Dec.2008 10:12
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Da lag der Schl&uuml;ssel ohnehin bereits :-)</p>
+<p>Wer also lieber auf den Schl&uuml;sselserver vertraut kann sich auch gerne von dort meinen Schl&uuml;ssel holen (0x7D24D34B) und danach den Fingerprint vergleichen.</p>
+<p>Ich wollte es nur erstmal so wenig technisch wie m&ouml;glich halten :-)</p>
+
+<p class="infos">
+<a href="#comment_1009" onclick="set_comment_reference(1009)" title="auf diesen Kommentar antworten">#1009</a>:
+    19.Dec.2008 12:12
+    von
+    
+      
+        thorben
+      
+    
+    
+  </p>
+<p>ich zitiere:</p>
+<p>"mit einem privatem Schl&uuml;ssel kann man Dokumente (z.B. beliebige Dateien, E-Mails, Jabber-Nachrichten) verschl&uuml;sseln (nur wer den &ouml;ffentlichen Schl&uuml;ssel hat kann sie lesen)"</p>
+<p>N&ouml;.</p>
+<p>Wer deinen oeffentlichen Schluessel hat kann Daten VERSCHLUESSELN und nur dein privater Schluessel kommt wieder dran.</p>
+
+<p class="infos">
+<a href="#comment_1010" onclick="set_comment_reference(1010)" title="auf diesen Kommentar antworten">#1010</a>:
+    19.Dec.2008 12:12
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>outch... stimmt auff&auml;llig und ergibt anders rum auch nicht wirklich sinn.</p>
+<p>Peinlich solche Fehler. -.-</p>
+
+<p class="infos">
+<a href="#comment_1011" onclick="set_comment_reference(1011)" title="auf diesen Kommentar antworten">#1011</a>:
+    19.Dec.2008 12:12
+    von
+    
+      
+        thorben
+      
+    
+    
+  </p>
+<p>ich zitiere erneut:<br/>
+"mit dem &ouml;ffentlichen Schl&uuml;ssel kann jeder dann auch beliebige Dokumente verschl&uuml;sseln, so dass nur wer den &ouml;ffentlichen Schl&uuml;ssel besitzt diese auch wieder lesbar machen kann"</p>
+<p>nochmal N&ouml;, (es sei denn man impliziert, dass der "Besitzer" des oeffentlichen Schluessels gleichzeitig der "Besitzer" des privaten Schluessels ist. Das wuerde aber wiederum implizieren, dass ich mit dem privaten Schluessel nix anfangen kann solange ich nicht den oeffentlichen besitze XD)</p>
+<p>Tippfehler denk ich. Daher nach Korrektur diesen Kommentar gern loeschen :)</p>
+
+<p class="infos">
+<a href="#comment_1012" onclick="set_comment_reference(1012)" title="auf diesen Kommentar antworten">#1012</a>:
+    19.Dec.2008 12:12
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Gnarf.. manchmal bin ich wirklich f&uuml;r alles zu doof.<br/>
+Nochmals Danke</p>
+</div>

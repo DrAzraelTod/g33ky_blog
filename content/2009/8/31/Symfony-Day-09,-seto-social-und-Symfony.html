@@ -1,0 +1,78 @@
++++
+title = "Symfony Day 09, seto-social und Symfony"
+date = "2009-08-31T10:08:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/1446"
+aliases = "blog/1446"
++++
+
+<p>...jap, auf <a href="http://www.symfonyday.com/de/" target="_blank">eben jenem</a> werde ich am Freitag mal aufschlagen. Beim <a href="http://www.symfony-project.org/" target="_blank">Symfony-Framework</a> handelt es sich um ein MVC-Webapp-Framework f&uuml;r PHP, mit dem ich die meiste meiner Arbeitszeit bei <a href="http://seto-gmbh.de/">seto</a> (die halten es dort jetzt schon fast ein Jahr mit mir aus \o/) zubringen muss/soll/darf und mit dem wir nat&uuml;rlich auch unser letztes, gr&ouml;&szlig;eres Projekt "<a href="http://seto-social.de/" target="_blank">seto-social</a>" erstellt haben.</p>
+<p>Da dieses Projekt jetzt einigerma&szlig;en fertig ist, werde ich wohl erstmal damit anfangen worum es sich handelt...<!--more--></p>
+<p></p><h2>seto-social</h2>
+<p>Nicht nur ist es einer der Gr&uuml;nde warum ich in letzter Zeit ziemlich besch&auml;ftigt war, sondern (das wird wohl auch eher jemanden interessieren) um eine Kombination aus Verwaltungsportal und sozialem Netzwerk. <a href="http://seto-social.de/" target="_blank">seto-social</a> (so der Name auf den es getauft wurde) bietet dabei Verwaltungsfunktionen wie z.B. Mitgliederexport, Ical-Integration, umfangreiche M&ouml;glichkeiten zur Umfragenerstellung als auch<br/>Foren, Aktionsstream mit Statusnachrichten und Informationen &uuml;ber alles was gerade im Netzwerk los ist, Wikis, Blogs, Newsletter, Bildergalerien und was wei&szlig; ich nicht noch alles...</p>
+<p>Auf der rein technischen Seite sind wohl der Ajax-Editor f&uuml;r Wikiseiten und Umfragen, die Aktionen als Statusnachrichten mit nahezu endlosen M&ouml;glichkeiten und die Rechtevergabe auf Gruppenbasis (wobei Gruppen in einer Baumstruktur organisiert sind und Rechte vererbt werden, bzw. Termine sowohl nur Zweigen als auch dem halben/ganzen Baum zugeordnet werden k&ouml;nnen) das ineressanteste. (wasn Schachtelsatz -.-)<br/>Das alles zu bauen war an sich schon nicht ganz einfach, es dann auch noch auf Geschwindigkeiten funktionieren zu lassen mit denen auch jemand arbeiten will war dann aber wohl der wirklich schwierige Teil. (rekursive Aufrufe sind toll! \o/)<br/>Das Projekt hat jedenfalls richtig viel Spa&szlig; gemacht, ich konnte zum Gl&uuml;ck die JS- und HTML-Sachen an Leute abgeben die mehr Spa&szlig; an sowas haben und hab mich etwas mehr auf die Interna des Systems konzentriert.</p>
+<p>Ich glaube ich habe wirklich einiges neues &uuml;ber PHP und Symfony gelernt und das Projekt schein bereits recht erfolgreich zu sein. Wer demn&auml;chst eine Verwaltungsplatform braucht, bei der die betroffenen Personen so viel Spa&szlig; haben sollten dass sie selbst daran mitarbeiten, dem kann ich seto-social nur ans Herz legen.</p>
+<p></p><h2>Symfony</h2>
+<p>Das verwendete Framework, Symfony an sich ist weder besonders toll noch extrem evil, es erspart einem an vielen Stellen enorme Mengen Arbeit, hat dann aber wieder etliche Stellen an denen man flucht weil wieder irgendein Subsystem aussieht als w&auml;re es von einer endlosen Menge Affen gehackt worden und die erste Version die ohne kritische Fehler durchlief wurde verwendet.<br/>Wer schon jemals versucht hat ein ORDER BY RANDOM (ist m&ouml;glich) in <a href="http://propel.phpdb.org/trac/" target="_blank">Propel</a> (das <a href="http://de.wikipedia.org/wiki/Object-Relational_Mapping" target="_blank">ORM </a>das via Default bei Symfony mitgeliefert wird) zu realisieren, einen Inplace-Editor etwas st&auml;rker anzupassen (&uuml;ber die bei Symfony dokumentierten Parameter hinaus, auch zu den vielen anderen die <a href="http://script.aculo.us/" target="_blank">script.aculo.us</a> <a href="http://wiki.github.com/madrobby/scriptaculous/ajax-inplaceeditor" target="_blank">wirklich anbietet</a>) oder wer schonmal versucht hat ein paar Forms sehr dynamisch anpassbar zu verwenden, der wird wissen was ich meine.</p>
+<p>Urspr&uuml;ngliches Argument Symfony zu verwenden war wohl mal die stetig wachsende Community und die gute Dokumentation. Nun, die Dokumentation ist durchaus brauchbar, wenn auch einige Stellen immer wieder etwas der Entwicklung hinterher hinken und die Community.. naja, das werden wir ja dann am Freitag sehen.</p>
+<p>Was auf jeden Fall bleibt ist die schlichte Tatsache dass seto schon seit geraumer Zeit seine Projekte ziemlich einheitlich mit Symfony realisiert und man ja auch nicht direkt eine wirklich gute Alternative hat. PHP ist f&uuml;r viele Projekte leider noch immer die Sprache der Wahl, ORM bringt wie jede andere Abstraktionsebene nunmal auch immer einen Verlust an Geschwindigkeit und M&ouml;glichkeiten mit sich und andere Frameworks sind jetzt auch nicht sonderlich viel besser.<br/>Zumindest ist PHP mit diesem Aufsatz und ziemlich viel Selbstbeherrschung was Codequalit&auml;t und spezifizierte Standards betrifft einigerma&szlig;en verwendbar. Das ist kein sonderlich berauschendes Urteil, aber noch immer besser als was ich &uuml;ber einige andere Sprachen da drau&szlig;en sagen kann.</p>
+<p>Vlt. wird man ja in Zukunft mehr mit <a href="http://www.djangoproject.com/" target="_blank">Django </a>oder <a href="http://www.rubyonrails.de/" target="_blank">Ruby on Rails</a> machen... noch sehe ich das aber nicht ganz. Allein das Argument dass man inzwischen wohl fast jeden d&auml;mlichen Trick schonmal verwendet und f&uuml;r fast alle Probleme die das Framework hat einen Ausweg gefunden hat, wiegt nunmal schwer. Eine Umstellung auf die spezifischen Probleme eines anderen Frameworks w&auml;re aufw&auml;ndig...</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1328" onclick="set_comment_reference(1328)" title="auf diesen Kommentar antworten">#1328</a>:
+    31.Aug.2009 10:08
+    von
+    
+      
+        SirSnookie
+      
+    
+    
+  </p>
+<p>Naja zur Zeit h&ouml;rt man viel &uuml;ber CakePHP ... aber ich bin da irgendwie komplett raus. Ich hab zu viel mit Django experimentiert und bin damit eigentlich h&ouml;chst zufrieden. Ich w&uuml;rde gern gr&ouml;&szlig;ere Projekte damit mal realisieren. Denn von der Programmiergeschwindigkeit ist man selbst erstaunt. Was ich leider nicht so gut finde an den ganzen PHP Frameworks -&gt; Ramverbrauch ohne ende. Ich war damals von Magento total begeistert vor allem da er auf dem ZEND Framework basierte (wo ich mich gerade drinne eingearbeitet hatte). Aber nach der Installation wurde einem ganz anders, es ist ne eierlegende Wollmilchsau aber mit nem B&auml;renhunger an RAM und CPU Zeit. Ich bin gespannt in welche Richtung das in Zukunft schlagen wird.....</p>
+
+<p class="infos">
+<a href="#comment_1329" onclick="set_comment_reference(1329)" title="auf diesen Kommentar antworten">#1329</a>:
+    01.Sep.2009 12:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Ich hab mich vor anderthalb Jahren mal kurz mit Cake und Zend besch&auml;ftigt. Zend fand ich eklig und von Cake war ich zwar nicht wirklich begeistert aber man konnte damit arbeiten...<br/>
+Inwiefern das dann besser oder schlechter ist als Symfony kann ich aber wirklich nicht sagen, das Hauptproblem (die PHP-Basis) hat man damit nat&uuml;rlich nicht behoben.</p>
+<p>Es reizt mich nat&uuml;rlich auch irgendwie mal ernstere Projekte mit Python zu bauen, vor allem schon weil ich solche Sp&auml;&szlig;e wie 1 == '1' langsam derartig satt habe, aber auch weil es doch einige Sachen gibt die in Python auf einfache Art unheimlich Aufwand sparen.</p>
+
+<p class="infos">
+<a href="#comment_1330" onclick="set_comment_reference(1330)" title="auf diesen Kommentar antworten">#1330</a>:
+    01.Sep.2009 05:09
+    von
+    
+      
+        <a href="http://ag7.alltagsgrauen.info/" target="_blank">
+          fwolf
+        </a>
+</p>
+<p>Naja .. letztlich kann man sich auch ein eigenes Framework basteln. Ich empfinde Cake, aber vor allen Dingen Symfony immer so als "mit Kanonen auf Spatzen schie&szlig;en" - viel zu generalisiert und fett f&uuml;r meine Zwecke (d.h. also auch die meiner Kunden). In letzter Zeit verwende ich daher einerseits ganz massiv WordPress - ab Version 2.7 aufw&auml;rts wirds angenehm, damit zu arbeiten (als Programmierer) - sowie meine eigenen kleinen Spezialanfertigungen, die mit wenigen Klassen auskommen, faktisch aber auch nichts anderes als ein CMS-Framework nach dem MVC-Design Pattern darstellen.</p>
+<p>Und wenn ich mal wieder mehr Zeit habe - so ab Mitte Oktober - hoffe ich, dass ich mich wieder mehr mit Habari als Framework besch&auml;ftigen kann. Ist um einiges schlanker und optimierter im Vergleich zu dem, was da sonst noch so rumgeistert in Sachen PHP-basierte CMS-Frameworks.</p>
+<p>cu, w0lf.</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1331">
+<p class="infos">
+<a href="#comment_1331" onclick="set_comment_reference(1331)" title="auf diesen Kommentar antworten">#1331</a>:
+    01.Sep.2009 07:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Naja, bei Projekten in der Gr&ouml;&szlig;enordnung von seto-social w&uuml;rde ich jedenfalls die Kanonen-Metapher nicht wirklich anwenden. Im Gegenteil, immer wieder stellt man fest dass das Framework in der einen oder anderen Richtung nicht ganz so leistungsf&auml;hig ist wie man es eigentlich br&auml;uchte, z.B. bei Symfony dass Forms etwas dynamischer configurierbarer sein sollte und zu viel Code ben&ouml;tigt, dass FunctionCache nur von FileCache abgeleitet ist statt von sfCache (und somit nicht direkt mit anderen Caching-Engines wie Memcached zusammen arbeitet ohne dass man sich seine neue Variante selbst baut) oder dass man die Funktion die ein stinknormales javascript-code-tag ausgibt gerne umbauen w&uuml;rde, so dass sie den Code noch durch minify jagt bevor sie ihn zur&uuml;ckgibt.</p>
+<p>Nat&uuml;rlich kann man alles auch per  Hand machen oder eine Wordpress-Instanz anpassen bis man sein Ziel erreicht. Ich finde jedoch dass ein wirkliches Framework erhebliche Vorteile beim Funktionsumfang bietet und dass es schwer wird Wordpress so zu erweitern ohne tief in seinem Code rumzuw&uuml;hlen. Bei Symfony k&ouml;nnen wir nach all unseren Anpassungen noch immer einfach ein Symfony-Update  einspielen indem wir die libs austauschen.</p>
+<p>Nat&uuml;rlich ist Arbeitsspeicherverbrauch ein Problem... imho jedoch noch kein so extremes wie irgendwann festzustellen dass man die verwendete Platform selbst zu mehr als der H&auml;lfte umgeschrieben hat  und so massiv Aufwand an Dinge verschwendet hat die man nicht braucht.</p>
+</div>
+</li>
+</ul>
+</div>

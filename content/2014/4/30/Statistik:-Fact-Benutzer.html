@@ -1,0 +1,13 @@
++++
+title = "Statistik: Fact-Benutzer"
+date = "2014-04-30T03:04:00"
+author = "Dr. Azrael Tod"
+tags = ["Softwareschrott"]
+issoid = "blog/1588"
+aliases = "blog/1588"
++++
+
+<p>Frage: Wer nutzt eigentlich pyChao-Facts?</p>
+<p>Antwort: Wenige!</p>
+<p><code><br/>sqlite&gt; select * from (SELECT nickname,COUNT(nickname) as counter FROM fact GROUP BY nickname order by counter desc) where counter &gt; 5;<br/></code></p>
+<p></p><blockquote><table><tr><th>nickname</th><th>counter</th></tr><tr><td>Dr_Azrael_Tod</td><td>5894</td></tr><tr><td>profmakx</td><td>2810</td></tr><tr><td>Snookie</td><td>1472</td></tr><tr><td>snookie</td><td>755</td></tr><tr><td>Daeva</td><td>168</td></tr><tr><td>RobVinc</td><td>61</td></tr><tr><td>k3</td><td>46</td></tr><tr><td>DukeNukem</td><td>40</td></tr><tr><td>xardias</td><td>34</td></tr><tr><td>Sandy_</td><td>30</td></tr><tr><td>SadGasm</td><td>23</td></tr><tr><td>[S]packen</td><td>15</td></tr><tr><td>Biberius_Kirk</td><td>13</td></tr><tr><td>scotmakx</td><td>12</td></tr><tr><td>Zan</td><td>11</td></tr><tr><td>SonatArctica</td><td>10</td></tr><tr><td>DAT|w0rg</td><td>9</td></tr><tr><td>BillX</td><td>8</td></tr><tr><td>FireBird2003</td><td>8</td></tr><tr><td>Diffie</td><td>7</td></tr><tr><td>Don_King</td><td>7</td></tr><tr><td>permanente</td><td>7</td></tr><tr><td>DAT`vs`Droidcon</td><td>6</td></tr><tr><td>Fazialpalmisator</td><td>6</td></tr><tr><td>Grauwolf</td><td>6</td></tr><tr><td>Spartan</td><td>6</td></tr><tr><td>pcm</td><td>6</td></tr></table></blockquote>

@@ -1,0 +1,21 @@
++++
+title = "double the pootle, double the fun"
+date = "2009-01-06T11:01:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/1162"
+aliases = "blog/1162"
++++
+
+<p>Immer wieder st&ouml;&szlig;t man auf Frickelshice, besonders wenn man Software verwenden will die nicht sonderlich verbreitet ist. Pootle ist solche Software...<!--more--></p>
+<p>Ein Kollege bei <a href="http://www.seto-gmbh.de/" target="_blank">seto </a>musste heute f&uuml;r ein Projekt <a href="http://translate.sourceforge.net/wiki/pootle/index" target="_blank">Pootle</a>&nbsp;auf einem Rechner mit <a href="http://fedoraproject.org/" target="_blank">FedoraCore6 </a>installieren. Bei Pootle handelt es sich um ein WebFrontend in Python zur Internationalisierung von beliebigen Anwendungen.</p>
+<p>Er ist also sch&ouml;n Schritt f&uuml;r Schritt <a href="http://translate.sourceforge.net/wiki/pootle/installation#installing_from_rpm" target="_blank">die Anleitung durchgegangen</a> und unterwegs irgendwo in der N&auml;he der Generierung einer RPM-Datei auf einen Bug gesto&szlig;en. Soweit so allt&auml;glich...</p>
+<p>Die Installationsanleitung sieht vor dass man "pootlesetup.py" mit dem Parameter "bdist_rpm" aufruft, daraufhin sollte die Generierung gestartet werden. pootlesetup.py bricht jedoch mit einer Fehlermeldung ab, die in etwa grob besagt dass pootlepootlesetup.py nicht gefunden werden konnte.</p>
+<p>Das ist nun schon etwas seltsam. Weniger dass pootlesetup.py sich selbst aufruft, als vielmehr die Tatsache dass scheinbar noch Stringoperationen auf den Dateinamen angewendet werden, aber bereits mit einem Vergessenem / und einem relativem Pfad im Quellcode k&ouml;nnte man das erkl&auml;ren.</p>
+<p>Was w&auml;re also die logische Schlussfolgerung? Wir erzeugen eine pootlepootlesetup.py indem wir die alte Datei umbenennen und neu ausf&uuml;hren. Ergebnis: Die Fehlermeldung lautet jetzt dass eine Datei namens "pootlepootlepootlepootlesetup.py" nicht gefunden wurde.</p>
+<p>An dieser Stelle wird es abstrus... es f&auml;llt mir schwer einen ernsthaft sinnvollen Grund zu finden warum man &uuml;berhaupt einen solchen Dateinamen aus dem eigenen scriptpfad generieren soll und diesen dann erneut aufrufen k&ouml;nnte, aber einen Grund warum man Dinge vor "setup.py" (oder evtl. auch alles was "pootle" lautet) einfach wahllos verdoppeln sollte, kann ich mir beim besten Willen nicht vorstellen.</p>
+<p>Bugs kann man nicht immer vermeiden, jede Software hat sie ab einer gewissen Komplexit&auml;t... aber man sollte schon noch verstehen was man gerade geschrieben hat und sich bei jeder Zeile etwas denken. Auch ich habe bereits Code geschrieben bei dem ich mir hinterher gedacht habe dass ich den nie wiedersehen will, weil er nur schnell aus irgendwelchen Teilen zusammengest&uuml;ckelt war oder so unleserlich ist dass ich ihn selbst im Nachhinein nicht mehr verstehe. Solche Dinge kommen vor... aber man gibt solchen Code bitte NICHT an die &Ouml;ffentlichkeit!</p>
+<p>(Mit einer weiteren Umbenennung zu "setup.py" funktionierte es dann, wo leere Strings verdoppelt werden bleiben wohl doppelt so leere Strings)</p>
+<p>Google findet &uuml;brigens zu diesem Thema einzig den<a href="http://www.nabble.com/Pootle-1.2.0-fail-building-rpm-td20051472.html" target="_blank"> folgenden, vielsagenden Thread</a> in 3facher Ausf&uuml;hrung.<br/></p><blockquote><span>It seems right (especially if it works for you), but I'll want to check&nbsp;</span><br/><span>why this is commented. The machine we used for building is not available&nbsp;</span><br/><span>at the moment, and I'd want to check it there in the clean environment&nbsp;</span><br/><span>we used for building. There was obviously some reason, but I can't&nbsp;</span><br/><span>recall right now what it was. Somewhere "pootlesetup.<strong>py</strong>" was being&nbsp;</span><br/><span>replaced with "<strong>pootlepootlesetup</strong>.<strong>py</strong>", but I can't remember exactly what&nbsp;</span><br/><span>the issue was.</span></blockquote><br/>An dieser Stelle will ich einfach nur noch das geschriebene wirken lassen und keine wertenden Kommentare abgeben. Irgendwie bin ich manchmal richtig froh dass ich weder Fedora (oder andere rpm-distris) noch Pootle privat nutzen muss und meine Python-Programme noch immer recht einfach via "sudo apt-get install python-blahfasel" installieren konnte.
+      
+    
+  

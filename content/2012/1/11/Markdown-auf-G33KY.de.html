@@ -1,0 +1,18 @@
++++
+title = "Markdown auf G33KY.de"
+date = "2012-01-11T01:01:00"
+author = "Dr. Azrael Tod"
+tags = ["G33KY.de", "Open Source", "Quählkot", "Softwareschrott", "Technik"]
+issoid = "blog/1561"
+aliases = "blog/1561"
++++
+
+<p><b>TL/DR: Ihr k&ouml;nnt jetzt Markdown in den Kommentaren auf G33KY.de verwursten</b></p>
+<p>Seit meinem Umstieg von Wordpress auf selbstgeschriebenen Blogschrott auf Django-Basis hat mich haupts&auml;chlich eine fehlende Funktion genervt:<br/>Kommentare d&uuml;rfen kein HTML enthalten um massive Sicherheitsl&uuml;cken zu verhindern.</p>
+<p>Ich hatte mehrere M&ouml;glichkeiten um dieses Problem zu l&ouml;sen, bzw. zu umgehen:<br/></p><ul><br/><li>Ich ignoriere dass es das Problem gibt, lasse HTML zu und guck halt beim Freischalten der Kommentare genauer hin</li><br/><li>Ich begebe mich auf den Weg HTML filtern zu wollen, was zu einem Arsch voll Problemen f&uuml;hrt, aber niemals zu etwas ertr&auml;glich sicherem.</li><br/><li>Ich sperre einfach alles und baue eine andere Variante ein um einfach Links oder Bilder einzubinden.</li><br/></ul>
+<p>Bisher habe ich mich aus offensichtlichen Gr&uuml;nden immer mit letzterem begn&uuml;gt und auch da die minimal-Variante gew&auml;hlt. Ich habe einfach nur mit 'urlizetrunc:25' Strings mit URLs gesucht und diese zu Links verwurstet. Auf Dauer war das jedoch etwas zu minimalistisch f&uuml;r meinen Geschmack.</p>
+<p>Da jetzt aber auf immer mehr Seiten sich <a href="http://de.wikipedia.org/wiki/Markdown" target="_blank">Markdown</a> als Auszeichnungssprache durchzusetzen scheint, ich wegen meines <a href="https://pod.geraspora.de/u/drazraeltod" target="_blank">Diaspora-Kontos</a> eh schon permanent damit herumwurste, habe ich mal kurz gegoogled ob es eine fertig implementierte L&ouml;sung auf Markdown-Basis f&uuml;r Django gibt.</p>
+<p>Siehe da: es gab und sie ist in 5min <a href="http://freewisdom.org/projects/python-markdown/Installation" target="_blank">installier</a> und <a href="http://freewisdom.org/projects/python-markdown/Django" target="_blank">einbaubar</a>.<br/>Auch kann man prima mittels "safe" die Integration von HTML-Tags verhindern, so dass es eigentlich perfekt f&uuml;r meinen Einsatzzweck ist.</p>
+<p>Lange Rede, kurzer Sinn: ist eingebaut.</p>
+<p>Wer Markdown nicht kennt sollte sich mal kurz eine der <a href="http://joncom.be/experiments/markdown-editor/edit/" target="_blank">vielen</a> Demo-<a href="http://softwaremaniacs.org/playground/showdown-highlight/" target="_blank">Seiten</a> ansehen und auch wer es bereits kennt, der kann die immer noch prima dazu verwenden um geschriebenen Markdown-Text zu testen.</p>
+<p>Der N&auml;chste Schritt w&auml;re jetzt wohl mir noch zus&auml;tzlich eine Art Microblog aus dem bestehenden Code zu zimmern, in den ich dann auch einfach meine Diaspora-Updates importieren kann um endlich alles zusammen auf meinem eigenen Server zu haben. Das sollte auch in endlicher Zeit machbar sein, vlt. setz ich mich ja am Wochenende mal ran.</p>

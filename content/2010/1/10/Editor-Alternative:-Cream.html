@@ -1,0 +1,45 @@
++++
+title = "Editor-Alternative: Cream"
+date = "2010-01-10T01:01:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/1497"
+aliases = "blog/1497"
++++
+
+<p>Seit vielen Jahren bin ich jetzt schon auf der Suche nach DEM Editor f&uuml;r meine t&auml;gliche Arbeit. Er sollte massig Funktionen haben (Autocompletion, Tabs-zu-Space, Syntax-HL/unterst&uuml;tzung f&uuml;r viele Sprachen, Tastenkombinationen f&uuml;r schnelleres Bearbeiten, ...), es sollte einen Weg geben wie man mit diesem Editor Dateien &uuml;ber SFTP/SMB/Wasauchimmer Dateien bearbeiten kann und vor allem soll er sehr schnell sein und wenig Ram verbrauchen (immerhin arbeite ich die meiste Zeit an einem Netbook).</p>
+<p>Die vielen Funktionen die ich ben&ouml;tige, schr&auml;nken die Auswahl bereits massiv ein.<!--more--> Auf der einen Seite h&auml;tten wir da <a href="/2008/09/18/trollwut-eclipse/">jede Menge an M&uuml;ll der sich IDE schimpft, scheinbar generell in Java geschrieben sein muss, zum Starten bereits eine halbe Minute braucht und RAM frisst als w&auml;re er unendlich vorhanden</a>. Daf&uuml;r bieten die Dinger dann jede Menge an Funktionen, aber was n&uuml;tzt mir das wenn ich mit den Dingern nicht ordentlich arbeiten kann?</p>
+<p>Weiterhin h&auml;tten wir da <a href="http://de.wikipedia.org/wiki/Vi" target="_blank">VI</a>/<a href="http://de.wikipedia.org/wiki/Vim" target="_blank">VIM</a> (und vlt. noch <a href="http://de.wikipedia.org/wiki/Emacs" target="_blank">Emacs </a>als einzige Alternative). Das Ding kann eigentlich ALLES, l&auml;uft &uuml;berall, rennt selbst auf der kleinsten Kiste, kann auch mal direkt auf nem Server via SSH verwendet werden oder in eine <a href="http://de.wikipedia.org/wiki/GNU_Screen" target="_blank">GNU Screen-Session</a> geworfen werden und ist anpassbar bis man das eigentliche Programm nichtmal mehr erkennt.<br/>Leider hat das Ding auch eine Lernkurve die es f&uuml;r mich einfach unzumutbar macht. Sicher, ich kann damit einigerma&szlig;en sinnvoll Dateien bearbeiten, auch ein paar wenige Sonderbefehle beherrsche ich noch, doch um es wirklich f&uuml;r den Allt&auml;glichen Einsatz bereit zu machen, m&uuml;sste ich mich wahrscheinlich erstmal ein paar Wochen hinsetzen, Befehle lernen und die entsprechende Configdatei zusammenschreiben.<br/>Es kann durchaus sein dass sich der Aufwand daf&uuml;r lohnt... aber wie das halt mit Aufwand, den man betreiben m&uuml;sste um sp&auml;ter weniger davon zu haben, ist: ich bin zu faul daf&uuml;r.</p>
+<p>Eine weitere Alternative bilden wohl die ganzen kleinen Programme, die eher aus der Ecke "Notepadersatz" kommen und im Laufe der Jahre von einem kleinen, grafischen Editor bis zur vollst&auml;ndigen IDE aufgeblasen wurden. Meist geschieht dies mithilfe von Erweiterungen/Plugins oder die Editoren sind selbst bereits in einer Script-Sprache geschrieben die sich wohl leicht erweitern l&auml;sst und viele Programmierer anzieht sich doch nur mal ganz schnell noch einen Patch f&uuml;r die dringend ben&ouml;tigte Funktion XYZ zu schreiben und diesen in den Editor zu packen.<br/>Diese Editoren sind zwar meist ertr&auml;glich schnell, daf&uuml;r muss man aber leider oft auf einige Funktionen verzichten oder damit leben dass es zwar Plugins f&uuml;r diese Funktion gibt, diese aber irgendwelche Macken hat.<br/>Typische Vertreter dieser Abteilung w&auml;ren wohl <a href="http://de.wikipedia.org/wiki/Notepad++" target="_blank">Notepad++</a> unter Windows (mit einem <a href="http://de.wikipedia.org/wiki/WinSCP" target="_blank">SFTP-Client der Dateien an den Editor weiterreicht</a> und einigen Plugins f&uuml;r z.B. <a href="http://openctags.sourceforge.net/" target="_blank">Ctags-Support</a> momentan mein Werkzeug der Wahl unter Windows) oder <a href="http://projects.gnome.org/gedit/" target="_blank">Gedit </a>(leider etwas langsamer Editor den ich bisher unter Linux haupts&auml;chlich verwendete, habe z.B. <a href="http://live.gnome.org/Gedit/Plugins" target="_blank">Plugins</a> f&uuml;r Class-Browser, intelligente Leertaste oder Auskommentieren kompletter Bl&ouml;cke installiert, selbst f&uuml;r Symfony gibt es eine Autovervollst&auml;ndigungs-Schnippsel-Sammlung).</p>
+<p>Neuerdings bin ich jedoch auf eine neue M&ouml;glichkeit gesto&szlig;en: <a href="http://cream.sourceforge.net/" target="_blank">Cream</a>, eine Abvariante (oder eher eine Sammlung von Voreinstellungen) von VIM, die eine alternative Oberfl&auml;che spendiert bekommen hat.<br/>Cream bringt dabeit die Geschwindigkeit und die Funktionen eines VIM mit, ist aber dank guter Oberfl&auml;che auch f&uuml;r Einsteiger und GUI-Fanatiker verwendbar ohne dass erst seitenweise Config angepasst oder Befehle gelernt werden m&uuml;ssen.<br/>Ein paar Macken hat das Ganze zwar noch, so sind einige Keybindings etwas gew&ouml;hnungsbed&uuml;rftig (aber daf&uuml;r sch&ouml;n &uuml;bersichtlich auf einer Hilfeseite aufgelistet) und einige Men&uuml;punkte nicht wirklich selbsterkl&auml;rend benannt. Daf&uuml;r bietet Cream bereits &uuml;ber das Men&uuml; erreichbar mehr Funktionen als die meisten anderen Editoren NACHDEM man alle m&ouml;glichen Plugins installiert hat. Weiterhin kann man jederzeit via Ctrl+L in den "normalen" VIM-Modus wechseln und dort auch die komplexesten VIM-Befehle nutzen.</p>
+<p>Ich werde mal sehen wie gut ich mit SMBFS/SFTPFS zurecht komme (Cream unterst&uuml;tzt leider nicht die Gnome-Interne verwaltung entfernter Dateisysteme) und, sollte das zur Zufriedenheit funktionieren, dann wohl komplett auf Cream umsteigen.<br/>Leider hatte ich in der Vergangenheit wiederholt Probleme mit SFTPFS, gemountete Verzeichnisse haben gerne mal "vergessen" mit welchem Nutzer ich gerade angemeldet war und stundenlang bearbeitete Dateien waren pl&ouml;tzlich nicht mehr speicherbar. Doch tun wir mal optimistisch und nehmen an dass dieser Fehler im letzten halben Jahr irgendwann mal behoben wurde.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1369" onclick="set_comment_reference(1369)" title="auf diesen Kommentar antworten">#1369</a>:
+    10.Jan.2010 04:01
+    von
+    
+      
+        <a href="http://ag7.alltagsgrauen.info/" target="_blank">
+          fwolf
+        </a>
+</p>
+<p>Hast du dir schon mal Geany angeschaut? Ich verwende das auf meinem Netbook als schlanke und schnelle IDE-Alternative. U.a. bietet es einen sehr praktischen "Inhalte invertiert darstellen"-Modus, Wort- bzw. Variablen- und Funktionserg&auml;nzung, und allerhand Kram mehr.</p>
+<p>cu, w0lf.</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1370">
+<p class="infos">
+<a href="#comment_1370" onclick="set_comment_reference(1370)" title="auf diesen Kommentar antworten">#1370</a>:
+    10.Jan.2010 12:01
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>ja, fand ich aber nicht so prall.. selbst GEdit hat imho mehr Funktionen, aber ist daf&uuml;r glaube auch irgendwann langsamer.</p>
+<p>F&uuml;r einige, private Python-Projekt hatte ich schon ein paar mal recht erfolgreich mit Geany gearbeitet, aber bei PHP@work hab ich mich dann doch lieber zur&uuml;ck auf Gedit besonnen.</p>
+</div>
+</li>
+</ul>
+</div>

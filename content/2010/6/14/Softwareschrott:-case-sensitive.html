@@ -1,0 +1,123 @@
++++
+title = "Softwareschrott: case-sensitive"
+date = "2010-06-14T08:06:00"
+author = "Dr. Azrael Tod"
+tags = ["Quählkot", "Softwareschrott", "Technik"]
+issoid = "blog/1522"
+aliases = "blog/1522"
++++
+
+<p>Es gibt so ein paar Fehler, die scheinbar jeder Entwickler wiederholen muss, damit meine ich allerdings weniger Dinge wie ein vergessenes Semikolon oder eine Speicher der nicht freigegeben wird, sondern eher Fehler die derjenige wahrscheinlich nichtmal als Fehler wahrnehmen w&uuml;rde, wenn man ihn darauf hinweisen w&uuml;rde.</p>
+<p>Zu den kleineren dieser Fehler z&auml;hlt wohl die Unterscheidung von Gro&szlig;- und Kleinschreibung, eine bl&ouml;dsinnige Marotte die aus dem C-Umfeld kommt und die irgendwie jeder &uuml;bernommen hat der irgendwelche gr&ouml;&szlig;eren Softwareprojekte in den letzten 10-20 Jahren gestartet hat.</p>
+<p>Ich mein damit keinesfalls dass in Suchfeldern jetzt kein H&auml;kchen f&uuml;r "Gro&szlig;schreibung beachten" mehr vorhanden sein darf, sondern vielmehr dass es Bl&ouml;dsinnig ist von anderen zu erwarten sie sollen sich gef&auml;lligst erinnern ob sie "bild.jpg" oder "Bild.JPG" als Dateinamen gew&auml;hlt hatten. Auch bei Programmierumgebungen und -Sprachen wir dieser Bl&ouml;dsinn weiterhin durchgezogen, fast so als w&uuml;rden 26^(maximale L&auml;nge eines Variablennamen) Kombinationen (36 wenn Zahlen erlaubt sind) nicht ausreichen.</p>
+<p>F&uuml;r die Rechenfaulen: bei 8 Zeichen l&auml;nge f&uuml;r den Variablennamen, w&auml;ren das schonmal 208.827.064.576 Kombinationsm&ouml;glichkeiten. Gehen wir davon aus dass wir auch mal Variablen mit &gt;20 Zeichen haben, auch meistens Zahlen erlaubt sind, daf&uuml;r aber nur aussprechbare Kombinationen wollen, so k&ouml;nnen wir mit ziemlicher Sicherheit weiterhin eins annehmen: Es sind genug Kombinationen m&ouml;glich! Wir brauchen keine Case-Unterscheidung!</p>
+<p>Das bedeutet ja keinesfalls dass man als Entwickler sp&auml;ter keine Gro&szlig;schreibung verwenden DARF. Wer wirklich der Meinung ist dass seine Konstanten unbedingt GROSS_GESCHRIEBEN_WERDEN, der kann das gerne tun, von mir aus kann der Editor dann auch gerne jedes Vorkommen automagisch durch die vorgezogene Variante ersetzen. Gerne darf auch der Compiler/Interpreter/Whatever vor dem Verarbeiten des Quellcodes einfach alles in Kleinschreibung umwandeln. Was jedoch nicht erfordert werden sollte, ist dass ich als Nutzer anfangen soll mir die Schreibweisen zu merken.<br/>Schlimmer noch, manche Nutzer fangen irgendwann an Sachen danach selbst zu unterscheiden, da kommt Zeugs raus wie <q><code>object = Object(OBJECT)</code></q>, was 3 verschiedene Referenzen enth&auml;llt, die aber alle den gleichen Wortlaut als Name haben.</p>
+<p>Programmiersprachen, Editoren und Shells sind Werkzeuge um die Interaktion mit dem Computer einfacher zu machen, die sollten so viel wie m&ouml;glich Arbeit abnehmen damit sich der Benutzer auf die wichtigen Dinge konzentrieren kann. Auch die bl&ouml;dsinnige Behauptung dass das aus Performance-Gr&uuml;nden gemacht wird, ist mehr als l&auml;cherlich, ein Compiler ist eh nicht zeitkritisch, eine IDE parst heutzutage permanent den geschriebenen Code und selbst ein Interpreter macht so viele Dinge nebenbei, dass auch dort ein einfacher lower_case(string)-Aufruf &uuml;berhaupt nicht ins Gewicht fallen w&uuml;rde.</p>
+<p>Nein, das alles wird aus genau einem Grund gemacht: es w&auml;re anstrengender gewesen diesen zus&auml;tzlichen Befehl/Parameter zu tippen und die Unterscheidung mitzunehmen war schon der Defaultwert in der Umgebung/Sprache mit der der Entwickler der aktuellen Idiotie gearbeitet hat.<br/>Nat&uuml;rlich h&auml;tte man das verdammt leicht &auml;ndern k&ouml;nnen, z.B. h&auml;tte nur ein Entwickler mal zwischendrin seine String-Suchfunktion/Vergleichsfunktion per Voreinstellung Gro&szlig;schreibung ignorieren lassen m&uuml;ssen. Aber schon das scheint viel zu viel Aufwand zu sein, au&szlig;erdem hat sich der vorhergehende bestimmt etwas dabei gedacht als er das unterlassen hat...</p>
+<p>getreu dem Motto: <q>Warum selber denken?</q><br/></p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1387" onclick="set_comment_reference(1387)" title="auf diesen Kommentar antworten">#1387</a>:
+    14.Jun.2010 09:06
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Den gr&ouml;&szlig;ten Spa&szlig; haben wir gerade im IRC festgestellt:</p>
+<p>21:17  ich mein nur... das zieht sich halt durch<br/>
+21:18  wordpress-urls sind case-sensitiv<br/>
+21:18  unix-filesysteme auch<br/>
+21:18  php nicht<br/>
+21:18  php nich? o0<br/>
+21:18  sicher?<br/>
+21:18  sicher<br/>
+21:19  <em>gr&uuml;bel</em> da arbeite ich nu permanent damit...<br/>
+21:19  then again... codingstandard unso<br/>
+21:19  ich habs glaube nie ausprobiert<br/>
+21:19  % php -r 'echo PRINt_r();'<br/>
+21:19  PHP Warning:  print_r() expects at least 1 parameter, 0 given in Command line code on line 1<br/>
+21:20  hmm.. hab eh gerade keinen rechner mit php hier<br/>
+21:20  das muss man im hinterkopf behalten, wenn man <code>grep</code> verwendet, um zu sehen ob eine bestimmte methode im projekt verwendet wird<br/>
+21:21  $foo = 'bar'; echo $FOO;<br/>
+21:22  ausgabe: ''</p>
+<p>und das alles weil...:</p>
+<p>PHP variable names are case sensitive, but the names of functions are case insensitive. Why is this?</p>
+<p>PHP is a language that's designed to let you write a web page template into which you can insert additional tags to call up the functionality of PHP, and it originated in the days before xhtml when tags were case insensitive. So it's natural for those additional tags to be case insensitive too.</p>
+<p>However, following on from other Open Source / Linux / Unix projects, for the most part PHP is case sensitive - a sensible approach as it avoids the loss by folding of 26 ASCII characters in your coding scheme. Also a sensible approach as those of us who use PHP and Perl and Python and other languages appreciate a certain amount of consistency.</p>
+
+<p class="infos">
+<a href="#comment_1388" onclick="set_comment_reference(1388)" title="auf diesen Kommentar antworten">#1388</a>:
+    15.Jun.2010 02:06
+    von
+    
+      
+        <a href="http://ag7.alltagsgrauen.info/" target="_blank">
+          fwolf
+        </a>
+</p>
+<p>Ich bau bei meinen Dateisystem-Abfragen IMMER ein strtolower ein. Eine JPEG-Datei bleibt schlie&szlig;lich auch eine solche, wenn die Dateiendung GRO&szlig; geschrieben wird.</p>
+<p>Und was Variablen anbelangt: Ich benutze ausgiebig die ungarische Notation - ausgenommen bei &uuml;bergebenen Variablen, deren Inhalt, d.h. Typ im Moment der &Uuml;bergabe unklar ist (wird dann halt ausgeparst), sowie prinzipiell nicht bei return-Werten (ist IMMER $return). Auf Konstante greife ich dank OOP immer seltener zur&uuml;ck, ich nutze sie haupts&auml;chlich in Template-Systemen, wie etwa von WP oder meinem eigenen kleinen Noname-Template-Engine, der sich stark an dem (rawphpengine) von Habari orientiert.</p>
+<p>cu, w0lf.</p>
+
+<p class="infos">
+<a href="#comment_1389" onclick="set_comment_reference(1389)" title="auf diesen Kommentar antworten">#1389</a>:
+    15.Jun.2010 12:06
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>Immer ein strtolower einzubauen ist nat&uuml;rlich totaler bullshit weil man dadurch eine sch&ouml;ne fehlerquelle einbaut. Aber darum gehts ja hier.</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1390">
+<p class="infos">
+<a href="#comment_1390" onclick="set_comment_reference(1390)" title="auf diesen Kommentar antworten">#1390</a>:
+    15.Jun.2010 05:06
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>ich denke mal, er meinte schon beides zu behandeln oder so...<br/>
+sprich: if (strtolower($eingabe) == strtolower($dateiname)): ...</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1391">
+<p class="infos">
+<a href="#comment_1391" onclick="set_comment_reference(1391)" title="auf diesen Kommentar antworten">#1391</a>:
+    15.Jun.2010 05:06
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>das &auml;ndert nichts daran, dass du die dateinamenskonvention deines fs mit f&uuml;ssen trittst. eine datei bild.JPG kann durchaaus neben einer datei bild.jpg bestehen und das sind ZWEI VERSCHIEDENE DATEIEN. Da kannst du nicht "oh ich l&ouml;sche mal alles was irgendwie wie bild.jpg aussieht" machen. </p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1392">
+<p class="infos">
+<a href="#comment_1392" onclick="set_comment_reference(1392)" title="auf diesen Kommentar antworten">#1392</a>:
+    15.Jun.2010 09:06
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>da hast wohl wahr...</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>

@@ -1,0 +1,29 @@
++++
+title = "grep is klasse"
+date = "2010-06-18T03:06:00"
+author = "Dr. Azrael Tod"
+tags = ["PC", "Quählkot", "Technik"]
+issoid = "blog/1526"
+aliases = "blog/1526"
++++
+
+<p><br/>Ich behalt ja gerne den &Uuml;berblick dar&uuml;ber was auf meinem Server so los ist und da leider meine Django-Statistik-Middleware noch nichtmal ann&auml;hernd fertig ist (gerade erstmal nur die Idee formuliert und ausprobiert ob das &uuml;berhaupt m&ouml;glich ist), musste ich etwas improvisieren.</p>
+<p>Die erste Idee war einfach ein watch auf das log zu starten:<br/></p><blockquote><code>watch tail -n20 /var/log/nginx/access_log</code></blockquote><br/>aber das war mir dann doch zu un&uuml;bersichtlich und vor allem viel zu stark von Bots zugem&uuml;llt.
+
+<p>Also erstmal die ersten paar, wirklich schlimmsten bots mit jeder menge greps und pipes aussortiert und ein paar pipes f&uuml;r IPs eingef&uuml;gt die mich auch nicht interessieren (192.168...)<br/>Doch nat&uuml;rlich ist das alles.. nur keine brauchbare L&ouml;sung (wer will schon permanent pipes hinten dran schreiben?)  und die vielen greps die alle 1-2min gestartet werden, nur um sich gleich wieder zu beenden, sind irgendwie auch nicht das was ich meinem System nur so aus Spa&szlig; 24/7 antun wollte.</p>
+<p>Nach einigen Optimierungen sieht das Script also jetzt folgenderma&szlig;en aus:<br/></p><pre><code><br/>#!/bin/bash<br/>while true;<br/>do<br/>{<br/>    clear;<br/>    echo -n 'Bot-Zeilen: ';<br/>    grep -c -F -f ./watch_patterns /var/log/nginx/access_log;<br/>    echo -n 'vermutlich browsergenerierte Zeilen: ';<br/>    grep -c -v -F -f ./watch_patterns /var/log/nginx/access_log;<br/>    grep -v -F -f ./watch_patterns /var/log/nginx/access_log \<br/>    | tail -n40;<br/>    sleep 60;<br/>}<br/>done;<br/></code></pre>
+<p>Zus&auml;tzlich gibts dann einfach noch in watch_patterns einen Haufen Zeilen mit Texten die in Useragents vorkommen:<br/></p><pre><code><br/>192.168.<br/>FriendFeedBot<br/>Feedfetcher-Google<br/>WordPress<br/>PostRank<br/>FeedBurner<br/>WikioFeedBot<br/>Baiduspider<br/>Slurp<br/>Googlebot/2.1<br/>...<br/></code></pre><br/>...und schon l&auml;uft die Sache!
+
+<p>Manchmal ist es schon sch&ouml;n was man alles schnell mit diesen mini-Scripten zusammenwerfen kann. Man sollte halt nur drauf achten dass man nicht anf&auml;ngt die f&uuml;r ernsthafte Probleme zu verwenden.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1397" onclick="set_comment_reference(1397)" title="auf diesen Kommentar antworten">#1397</a>:
+    18.Jun.2010 04:06
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>BTW: das war der 400. Artikel auf G33KY (und alle sind noch da, auch wenn ich 2x die Platform gewechselt hab \o/)</p>
+</div>

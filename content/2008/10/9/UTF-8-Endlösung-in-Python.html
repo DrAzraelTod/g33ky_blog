@@ -1,0 +1,63 @@
++++
+title = "UTF-8 Endlösung in Python"
+date = "2008-10-09T10:10:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/912"
+aliases = "blog/912"
++++
+
+<p>Da ich seit einiger Zeit von diversen Codierungsproblemen in Python genervt bin (und das sicher nicht nur mir so geht, z.B. <a href="http://www.wangoo.de/2008/07/python-utf8-und-bom-byte-order-mark/" target="_blank">Snookie hat da auch so seine Probleme</a>), habe ich mir nun eine mini-Funktion geschrieben die meine Probleme zu einem guten Teil l&ouml;sen sollte.</p>
+<p>Hauptproblem war: Wie bringe ich diverse Strings aus dem IRC (von den man nie wei&szlig; in welcher Codierung sie ankommen) in ein generelles UTF-8-Format?<!--more--></p>
+<p><code><span><br/>def encodeMsg(self, msg):<br/>try:<br/>return msg.encode('utf-8')<br/>except:<br/>return msg<br/></span></code></p>
+<p>Das Ganze ist sicher noch zu verbessern, ein generelles except ist z.B. sicher kein guter Code (hier nicht so wichtig, aber bei l&auml;ngeren Abschnitten kann das nervig werden) aber es tut zumindest erstmal.<br/>Diese Funktion rufe ich nun auf wenn ich meine Nachrichten versende und schon hab ich keine Probleme mehr... egal ob die Daten in UTF-8 kommen oder nicht.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_734" onclick="set_comment_reference(734)" title="auf diesen Kommentar antworten">#734</a>:
+    09.Oct.2008 12:10
+    von
+    
+      
+        <a href="http://www.info-tain.de" target="_blank">
+          geby
+        </a>
+</p>
+<p>Endl&ouml;sung?</p>
+<p>B&ouml;se! B&ouml;se! B&ouml;se!</p>
+
+<p class="infos">
+<a href="#comment_735" onclick="set_comment_reference(735)" title="auf diesen Kommentar antworten">#735</a>:
+    09.Oct.2008 12:10
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>eigentlich &uuml;berhaupt nicht...<br/>
+Es liegt wie immer nur an der geschichtlichen Vorbelastung des Begriffes.<br/>
+Von "das haben Nazis mal verwendet, das ist b&ouml;se!" halte ich jetzt rein grunds&auml;tzlich nicht soooo viel.</p>
+
+<p class="infos">
+<a href="#comment_736" onclick="set_comment_reference(736)" title="auf diesen Kommentar antworten">#736</a>:
+    13.Oct.2008 04:10
+    von
+    
+      
+        <a href="http://gottweltkuehlschrank.de" target="_blank">
+          Friedenspanzer
+        </a>
+</p>
+<p>Bin auch schon angepflaumt worden weil ich das Wort "F&uuml;hrer" benutzt hab. Aber wenn mich jemand f&uuml;hrt ist es eben der F&uuml;hrer, so.</p>
+<p>Bei der &Uuml;bersetzung von UT 2004 hatten sie damit vermutlich auch Probleme, da kommen dann so Begriffe bei rum wie "Leader Blau"</p>
+
+<p class="infos">
+<a href="#comment_737" onclick="set_comment_reference(737)" title="auf diesen Kommentar antworten">#737</a>:
+    13.Oct.2008 04:10
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Zugegeben: bei mir spielte in diesem Fall auch ein kleinwenig Provokation mit. <em>g</em></p>
+</div>

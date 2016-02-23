@@ -1,0 +1,110 @@
++++
+title = "Ein echter WTF."
+date = "2008-07-07T09:07:00"
+author = "profmakx"
+issoid = "blog/452"
+aliases = "blog/452"
++++
+
+<p>Es gibt so Tage, da schaemt man sich einfach fuer seine Zunft. Frisch als Diplom Informatiker in Ehren von der Uni gekegelt muss man Code lesen, der ungefaehr so aussieht wie der Folgende. (Und wer sich wiedererkennt, um den tut es mir echt nicht leid!)</p>
+<p><!--more--><br/></p><pre><code><br/>/* convert  Hex-String into an integer */<br/>int HexTextToInt(string ToConvert)<br/>{<br/>        int iToReturn = 0;<br/>        int iExp = 0;<br/>        char chByte;
+
+<p>        // The string to convert is empty<br/>        //<br/>        if(ToConvert == "")<br/>               return 0;<br/>        // The string have more than 8 character (the equivalent value<br/>        // exeeds the DWORD capacyty<br/>        //<br/>        if(ToConvert.length() &gt; 8 )<br/>                return 0;</p>
+
+<p>        try<br/>        {<br/>        // We calculate the number using the Hex To Decimal formula<br/>        //<br/>        for(int i= ToConvert.length()-1; i &gt;= 0; i--){<br/>                chByte = ToConvert[i];<br/>                switch(int(chByte)){<br/>                        case 65:<br/>                                iToReturn += 10*pow(16.0f,iExp);<br/>                                break;<br/>                        case 66:<br/>                                iToReturn += 11*pow(16.0f,iExp);<br/>                                break;<br/>                        case 67:<br/>                                iToReturn += 12*pow(16.0f,iExp);<br/>                                break;<br/>                        case 68:<br/>                                iToReturn += 13*pow(16.0f,iExp);<br/>                                break;<br/>                        case 69:<br/>                                iToReturn += 14*pow(16.0f,iExp);<br/>                                break;<br/>                        case 70:<br/>                                iToReturn += 15*pow(16.0f,iExp);<br/>                                break;<br/>                        default:<br/>                                if((int(chByte) &lt;48)||(int(chByte)&gt;57))<br/>                                return -1;<br/>                        iToReturn += atoi(&amp;chByte)*pow(16.0f,iExp);<br/>                        break;<br/>                        }<br/>                iExp++;<br/>                }<br/>        }<br/>        catch(...)<br/>        {<br/>                // Error, return 0<br/>                //<br/>                return 0;<br/>        }</p>
+
+<p>        return iToReturn;<br/>}</p></code></pre><br/>Viele Leute vergnuegen sich ja gerne an trivialsten Programmierproblemen wie diesem hier oder <a href="http://en.wikipedia.org/wiki/Bizz_buzz">diesem</a>. Aber in meinen Augen ist das ein geloestes Problem, dass man sich mit dem Arsch nicht mehr ansieht.<br/>Und wenn doch, dann doch bitte richtig.
+
+<p>Also starte ich mal folgenden <strong>Aufruf</strong>.</p>
+<p>Schreibt ein Programm in der Programmiersprache eurer Wahl (Ja, auch LOLCode, Brainfuck, Malbolge oder Perl), welches obiges Trivialproblem loest. Eingabe ist ein String in dem sich eine Hex Zahl in ASCII Darstellung befindet (ohne fuehrende 0x oder aehnliches). Man kann annehmen, dass der String vorher vollstaendig in Lowercase konvertiert wurde. Ebenfalls nehmen wir an, dass es sich um Vorzeichenbehaftete 32 bit Zahlen handelt (was obiger Code natuerlich nebenher auch noch falsch macht, wer weiss, warum bekommt n Gummipunkt).</p>
+<p>Edit: Natuerlich war es so gemeint, dass man keine bibliotheksfunktionen fuer die konvertierung nutzen soll</p>
+<p>Wer noch mehr WTFs findet darf sie natuerlich in den Kommentaren anmerken. Spontan finde ich viele.</p>
+<p>(Ich entschuldige mich schonmal fuer die kaputte Formatierung, werd mich nacher mit Tod drum pruegeln das ordentlich hinzubekommen.)</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_289" onclick="set_comment_reference(289)" title="auf diesen Kommentar antworten">#289</a>:
+    07.Jul.2008 10:07
+    von
+    
+      
+        <a href="http://www.drni.de/blog/" target="_blank">
+          DrNI
+        </a>
+</p>
+<p>In Perl:</p>
+<p>$integer = hex($hextstring);</p>
+<p>Damit w&auml;re das Problem genug mit dem Arsch angekuckt. Man kann sowas im ersten oder zweiten Semester als Progammier&uuml;bung schon mal selbst bauen, danach sollte man aber gelernt haben, auf eingebaute Funktionen und Bibliotheken zur&uuml;ckzugreifen. Sonst kommt man ja nie zum Ziel, wenn man mal was gr&ouml;&szlig;eres schreiben muss.</p>
+
+<p class="infos">
+<a href="#comment_290" onclick="set_comment_reference(290)" title="auf diesen Kommentar antworten">#290</a>:
+    07.Jul.2008 10:07
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>dein Programm funktioniert nicht wie gefordert. (Und ich meine nicht die Ergaenzung zur Aufgabenstellung).</p>
+
+<p class="infos">
+<a href="#comment_291" onclick="set_comment_reference(291)" title="auf diesen Kommentar antworten">#291</a>:
+    07.Jul.2008 12:07
+    von
+    
+      
+        <a href="http://www.drni.de/blog/" target="_blank">
+          DrNI
+        </a>
+</p>
+<p>Nunja, wenn Du es als vollst&auml;ndiges Programm willst, dann hilft Dir auf der Kommandozeile:<br/>
+perl -wne 'chomp; print hex;'<br/>
+Wobei ja nicht spezifiziert ist, wie die Schnittstelle aussehen soll. Hier funktioniert sie &uuml;ber STDIN/STDOUT.</p>
+
+<p class="infos">
+<a href="#comment_292" onclick="set_comment_reference(292)" title="auf diesen Kommentar antworten">#292</a>:
+    07.Jul.2008 02:07
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>deine Funktion tut trotzdem nicht das, was gefordert ist ;).</p>
+
+<p class="infos">
+<a href="#comment_293" onclick="set_comment_reference(293)" title="auf diesen Kommentar antworten">#293</a>:
+    07.Jul.2008 04:07
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Wenn man bereits erfahren hat welche Probleme du meinst, scheint es offensichtlich.<br/>
+Wie bereits gesagt halte ich das aber auch teilweise mit dain begr&uuml;ndet dass jemand beim design von C (und allen m&ouml;glichen anderen Sprachen die das durch die Bank alle &uuml;bernommen haben) etwas faul war und gr&ouml;&szlig;eren Aufwand beim Compiler-schreiben vermeiden wollte.<br/>
+Die Ausweichm&ouml;glichkeiten scheinen mir bei den bekannten Sprachen alle nicht ideal.</p>
+
+<p class="infos">
+<a href="#comment_294" onclick="set_comment_reference(294)" title="auf diesen Kommentar antworten">#294</a>:
+    07.Jul.2008 04:07
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>Du kennst Haskell also nicht <em>duckundweg</em></p>
+
+<p class="infos">
+<a href="#comment_295" onclick="set_comment_reference(295)" title="auf diesen Kommentar antworten">#295</a>:
+    07.Jul.2008 05:07
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>hab mich nicht damit besch&auml;fftigt... und w&uuml;rde es auch nicht unbedingt unter "bekannte Sprache" einordnen.<br/>
+BTW: auch in x86-asm w&uuml;rde ich das anders l&ouml;sen<br/>
+MUHAHAHAHAHA</p>
+</div>

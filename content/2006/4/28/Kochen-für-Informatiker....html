@@ -1,0 +1,46 @@
++++
+title = "Kochen für Informatiker..."
+date = "2006-04-28T09:04:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/282"
+aliases = "blog/282"
++++
+
+<p>Nahrung Reistopf(INT typ)<br/>::Typ=Konstante f&uuml;r die Art des Reistopfes<br/>:: 0 = normal<br/>:: 1 = Asiatisch<br/>:: 2 = scharf, mit Kidney-Bohnen<br/><br/>Const<br/>    Zutat<br/>immer_n&ouml;tig[]={'Salz','Pfeffer','Loorbeerbl&auml;tter','Reis','Wasser','Speise&ouml;l'};<br/>    //Ich verwende auf Grund der einfachen Portionierung gerne Reis im<br/>Kochbeutel<br/>    //1 Beutel =125g, f&uuml;r die Varianten 0,1 jeweils 2 Beutel, f&uuml;r V2 nur<br/>einen<br/>    Zubeh&ouml;r ben&ouml;tigt[]={'scharfes Messer','Topf','Pfanne','Holzl&ouml;ffel'};<br/>VAR<br/>    Zutat Gem&uuml;se[];<br/>    Zutat Gew&uuml;rze[];<br/>    Zutat Eiweisquelle;<br/>{<br/>if Typ=0 then<br/>    {<br/>    Gem&uuml;se={'Paprika','M&ouml;hren','Erbsen'};//naja, zur Not reicht auch ne<br/>Dose Erbsen und M&ouml;hren<br/>                                         //(3 PortionenAbtropfgewicht<br/>ca. 250g)<br/>    Gew&uuml;rze={'Knoblachgranulat','Chillipulver','Kr&auml;uter der Provance'};<br/>    Eiweisquelle={'H&auml;hnchenbrustfilet'}; //idealerweise 1 Packung zu<br/>400-450g f&uuml;r ca. 3 Portionen<br/>    }<br/>if Typ=1 then<br/>    {<br/>    Gem&uuml;se={'Asiatisches Pfannengem&uuml;se (Dose)'}  //idealer w&auml;ren<br/>nat&uuml;rlich frische Sprossen und Pilze<br/>                                                 //(1 Dose=3<br/>Portionen,Abtropfgewicht ca. 250g)<br/>    Gew&uuml;rze={'Chillipulver','Sojaso&szlig;e','Basilikum'};<br/>    Eiweisquelle={'H&auml;hnchenbrustfilet'}; //idealerweise 1 Packung zu<br/>400-450g f&uuml;r ca. 3 Portionen<br/>    }<br/>if Typ=2 then<br/>    {<br/>    Gem&uuml;se={'Dose Chilli Bohnen'}; //Kidney Bohnen in mexikanischer,<br/>scharfer So&szlig;e<br/>                                   //(1 Dose=2 Portionen,F&uuml;llmenge ca. 400g)<br/>    Gew&uuml;rze={'Chillipulver','diverse Kr&auml;uter'};<br/>    Eiweisquelle={'Dosenfisch'};  //ich verwendete 200g Heringsfilet in<br/>Tomatenso&szlig;e f&uuml;r 2 Portionen<br/>                                  //dies ist aber nicht wirklich ideal<br/>    }<br/>wasser_aufsetzen('topf','wasser nach angaben auf Reispackung','pro 125g<br/>Reis jeweils 1 Loorbeerblatt','kleine menge Salz');<br/>while !wasser_kocht() do wait();<br/>Reis_kochen(topf);<br/>warten_und_vorbereiten(angabe_auf_reispackung - 5min,<br/>kleinschndeiden(Eiweisquelle,scharfes messer));<br/>if Typ=0|1 then<br/>    {<br/>     anbraten(Eiweisquelle,Pfanne,Speise&ouml;l,Holzl&ouml;ffel);  //Holzl&ouml;ffel<br/>nur zum wenden verwenden... nicht mitbraten!^^<br/>     w&uuml;rzen(Eiweisquelle,Gew&uuml;rze,'Salz','Pfeffer');<br/>     wait_until(Angabe auf reispackung-1min &amp;&amp;<br/>Fleisch_komplett_durchgebraten)<br/>     anbraten(Gem&uuml;se); //einfach zus&auml;tzlich in die Pfanne geben<br/>     wait(1min);<br/>     anbraten(Reis); //Kochbeutel aus dem Wasser nehmen, aufschneiden<br/>und in die Pfanne geben<br/>                             //Loorbeerbl&auml;tter und Wasser k&ouml;nnen entsorg<br/>werden<br/>      nachw&uuml;rzen(Gew&uuml;rze);<br/>   }<br/>else   //Typ=2<br/>    {<br/>       anbraten(Gem&uuml;se,Eiweisquelle,Pfanne,Speise&ouml;l,Holzl&ouml;ffel);<br/>//Holzl&ouml;ffel nur zum wenden verwenden... nicht mitbraten!^^<br/>       w&uuml;rzen(Gew&uuml;rze,'Salz','Pfeffer');<br/>       wait_until(Angabe auf reispackung)<br/>       anbraten(Reis); //Kochbeutel aus dem Wasser nehmen, aufschneiden<br/>und in die Pfanne geben<br/>                               //Loorbeerbl&auml;tter und Wasser k&ouml;nnen<br/>entsorg werden<br/>        nachw&uuml;rzen(Gew&uuml;rze);<br/>    }<br/>return 'Pfanne mit Essen';<br/>}</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_10" onclick="set_comment_reference(10)" title="auf diesen Kommentar antworten">#10</a>:
+    18.Apr.2008 05:04
+    von
+    
+      
+        Anonymous
+      
+    
+    
+  </p>
+<p>Nette Idee so ein Kochrezept aufzustellen. Mir ist nur aufgefallen das einige "Funktionen" wie z.B. "anbraten" im Rezept nicht definiert sind. W&uuml;rde also einen Fehler geben...;-)</p>
+
+<p class="infos">
+<a href="#comment_11" onclick="set_comment_reference(11)" title="auf diesen Kommentar antworten">#11</a>:
+    18.Apr.2008 05:04
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Die liegen alle in system.kochvorgaenge..import steht halt nicht im sichtbaren Teil <em>g</em>0:-)</p>
+
+<p class="infos">
+<a href="#comment_12" onclick="set_comment_reference(12)" title="auf diesen Kommentar antworten">#12</a>:
+    14.May.2008 09:05
+    von
+    
+      
+        <a href="http://unixhaus.de" target="_blank">
+          Solarix
+        </a>
+</p>
+<p>Groooooooehl genau das hab ich am Sonntag gekocht. :-p</p>
+</div>

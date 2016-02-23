@@ -1,0 +1,52 @@
++++
+title = "zip war vorgestern"
+date = "2008-07-26T08:07:00"
+author = "Toranor"
+issoid = "blog/506"
+aliases = "blog/506"
++++
+
+<p>Ja, zip war nicht nur gestern, wie <a href="http://fidel.vido.info/wordpress/2008/07/21/zip-war-gestern/">hier</a> behauptet wird, sondern von vorgestern.<br/>Als referenz hab ich mal mein Firefox genommen: 31.902.749 Bytes</p>
+<p>Schauen wir uns mal den Container an, was er so zur Verf&uuml;gung stellt:<br/>PKZIP 1 Verfahren: shrink, reducing, imploding. Was es damit genau auf sich hat kann ich nicht sagen, zumal ich weder nen altes PKZIP hab, noch die Verfahren irgend eine Rolle spielen heutzutage.</p>
+<p>Deflate: Der neue Kompressionsalgorithmus f&uuml;r zip-Dateien. Besteht im Wesentlichen aus LZSS (LZ77 mit nem Flag) und Huffman-Entropiekodierung. Die geschwindigkeit ist sehr gut die Kompression allerdings bescheiden: Der Firefox wird auf 11.845.632 Bytes zusammengepackt.</p>
+<p>bzip2: Ist in den zip-Containern auch m&ouml;glich, im Versuch langsamer aber besser : 10.896.381 Bytes</p>
+<p>Soweit das zip. Eines muss man PKWARE aber lassen. Deflate ist zum Quasi-Standart geworden. Es ist public domain, und findet sich in png, tiff, docx, odt und vielem anderen wieder.<br/>Problem bei Deflate ist: Wenn man den Algorithmus ausreizt, wie oben geschehen, ist die Kompressionszeit verglichen mit dem Ergebnis doch eher mau. Deflate schafft auf dem 2x2.0Ghz Core2Duo grad mal 1MByte pro Sekunde. Das Entpacken geht aber erfreulich schnell (ca. 15MByte/s)</p>
+<p>Was haben wir noch so auf dem Markt:</p>
+<p>LZP:<br/>Staucht den Firefox auf 9.859.072 Bytes zusammen in 6 sekunden. Die Kompression ist nicht der Hit, aber in der Geschwindigkeit verzeihbar. Zumindest beim Packen flotter und besser als alles was zip zu bieten hat.</p>
+<p>ALZ/LZMA:<br/>Braucht f&uuml;r 30MB 20sekunden. Komprimiert aber auf 8.675.094 Bytes. Nicht schneller, aber besser als zip. Erfreulich hierbei: Die Entpackgeschwindigkeit liegt weit &uuml;ber der Packgeschwindigkeit im Test etwa 5 sekunden um das Archiv zu entpcken. LZMA ist da von den Zeiten gleich komprimiert den Firefox aber ein tic besser: 8.462.237 Bytes.</p>
+<p>PPM/PPMD:<br/>40 sekunden um 30MB zu packen. 33 Sekunden ums wieder zu entpacken. Nicht der Hit, aber die Kompression ist gut: 8.090.209 Bytes f&uuml;r PPM. Von PPMD war ich entt&auml;uscht, bei gleichen Zeiten betrug die Komprimierte Gr&ouml;sse 9.011.014 Bytes.</p>
+<p>Kommen wir zu den lustigen Sachen:</p>
+<p>ROLZ:<br/>hat wie PPMD die Erwartungen nicht ann&auml;hernd erf&uuml;llt: 9.963.471 Bytes. da kann ich auch wieder ne zip nehmen. Packgeschwindigkeit und Entpckgeschwindigkeit sind Gut, aber nicht der Br&uuml;ller.</p>
+<p>ROLZ3:<br/>Mein Liebling. zusammengequetscht auf  7.774.762 Bytes. Die Packgeschwindigkeit ist etwas ern&uuml;chternd, mit 2MB pro Sekunde. daf&uuml;r geht das entpcken mit fast 13MB in der Sekunde. Und bei der Kompression ist das alle mal in Ordnung.</p>
+<p>PCWM:<br/>6.453.654 Bytes. Packgeschwindigkeit: 16k/Sek. oder anders: 30Megabyte in 30 Minuten. Im Alltagsgebrauch sicherlich unnutzbar, aber zum Spielen herrlich.<br/>Im Vergleich mit PAQ nen tic schlechter, aber 4 mal so schnell ^^</p>
+<p>PAQ:<br/>6.343.671 Bytes. Besser geht nicht. Zumindest noch nicht. Testimplementierung war PAQ809. Geschwindigkeit : 4k/s beim Packen und Entpacken.</p>
+<p>Zum Schluss, nen Geheimtipp:<br/>LZ77:<br/>Komprimiert nicht gut: 20.304.862 Bytes f&uuml;r den Firefox, aber Komprimiert schnell. Sau schnell. Bei 40 MByte/sek ist meine Platte an ihre Grenzen gestossen.</p>
+<p>Nebenbei mal noch nen testlauf mit nem Spiel:<br/></p><table border="0"><tr><td>unkomprimiert:</td><td>1.149.145.024 Bytes</td></tr><br/><tr><td>lz77:</td><td>652.742.279 Bytes</td></tr><br/><tr><td>Deflate:</td><td>395.560.761 Bytes</td></tr><br/><tr><td>rolz3:</td><td>252.579.620 Bytes</td></tr></table><br/>Die Entpackgeschwindigkeit wurde bei den 3 Verfahren allein durch die Festplatte begrenzt.
+      
+    
+  <div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_401" onclick="set_comment_reference(401)" title="auf diesen Kommentar antworten">#401</a>:
+    31.Jul.2008 03:07
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>selbst tar.gz oder .rar w&auml;re wohl schon eine Verbesserung im Vergleich zu .zip aber da sich letzteres einmal als quasi-standard durchgesetzt hat und seit Windoof ME selbst von Mikrigweich schon im Explorer selbst unterst&uuml;tzt wird, sehe ich keine gro&szlig;e Chance auf Besserung.. h&ouml;chstens wenn sich Linux erheblich st&auml;rker durchsetzt oder Mircosaft seine Defaults &auml;ndert.</p>
+
+<p class="infos">
+<a href="#comment_402" onclick="set_comment_reference(402)" title="auf diesen Kommentar antworten">#402</a>:
+    31.Jul.2008 08:07
+    von
+    
+      
+        <a href="http://fidel.vido.info/wordpress" target="_blank">
+          fidel
+        </a>
+</p>
+<p>Sch&ouml;ner Vergleich.</p>
+<p>Letzlich ist das mit dme Markt-Standard sichewrlich der einzige Grund warum ZIP noch lebt. Wobei ich gerade im Windows Umfeld seit geraumer Zeit auch den Eindruck habe dass .RAR eine starke Verbreitung hat.</p>
+<p>Letzlich wird es auf die Masse wohl noch lange bei zip bleiben und im privanten bei Bastlern halt etwas spezielles um in der kleinen Insel mit der besseren Komprimierung zufrieden zu sein =)</p>
+</div>

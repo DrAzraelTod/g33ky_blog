@@ -1,0 +1,50 @@
++++
+title = "Zweitverwertung"
+date = "2009-03-02T03:03:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/1279"
+aliases = "blog/1279"
++++
+
+<p>Gestern abend waren wir mal wieder unterwegs und mussten am Bahnhof ein paar Minuten warten. Also sind wir, wie so oft, erstmal im Zeitschriftenhandel verschwunden und haben nach neuen, wenigstens ann&auml;hernd sinnvollen Presseerg&uuml;ssen gesucht, die es m&ouml;glicherweise geben k&ouml;nnte.</p>
+<p>Bei dieser Gelegenheit ist mir eine CD mit den gesammelten Ausgaben (2008) der Zeitschrift <a href="http://www.linux-magazin.de" target="_blank">"Linux Magazin"</a> aufgefallen. Da ich diese Zeitschrift noch vor 2-3 Jahren als ziemlich sinnvoll angesehen habe und auch das Online-Angebot oft ganz nette Artikel bietet, dachte ich mir es k&ouml;nnte nichts schaden "die paar Euro" mal auszugeben und mir einige Howtos und Tests via HTML/PDF und Netbook mit mir rumzuschleppen.<!--more--></p>
+<p>Die erste H&uuml;rde mit dieser Ausgabe war nat&uuml;rlich erstmal die CD. Mein Netbook hat nat&uuml;rlich keinerlei CD-Laufwerk und auch mein "Not-Book", welches momentan als Mediaserver im Wohnzimmerschrank steht, hat zwar ein Laufwerk, steht jedoch immer so dass ich um an das Laufwerk zu kommen das Ger&auml;t erst abst&ouml;pseln und aus dem Schr&auml;nkchen nehmen m&uuml;sste.</p>
+<p>Also habe ich mir aus rumliegenden Bauteilen erstmal ein USB-DVD-Laufwerk gebaut und unter lautem Dr&ouml;hnen der veralteten Technologie (entweder das DVD-Laufwerk ist ziemlich kaputt oder ich habe damals so rein &uuml;berhaupt nicht auf Lautst&auml;rke geachtet... damit kann man niemals im selben Zimmer einen Film ansehen -.-) habe ich erstmal die CD auf meine Festplatte kopiert.</p>
+<p>Die Daten selbst sollten nun also kein Problem mehr darstellen, laut Aufschrifft handelt es sich immerhin sowohl um eine HTML als auch PDF-Version. Allerdings war ich bereits etwas verwundert, als ich feststellte dass eine CD f&uuml;r 12 Zeitschriften wirklich komplett voll wird. Von den fast 700MB verfallen erstmal 250MB auf alle m&ouml;glichen Varianten von Adobe Acrobat Reader... das mag nicht unbedingt sinnvoll sein, da die meisten dieses St&uuml;ck miese Software eh bereits installiert haben (oder halt andere Software die das gleiche tut) aber wenn man den Platz hat, kann man das schonmal machen.</p>
+<p>Weitere 130MB gehen dann tats&auml;chlich f&uuml;r die HTML-Daten und 165 f&uuml;r die PDF-Versionen drauf... da hat man zwar erstmal etwas zu gr&uuml;beln, warum Text so derartig gro&szlig; sein soll, wenn man aber dann sieht wie die Bilder eingepackt sind, l&ouml;sen sich derartige Fragen erstmal.<br/>Nat&uuml;rlich ist auch das kein Problem... wenn man schon eine CD hat, kann man nat&uuml;rlich auch richtig sch&ouml;ne und gro&szlig;e Bilder reinpacken.</p>
+<p>Wo es dann aber endg&uuml;ltig etwas verst&ouml;rend wird, ist wenn man sich die Daten ansehen will. Die PDF-Versionen sehen ja noch ganz nett aus, aber warum zum Henker hat man f&uuml;r jede Seite eine einzelne Datei angelegt? So klicke ich auf irgendein Thema in der &Uuml;bersicht, lese die Einleitung und darf mich dann &uuml;ber 3-4 Seiten zur n&auml;chsten Seite durchklicken? o0</p>
+<p>Bei der HTML-Version wird es noch schlimmer... nicht nur dass es scheinbar nichtmal zum einfachsten Styling der Seiten (zumindest abseits von blauen Rahmen f&uuml;r Bilder und einheitlichen &Uuml;berschriften) gereicht hat, die Links zu irgendwelchen Programmen oder Webseiten stehen noch sch&ouml;n wie in der Zeitung am unteren Rand der Seite (Referenziert durch z.B. [1] im Text, dass dann unten via [1] <a href="http://foobar.de" rel="nofollow">http://foobar.de</a> erkl&auml;rt wird), die Seiten sind genausolcher unverlinkter M&uuml;ll wie die PDF-Version und nichtmal f&uuml;r alt-attribute in den Image-Tags hat die Zeit gereicht.</p>
+<p>Nichtmal &uuml;ber die URL kann man leicht bl&auml;ttern, denn die Verzeichnissnamen enthalten automatisch auch immer den Titel des Beitrages, der nat&uuml;rlich f&uuml;r jede Seite anders lautet.</p>
+<p>Aber wir haben da zum Gl&uuml;ck ja noch die Volltextsuche... diese wird &uuml;ber ein externes Programm bedient (das im Gegensatz zu z.B. dem mitgelieferten Acrobat-Reader auch nur unter Linux funktionieren soll, obwohl es sich eindeutig um Java handelt). Das Startscript "suche.sh" ist nat&uuml;rlich nicht schlau genug zu erkennen in welchem Verzeichniss es liegt... ich muss also erstmal das Arbeitsverzeichniss setzen oder es von der Shell aus starten. Nat&uuml;rlich &ouml;ffnet das Programm auch erstmal via default alle Ergebnisse in einem externem HTML-Browser. Das heist: w&uuml;rde es, wenn es nicht bei einem Klick auf einen Link bei mir nur eine IO-Exception werfen w&uuml;rde weil es erstmal ohne Einstellungen meinerseits versucht die Datei von '/usr/bin/netscape' &ouml;ffnen zu lassen.</p>
+<p>Fazit dieser Erfahrung ist wohl, dass dieser Mist unverwendbar ist. Ich k&ouml;nnte nat&uuml;rlich dennoch die Seiten per Hand &ouml;ffnen und einzeln durchlesen, auch k&ouml;nnte ich via grep statt Lucene suchen (Lucene f&uuml;r Statische HTML-Suche? WTF?) und jeden Link per Hand aus einer Liste am Fu&szlig; der Seite raussuchen. ABER DAS WILL ICH NICHT!</p>
+<p>Wie kann man heutzutage seinen Kunden noch sowas zumuten? Man hat als Offlinemedium nun wirklich nicht mehr viele Vorteile, die Konkurrenz ist schneller, kann endlos schreiben ohne an Seitenzahlen gebunden zu sein, ist f&uuml;r den Kunden billiger und weit l&auml;nger verf&uuml;gbar. Wenn man da mithalten will, muss man gute Texte erstellen und diese in einem Format zur Verf&uuml;gung stellen, das sich besser lesen l&auml;sst. Zumindest bei dem letzteren hat dieser Verlag gnadenlos versagt, ich habe selten etwas derartig lieblos zusammengeklatschtes gesehen wie den Inhalt dieser CD.</p>
+<p>Zusammen mit der Qualit&auml;t der Texte und dem extremen Preis f&uuml;r die Zweitverwertung von ganzen 12 &uuml;berlagerten Zeitschriften, w&uuml;rde ich sagen dass hier die Bewertung Mangelhaft nicht zutrifft und man extra daf&uuml;r einen Wert weit jenseits von Ungen&uuml;gend erfinden muss.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1171" onclick="set_comment_reference(1171)" title="auf diesen Kommentar antworten">#1171</a>:
+    02.Mar.2009 10:03
+    von
+    
+      <a href="/blog/author/toranor/">
+        toranor
+      </a>
+</p>
+<p>...aber du k&ouml;nntest die einzelnen seiten ausdrucken, sortieren und h&auml;ttest dann...</p>
+<p>ok, mir f&auml;llt dazu nix ein.</p>
+<p>wenn man ein Dokument hat, schiebt man es in den Distiller, und der macht ne pdf draus. Is ein klick.<br/>
+warum man aber nun jede Seite einzeln da durch jagt - daf&uuml;r gibt es nicht viele Erkl&auml;rungen:<br/>
+1.) Sie sind die gr&ouml;ssten Misanthropen dieser Welt und wollen es dem Leser so schwer wie m&ouml;glich machen.<br/>
+2.) Sie sind SIE.<br/>
+3.) Sie sind unf&auml;hig.</p>
+
+<p class="infos">
+<a href="#comment_1172" onclick="set_comment_reference(1172)" title="auf diesen Kommentar antworten">#1172</a>:
+    02.Mar.2009 11:03
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Ich tippe ja auf unf&auml;higkeit... f&uuml;r alles andere w&auml;re das nicht kreativ genug, dann h&auml;tte man die HTML-Version z.B. rein in Flash und als alternativversion statt pdf ein anderes propriet&auml;res Format, mit einem Java-Player bauen k&ouml;nnen... nat&uuml;rlich nur der Platformunabh&auml;ngigkeit wegen</p>
+</div>

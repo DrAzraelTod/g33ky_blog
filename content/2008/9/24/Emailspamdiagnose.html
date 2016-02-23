@@ -1,0 +1,85 @@
++++
+title = "Emailspamdiagnose"
+date = "2008-09-24T10:09:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/788"
+aliases = "blog/788"
++++
+
+<p>Ein gro&szlig;es Problem f&uuml;r viele stellt wohl das enorme Aufkommen an E-Mail-Spam dar. Manche m&uuml;ssen sich am Tag durch mehrere Hunderte Mails w&uuml;hlen um heraus zu finden was ernstgemeinte Informationen und was einfach nur wieder der Tablettenverk&auml;ufer aus Nicaragua ist.<br/>Mit der massiven Verwendung von Spam-Filtern via <a href="http://de.wikipedia.org/wiki/Blacklist" target="_blank">Blacklists</a> und kollektiver Sortierung (z.B. 10 Nutzer bekommen die gleiche Mail, 3 haben diese als Spam markiert -&gt; es ist sehr wahrscheinlich dass sie auch f&uuml;r die anderen 7 Spam darstellt) nimmt dieses Problem nat&uuml;rlich ab, eine wirkliche L&ouml;sung scheint damit aber noch nicht gefunden.</p>
+<p>Eine weitere Vorgehensweise, die ich mir angew&ouml;hnt habe, ben&ouml;tigt etwas weitreichendere M&ouml;glichkeiten als nur die eigenen Mails nach verschiedenen Gruppen zu sortieren. Die Grundidee war dass ich nicht nur die aktuelle Nachricht l&ouml;schen und die angebliche Sendeadresse sperren will, sondern dass ich m&ouml;glichst f&uuml;r alle Sender (egal welche Adresse sie als Absender angeben) diese bekannte Adresse nutzlos machen m&ouml;chte. Nat&uuml;rlich sollten normale Kontakte davon m&ouml;glichst unber&uuml;hrt bleiben, sprich: Ich will nicht einfach permanent meine Adresse &auml;ndern, um dann allen Leuten h&auml;ndig die Neue mitzuteilen.<!--more--></p>
+<p>Die einfachste M&ouml;glichkeit dieses Ideal anzun&auml;hern, fand sich f&uuml;r mich in der Verwendung einer ganzen Domain f&uuml;r meine privaten Mails. Eine passende Domain ist ja kein Problem (bei Preisen von ca. 5-8&euro; im Jahr sollte sich das wohl fast jeder leisten k&ouml;nnen), auch eingerichtet ist sie schnell. Wenn man gerade keinen pers&ouml;nlichen Mailserver zur Verf&uuml;gung hat gibt es nat&uuml;rlich auch gen&uuml;gend Freemaildienste die gerne, via Nameservereintrag auf ihren eigenen Server, diesen Dienst zur Verf&uuml;gung stellen.<br/>Mein derzeitiger Favorit auf diesem Gebiet ist <a href="http://www.google.com/a/help/intl/de/index.html" target="_blank">Google Apps for your Domain</a>, da es eine relativ flexible Nutzerverwaltung anbietet, Google Mail als Interface sehr nahe an meinen Idealvorstellungen liegt und neben E-Mail auch noch viele weitere, sehr praktische Dienste mitgeliefert werden (<a href="http://drazraeltod.wordpress.com/?s=jabber" target="_self">Jabber</a>-Server/Google-Talk, Google Calendar, ...).<br/>Eine Anleitung zur Einrichtung bietet Google selbst recht ausf&uuml;hrlich an, dies sollte jedoch auch kein Problem f&uuml;r einigerma&szlig;en versierte Nutzer darstellen. (Bei Fragen versuche auch ich gerne zu helfen.)</p>
+<p>Nun habe ich also eine komplette Domain zur Verwendung, doch wie nutze ich sie?<br/>In meinem Fall habe ich mir einfach einen pers&ouml;nlichen Standard gebildet nach dem ich mir jederzeit neue Mail-Adressen bilden kann. Die wichtigste Einstellung daf&uuml;r war nat&uuml;rlich mir jegliche Mails (an meine Domain) an einen einzigen Account weiterleiten zu lassen, dieser Account ist auch relativ flexibel, er muss keinen sprechenden Namen haben und man muss ihn auch nicht an irgendwen weitergeben (z.B. <a href="mailto:ABCDrandname@meinedomain.de">ABCDrandname@meinedoma...</a>).<br/>Ein weiterer, wichtiger Name ist der Account den man an Menschen weitergibt. Bei ihm handelt es sich quasi zu dem Pedant der normalen Mailadresse. Wenn ich also einem Gesch&auml;ftspartner meine E-Mail-Adresse gebe, so handelt es sich um jene, leicht merkbare Adresse (z.B. <a href="mailto:cheffe@meinedomain.de">cheffe@meinedomain.de</a>). Wenn man immer noch jede Menge maschinell erstellte Mails bekommt, kann man sich zus&auml;tzlich auch noch eine Whitelist auf direkt an diese Adresse versendete Mails anlegen. Sprich: Wenn ich meinem Kunden <a href="mailto:Kunde@kundenfirma.com">Kunde@kundenfirma.com</a> diese Adresse gebe, w&auml;re es g&uuml;nstig <a href="mailto:*@kundenfirma.de">*@kundenfirma.de</a> zur Whitelist hinzu zu f&uuml;gen. Jedoch sollte man nicht gerade <a href="mailto:*@freemailanbieter.de">*@freemailanbieter.de</a> hinzuf&uuml;gen, nur weil man einer Privatperson von dieser Domain ebenfalls die Adresse gegeben hat. Hier l&auml;sst sich das System auch noch beliebig erweitern (<a href="mailto:familie@meinedomain.de">familie@meinedomain.de</a>, <a href="mailto:kumpels@meinedomain.de">kumpels@meinedomain.de</a>, ...)</p>
+<p>F&uuml;r Registrierungen auf beliebigen Domains mit Foren, Blogs oder anderen Systemen auf denen eine Mailadresse angegeben werden muss, verwendet man dann jeweils eine individuelle Adresse (Aus diesem Grund alle Adressen weiterleiten, alternativ kann man auch jede Adresse einzeln freischalten, dies sorgt jedoch f&uuml;r erheblichen, zus&auml;tzlichen Aufwand). Wenn ich mich also auf <a href="http://www.forum.org" rel="nofollow">www.forum.org</a> anmelde, dann mit einer Adresse al&aacute; <a href="mailto:forum.org@meinedomain.de">forum.org@meinedomain.de</a>. Das genaue Benennungssystem kann nat&uuml;rlich abweichen, man sollte sich vorher &uuml;berlegen ob man generell eher <a href="http://www.forum.org@.." rel="nofollow">www.forum.org@..</a>. angibt oder doch lieber f&uuml;r alle Foren &uuml;ber Topfpflanzen blumenforum@...<br/>Dies verhindert z.B. dass man bei jedem Login &uuml;berlegen muss welche Adresse man hier nun schon wieder angegeben hat und sollte auch auf Sonderf&auml;lle wie <a href="http://www.blumenfans.de.vu" rel="nofollow">www.blumenfans.de.vu</a> vorbereitet sein. (Bei derartigen F&auml;llen z.B. w&auml;re eine Notation sld.tld@meinedomain sehr ung&uuml;nstig.)</p>
+<p>Was hat man von diesem System? Man hat immer genaue Kontrolle dar&uuml;ber, wer welche Adresse weitergibt. Nat&uuml;rlich hilft dies nicht gegen etwas schlauere Menschen, doch die meisten automatisierten Spam-Vorg&auml;nge kann es erschweren. (W&uuml;rde Spam von Menschen eigenh&auml;ndig versendet w&auml;re diese Werbeform wohl noch erheblich unattraktiver als ich sie jetzt schon einsch&auml;tze. Die Zielgruppe der Potenzmittelk&auml;ufer nach E-Mail-Empfang wird wohl eh nicht sonderlich gro&szlig; sein.)<br/>Im Gegensatz zu normalen Wegwerfadressen (wie z.B. <a href="http://www.spamgourmet.com/" target="_blank">Spamgourmet.com</a>) braucht man zwar eine kostenpflichtige Domain, daf&uuml;r erm&ouml;glicht dieses Vorgehen eine erheblich detailiertere Anpassung (Ausnahmeadressen f&uuml;r Familie/Gesch&auml;ftliches, Spam-Filter auf einzelnen Adressen nach Blacklists, ...) und nat&uuml;rlich die M&ouml;glichkeit zur Diagnose. Weiterhin ist eine solche Adresse nicht automatisiert als einer von 2-3 Anbietern von Wegwerfadressen zu erkennen.<br/>Wenn ich nach diesem System permanent Mails an <a href="mailto:ichspamgern.de@meinedomain.de">ichspamgern.de@meinedo...</a> erhalte, kann ich davon ausgehen dass ichspamgern.de meine Adresse weitergegeben hat oder zumindest leicht indizierbar im Netz zeigt.<br/>Auf diese Weise kann ich nicht nur mein eigenes Verhalten diesem Anbieter gegen&uuml;ber anpassen und ihn sperren ohne andere Seiten in Mitleidenschaft zu ziehen, ich kann auch andere evtl. vor dieser Seite warnen und so evtl. daf&uuml;r sorgen dass Anbieter allgemein besser darauf achten was mit Daten ihrer Kunden passiert.</p>
+<p>Nat&uuml;rlich ist dieses System nicht perfekt. Ein deutliches Beispiel f&uuml;r m&ouml;gliche Probleme w&auml;ren wohl Spamversender die einfach Adressen "raten". Man k&ouml;nnte dann also auch an <a href="mailto:dsfdsier@meineadresse.de">dsfdsier@meineadresse.de</a> Werbemails bekommen, ohne diese Adresse jemals verwendet zu haben. Dies h&auml;llt sich aber meiner Erfahrung nach stark in Grenzen, auch Spamversender achten auf wenigstens ann&auml;hernd effiziente Algorithmen.<br/>Ich freue mich jedenfalls immer &uuml;ber Vorschl&auml;ge wie man meine Grundidee verbessern k&ouml;nnte, auch w&uuml;rde ich gern wissen wie ihr diesen Problemen entgegen tretet oder ob ihr sie etwa garnicht kennt (Was eigentlich auch auf mich zutrifft, &lt;20 unerw&uuml;nschte Mails/Woche sind kein ernstes Problem).</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_640" onclick="set_comment_reference(640)" title="auf diesen Kommentar antworten">#640</a>:
+    24.Sep.2008 02:09
+    von
+    
+      
+        g2t
+      
+    
+    
+  </p>
+<p>Man kann doch Catch-All deaktivieren und halt alle Adressen manuell anlegen und in einen einzigen Posteingang leiten lassen.<br/>
+Der Aufwand h&auml;lt sich da in meinen Augen in Grenzen.</p>
+
+<p class="infos">
+<a href="#comment_641" onclick="set_comment_reference(641)" title="auf diesen Kommentar antworten">#641</a>:
+    24.Sep.2008 04:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Hab ich ja geschrieben... es ist durchaus m&ouml;glich, ich pers&ouml;nlich finde es nur zu umst&auml;ndlich permanent neue Adressen einzutragen wenn ich sie verwende.<br/>
+Man befindet sich ja auch nicht immer an einem Rechner, auf dem man sich ins Verwaltungstool einloggen will.</p>
+
+<p class="infos">
+<a href="#comment_642" onclick="set_comment_reference(642)" title="auf diesen Kommentar antworten">#642</a>:
+    24.Sep.2008 06:09
+    von
+    
+      
+        <a href="http://macfidelity.de" target="_blank">
+          fidel
+        </a>
+</p>
+<p>Wundert mich dass ihr wirklich ein spam-Problem habt.</p>
+<p>ein gut abgestimmter Spamassiassin mit Bayes und Grey-Filter sollte eigentlich das Problem l&ouml;sen.</p>
+<p>Ich kenne das Problem de facto nur von anderen, selber habe ich es dankenswerter Weise nicht.</p>
+
+<p class="infos">
+<a href="#comment_643" onclick="set_comment_reference(643)" title="auf diesen Kommentar antworten">#643</a>:
+    24.Sep.2008 11:09
+    von
+    
+      
+        wayne
+      
+    
+    
+  </p>
+<p>Vielleicht auch erw&auml;hnenswert, dass google von Haus aus etwas in der Richtung anbietet:<br/>
+<a href="mailto:DeineMail+beliebigerzusatz@gmail.com&lt;br">DeineMail+beliebigerzu...</a> /&gt;
+Zwar nicht ganz so "sicher" aber gegen maschinelles lesen/weitergeben/sperren hilft es schon ein ganzes St&uuml;ck weiter und ist nich all zu umst&auml;ndlich =)</p>
+
+<p class="infos">
+<a href="#comment_644" onclick="set_comment_reference(644)" title="auf diesen Kommentar antworten">#644</a>:
+    25.Sep.2008 09:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>@fidel: hab ich nicht, ich mach mir nur eher grunds&auml;tzliche Gedanken<br/>
+Googlemail filtert mir eigentlich alles schon von Grund auf SEHR zuverl&auml;ssig</p>
+<p>@wayne<br/>
+Das funktioniert aber nur so lange, bis die spamversender anfangen google-sonderfunktionen in den Emails zu implementieren. Was imho nichtmehr so lange dauert</p>
+</div>

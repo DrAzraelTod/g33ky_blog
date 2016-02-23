@@ -1,0 +1,143 @@
++++
+title = "PHP-Code zum Verzweifeln"
+date = "2008-09-30T03:09:00"
+author = "Dr. Azrael Tod"
+tags = ["Open Source", "Rant", "Softwareschrott", "Technik"]
+issoid = "blog/836"
+aliases = "blog/836"
++++
+
+<p>Heute gibts mal wieder ein Codeschnipsel das Anf&auml;nger wohl zum Verzweifeln treiben w&uuml;rde.<br/>Die folgende, syntaktisch als richtig gewertete Befehlsfolge steht zur Diskussion:<br/><code><pre><br/>$blah="tr&ouml;&ouml;&ouml;t";<br/>if($blah != 0)<br/>{<br/>    if($blah=="tr&ouml;&ouml;&ouml;t")<br/>    {<br/>        echo "Sie haben getr&ouml;tet!";<br/>    } else {<br/>        echo 'Sie haben "'.$blah.'" gesagt.';<br/>    }<br/>} else {<br/>    echo "Sie haben eine 0 eingegeben";<br/>}<br/></pre></code><br/>Was wird PHP wohl ausgeben? Wer die Antwort findet bekommt einen Gummipunkt!<!--more--><br/>Richtig! Es ist "Sie haben eine 0 eingegeben". Der Grund ist ebenfalls offensichtlich, "tr&ouml;&ouml;&ouml;t" ist keine Zahl.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_688" onclick="set_comment_reference(688)" title="auf diesen Kommentar antworten">#688</a>:
+    30.Sep.2008 04:09
+    von
+    
+      
+        <a href="http://codecocktail.wordpress.com/" target="_blank">
+          Thomas
+        </a>
+</p>
+<p>Ans Ende der Zeile:<br/>
+$blah="tr&ouml;&ouml;&ouml;t"<br/>
+muss soweit ich wei&szlig; noch ein Semikolon, richtig?<br/>
+Sicherlich nur ein Tippfehler...</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_689">
+<p class="infos">
+<a href="#comment_689" onclick="set_comment_reference(689)" title="auf diesen Kommentar antworten">#689</a>:
+    30.Sep.2008 04:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Das stimmt auff&auml;llig <em>update</em></p>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_690" onclick="set_comment_reference(690)" title="auf diesen Kommentar antworten">#690</a>:
+    27.Oct.2008 02:10
+    von
+    
+      
+        <a href="http://" target="_blank">
+          tammo
+        </a>
+</p>
+<p>Tja das kommt, weil php so anf&auml;nger-freundlich ist was die Typengerechtheit angeht. Php versucht rauszufinden, was wir eigentlich meinen mit == deswegen wird aus "1" == 1 auch true obwohl es schlicht falsch ist. Was bei "true" == true oder "true" == 0 noch hilfreich ist, wird bei "tr&ouml;&ouml;t" != 0 schon zum problem..</p>
+<p>Will man ordentlich vergleichen helfen nur === und !== .</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_691">
+<p class="infos">
+<a href="#comment_691" onclick="set_comment_reference(691)" title="auf diesen Kommentar antworten">#691</a>:
+    27.Oct.2008 10:10
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>Das hat nichts, aber auch gar-nichts mit anf&auml;ngerfreundlichkeit zu tun, die Sprache und ganz besonders das Typensystem ist einfach nur kaputt.<br/>
+und jetzt haben sie auch noch namespaces. namespaces mit \ als... ich muss schnell kotzen gehen</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_692">
+<p class="infos">
+<a href="#comment_692" onclick="set_comment_reference(692)" title="auf diesen Kommentar antworten">#692</a>:
+    27.Oct.2008 10:10
+    von
+    
+      
+        <a href="http://gottweltkuehlschrank.de/" target="_blank">
+          Friedenspanzer
+        </a>
+</p>
+<p>Seltsame Namespaces kenn ich von der Arbeit (Das Ding, mit dem ich Geld verdiene), ich find das richtig dufte :-)</p>
+<p>Find aber auch toll, dass eine Programmiersprache ein altes Konzept ein klein wenig anders anmalt und alle es b&ouml;se finden. Ganz ehrlich, tut es k&ouml;rperlich weh dass man in PHP \ statt :: schreiben muss?</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_693">
+<p class="infos">
+<a href="#comment_693" onclick="set_comment_reference(693)" title="auf diesen Kommentar antworten">#693</a>:
+    27.Oct.2008 10:10
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>warte mal... PHP und :: da war doch was...<br/>
+achja Unexpected Paamayim Nekudotayim -.-<br/>
+PHP geht nicht einfach nur anders an solche Konzepte heran.. PHP muss alles unbedingt anders machen, das ist ein gro&szlig;er Unterschied.</p>
+<p>Ich habe nichts dagegen wenn mal 1-2 Bezeichner anders lauten oder mal eine L&ouml;sung anders angegangen wird, aber PHP geht mir permanent aufs Schwein wenn alles unbedingt von allen anderen Sprachen gleich gel&ouml;ste unter PHP anders lauten muss.. ohne etwas an der Funktionalit&auml;t zu &auml;ndern.<br/>
+Kurz: &Auml;nderungen gerne, aber sie m&uuml;ssen einen Zweck erf&uuml;llen.</p>
+</div>
+</li>
+<li>
+<div class="comment" id="comment_694">
+<p class="infos">
+<a href="#comment_694" onclick="set_comment_reference(694)" title="auf diesen Kommentar antworten">#694</a>:
+    27.Oct.2008 10:10
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>Wie man einen Namespace nun bezeichnet ist erstmal egal. Ob es nun unbedingt ein BACKSLASH sein muss, das ja wegen Escape-sequenzen durchaus andere auswirkungen haben kann sei mal dahingestellt. Wahrscheinlich spielt da eine seltsame windows-pfad-analogie mit.</p>
+<p>Ich glaube aber nicht einmal, dass Namespaces eine tolle Idee (tm) sind. Im Prinzip propft man damit nur einen weiteren Komplexit&auml;tslevel in die Sprache rein, den man nicht braucht.<br/>
+Wenn man sauber zusammengehaltene Module hat die man importieren kann und diese beim importieren umbenennen kann (wegen Namenskollisionen und zur Abk&uuml;rzung. Zum Beispiel importiere ich in Haskell oft so: qualified Data.Map as M oder aehnliches)</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<div class="comment" id="comment_695">
+<p class="infos">
+<a href="#comment_695" onclick="set_comment_reference(695)" title="auf diesen Kommentar antworten">#695</a>:
+    27.Oct.2008 03:10
+    von
+    
+      
+        tammo
+      
+    
+    
+  </p>
+<p>Anf&auml;nger freundlich war villeicht das falsche Wort..<br/>
+Also mir pers&ouml;nlich ist es egal, ob :: oder \ wobei ich Dr. Azrael Tod eher zustimme und &Auml;nderungen ihren Zweck erf&uuml;llen sollten.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>

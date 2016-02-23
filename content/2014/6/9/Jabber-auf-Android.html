@@ -1,0 +1,32 @@
++++
+title = "Jabber auf Android"
+date = "2014-06-09T02:06:00"
+author = "Dr. Azrael Tod"
+tags = ["\"Freie\" Software", "Android", "Open Source", "Softwareschrott", "Technik", "Telefon"]
+issoid = "blog/1593"
+aliases = "blog/1593"
++++
+
+<p>Ich wackel jetzt schon seit einiger Zeit von einem Android-XMPP-Client zum n&auml;chsten und keiner schien bisher alle funktionen zu bieten die ich gerne haben wollte.<br/>Mit der Zeit wurden die Clients besser und jetzt scheine ich endlich eine Version zu haben, bei der mir erstmal keine ganz dringende Funktion mehr zu fehlen scheint.</p>
+<p><b>TL/DR:</b> sehr tauglicher Android-XMPP-Client "Conversations", <a href="https://f-droid.org/repository/browse/?fdid=eu.siacs.conversations" target="_blank">jetzt in relativ benutzbarer Version bei FDroid runterzuladen</a>.</p>
+<p></p><h3>Xabber</h3>
+<p>Die erste Station war Xabber, ein gut funktionierender Client, mit tauglichem Nutzerinterface, welcher nach langer Zeit dann auch wie versprochen irgendwann als OpenSource ver&ouml;ffentlicht wurde.<br/>Xabber funktioniert, Xabber kann OTR, Xabber kann mehrere Konten und scheitert gnadenlos an modernen Features wie Stream-Management und Message-Carbons. Dinge halt die die Benutzung auf mobilen Datennetzen, bei denen man auch gerne mal zwischen verschiedenen Internetverbindungen wechselt, erheblich verbessern.</p>
+<p>Noch immer fehlen diese Funktionen, aber Xabber bleibt einer der besseren Clients <a href="https://f-droid.org/repository/browse/?fdid=com.xabber.androiddev" target="_blank">die man bei FDroid beziehen kann.</a></p>
+<p></p><h3>Gibberbot</h3>
+<p>Zwischenzeitlich habe ich mir dann <a href="https://chatsecure.org/about/">ChatSecure</a> angesehen, als dieser Client noch "Gibberbot" hie&szlig;. Damals war der v&ouml;llig kaputt, st&uuml;rzte permanent ab, war h&auml;sslich und alle m&ouml;glichen Features fehlten einfach.<br/><b>ABER</b>: er war schon lange vor Xabber <a href="https://github.com/guardianproject/ChatSecureAndroid" target="_blank">als Quellcode verf&uuml;gbar</a> und man <a href="https://f-droid.org/repository/browse/?fdid=info.guardianproject.otr.app.im" target="_blank">konnte ihn bei FDroid runterladen</a>.</p>
+<p></p><h3>Yaxim</h3>
+<p>Dann der Umstieg zu <a href="http://yaxim.org/features/">Yaxim</a>. Ein Client der endlich Message-Carbons und Stream-Management kann. Daf&uuml;r scheitert der sehr hart daran dass man nur ein Konto einstellen kann (was f&uuml;r mich inzwischen nicht mehr ganz so wichtig ist)</p>
+<p>OTR/GPG kann dieser Client &uuml;berhaupt nicht und auch Dinge wie MUC sind hier erstmal nur "geplant".</p>
+<p><a href="https://f-droid.org/repository/browse/?fdid=org.yaxim.androidclient" target="_blank">FDroid-Link</a></p>
+<p></p><h3>wieder ChatSecure</h3>
+<p>Inzwischen hatte ChatSecure aber einige gro&szlig;fl&auml;chige &Uuml;berarbeitungen erfahren und sieht verwendbar aus. <a href="https://github.com/guardianproject/ChatSecureAndroid/issues/352" target="_blank">Message Carbons wollen die jedoch nicht implementieren</a>, weil das mit OTR zusammen nicht sonderlich gut tut (immer nur ein Client k&ouml;nnte die Nachrichten entschl&uuml;sseln, die verschl&uuml;sselten Nachrichten werden an alle Clients geliefert) und GPG wollen die nicht implementieren, weil OTR ja so offensichtlich (&lt;/sarkasmus&gt;) besser f&uuml;r IM-Nachrichten geeignet ist.</p>
+<p><a href="https://f-droid.org/repository/browse/?fdid=info.guardianproject.otr.app.im" target="_blank">FDroid-Link</a></p>
+<p></p><h3>endlich: Conversations</h3>
+<p>Jedenfalls habe ich jetzt schon seit 1-2 Monaten <a href="https://github.com/siacs/Conversations">Conversations</a> auf dem Schirm. Der Client sieht noch ein St&uuml;ck moderner aus, kann von GPG &uuml;ber multi-Account, Message-Carbons, Stream-Management bis hin zu OTR eigentlich alles.<br/>Leider war er auf Android 4.4 bisher ziemlich unbenutzbar und st&uuml;rzte alle Nase lang ab.</p>
+<p>Die neueste Version jedoch, scheint die schlimmsten Stellen zu beheben, so dass ich ihn nun vollst&auml;ndig empfehlen kann.<br/>Endlich ein Client der kaum noch W&uuml;nsche &uuml;brig l&auml;sst.</p>
+<p>Beziehen kann man ihn <a href="https://f-droid.org/repository/browse/?fdid=eu.siacs.conversations" target="_blank">nat&uuml;rlich auch via FDroid</a>.</p>
+<p>noch Fehlende Dinge die "nett" w&auml;ren:<br/></p><ul><li>Jingle Audio/Video kann er nicht</li><br/><li>schlechte Verbindungsverschl&uuml;sselung oder unverschl&uuml;sselte Passwort&uuml;bertragung f&uuml;r XMPP-Server kann man nicht ausw&auml;hlen. Er funktioniert also nur mit zeitgem&auml;&szlig;en und sinnvoll eingestellten Servern (um nicht zu sagen: man kann au&szlig;er JID und Passwort garnichts einstellen)</li><br/></ul>
+<p></p><h3>Ich</h3><br/>Ich bin &uuml;brigens auf meinem eigenen XMPP-Server auf g33ky.de als Nutzer dat zu erreichen.
+
+<p>Kontaktdaten gibt es wie immer im QR-Code oben links, oder <a href="http://g33ky.de/static/dat.vcf">hier als digitale Visitenkarte/a&gt;.</a></p>
+<p>Meinen <a href="/static/dat_pub.asc">Schl&uuml;ssel findet ihr hier</a>, auf diversen Schl&uuml;sselservern oder auf <a href="https://keybase.io/drazraeltod" target="_blank">keybase.io/drazraeltod</a>. (Ich h&auml;tte da auch wie jeder andere Depp Invites rumfliegen. K&ouml;nnt ihr haben wenn ihr auf so Hipster-Bl&ouml;dsinn mit k&uuml;nstlicher Verknappung steht.)<br/></p><blockquote><pre>fingerprint:	8A1DB744530992F0EC08CEC8EF8CD4D96EF9873A<br/>64-bit:		EF8CD4D96EF9873A</pre></blockquote>

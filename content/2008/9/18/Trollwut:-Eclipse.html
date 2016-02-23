@@ -1,0 +1,194 @@
++++
+title = "Trollwut: Eclipse"
+date = "2008-09-18T10:09:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/754"
+aliases = "blog/754"
++++
+
+<p>Ich programmiere nun schon seit einigen Jahren mit den verschiedensten Sprachen, Tools und Bibliotheken. Bei der Frage ob eine Umgebung f&uuml;r mich nutzbar ist, kommt es auf einige wenige Variablen an. In diesem Artikel will ich mich kurz mit <a href="http://www.eclipse.org" target="_blank">Eclipse</a> befassen und pr&uuml;fen inwiefern dieser Haufen Hackermist f&uuml;r meine Belange geeignet ist.</p>
+<p>Bevor wir jedoch zu Eclipse selbst kommen, sollten wir vlt. meine Erwartungen etwas definieren...<!--more--></p>
+<p>Die wichtigste Frage ist wohl, wie schnell ich mit dieser Umgebung programmieren kann, also wie gut ich beim Finden von Funktionsnamen, bei reinen Syntaxfragen oder der Verwendung von <a href="http://de.wikipedia.org/wiki/Subversion_(Software)" target="_blank">SVN</a>/<a href="http://de.wikipedia.org/wiki/Concurrent_Versions_System" target="_blank">CVS</a>/Wasauchimmer unterst&uuml;tzt werde.</p>
+<p>So ist mir z.B. eine Erleichterung wie <a href="http://en.wikipedia.org/wiki/Autocompletion" target="_blank">Code-Completion</a> einiges wert, da es mir beim Programmieren viel Zeit mit dem Nachschlagen von irgendwelchen Funktionsnamen erspart. Wichtig sind daf&uuml;r nat&uuml;rlich auch sprechende Funktionsnamen, z.B. <a href="http://de.wikipedia.org/wiki/PHP" target="_blank">PHP</a> als Sprache eignet sich daf&uuml;r &uuml;berhaupt nicht, da alle g&auml;ngigen Funktionen unsortiert auf einem Haufen liegen und teilweise Bezeichner haben, deren Sinn sich mir auch noch verschlie&szlig;t wenn ich wei&szlig; was sie tun. Wirklich &uuml;berzeugt hat mich dies jedoch bisher selten, einzig <a href="http://drazraeltod.wordpress.com/2008/08/26/neue-delphicbuilder-versionen/" target="_self">Delphi</a>/<a href="http://www.lazarus.freepascal.org/" target="_blank">Lazarus</a> haben bisher wirklich zeitweise eine Befehlsreferenz f&uuml;r mich unn&ouml;tig gemacht, <a href="http://de.wikipedia.org/wiki/Microsoft_Visual_Studio_.NET" target="_blank">Visual Studio.Net</a> versucht dem nahe zu kommen, scheitert jedoch an den verwendeten Sprachen und Bibliotheken. (<a href="http://de.wikipedia.org/wiki/VCL" target="_blank">VCL</a> und das Free-Pascal-Pendant waren halt wirklich sehr auf derartiges ausgelegt und wurden nicht erst nachtr&auml;glich angepasst.)<br/>Selbst wenn man diese Funktion hat, gibt es nat&uuml;rlich immer Funktionen deren Name und Kurzbeschreibung nicht alles aussagt, in diesem (und vielen anderen F&auml;llen) ist sehr praktisch wenn man eine gute Hilfefunktion zur Verf&uuml;gung hat. Erneut k&ouml;nnen Delphi und Artverwandte hier punkten, bei einem Druck auf F1 sofort die Beschreibung des Elementes unter der Cursorposition zu erhalten liegt ziemlich nahe am Optimum.<br/>Hier finden sich allerdings auch schon viele andere Umgebungen die das &auml;hnlich gut k&ouml;nnen. Namen zu nennen sprengt hier fast schon den Rahmen, erstaunt war ich jedoch besonders &uuml;ber die Qualit&auml;t dieser Funktion bei einigen Prolog-spezialisierten Umgebungen.<br/>Die Liste derartiger Funktionen l&auml;sst sich beliebig fortsetzen, wichtig w&auml;ren z.B. noch die grafische Erstellung von GUIs, Syntax-Hervorhebung (Welche IDE kann das heutzutage nicht?), automatisches Einr&uuml;cken oder die Anzeige von Syntax-Fehlern direkt im Code.</p>
+<p>Nahezu ebenso wichtig ist mir, wie schnell ich eine IDE zum produktiven Funktionieren bringe. Was habe ich schon davon dass ich mit einer IDE wahnsinnig komfortabel <a href="http://de.wikipedia.org/wiki/Ook!" target="_blank">Ook!</a> schreiben kann, wenn ich f&uuml;r das n&auml;chste Projekt <a href="http://de.wikipedia.org/wiki/Malbolge" target="_blank">Malbolge</a> verwende, f&uuml;r das &uuml;bern&auml;chste Whitespace und ich f&uuml;r jeden Wechsel die IDE l&auml;nger Einstellen muss, als ich f&uuml;r das ganze Projekt an Zeit ben&ouml;tige.<br/>Hier muss man nat&uuml;rlich zwischen Sprach-/Systemspezifischen und generell verwendbaren Umgebungen unterscheiden, Delphi ist sicher schnell verwendbar, kann jedoch au&szlig;er f&uuml;r Object Pascal/Delphi nur noch f&uuml;r C++ verwendet werden (zumindest bei den &auml;lteren Versionen die man noch ernsthaft verwenden konnte und auch C++ ben&ouml;tigte dort eine komplette Neuinstallation <a href="http://www.codegear.com/de/products/cppbuilder" target="_blank">fast des selben Programms</a> unter einem anderem Namen). Ein einfacher Texteditor mit Shell-Tools auf der anderen Seite kann nicht nur fast unter jedem System f&uuml;r jede Sprache (nat&uuml;rlich mit Einschr&auml;nkungen, z.B. wird nicht immer jede Sprache von jedem Editor f&uuml;r Syntax-Hervorhebung unterst&uuml;tzt) eingesetzt werden. Auch die Zeitdauer die ich zum setzen aller Einstellungen ben&ouml;tige ist meist &uuml;berschaubar (was zum Teil auch an der geringen Menge der Funktionen liegt).</p>
+<p>An dritter Stelle meiner Erwartungen w&uuml;rde ich darauf achten wie stabil eine Umgebung ist (es nervt ungespeicherten Quellcode zu verlieren) und wie solche Dinge wie Ladezeiten die Arbeit verz&ouml;gern. Die relativ sp&auml;te Platzierung rechtfertige ich nur damit dass die meisten Systeme stabil und schnell genug sind, man verbringt heute einfach nicht mehr 2/3 der Zeit mit dem Anblick eines Ladebildschirmes.</p>
+<p>Nun wollen wir mal Eclipse in Relation zu diesen Anforderungen setzen...</p>
+<p>Was die Funktionsbandbreite betrifft l&auml;sst Eclipse wohl wenige W&uuml;nsche &uuml;brig, es gibt Erweiterungen f&uuml;r Code-Vervollst&auml;ndigung, f&uuml;r SVN-Unterst&uuml;tzung, f&uuml;r GUI-Erstellung und was auch immer ein Entwickler sich sonst noch w&uuml;nschen kann.<br/>Diese Funktionen sind jedoch fast alle frickelm&auml;&szlig;ig Programmiert, Eclipse ist eine der wenigen Umgebungen unter der ich lieber von Hand meine Button-Positionen eintippe als sie im Fenster zusammen zu schieben (wer das mal unter Java und Eclipse versucht hat wird wohl wissen was ich meine). Auch ist die Code-Vervollst&auml;ndigung und Hilfe f&uuml;r die meisten Sprachen einfach unbrauchbar oder nur &uuml;ber Drittsoftware zu erm&ouml;glichen. Was wirklich nicht ganz schlecht funktioniert sind Dinge wie CVS/SVN-Unterst&uuml;tzung und Syntax-Hervorhebung. Dieser kleine Triumph hat leider nur einen kleinen Makel: so ziemlich JEDES andere System kann das auch.<br/>All diese Funktionen werden nat&uuml;rlich &uuml;ber Plugins realisiert, wo wir dann auch schon beim Zweiten Punkt sind. Eclipse f&uuml;r eine neue neue Sprache um zur&uuml;sten ist grauenvoll. Man hat schon eine IDE die den Anspruch stellt f&uuml;r so ziemlich jede Sprache verwendbar zu sein, doch dann braucht man f&uuml;r so ziemlich jede Sprache zum Einrichten l&auml;nger als wenn man eine neue IDE installiert.<br/>Man h&auml;tte die Plugins auch &uuml;ber die Paketverwaltung des Betriebssystems abhandeln k&ouml;nnen, doch Eclipse verl&auml;sst sich lieber auf sein eigenes Paketsystem. Ich habe inzwischen einige Eclipse-Distributionen verwendet, doch das einfache Installieren von weiteren Funktionen &uuml;ber das daf&uuml;r gedachte Men&uuml; (das &uuml;brigens im Punkt "Hilfe" so ziemlich an der bescheuertsten Stelle seit "Start-&gt;Beenden" platziert ist) funktionierte nur in den wenigsten F&auml;llen "out-of-the-box". Das Ganze ist so umst&auml;ndlich zu verwenden, dass ich irgendwann angefangen habe mir lieber f&uuml;r jede(s) Sprache/Framework/API eine spezielle Eclipse-Distri parallel zu bereits vorhandenen zu installieren. Eine eigentlich wirklich bescheuerte Idee.<br/>Auch das Einbinden eines neuen Projektes dauert extrem lange. Nat&uuml;rlich hat man das passende Plugin f&uuml;r SVN oder welche Quelle man auch immer gerade braucht nicht bereits installiert und nat&uuml;rlich hat man vom letzten Projekt her keine Ahnung mehr &uuml;ber welches der 10 Dutzend Projekt Anlegen/Importieren/&Ouml;ffnen-Men&uuml;s man es das letzte Mal geschafft hat das Projekt so einzubinden dass es m&ouml;glichst wenig Probleme gab. Auf der Konsole w&auml;re man mit diesem Vorgang sicher um L&auml;ngen schneller gewesen, im Notfall tippt man halt mal ein "svn help" ein um auf ca. 1-2 Bildschirmseiten die wichtigsten Kommandos zusammengefasst zu lesen.</p>
+<p>Kommen wir nun zum dritten Punkt, bei dem es f&uuml;r Eclipse wirklich peinlich wird.<br/>Eclipse l&auml;uft auf Java-Basis und das merkt man auch sehr deutlich, die Ladezeiten sind immens... Warum zum Henker verwendet jemand Java f&uuml;r ein Programm das permanent auf dem System laufen soll? Habt ihr zu viel RAM? Sind euch Ladezeiten egal? Warum muss eine Java-IDE unbedingt in Java geschrieben sein?<br/>Bitte kommt jetzt nicht mit diesem Scheinargument dass Eclipse unbedingt Platformunabh&auml;ngig sein soll, das kann so ziemlich jede andere Sprache auch. Im schlimmsten Fall bastelt man halt eine Portierung f&uuml;r die 3-4 wichtigsten Systeme, wenn man sich die verwendeten Bibliotheken gut ausgesucht hat h&auml;lt sich der Aufwand dabei auch in Grenzen.<br/>Ich sehe durchaus ein dass Java seine Daseinsberechtigung hat, aber es gibt da drau&szlig;en Leute die w&uuml;rden dieses Bibliothekenmonster auf Precompilerbasis wirklich f&uuml;r jeden bl&ouml;den Texteditor verwenden. Daf&uuml;r wurde die Sprache nicht optimiert! Es gibt bessere f&uuml;r sowas und man sollte das auch einsehen. (Das gleiche Argument trifft &uuml;brigens auch auf die ganzen IDEs mit .Net-Basis da drau&szlig;en zu. -.-)</p>
+<p>Eclipse verwendet exzessiv Plugins, f&uuml;r jede kleine Standardfunktion ist ein Plugin zust&auml;ndig. Wer schonmal was von der Neigung komplexer Systeme geh&ouml;rt hat, komplexe Probleme zu verursachen, dem muss ich die Schlussfolgerung daraus wohl nicht mehr nennen.<br/>In der Tat hatte ich bei einigen Projekten permanent mit Eclipse-Abst&uuml;rzen zu k&auml;mpfen, da hilft es auch nicht unbedingt weiter wenn man z.B. das h&auml;ngen gebliebene Fenster f&uuml;r einen Commit mit einem Tastendruck in den Hintergrund bewegen kann (das Fenster verschwindet wirklich und wird durch eine kleine Anmerkung in der Statusleiste ersetzt), wenn man mit der IDE dann dennoch nicht weiterarbeiten oder sie gar regul&auml;r beenden kann... es l&auml;uft ja immerhin noch ein Vorgang.<br/>Was in solchen F&auml;llen bleibt ist dann also den ganzen Eclipse-Prozess zu killen und erneut zu starten... Die Ladezeiten (die &uuml;brigens manchmal l&auml;nger sind als die meines ganzen OS inkl. grafischer Oberfl&auml;che) lassen gr&uuml;&szlig;en.</p>
+<p>Das alles zusammen ergibt dann eine Punktzahl irgendwo zwischen 0 und 0.5 von 3... Sehen wir es positiv, Eclipse hat viel Raum f&uuml;r Verbesserungen.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_608" onclick="set_comment_reference(608)" title="auf diesen Kommentar antworten">#608</a>:
+    18.Sep.2008 11:09
+    von
+    
+      
+        <a href="http://gottweltkuehlschrank.de" target="_blank">
+          Friedenspanzer
+        </a>
+</p>
+<p>Ich finds ja gut, dass hier Eclipse gerantet wird, das verabscheue ich schon aus Prinzip und oben genannten Gr&uuml;nden, aber warum immer auf meinen armen kleinen Schatz PHP eindreschen?</p>
+<p>Unter Windows (Bitte nicht schlagen) werd ich schon seit Jahren mit Proton gl&uuml;cklich, der kann zwar nicht viel, das daf&uuml;r aber richtig gut. Unter Linux nehm ich was halt grad so rumliegt und das ist meistens Kate. Oder Vim, wenn jemand da ist, der mir hilft wenn ich mal wieder keine Ahnung hab, was da gerade passiert.</p>
+
+<p class="infos">
+<a href="#comment_609" onclick="set_comment_reference(609)" title="auf diesen Kommentar antworten">#609</a>:
+    18.Sep.2008 11:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Ich schlag ja garnicht sinnlos auf PHP rum..<br/>
+Ich halte PHP grunds&auml;tzlich erstmal f&uuml;r keine sonderlich gute Sprache, die massig Probleme mit ihrer Herkunft hat.<br/>
+Ein Grunds&auml;tzlich Objektorientierter Ansatz, bei dem man z.B. die hunderte String und Datumsfunktionen in ihre jeweiligen Klassen eingeordnet h&auml;tte (oder sonst irgendeine Art die Funktionen nach Aufgabengebiet zu gruppieren), w&uuml;rde PHP bestimmt manchmal gut tun. Das &auml;ndert aber nichts daran wie gut es sich manchmal mit PHP arbeiten l&auml;sst. Wenn ich nur schnell ein Script auf dem Webserver schreiben will das eine HTML-Datei ausgibt und nur 1-2 Variablen einf&uuml;gt ist PHP nunmal noch immer mein Mittel der Wahl.<br/>
+Auch gibt es f&uuml;r PHP ziemlich gute Frameworks die einem wirklich ziemlich viel Arbeit abnehmen.<br/>
+Das alles macht PHP nicht zu einer tollen Sprache, aber zu einem verwendbaren Werkzeug.. f&uuml;r manche Vorhaben.</p>
+
+<p class="infos">
+<a href="#comment_610" onclick="set_comment_reference(610)" title="auf diesen Kommentar antworten">#610</a>:
+    18.Sep.2008 12:09
+    von
+    
+      
+        <a href="http://crackpod.bplaced.net/" target="_blank">
+          CracKPod
+        </a>
+</p>
+<p>Ich finde Eclipse klasse! Python mit PyDev C++ Mit der C++ Version von der Homepage. Ich habe aber auch 4gb Ram und zwei Dual Core Prozzesoren. Java ist nicht schlecht, und ich liebe Java daf&uuml;r das es so portabel ist und das die meisten Applikationen noch nicht einmal eine Installation brauchen. F&uuml;r mich h&ouml;rt sich das hier alles sehr nach Vorurteilen an. Nur zur Info: Ich w&uuml;rde selber wahrscheinlich auch nie mit Java anfangen aber deswegen sind nicht gleich alle Java-Apps unglaubliche RAM-Fresser, bzw. selbst wenn sie es sind ist das bei den heutigen PC Generationen ja wohl zu vernachl&auml;ssigen.</p>
+<p>Greetz,<br/>
+CracKPod</p>
+
+<p class="infos">
+<a href="#comment_611" onclick="set_comment_reference(611)" title="auf diesen Kommentar antworten">#611</a>:
+    18.Sep.2008 12:09
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>also, ich bin immernoch bei (g)vim. Kann alles (was ich brauche), ist klein, schnell und ist (nahezu) &uuml;berall installiert.</p>
+
+<p class="infos">
+<a href="#comment_612" onclick="set_comment_reference(612)" title="auf diesen Kommentar antworten">#612</a>:
+    18.Sep.2008 12:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Das Problem ist nicht dass alle Java-Apps extreme RAM-Fresser w&auml;ren, sondern dass die Java-Umgebung ein solcher ist. Eclipse an sich geht dann nochmal zus&auml;tzlich nicht gerade sparsam mit den Ressourcen um.</p>
+<p>Nur weil du dir alle 2-3 Monate einen neuen PC kaufst und das daher nicht sofort merkst muss es nicht bedeuten dass andere ihre Ressourcen auch so verschwenden wollen.</p>
+<p>Ich habe kein Problem mit Java allgemein, JavE ist z.B. ein tolles Tool das ich nur alle 2-3 Jahre mal verwende. Dort kommt auch die Portabilit&auml;t von Java zum Tragen, es w&uuml;rde sich schlicht nicht lohnen Jave auf andere Systeme zu portieren.<br/>
+Welchen Vorteil hast du aber bei Eclipse durch die Verwendung von Java? Du kannst Eclipse unter Windows und Linux verwenden? Das ist kein Argument, das kann ich mit Firefox, Gajim (ok, Interpretersprache) oder Vi/Emacs/$wahlloser_anderer_Editor auch.<br/>
+Das Einzige was ich in der Richtung gelten lass ist dass der Workspace zwischen den verschiedenen Versionen austauschbar sein sollte und ich nicht f&uuml;r jedes OS neu anfangen muss meine Einstellungen und Projekte zu organisieren. Das geht aber ebenfalls unter so ziemlich jeder Sprache.</p>
+<p>Noch eine kleine Randbemerkung: Ich code auf einem mehrere Jahre altem Notebook, das von Prozessorleistung und Arbeitsspeicher her mit Ach und Krach noch bei aktuellen Versionen von EeePC und Co. mithalten kann.<br/>
+Meine (einzelne und 32-Bittige) CPU taktet sich zwischen 1400Mhz und 600Mhz hin und her und mein RAM umfasst gerade mal 1GB statt deiner 4.<br/>
+Ich habe aber auch nicht dringend vor mir jetzt ein anderes System zuzulegen, nur weil irgendwelche Programme auf die Idee kommen sie k&ouml;nnten auf keinen Fall mit dem doppelten RAM den fr&uuml;her &auml;hnliche Programme ben&ouml;tigten das gleiche tun wie diese alten Programme</p>
+
+<p class="infos">
+<a href="#comment_613" onclick="set_comment_reference(613)" title="auf diesen Kommentar antworten">#613</a>:
+    18.Sep.2008 09:09
+    von
+    
+      
+        wayne
+      
+    
+    
+  </p>
+<p>Bin beruflich zu eclipse + java gezwungen und kann nur sagen full ack! aber gut zu wissen, dass man nicht der einzige ist, der sich mit solchen &uuml;berfl&uuml;ssigen problemen rumschalgen muss.. als h&auml;tte man nicht schon genug andere sorgen</p>
+
+<p class="infos">
+<a href="#comment_614" onclick="set_comment_reference(614)" title="auf diesen Kommentar antworten">#614</a>:
+    19.Sep.2008 08:09
+    von
+    
+      
+        <a href="http://rankaholics.de/" target="_blank">
+          Thomas
+        </a>
+</p>
+<p>Das ist mehr als verst&auml;ndlich, dass man nicht seine Ressourcen verschwenden m&ouml;chte! Ich versuche auch alles so sparend zu halten wie m&ouml;glich, obwohl ich das garnicht so unbedingt n&ouml;tig habe. Ich habe einen Dell Inspiron 1525 mit 1,73 GHZ Dual Core und 2 GB Ram und benutze diesen nur zum Programmieren, Musik h&ouml;ren, Chatten, Surfen usw.</p>
+<p>Jedenfalls bin ich so krank und benutze einen Musikplayer, der auf der Konsole l&auml;uft, "moc" nennt sich dieser. Eigentlich habe ich immer Rhythmbox benutzt, doch moc kann auch alles was ich brauche und verbraucht - ich glaub so in etwa 20-30MB weniger, als Rhythmbox. Irgendwann hab ich mal so einen Vergleich gemacht. Das ist gerade mal ein Prozent meines gesamten Arbeitsspeichers und wahrscheinlich ziemlich irrelevant, und trotzdem versuch ich zu sparen wo es - ohne Funktionsverluste und ohne gro&szlig;en Aufwand - geht.</p>
+<p>Gr&uuml;&szlig;e, Thomas</p>
+
+<p class="infos">
+<a href="#comment_615" onclick="set_comment_reference(615)" title="auf diesen Kommentar antworten">#615</a>:
+    22.Sep.2008 09:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Naja, bei einem Prozent Ram klingt das nat&uuml;rlich harmlos... aber man braucht ja nur ein paar mehr Programme von dieser Sorte im RAM liegen zu haben, dann wird sich das schnell zu einer gewissen Relevanz aufsummieren</p>
+
+<p class="infos">
+<a href="#comment_616" onclick="set_comment_reference(616)" title="auf diesen Kommentar antworten">#616</a>:
+    20.Oct.2008 08:10
+    von
+    
+      
+        <a href="http://martin.ringehahn.de/blog/" target="_blank">
+          Martin Ringehahn
+        </a>
+</p>
+<p>Hm, krasser Rant &uuml;ber Eclipse.<br/>
+In der Tat, das Ding ist kein Leichtgewicht. Die zentrale Aufgabe bei mir (Entwicklung von Java-Kram) erf&uuml;llt sie aber grossartig. Wichtig dabei sind:<br/>
+ * Code completion (Vervollst&auml;ndigen von Methodensignaturen, Return-Werten, Compiler-Hinweise, etc pp)<br/>
+ * Anzeigen von Javadoc inline (insbesondere bei code completion)<br/>
+ * Schnelle Navigation im Code<br/>
+ * Debugging (Breakpoints, Inspektion von Objekten, dynamisches ersetzen von neu &uuml;bersetztem Code im laufenden Programm)<br/>
+ * Refactoring (Member umbenennen, sortieren, verschieben..)<br/>
+ * Sofortige R&uuml;ckmeldung vom Compiler mit vern&uuml;nftigen Hinweisen und Hilfen (hey, fang noch die Exception, soll ich dir die in deinen try-catch mit dazuschreiben oder lieber mit throws nach oben brinen?..)</p>
+<p>Hm, wars das schon? Jedenfalls hab ich was vergleichbares noch nirgendwoanders f&uuml;r keine Sprache gesehen. Allerdings hat Java da auch einige wahnsinnige Vorteile gg&uuml; vielen anderen Sprachen (Javadoc, starke Typisierung).</p>
+<p>Allerdings wird bei mir die Eclipse nur f&uuml;r Java verwendet. SVN? command line. PHP, alles andere? vim+ctags. IMHO: use the right tool for the right job. F&uuml;r Java kommt man an Eclipse (vllt noch Netbeans) nicht vorbei.</p>
+<p>Ebenso kommt man aber auch kaum an Visual Studio vorbei wenn es um .NET/C# etc pp geht. Ich habe VS200{3,5,8} verwendet (mit C# und C++/CLI) und werde jederzeit Java/Eclipse einem Visual Studio den Vorzug geben. Hier kommt auch die bereits erw&auml;hnte Plattformunabh&auml;ngigkeit zum tragen, jedoch nicht ausschliesslich.</p>
+
+<p class="infos">
+<a href="#comment_617" onclick="set_comment_reference(617)" title="auf diesen Kommentar antworten">#617</a>:
+    20.Oct.2008 10:10
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Naja... "f&uuml;r keine Andere Sprache" w&uuml;rde ich als alter Delphi 5/6-Fan etwas abschw&auml;chen, aber ansonsten muss ich dir leider zu gro&szlig;en St&uuml;cken recht geben.<br/>
+Aber wird ein langsames und &uuml;berladenes Programm wirklich besser wenn es Features bietet die kein anderes hat oder sind nur die anderen noch schlechter?</p>
+
+<p class="infos">
+<a href="#comment_618" onclick="set_comment_reference(618)" title="auf diesen Kommentar antworten">#618</a>:
+    20.Oct.2008 10:10
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>Java ist einfach nur ein stinkender haufen wortreicher scheisse. Manch eines dieser Tools braucht man schlicht nur weil java so schlimm ist.</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_619">
+<p class="infos">
+<a href="#comment_619" onclick="set_comment_reference(619)" title="auf diesen Kommentar antworten">#619</a>:
+    17.Mar.2010 11:03
+    von
+    
+      
+        silentsnow
+      
+    
+    
+  </p>
+<p><em>lach</em> geile Aussage. Ich bevorzuge C, und sehe keins der Probleme a la "DLL hell" und Co., wenn man die Arschbacken bissl zusammenkneift. Ich kann ich mir alles so zusammenbauen, wie ich es brauche. Wiederverwendbarkeit ist dann auch kein Problem.<br/>
+C++ ist OK fuer entsprechend komplexe Dinge (man moechte ja keine Zeit verschwenden), aber auch hier sehe ich den Konflikt: Einerseits jammern alle, dass RAM Latencies nicht mit der Entwicklung der CPU Leistungsfaehigkeit mithalten kann, andererseits verwendet man zunehmend OOP, wo die Speicherallokationsmuster einfach beschissen aussehen.<br/>
+Man vergebe mir meine OOP Kritik, ich besch&auml;ftige mich am liebsten mit Embeddedzeugs.</p>
+</div>
+</li>
+</ul>
+</div>

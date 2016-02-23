@@ -1,0 +1,9 @@
++++
+title = "Free-Chao RC1"
+date = "2007-03-05T02:03:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/304"
+aliases = "blog/304"
++++
+
+<p>Sicher haben es schon einige geh&ouml;rt, Sacred-Chao ist seit neuerem modular aufgebaut und hat einige neue Funktionen.<br/>Den Download der aktuellen Distri gibt es <a href="http://wwwstud.fh-zwickau.de/~fraste/Sacred-Chao/Sacred-Chao.rar">hier</a><br/>eine Web-Chao-Version auf neuem Stand gibt es <a href="http://wwwstud.fh-zwickau.de/~fraste/Sacred-Chao/Web-Chao/free-chao.php">hier</a><br/>In Zukunft werden wohl vor allem Updates der Module ver&ouml;ffentlicht, Free-Chao selbst sollte ab der n&auml;chsten Version langsam einigerma&szlig;en ausgereift sein.<br/>Wer neue Module entwickeln, oder vorhandene &auml;ndern will kann das gerne tun, alle die ich hier ver&ouml;ffentliche stehen wie der Bot selbst unter GNU-GPL (solange ich das nicht mal bei einem anders angebe).<br/><br/>Die Module sind derzeit in jeweils 2 Hauptdateien gegliedert, include.php und require.php. Letztere wird beim Start des bots geladen, in ihr sollten s&auml;mtliche Funktionen und Objekte deklariert sein. include.php wird bei jedem Durchgang der Funktion zum Parsen der Befehle aufgerufen, wichtige vordefinierte variablen sind die Arrays $args[], $config[] (und evtl. $modules[] bzw. der Z&auml;hler der die aktuelle Stelle in $modules[] angibt, $module_count)<br/><br/>als wichtige Funktionen zur Modulentwicklung w&auml;ren wohl nur cmd_send und prep_text zu nennen, letztere formatiert 2 Strings zu einer Privmsg Ausgabe (sieht dann ca. so aus: "sacred-chao:[] ") die erste schreibt rohe Kommandos oder durch prep_text formatierte ausgaben in den aktuellen chan.</p>

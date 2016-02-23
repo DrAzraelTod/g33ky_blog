@@ -1,0 +1,435 @@
++++
+title = "Hände weg von TeleColumbus"
+date = "2008-07-17T11:07:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/479"
+aliases = "blog/479"
++++
+
+<p>Vor einiger Zeit hatten wir in unserer WG beschlossen es w&auml;re Zeit sich endlich einen Internetanschluss zuzulegen. Nachdem wir uns ein wenig umgesehen hatten, kamen wir zu dem Schluss dass das Angebot von <a href="http://www.ewt.de/" target="_blank">EWT</a>, eine Internetverbindung &uuml;ber das Antennenkabel aufzubauen, das g&uuml;nstigste w&auml;re. Immerhin war die Flatrate mit nur 19&euro; angegeben und man musste keine Telefonleitung zus&auml;tzlich schalten (war damals allgemein noch so &uuml;blich).<br/>Die erste Entt&auml;uschung und Abweichung von diesem Preis stellten wir fest als man uns in der Filiale sagte dass entgegen der Werbung ab ausgerechnet diesem Monat ein reiner Bezug von Internet nicht mehr m&ouml;glich w&auml;re... da uns ein Antennenanschluss aber immer noch sinnvoller erschien als ein Telefonanschluss (wozu auch wenn jeder sein Handy hat?) beschlossen wir dass wir halt in den sauren Apfel bei&szlig;en m&uuml;ssten und die 12&euro;/Monat zus&auml;tzlich zahlen w&uuml;rden.</p>
+<p><!--more--></p>
+<p>Die zweite Entt&auml;uschung kam, als wir das neue Kabelmodem zuhause anschlie&szlig;en wollten, es lies sich einfach nicht dazu bewegen eine Verbindung herzustellen. Telefonanrufe bei EWT brachten auch keine wirklichen Resultate, entweder man landete nur in einem Callcenter wo die Angestellten nicht viel mehr machten als ein Formular abzuarbeiten das ca. den halben Umfang der einseitigen "Bedienungsanleitung" hatte, oder man w&auml;hlte gleich die Nummer der Filiale in Zwickau wo die erste Reaktion der Angestellten meist darin bestand den Anruf zum Callcenter weiterzuleiten.<br/>Nach einigen Versuchen (Versucht mal einer Callcenter-Angestellten zu erkl&auml;ren dass das Kabelmodem auch eine Statusanzeige per http anbietet wenn davon nichts in der Anleitung steht!) schaffte ich es dann doch dass mir von seitens der Zwickauer Filiale versprochen wurde dass sie jemanden vorbei schicken.<br/>Das geschah dann auch nach weit &uuml;ber einer Woche (die wir schon bezahlen durften) und alles was er tat war am Schaltschrank im Keller etwas umzustellen (zu dem Schaltschrank habe ich keinen Zugriff), Gesammtdauer mit Fehlerdiagnose: ca. 5min.<br/>Nun surfte ich also eine Weile, habe mir unter anderem 2-3 Rechner neu aufgespielt (DVD-Image runtergeladen) und die Distribution nach der Installation gleich noch aktualisiert, als nach reichlich einer Woche mit dem Monatsende eine nette Rechnung &uuml;ber mehr als 160&euro; ins Haus flatterte.<br/>Die Begr&uuml;ndung f&uuml;r diesen hohen Preis war, dass wir nicht per Webfrontend den Tarif auf Flatrate umgestellt h&auml;tten und die Standardauswahl ein Volumentarif war. (Ich konnte noch von Gl&uuml;ck reden dass wir so ziemlich gegen Ende des Monats angefangen haben die Internetverbindung zu nutzen.)<br/>Nat&uuml;rlich f&uuml;hrte ein Einspruch unsererseits zu keiner brauchbaren Reaktion von seitens EWT und noch viel weniger dazu dass wir auch nur einen Cent unserer 160&euro; zur&uuml;ckbekommen h&auml;tten.<br/>Die Angestellten in der EWT-Filiale beriefen sich derweile darauf dass<br/></p><ul><br/> <li> sie Rechnungen nicht nachtr&auml;glich bearbeiten k&ouml;nnen, dies m&uuml;sse in der Hauptfiliale geschehen.</li><br/> <li>wir bei der ersten Aktivierung einer MAC-Adresse (Ja, jeder Rechner (oder WLAN-AP) muss erst mit seiner MAC-Adresse bei EWT registriert werden) auch ausw&auml;hlen m&uuml;ssen welchen Tarif wir wollen. (Wenn man mit einer unbekannten MAC-Adresse zugreift wird man zwar auf das Verwaltungssystem umgeleitet, das Frameset mit anderen Men&uuml;punkten als "MAC-Adresse-Registrieren" sieht man aber nur wenn man die EWT-Homepage von Hand aufruft.) Man kann mir ja auch sicher viel nachsagen... aber dass ich aus Bl&ouml;dheit oder um meinen Mitbewohner zu &auml;rgern auf "Volumentarif" klicke w&auml;re mir neu.</li><br/></ul><br/>Nachdem wir uns also mit dem Gedanken abgefunden haben, dass wir monatlich mindestens das gleiche zahlen wie bei der Konkurrenz, bei Problemen von Callcenter zu Callcenter geschickt werden und mal eben noch 160&euro; zus&auml;tzlich f&uuml;r nichts hinbl&auml;ttern mussten, stellte sich dann so langsam Routine mit der Verbindung ein.<br/>Mit Routine meine ich in diesem Fall dass wir uns langsam daran gew&ouml;hnten am Wochenende Geschwindigkeiten von weit unter 56K-Niveau zu haben und zeitweise &uuml;berhaupt nichts mit der Verbindung anfangen zu k&ouml;nnen.<br/>Manchmal reichte die Geschwindigkeit nichtmal mehr um eine bereits aufgebaute IRC-Verbindung aufrecht zu erhalten. EWT &auml;nderte inzwischen seinen Namen, war afair kurzzeitig als Bosch Kabelnetze bekannt und l&auml;uft seit einiger Zeit nun unter dem Namen Tele Columbus (und macht unter diesem Namen enorm viel Werbung wegen seiner "g&uuml;nstigen Preise")<br/>Meine Versuche eine Verbindung von Au&szlig;en auf meinen Rechner zu bekommen (z.B. um meine Webseite auf meinem Server@home zu hosten) schlagen alle daran fehl dass Tele Columbus eine zus&auml;tzliche Stufe NAT vorgeschalten hat. Sprich: unser gesammtes Netzwerk in der WG teilt sich nicht nur eine IP-Adresse sondern unser ganzes Netzwerk in der WG teilt sich eine private, nichtgeroutete IP-Adresse an deren Konfiguration ich nichts &auml;ndern kann! Ich kann also unm&ouml;glich einen Port direkt von au&szlig;en an meinen Server weiterleiten lassen.
+
+<p>Vor kurzem beschlossen wir jedenfalls auszuziehen und einen halben Monat bevor unser Mietvertrag mit der Wohnung ausl&auml;uft (und lange bevor mein Mitbewohner das K&uuml;ndigungsschreiben an Tele Columbus abgeschickt hat) ist jetzt pl&ouml;tzlich die Verbindung komplett gekappt. Seit reichlich 2 Tagen haben wir also weder Internet noch Rundfunkempfang &uuml;ber die Verbindung die wir noch f&uuml;r den ganzen Monat bezahlen, Tele Columbus beh&auml;llt also wenn das so weiter geht mal eben seine Leistungen f&uuml;r einen halben Monat ein ohne einen Grund daf&uuml;r zu haben.</p>
+<p>Wer auch immer das liest, solltet ihr auch nur ann&Atilde;&curren;herungsweise auf die Idee kommen, ihr k&ouml;nntet euch eine billige Internetverbindung bei EWT/Bosch/TeleColumbus bestellen... LASST ES! Der &Auml;rger ist es nicht wert und das Preis/Leistungs-Verh&auml;lltnis ist am Ende mehr als nur mies.</p>
+<p>Mal noch zum Abschluss eine kurze Rechnung &uuml;ber 14 Monate:</p>
+<p>TeleColumbus:<br/>19&euro;/Monat Internetgeb&uuml;hr + 12&euro;/Monat Kabelanschluss + (140&euro;/14Monate) = 41&euro;/Monat<br/>Vergleicht das mal mit aktuellen Angeboten von <a href="http://www.1und1.de/" target="_blank">1&amp;1</a>, <a href="http://www.alice-dsl.de/index.html" target="_blank">Alice</a>, <a href="http://www.freenet.de/freenet/dsl/startup/index.html?pid=1116" target="_blank">Freenet </a>oder wenns sein muss gar <a href="http://www.t-home.de/" target="_blank">T-Home</a>!<br/>F&uuml;r 25&euro;/Monat bekommt man <a href="http://www.dsl-flatrate-abc.de/dsl-tarife/a-dsl-flatrate-vergleich.php" target="_blank">heutzutage</a> schon einen 16M-DSL Upstream in Verbindung mit einem Telefonanschluss, dabei sind dann auch meist Anschlussgeb&uuml;hren und Hardware mit dabei.</p>
+<p><a href="http://google.de/search?q=cache:lO7gbtdni4wJ:www.mdr.de/hier-ab-vier/rat_und_tat/4606785.html+ewt+mdr&amp;hl=de&amp;ct=clnk&amp;cd=1&amp;gl=de&amp;client=firefox-a" target="_blank">MDR-Bericht zu EWT</a> (Cache-Version da inzwischen <a href="http://www.mdr.de/hier-ab-vier/rat_und_tat/4606785.html" target="_blank">offline</a>)</p>
+<p><a href="http://forum.dsl-halle.de/index.php?PHPSESSID=afd35bfe15334356c46a93450a329f1d&amp;topic=173.0" target="_blank">Forumspost zum Thema EWT und Telefon</a></p>
+<p><a href="http://www.wieistmeineip.de/dsl-anbieter/ewt-net.html" target="_blank">Weitere Bewertungen von EWT/TeleColumbus</a></p>
+<p><a href="http://www.heise.de/newsticker/Aerger-um-Free-TV-Gebuehren-im-digitalen-Kabel--/meldung/69764" target="_blank">alter Heise-Artikel zu den Methoden von EWT bez&uuml;glich "Free"-TV</a></p>
+<p><a href="http://forum.digitalfernsehen.de/forum/showthread.php?s=f297e3b362118196e9e7bd4c5bf5f49f&amp;t=110059" target="_blank">520 Seiten langer Forumthread zu allen Neuigkeiten bez&uuml;glich EWT</a></p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_344" onclick="set_comment_reference(344)" title="auf diesen Kommentar antworten">#344</a>:
+    17.Jul.2008 02:07
+    von
+    
+      
+        <a href="http://sieghai.wordpress.com/" target="_blank">
+          gabrielstagebuch
+        </a>
+</p>
+<p>Alter. Krasse schei&szlig;e. Ist das noch Legal? Ich bin bei Freenet hatte eine tausender Leitung f&uuml;r 29,30&euro; Flat + Umsonst telefonieren. Vor gut vier Monaten bin ich zu einer zweitausender Leitung umgeleitet worden. Ich fragte nach. Alles Legal ich bezahle immer noch den selben Preis. Wenn ich mir oben deine Rechnung anschaue und dann noch das Woprt 56K Modem lese kriege ich das kalte grausen. Heftig.</p>
+
+<p class="infos">
+<a href="#comment_345" onclick="set_comment_reference(345)" title="auf diesen Kommentar antworten">#345</a>:
+    18.Jul.2008 09:07
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>TOD! Dir m&uuml;ssen ja unwahrscheinlich die H&auml;nde zittern bei diesem Entzug den du gerade durchmachst! Bekommst du jezt Kinder oder l&ouml;st das &Ouml;lproblem wo du so viel Zeit hast?</p>
+
+<p class="infos">
+<a href="#comment_346" onclick="set_comment_reference(346)" title="auf diesen Kommentar antworten">#346</a>:
+    18.Jul.2008 11:07
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>ich l&ouml;se eher ein paar Mutantenprobleme... Fallout2 sei Dank!</p>
+<p>@gabrielstagebuch<br/>
+klar ist das legal, selber schuld wer so einen Vertrag abschlie&szlig;t</p>
+<p>btw: Ich war grade nochmal bei EWT und hab nachgefragt, scheinbar ist jemand in unserem Haus vor uns ausgezogen und die haben mal eben unseren Anschluss mit abgedreht weils so bequem war. -.-</p>
+
+<p class="infos">
+<a href="#comment_347" onclick="set_comment_reference(347)" title="auf diesen Kommentar antworten">#347</a>:
+    31.Jul.2008 02:07
+    von
+    
+      
+        <a href="/2008/07/31/spas-mit-der-tele-achne/" target="_blank">
+          Spa&szlig; mit der Tele.. achne &amp;laquo; G33KY^2 - The Nerd Strikes Back
+        </a>
+</p>
+<p>[...] spinnen auch die Leute bei TeleColumbus noch ein letztes Mal rum, zum Gl&uuml;ck muss sich diesmal mein (ab heute 17:00 ex-) Mitbewohner damit [...]</p>
+
+<p class="infos">
+<a href="#comment_348" onclick="set_comment_reference(348)" title="auf diesen Kommentar antworten">#348</a>:
+    14.Sep.2008 03:09
+    von
+    
+      
+        <a href="http://www.markuswalther.org" target="_blank">
+          Markus
+        </a>
+</p>
+<p>Bei TeleColumbus wird eine Menge Unwesen getrieben...<br/>
+Falls du Interesse hast, ich habe auch vor nicht allzu langer Zeit meine Erfahrungen (bei mir digitaler Kabelanschluss) niedergeschrieben: <a href="http://www.markuswalther.org/blog/?p=11%3C/p%3E" rel="nofollow">http://www.markuswalth...</a>
+</p>
+<p class="infos">
+<a href="#comment_349" onclick="set_comment_reference(349)" title="auf diesen Kommentar antworten">#349</a>:
+    15.Sep.2008 09:09
+    von
+    
+      
+        <a href="/2008/09/15/telecolumbus-bei-anderen/" target="_blank">
+          TeleColumbus bei anderen &amp;laquo; G33KY^2 - The Nerd Strikes Back
+        </a>
+</p>
+<p>[...] hat mich gerade per Kommentar auf einen sehr sch&ouml;nen Artikel (etwas l&auml;nger) von sich selbst hingewiesen, der seine [...]</p>
+
+<p class="infos">
+<a href="#comment_350" onclick="set_comment_reference(350)" title="auf diesen Kommentar antworten">#350</a>:
+    26.Sep.2008 11:09
+    von
+    
+      
+        <a href="/2008/09/26/intarwebs-at-last/" target="_blank">
+          Intarwebs at last! &amp;laquo; G33KY^2 - The Nerd Strikes Back
+        </a>
+</p>
+<p>[...]  Seit heute, dem 26. um ca. 9:20 haben wir in Dresden endlich eine eigene Internetverbindung. Es hat ja auch lange genug gedauert&hellip; [...]</p>
+
+<p class="infos">
+<a href="#comment_351" onclick="set_comment_reference(351)" title="auf diesen Kommentar antworten">#351</a>:
+    30.Jan.2009 07:01
+    von
+    
+      
+        frank
+      
+    
+    
+  </p>
+<p>EWT oder Telecolumbus..meine leitung ist immer zu langsam, und ich gebe nicht viel auf den Service....als kunde f&uuml;r einen Anruf zahlen? nee, ich werde wieder zur&uuml;ck zur T-com gehen, wenn die mal dsl anbieten (k&ouml;nnen)<br/>
+Auch von mir H&auml;nde weg von Telecolumbus...</p>
+
+<p class="infos">
+<a href="#comment_352" onclick="set_comment_reference(352)" title="auf diesen Kommentar antworten">#352</a>:
+    07.Feb.2009 09:02
+    von
+    
+      
+        Kr&uuml;mel
+      
+    
+    
+  </p>
+<p>also ich weis nicht was ihr alle habt. ich bin seit 2003 bei (damals noch) Bosch, EWT bzw nun Telecolumbus und hatte noch nie Probs.</p>
+<p>Ich hab damals gesagt f&uuml;r was f&uuml;r Tarif ich mich interessiere und hatte seit dem immer nur Flats . Mittlerweile hab ich eine 6000er Flat f&uuml;r 19,99 + TV (11,99) und das reicht mir vollkommen. Ich hatte jetzt Umzug im februar und gesagt wann ich umziehe. am 31.1.09 war Umzug und schon am 30.1. war das alles auf die neue Wohnung umgestellt und ich konnt nach kurzem einrichten des rechners auf die neue Wohnung problemlos ins Inet.</p>
+<p>Und wenns mal Probs gab , bin ich ins Kundencenter und hab nachgefragt was los ist und bekam auch immer ordentliche und zufriedenstellende antworten.</p>
+<p>Und das seit 2003 !!!</p>
+
+<p class="infos">
+<a href="#comment_353" onclick="set_comment_reference(353)" title="auf diesen Kommentar antworten">#353</a>:
+    14.Feb.2009 10:02
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>solche F&auml;lle gibt es durchaus.. es handelt sich aber wohl leider eher weniger um die Regel.<br/>
+Man <em>kann</em> &uuml;ber viele Jahre hinweg konstant gute Werte von EWT bekommen (vor allem wenn man so ziemlich der Einzige im n&auml;chsten Umkreis ist, der die Leitung verwendet) aber man kann auch vollkommen das Gegenteil erleben.<br/>
+Das Problem ist, dass man nicht f&uuml;r die M&ouml;glichkeit der guten Leistung zahlt, sondern f&uuml;r die Leistung.</p>
+
+<p class="infos">
+<a href="#comment_354" onclick="set_comment_reference(354)" title="auf diesen Kommentar antworten">#354</a>:
+    15.Mar.2009 04:03
+    von
+    
+      
+        ZOE
+      
+    
+    
+  </p>
+<p>Wir sind ent&auml;uscht von der Tele-Columbus. St&auml;ndig haben wir kein Telefon, kein Internet oder St&ouml;rungen beim telefonieren. Wir sind fast jeden Monat bis zu 5 Tagen hintereinander telefonisch nicht zu erreichen. Internet ist auch so ein Problem, weil wir f&uuml;r unseren Verein eine Hompage betreiben, die wir aus den Gr&uuml;nden nie auf dem neuesten Stand haben k&ouml;nnen. Aber das TELEFON ist wichtiger. St&auml;ndig m&uuml;ssen wir teuer &uuml;ber Handy telefonieren. Wozu haben wir eine Flat, wenn wir sie nicht nutzen k&ouml;nnen? 1 bis 2 die Woche haben wir kein Telefon. Manchmal bis zu 5 Tagen nicht.Ist das rechtlich eigentlich in Ordnung, was diese Firma da treibt? Wir wollen n&auml;chste Woche einen Rechtsanwalt aufsuchen und mal schauen, was m&ouml;glich ist, um schnell genug aus dem Vertrag raus zu kommen. Wer hat noch solche Probleme? Man sollte vielleicht sich mal an die Zeitung wenden (z. B.BILD).<br/>
+Wir hoffen, es meldet sich jemand.</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_355">
+<p class="infos">
+<a href="#comment_355" onclick="set_comment_reference(355)" title="auf diesen Kommentar antworten">#355</a>:
+    15.Mar.2009 06:03
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Legal? sicher.. solange niemand was dagegen unternimmt... Was du auf alle F&auml;lle tun k&ouml;nntest, w&auml;ren minderungen der monatlichen Zahlungen aufgrund unterlassener Leistungen oder eine au&szlig;erordentliche K&uuml;ndigung. Ich w&uuml;rde dir auf jeden Fall mal empfehlen bei einer Verbraucherzentrale oder so anzurufen oder dich sonst irgendwie rechtlich beraten zu lassen.<br/>
+Die Idee sich auf irgendeine Zeitung zu verlassen ist hingegen Bl&ouml;dsinn.. schlimmer nur wirds noch wenn es etwas aus dem Hause Springer sein soll.</p>
+</div>
+</li>
+<li>
+<div class="comment" id="comment_358">
+<p class="infos">
+<a href="#comment_358" onclick="set_comment_reference(358)" title="auf diesen Kommentar antworten">#358</a>:
+    02.Apr.2009 10:04
+    von
+    
+      
+        xy
+      
+    
+    
+  </p>
+<p>Aja man sollte halt mal die Leitung &uuml;berpr&uuml;fen lassen!</p>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_356" onclick="set_comment_reference(356)" title="auf diesen Kommentar antworten">#356</a>:
+    25.Mar.2009 07:03
+    von
+    
+      
+        hingucker
+      
+    
+    
+  </p>
+<p>Habe leider das gleiche Problem, haben 10000er<br/>
+Mo-Fr zwischen 03.00 - 14.00 Leider nur 2000er sonst nur 300er maximal<br/>
+Sa-So unter 1000... ganze zeit, obwohl zahlung f&uuml;r 10000 durchgef&uuml;hrt wird.<br/>
+Ich hoffe TC geht pleite. Alles hat mal sein ende.</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_357">
+<p class="infos">
+<a href="#comment_357" onclick="set_comment_reference(357)" title="auf diesen Kommentar antworten">#357</a>:
+    25.Mar.2009 11:03
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Kurze Frage: Warum sollten die pleite gehen wenn du ihnen weiter Geld zahlst obwohl sie nichts daf&uuml;r leisten?</p>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_359" onclick="set_comment_reference(359)" title="auf diesen Kommentar antworten">#359</a>:
+    02.Apr.2009 10:04
+    von
+    
+      
+        xy
+      
+    
+    
+  </p>
+<p>Ja ja dann beschwere Dich doch und la&szlig; die Leitung &uuml;berpr&uuml;fen. Also bei Bekannten von mir die bei der DTAG sind liefern auch nicht die komplette Leistung. Glaube dass ist nicht nur bei TC so!</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_360">
+<p class="infos">
+<a href="#comment_360" onclick="set_comment_reference(360)" title="auf diesen Kommentar antworten">#360</a>:
+    02.Apr.2009 11:04
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>und davon hat man dann.. &auml;hm.. was?<br/>
+kein dienstleister in diesem sektor hat sich irgendwo auf irgendwelche Werte festgelegt, die bei dir ankommen sollen. Schlags in beliebigen Vertr&auml;gen dazu nach oder guck dir die Anzeigen an "<em>bis_zu</em> wahnsinnige n MBit/s!!!!!!!!11111einself"</p>
+<p>Achja: und die "Leitung &uuml;berpr&uuml;fen" ist auch so verdammt relativ... Damit TeleColumbus was unternimmt, m&uuml;sste man entweder einen unabh&auml;ngigen "Sachverst&auml;ndigen" beauftragen, was verdammt teuer werden kann oder man muss die Firma selbst dazu bringen jemanden vorbei zu schicken. Letzteres dauert mehrere Wochen, der Techniker ist selbst auch meist nicht sonderlich f&auml;hig und &uuml;berhaupt bei TC jemanden ans Telefon zu bekommen der nicht irgendwo in einem Callcenter sitzt und das Handbuch vorliest ist eine Kunst.<br/>
+Ich hab mich fr&uuml;her lange genug mit deren Hotlines rumge&auml;rgert, ich wei&szlig; wovon ich rede.</p>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_361" onclick="set_comment_reference(361)" title="auf diesen Kommentar antworten">#361</a>:
+    27.Apr.2009 11:04
+    von
+    
+      
+        lol
+      
+    
+    
+  </p>
+<p>einfach bei der verbraucherschutzzentrale melden<br/>
+oder per telefon JEDEN tag anrufen und sagen das die leitung kacke ist, zwar machen die was aber nicht f&uuml;r lange.</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_362">
+<p class="infos">
+<a href="#comment_362" onclick="set_comment_reference(362)" title="auf diesen Kommentar antworten">#362</a>:
+    27.Apr.2009 12:04
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Verbraucherschutzzentrale ist ja eine ganz nette Idee.. aber bei TC anrufen ist absolut hirnrissig, zumindest wenn man wei&szlig; wie die ihre Hotlines organisiert haben. Standardm&auml;&szlig;ig landet man immer bei der kostenpflichtigen Variante im Callcenter, die einem auch nicht mehr bringt als die "Bedienungsanleitung" vorgelesen zu bekommen.<br/>
+Wenn man die lokale Nummer der n&auml;chsten TC-Filiale erreicht, wird man von dort m&ouml;glichst schnell versucht zur Hotline umgeleitet zu werden, das ist nicht besser, kostet daf&uuml;r wenigstens nicht so viel.<br/>
+Sollte man es aber tats&auml;chlich schaffen mal zu der Nummer des Technikdienstleisters durchzukommen, dann bekommt man im allerbesten Fall auch nur einen Termin in 3-4 Wochen, den derjenige auch nicht unbedingt einh&auml;llt... Wenn aber jemand kommt und tats&auml;chlich einen Fehler findet ("joar.. die Nachbarn surfen zu viel, reden sie mal mit denen") dann kann er evtl. helfen. Ob das alles aber diesen Aufwand wert ist?</p>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_363" onclick="set_comment_reference(363)" title="auf diesen Kommentar antworten">#363</a>:
+    29.Apr.2009 02:04
+    von
+    
+      
+        Martin42
+      
+    
+    
+  </p>
+<p>Warnung vor Telekolumbus! Extreme Leitungsschwakungen und sehr schlechter Support. Neben den genannten Problemen, trat bei mir das Problem auf, dass ich 2 Monate bezhalt habe wobei ich kein TV-Empfang noch eine Internetverbindung bekam. Entsch&auml;digungen entfieheln nat&uuml;rlich, da so etwas "nicht vorgesehen" ist! Passt auf mit diesem Anbieter. Abzocke und Betrug beschreibt die Telekolumbus AG wohl besser !!!!</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_364">
+<p class="infos">
+<a href="#comment_364" onclick="set_comment_reference(364)" title="auf diesen Kommentar antworten">#364</a>:
+    29.Apr.2009 04:04
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Das an sich ist ja schon schlimm.. aber als du nicht sofort bezahlt hast, haben sie dir sogar deine orthografischen F&auml;higkeiten gepf&auml;ndet!<br/>
+Selbst das Satzzeichen z&auml;hlen scheint dir schon schwer zu fallen.</p>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_365" onclick="set_comment_reference(365)" title="auf diesen Kommentar antworten">#365</a>:
+    16.May.2009 06:05
+    von
+    
+      
+        berliner
+      
+    
+    
+  </p>
+<p>Auch ich kann nichts gutes sagen. Ich habe nur Tv und Tv-Digital mit schlechter Qualit&auml;t bei TSS-ETW-Telecolumbus. Ich bekam Mahnung von angeblich nicht Bezahlter TV u. TV-Digital Geb&uuml;ren. Das fing an als sich die Nahmen &auml;nderten von TSS auf ETW weil das Sagte mann mir die einen nicht auf das Konto des anderen Sehen konnten obwohl es immer noch der selbe Anbieter war. Warum weis ich nicht es hatte sich ja nur der Nahme ge&auml;ndert. Jetzt ist es Telecolumbus und immer noch das selbe. Im Dezember 08 K&uuml;ndigte ich den Vertrag aber wie es aussieht nur einseitig denn die wollen nicht davon Wissen und Buchen weiter ab. Gottseidank kann ich jedes mal zur&uuml;ck Buchen lassen. Jetzt bekomme ich wieder Mahnungen und die Buchen weiter ab, ich wieder zur&uuml;ck. Da sie von meiner K&uuml;ndigung immer noch nichts wissen wollen geht das spiel Monat zu Monat weiter. Obwohl ich seit Januar 09 kein TV Emfang mehr habe. Jetzt bin ich bei Telekom habe 16ner Netz, Tel. und TV und alles Ok. Gruss icke</p>
+
+<p class="infos">
+<a href="#comment_366" onclick="set_comment_reference(366)" title="auf diesen Kommentar antworten">#366</a>:
+    16.May.2009 09:05
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Das Thema scheint durchaus noch aktuell zu sein... auch bei <a href="http://tvfansblog.wordpress.com/2009/05/16/tele-columbus-bei-anruf-wird-einfach-aufgelegt-teil-3/">Dirks Fernsehblog geht es momentan mal wieder</a> um die Machenschaften dieser Firma</p>
+
+<p class="infos">
+<a href="#comment_367" onclick="set_comment_reference(367)" title="auf diesen Kommentar antworten">#367</a>:
+    06.Jul.2009 10:07
+    von
+    
+      
+        Annika
+      
+    
+    
+  </p>
+<p>Auch ich bin aus Zwickau und habe keine guten Erfahrungen mit dem Servicecenter. Am 29.7. vergangenen Jahres bekam ich endlich nach mehrw&ouml;chigem warten mein Internetanschluss. Ich beantragte die 1000er Flatrate. Anfang August sah ich in meine Rechnungsseite. Auch mir wurde alles im Minutentakt berechnet. Ich rief in Berlin an und wurde auf Flatrate umgestellt. Man wollte diesen Fall &uuml;berpr&uuml;fen. Bis Dezember h&ouml;rte ich nichts. Dann kam die erste Mahnung. Brief geschr&iacute;eben, Fall geschildert. Ein Monat sp&auml;ter 2. Mahnung, gleiches Spiel. Am 28.2. wollte ich ins Netz nichts ging. Ich rief die St&ouml;rungsstelle an. Diese teilten mir mit, dass ich die K&uuml;ndigung erhalten habe und sich ein Inkassob&uuml;ro bei mir melden w&uuml;rde. Da der Fehler nicht bei mir lag, dachte ich, ein, zwei Tage dann habe sich alles erledigt. Nichts da. Mit dem Internet wurde mir auch das Telefon abgeklemmt. Telecolumbus hat jeden Monat TV und Telefon abgebucht. Auch lag denen der Abbuchungsaufftrag f&uuml;r das Internet vor. Was machten die, setzten eine v&ouml;llig andere Bankverbindung in meinen Vertrag ein und wunderten sich, dass sie kein Geld bekamen. Das erfuhr ich aber erst etwa nach meinem dritten Anruf, bei dem ich intensiv nach den Ursachen forschen lie&szlig;. Fragt nicht nach meiner Handyrechnung. Und jedesmal sagte man mir am Telefon, man &uuml;berpr&uuml;fe das und werde sich bei mir melden. Einer sagte zu meiner Anfrage ich solle bezahlen und knallte den H&ouml;rer auf. Recht freundlich die in Berlin. Keiner rief zur&uuml;ck. Auch auf meine Schreiben keine R&uuml;ckantwort. Im Servicecenter das gleiche, ich solle meine Rechnung bezahlen. Ich sehe doch nicht ein, f&uuml;r deren Fehler zu zahlen. So ging ich in die Verbraucherzentrale, was auch Geld kostete. Die setzte sich mit der Tageszeiung in Verbindung und bekam die Telefonnummer der Pressesprecherin in Berlin. Am 1.April kam das gro&szlig;e Entschuldigungsschreiben und man nehme alle Forderungen zur&uuml;ck. Au&szlig;erdem werde man mich zeitnah freischalten. Bis Juni tat sich nichts(war auch im Urlaub) und bin dann wieder zur Verbraucherzentrale und habe an telecolumbus geschrieben. Mitte Juni Anruf, ich werde freigeschaltet. Der Brief folgte 2Tage sp&auml;ter. Aber wieder verkehrter Tarif. Am 1.4. wurde mir zugesichert das ich je zu 9,99&euro; die Anschl&uuml;sse bekomme. Auf einmal wollen sie 12,99&euro;. Und nichts ging. Wieder die St&ouml;rungsstelle angerufen. Am 29. und 30.6. rief mich der Techniker dann an. Bekanntlich schalten sie ja gerne am Monatsende frei um die vollen Monatsgeb&uuml;hren zu kassieren.Dies taten sie zuletzt  bei mir. Ich sagte dem Herren auch, er solle sich bis Mittwoch dem 1.7. Zeit lassen. Er lachte nur. Am 1.7. schaltete ich Internet ein. Es funktionierte. Emails konnte ich am ersten Tag verschicken, dann nicht mehr. Adressen&auml;nderung(email) oder anderes ist gar nicht m&ouml;glich. Und Telefon geht immer noch nicht. Jahrelang bezahlt man die Rechnung, die k&uuml;ndigen einfach ohne jede Vorwarnung und kriegen es einfach nicht in die Reihe mich wieder frei zu schalten. Jetzt sah ich bei web. de ein super Angebot. Am liebsten w&uuml;rde ich sofort fristlos k&uuml;ndigen. Werde mich mal mit der Verbraucherzentrale in Verbindung setzen.</p>
+
+<p class="infos">
+<a href="#comment_368" onclick="set_comment_reference(368)" title="auf diesen Kommentar antworten">#368</a>:
+    12.Aug.2009 12:08
+    von
+    
+      
+        Schmitz
+      
+    
+    
+  </p>
+<p>Telekolumbus ist bekannt f&uuml;r solche schon fast kriminelle Handlungen. Aber Hauptsache das Geld wird &uuml;unktlich &uuml;berwiesen!</p>
+<p>H&auml;nde weg von diesem unzuverl&auml;ssigen Verein!</p>
+
+<p class="infos">
+<a href="#comment_369" onclick="set_comment_reference(369)" title="auf diesen Kommentar antworten">#369</a>:
+    12.Aug.2009 12:08
+    von
+    
+      
+        anakatrin
+      
+    
+    
+  </p>
+<p>Bei mir haben die eine K&uuml;ndigung nicht entgegengenommen und trotz K&uuml;ndigungsfristen &uuml;ber 1 jahr weiter abgebucht!</p>
+<p>Ich klage nun auf Schadensersatz!</p>
+<p>H&auml;nde weg von TC!</p>
+
+<p class="infos">
+<a href="#comment_370" onclick="set_comment_reference(370)" title="auf diesen Kommentar antworten">#370</a>:
+    15.Feb.2010 07:02
+    von
+    
+      
+        Samuel
+      
+    
+    
+  </p>
+<p>TC ist einfach nur der gr&ouml;&szlig;te Schei&szlig;!</p>
+<p>Ich klage auch und es sieht gut aus. Die buchen immer noch von mir ab owbohl ich denen die Einzugserm&auml;chtigung entzogen habe.</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_371">
+<p class="infos">
+<a href="#comment_371" onclick="set_comment_reference(371)" title="auf diesen Kommentar antworten">#371</a>:
+    22.Feb.2010 02:02
+    von
+    
+      
+        M. Uhlmann
+      
+    
+    
+  </p>
+<p>Da unser Vermieter die Satantenne verboten hat, habe ich am 27.01.2010 einen Kabelanschlu&szlig; beauftragt. Nach zwei Wochen kam das Best&auml;tigungsschreiben und die Smartcard. Auf mehrfache Anfrage, wann der Anschlu&szlig; zugeschaltet wird, hei&szlig;t es, der Techniker sei beauftragt und wir sollten uns gedulden! Sind jetzt fast 4 Wochen. Sauerei!</p>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_1527" onclick="set_comment_reference(1527)" title="auf diesen Kommentar antworten">#1527</a>:
+    20.Jan.2011 02:01
+    von
+    
+      
+        <a href="http://enno.verbrennung.org/?s=telecolumbus" target="_blank">
+          Enno Lenze
+        </a>
+</p>
+<p>Uha, das klingt &uuml;beler als mein Problem, aber ich kenne es auch zu gut. Ich habe mal meine Geschichte unter <a href="http://enno.verbrennung.org/?s=telecolumbus" rel="nofollow">http://enno.verbrennun...</a> niedergeschrieben. Mich wollten sie aus dem v&ouml;llig veralteten vertrag erst lassen, wenn ich um zwei Jahre verl&auml;ngere. Teilweise habe ich acht Wochen auf eine Antwort gewartet.</p>
+<p>Gru&szlig;, Enno</p>
+</div>

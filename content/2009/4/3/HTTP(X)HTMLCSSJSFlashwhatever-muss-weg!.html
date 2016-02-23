@@ -1,0 +1,195 @@
++++
+title = "HTTP/(X)HTML/CSS/JS/Flash/whatever muss weg!"
+date = "2009-04-03T12:04:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/1354"
+aliases = "blog/1354"
++++
+
+<p>Wie ja bereits <a href="/2009/02/23/firefuck/#more-1269">vor einiger Zeit mal geschrieben</a> (und steht ja auch noch immer im <a href="irc://chat.freenode.net/#zanzibar">#Zanzibar</a>-Topic), besch&auml;fftigt mich seit l&auml;ngerer Zeit der Gedankengang dass man diesen ganzen HTTP und HTML-M&uuml;ll durch etwas sinnvolles ersetzen m&uuml;sste.</p>
+<p>Ich habe in den letzten Tagen dann endlich mal angefangen meine Gedankeng&auml;nge zu notieren und hier habt ihr jetzt die Ergebnisse:<br/><!--more--><br/>Schon alleine bei der Idee ein Datei&uuml;bertragungsprotokoll so weit aufzubohren dass man dar&uuml;ber interaktive Funktionen auf der Client-Seite mit dem Server koordinieren will, zieht es mir die Schuhe aus vor Ekel.<br/>Wenn dann noch so hunderttausende Erweiterungen dazu kommen, von denen keine wirklich sinnvoll Standardisiert ist und jede komplett auf einer neuen Sprache aufbaut, dann renn ich endg&uuml;ltig zum Klo.</p>
+<p>Der derzeitige Standard ist ja wohl folgender:<br/>Wir erzeugen mit einer interpretierten Sprache je nach Aufruf eines virtuellen Verzeichnisses (z.B. /user/id/1) eine Markup-Datei, diese wird zusammen mit massig statischen Bildern, anderen Interpreterscripten in verschiedensten Sprachen (das nat&uuml;rlich dann wieder statisch angelegt) mit einem Datei&uuml;bertragungsprotokoll an den Client gesendet.<br/>Ein einziger Seitenaufruf erzeugt also nicht nur 10-20 neue HTTP-Requests, der Client darf sich dann auch noch damit rumschlagen HTML zu formatieren, danach CSS zur Gestaltung dr&uuml;ber zu rechnen, diverseste Bildformate anzuzeigen, Javascript zu interpretieren, Flash einzubinden, Java-Applets anzuzeigen, ...</p>
+<p>Es gibt einfach keine Grenzen mehr f&uuml;r diesen Bl&ouml;dsinn. Neuerdings haben es sich einige Dienste sogar zur Aufgabe gemacht dieses pervertierte Datei&uuml;bertragunsprotokoll endg&uuml;ltig zu vergewaltigen. So gibt es da drau&szlig;en Leute, die via Polling einer virtuellen Datei etwas echtzeit&auml;hnliches auf die Beine stellen wollen. Andere versuchen neuerdings sogar eine HTTP-Verbindung permanent offen zu halten um so je nach Bedarf Daten nachladen zu k&ouml;nnen (siehe z.B. Friendfeeds Realtime-Variante).</p>
+<p>Gleichzeitig wollen wir &uuml;brigens nat&uuml;rlich jedes Design pixelgenau angeordnet haben, w&auml;hrend es aber auf jedem Browser seit Netscape Navigator 1 fehlerfrei laufen soll. Erkenne nur ich was hier f&uuml;r ein Bl&ouml;dsinn verbrochen wird?</p>
+<p>F&uuml;r pixelgenaues Layout gibt es sicher viele sinnvolle M&ouml;glichkeiten, aber eine XML-Variante, die darauf ausgelegt ist erstmal Inhalte semantisch zu &uuml;bertragen und die via Stylesheets dann noch mehr schlecht als recht in ihrer Darstellung angepasst werden kann, z&auml;hlt sicher nicht darunter.</p>
+<p>Selbst andere Dokument-Strukturen wie PDF oder SVG w&uuml;rden sich bei weitem besser eignen um sowas zu realisieren... aber das macht nichts, wird halt alles etwas aufw&auml;ndiger und teuer.</p>
+<p></p><h2>Vor&uuml;berlegungen</h2><br/>Warum bauen wir nicht endlich etwas neues? Meine Idee w&auml;re ja eine beliebige Variante von ausf&uuml;hrbarem Code zu &uuml;bertragen und diesen dann auf beiden Seiten (Client und Server) ausf&uuml;hren zu lassen. Beide Seiten k&ouml;nnten permanent miteinander reden, da das Socket ja nicht geschlossen werden muss.. wir m&uuml;ssen ja eh nach den Anweisungen noch alle m&ouml;glichen Bilder und andere statische Inhalte &uuml;bertragen.<br/>Die Clientseite des Programmes bekommt dann einfach noch die Anzeigef&auml;higkeiten des Clients mitgeteilt und darf dann selbst entscheiden was gezeichnet wird und was nicht.<br/>Dabei sollte eine reine Textausgabe als Minimalversion selbstverst&auml;ndlich sein (das kann man ja auch durch strukturierdende Funktionen in der API erleichtern -&gt; writeTextHeading() oder so) und je nachdem welche Klasse von Standardisierten F&auml;higkeiten der Client noch so anbietet, kann auch der Nutzer dann entscheiden was er genau sehen will.<br/>So kann jeder dann in seinem Client auch einstellen ob er lieber OpenGL-Ausgaben hat oder doch besser nur eine Konsolenvariante.
+
+<p>Die Sprache k&ouml;nnte auch ziemlich beliebig w&auml;hlbar sein, ideal w&auml;re f&uuml;r die &Uuml;bertragung ja eine Art zwischencompilat oder VM-Code. Wenn es wirklich sehr optimiert sein soll, kann der Server ja auch bereits f&uuml;r bestimmte Clientklassen compilierten Code bereitstellen (z.B. freiwillige Identifikation als x86 mit Linux 2.6.).<br/>Wenn ich also als Client &uuml;bertrage dass ich Betriebssystem X auf CPU Y verwende, dann bekomme ich Code den ich nur noch ausf&uuml;hren muss, f&uuml;r alle Systeme bei denen kein solcher Code vorliegt oder Clients die lieber die volle Kontrolle behalten wollen wird weiter der Zwischencode &uuml;bertragen.</p>
+<p></p><h2>Ideen zur Realisierung</h2><br/>Ein erster Beispielentwurf sieht eine Grundstruktur folgender Objekte vor:<br/><ul><br/><li>Back</li><br/><li>Front</li><br/><li>General</li><br/><li>Client</li><br/></ul>
+<p></p><h3>Back</h3><br/>wird immer auf dem Server ausgef&uuml;hrt<br/>enth&auml;llt unterobjekte f&uuml;r db-api und anderes beim Client nicht ben&ouml;tigtes<br/>jeder Aufruf einer Front-Funktion oder Eigenschaft von hier aus bedeutet eine Kommunikation mit dem Client<br/>Back-Datenstrukturen und Funktionen werden nicht an den Client gesendet
+
+<p></p><h3>Front</h3><br/>wird auf dem Client ausgef&uuml;hrt<br/>enth&auml;llt unterobjekte f&uuml;r komplexere Zeichenfunktionen (drawFrontpageHeading), Eingabeevents und alle sonstigen Dinge die nur auf Clientseite ben&ouml;tigt werden.
+
+<p></p><h3>general</h3><br/>Alle Funktionen die sowohl auf Client als auch auf Server-Seite ben&ouml;tigt werden, werden hier definiert.<br/>Typisches Beispiel w&auml;re z.B. md5()<br/>&Auml;nderungen nach der &Uuml;bertragung werden NICHT synchron gehalten
+
+<p></p><h3>client</h3><br/>Das einzige Objekt das &uuml;berhaupt nicht ge&auml;ndert werden kann<br/>wird direkt vom Client-Programm bereit gestellt und liefert alle Client-Api-Funktionen
+
+<p></p><h3>Beispielhafter Ablauf in python-&Auml;HNLICHEM Pseudocode:</h3><br/><pre><code><br/>class foBack extends genericBack:<br/>  function __init__(self):<br/>    soc = getPortOnServer(12345)<br/>    self.gen = new foGeneral()<br/>    soc.setCallbackNewConnection(self.newConn)
+
+<p>  function newConn(self, parameters):<br/>    parameters.client.sendApplication(foFront)</p>
+
+<p>  function userClicked(ident, x,y):<br/>    text = ''<br/>    if (!ident.loggedIn):<br/>      text = 'un'<br/>    print(text+"angemeldeter Nutzer klickte auf die Koordinaten %s, %s\r\n" % (x,y))</p>
+
+<p>class foFront extends genericFront:<br/>  function __init__(self, parameters):<br/>    self.client = parameters.client<br/>    self.client.setDrawCallback(self.redraw)<br/>    self.back   = parameters.back</p>
+
+<p>  function redraw(self, changes):<br/>    c     = self.client.config<br/>    if (c.ableTo('draw' 'event_onClick', 'showMsg')):<br/>      box   = new self.client.drawBox(0, c['maxX'], 0, c['maxY'])<br/>      text  = new self.client.drawText('Hello World', 20, c['maxX']-20,20, c['maxY']-20)<br/>      box.setOnClick(self.save)<br/>    else:<br/>      print('Hello World')<br/>      self.destroy()</p>
+
+<p>  function save(x,y):<br/>    self.back.userClicked(self.client.ident,x,y)<br/>    self.client.showMsg('EXIT!')<br/>    self.destroy()<br/></p></code></pre>
+<p></p><h2>Abschlie&szlig;ende Bemerkungen</h2><br/>Selbstverst&auml;ndlich ist diese Struktur noch bei weitem nicht ideal. So gehe ich im Beispielcode z.B. davon aus dass jede F&auml;higkeit einzeln abgefragt wird und dann parallel komplett unterschiedliche Vorg&auml;nge stattfinden.<br/>Sinnvoller w&auml;re es jedoch Funktionen ala "drawHeading" zu definieren und diese dann je nach Anwendungsstatus (der nach dem Vorhandensein von 2-3 Klassen an F&auml;higkeiten) umgeschalten wird verschiedene Funktionen ausf&uuml;hrt.
+
+<p>Es ist nat&uuml;rlich auch klar dass dieses Vorgehen f&uuml;r viele kleine Websites die nur mal eben schnell ihre 2-3 Statusmeldungen und Texte ins Web posten wollen und das dann via irgendwo "geklautem" Stylesheet einf&auml;rben, erheblich mehr Aufwand bedeutet.<br/>F&uuml;r gro&szlig;e Seiten/Projekte hingegen, denke ich dass der Aufwand im Gegensatz zu HTML/JS/CSS/... erheblich sinkt. Auch sollte sich auf diese Art nicht nur der Netzwerkoverhead (eine Connection statt hunderter Requests) erheblich reduzieren lassen, auch die Ausf&uuml;hrungsgeschwindigkeit sollte stark steigen (gerade via OpenGL-Zeichenfunktionen l&auml;sst sich einiges an Performance erreichen).<br/>Weiterhin sollte auch der Lernaufwand f&uuml;r die Entwickler und damit der Gesamtpreis f&uuml;r ein Projekt geringer werden. Man muss nicht mehr dutzende Markupsprachen koordinieren, man zeichnet nur noch ein Interface wie man es vlt. auch lokal tun w&uuml;rde.</p>
+<p>Nat&uuml;rlich geht damit der Grundgedanke von HTML verloren.. wir haben keine Sprache mehr die auf jeder Platform lauff&auml;hig sein soll und &uuml;berall f&uuml;r jeden lesbar dargstellt wird. Aber wenn wir ehrlich sind: das haben wir auch so schon lange nicht mehr.<br/>Bereits seit Jahren wird massiv auf verschiedene Browser optimiert, werden Clients ohne JS oder Flash komplett ausgesperrt oder Textsysteme und Screenreader f&uuml;r Blinde komplett vernachl&auml;ssigt.<br/>Dieses neue Protokoll w&uuml;rde all dies zur selben Flei&szlig;aufgabe machen, die es eigentlich schon seit Jahren ist.. es w&uuml;rde nur den Anreiz diesen Aufwand zu betreiben erheblich erh&ouml;hen und gleichzeitig den Aufwand verringern.</p>
+<p>So, das wars erstmal von meiner Seite... jetzt h&auml;tte ich gerne von euch ein paar Kommentare/Verbesserungsvorschl&auml;ge/gefundene Fehler dazu.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1226" onclick="set_comment_reference(1226)" title="auf diesen Kommentar antworten">#1226</a>:
+    04.Apr.2009 02:04
+    von
+    
+      
+        <a href="http://www.matworx.de" target="_blank">
+          madda
+        </a>
+</p>
+<p>&auml;h ... daf&uuml;r bin ich zuviel DAU um mich sinnvoll ins Thema einzuklinken ^^'</p>
+<p>Ich kann vielleicht nur soviel dazu beisteuern, das es wirklich mal sch&ouml;n w&auml;hre, wenn alles in irgendeiner Weise strukturierter und standardisierter w&auml;hre.</p>
+
+<p class="infos">
+<a href="#comment_1227" onclick="set_comment_reference(1227)" title="auf diesen Kommentar antworten">#1227</a>:
+    05.Apr.2009 10:04
+    von
+    
+      
+        <a href="http://www.wangoo.de" target="_blank">
+          SirSnookie
+        </a>
+</p>
+<p>Das Problem dabei sehe ich einfach in der Anwendbarkeit. Du m&uuml;ssstest s&auml;mmtlichen Frontpage (jetzt Dreamweaver) J&uuml;nger die Tools weg nehmen. WYSIWYG Editoren m&uuml;ssen gl&uuml;hen damit sie solch einen Code erzeugen. Die Designer, welche sich teilweise jetzt schon sehr schwer mit HTML tun m&uuml;ssten umschwenken. Selbst Photoshop und Illustrator w&uuml;rden auf die M&uuml;llhalde fliegen weil sie "nur" HTML Code aus den Slices erzeugen k&ouml;nnten.</p>
+<p>Der Ansatz ist gut, nur zu Revolution&auml;r. Da w&uuml;rde niemand mitziehen weil man wieder viel Geld investieren m&uuml;sste. Sei es auf der Browser Seite (Dann gehts gezanke wieder los) und auf der Serverseite, wo ja scho seit Jahren der IIS mit dem H&auml;uptling k&auml;mpft.</p>
+<p>Wie gesagt, das wichtigste da bei ist das Geld, die Firmen wollen es nicht investieren in Mitarbeiterschulungen, die Mitarbeiter haben keins f&uuml;r Schulungen und der normalsterbliche User schaltet gleich ganz ab.</p>
+
+<p class="infos">
+<a href="#comment_1228" onclick="set_comment_reference(1228)" title="auf diesen Kommentar antworten">#1228</a>:
+    05.Apr.2009 12:04
+    von
+    
+      
+        <a href="http://noqqe.de" target="_blank">
+          noqqe
+        </a>
+</p>
+<p>Ich bin mir bei dem Konzept noch nicht ganz sicher an welchem der m&ouml;gichen Problempunkte sich das ganze letzendlich aufh&auml;ngen wird.<br/>
+Ob es nun sicherheit wird(durch die dauerhafte Verbindung wirds bestimmt lustige Man-in-the-Middle-M&ouml;glichkeiten geben, bzw das direkte Schadcode einschleu&szlig;en durch p&ouml;hse Websites :) ) oder einfach nur die Komplexit&auml;t ^^</p>
+<p>Prinzipiell ist das aber eine Idee in die richtige Richtung.. Super Artikel. Genauso wie das ganze ge-Emaile mal revolutioniert geh&ouml;rt! <em>flo schl&auml;gt sich t&auml;glich mit MailServer bzw Mail-Anwenderproblemen herum</em></p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1229">
+<p class="infos">
+<a href="#comment_1229" onclick="set_comment_reference(1229)" title="auf diesen Kommentar antworten">#1229</a>:
+    05.Apr.2009 12:04
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Einer der m&ouml;glichen Problempunkte ist sicher dass der Server massig Verbindungen offen halten muss... Das mag jetzt nicht grunds&auml;tzlich schlimmer sein als erheblich mehr Verbindungen permanent zu &ouml;ffnen und zu schlie&szlig;en, ben&ouml;tigt aber halt andere Optimierungen als es bisher der Fall war.</p>
+<p>Derartige Angriffe kann man relativ einfach ausschlie&szlig;en: Man macht einfach eine Verschl&uuml;sselung zur Pflicht und  gibt ordentlice Fehlermeldungen aus wenn Zertifikate beim Verbindungsaufbau irgendwelchen Bl&ouml;dsinn beinhalten (abgelaufen, falscher Hostname, schwache Verschl&uuml;sselung, Blacklisted ...)<br/>
+Das w&auml;re gleich noch ein Fehler mit dem wir momentan zu k&auml;mpfen haben.. allerdings weniger ein Designfehler, als vielmehr ein Fehler den fast jeder Client aufs Neue nachbauen muss: Wenn ich eine https-Verbindung aufbaue und die Authentifizierung ist gef&auml;rdet, dann soll das der Nutzer gef&auml;lligst richtig gro&szlig; und deutlich sehen. Da hilft es nicht ein kleines Schloss irgendwo versteckt anzuzeigen. Lieber eine Gro&szlig;e fehlerseite aufrufen und erst wenn der Nutzer best&auml;tigt dass es ihm klar ist, gehts weiter.<br/>
+Denn nur wenn wir rigoros durchsetzen dass sich Nutzer beim Serverbetreiber beschweren weil dieser Mist gebaut hat, werden die Serverbetreiber auch sowas sinnvoll verwenden.</p>
+<p>Das Hauptproblem hat aber Snookie schon genannt: auch das beste und genialste System wird verdammt schwer durchzusetzen sein. Einfach weil keiner danach entscheidet was gut oder schlecht ist, sondern alle einfach danach gehen, was alle anderen Sheeple nutzen.</p>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_1230" onclick="set_comment_reference(1230)" title="auf diesen Kommentar antworten">#1230</a>:
+    05.Apr.2009 01:04
+    von
+    
+      
+        <a href="http://www.wangoo.de" target="_blank">
+          SirSnookie
+        </a>
+</p>
+<p>Ich mag die freie Marktwirtschaft sie ist so sch&ouml;n abh&auml;ngig vom Geld.</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1231">
+<p class="infos">
+<a href="#comment_1231" onclick="set_comment_reference(1231)" title="auf diesen Kommentar antworten">#1231</a>:
+    05.Apr.2009 02:04
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Freie Marktwirtschaft w&auml;re ja eins... wenn wir eine h&auml;tten, haben wir nur leider nicht, werden wir auch nie haben und sich jetzt schon wieder dar&uuml;ber aufzuregen w&uuml;rde irgendwie den Rahmen bei weitem sprengen.</p>
+</div>
+</li>
+<li>
+<div class="comment" id="comment_1232">
+<p class="infos">
+<a href="#comment_1232" onclick="set_comment_reference(1232)" title="auf diesen Kommentar antworten">#1232</a>:
+    05.Apr.2009 02:04
+    von
+    
+      
+        <a href="http://noqqe.de" target="_blank">
+          noqqe
+        </a>
+</p>
+<p>Also ich find unsere soziale Marktwirtschaft sehr toll. Kartell&auml;mter ftw! Sowas muss einfach unterbunden werden. Von Sondersteuern und all solchen Geschichten jetzt mal abgesehen.</p>
+</div>
+</li>
+<li>
+<div class="comment" id="comment_1233">
+<p class="infos">
+<a href="#comment_1233" onclick="set_comment_reference(1233)" title="auf diesen Kommentar antworten">#1233</a>:
+    05.Apr.2009 02:04
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Kartell&auml;mter sind nat&uuml;rlich wichtig und gut.. aber ich bezog mich auch eher auf bewusste Marktverzerrungen wie z.B. f&uuml;r den Tagebau oder auf unbewusste wie bei der Bahn, die ihr Schienennetz direkt &uuml;ber den Fahrpreis finanzieren muss, w&auml;hrend Autos erstmal billiger erscheinen, da das Stra&szlig;ennetz eh von allen bezahlt wird, egal ob man es selbst nutzt oder nicht.</p>
+<p>Aber wie gesagt: das w&uuml;rde jetzt den Rahmen sprengen</p>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_1234" onclick="set_comment_reference(1234)" title="auf diesen Kommentar antworten">#1234</a>:
+    06.Apr.2009 01:04
+    von
+    
+      
+        <a href="http://www.wangoo.de" target="_blank">
+          SirSnookie
+        </a>
+</p>
+<p>Ein netten Ansatz gibt es schon seit 2007:<br/>
+<a href="http://www.linux-magazin.de/heft_abo/ausgaben/2007/02/web_beschleunigung%3C/p%3E" rel="nofollow">http://www.linux-magaz...</a>
+</p><ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1235">
+<p class="infos">
+<a href="#comment_1235" onclick="set_comment_reference(1235)" title="auf diesen Kommentar antworten">#1235</a>:
+    06.Apr.2009 08:04
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Andere versuchen neuerdings sogar eine HTTP-Verbindung permanent offen zu halten um so je nach Bedarf Daten nachladen zu k&ouml;nnen (siehe z.B. Friendfeeds Realtime-Variante).<br/>
+Das funktioniert glaube schon mit Continuations... Die Sache klingt von Grund auf erstmal ja ganz nett, leider hat das halt den Nachteil dass man dann noch immer einen rie&szlig;igen Rattenschwanz an alten Systemen unterst&uuml;tzen muss und einfach nur beides laufen lassen kann. Sprich: man bekommt die neuen Probleme (z.B. RAM f&uuml;r jede offengehaltene Verbindung ben&ouml;tigt), diese werden durch die nie daf&uuml;r geschaffene Software sogar noch verst&auml;rkt ABER die alten Probleme l&ouml;st man dadurch nicht.<br/>
+Man hat noch immer massive Zugriffe mit dutzenden HTTP-Requests, auch wenn man irgendeine Funktion basierend auf Continuations einbaut.</p>
+<p>Das ist nicht die L&ouml;sung f&uuml;r das Problem, das ist einfach der kreativste Weg sich zus&auml;tzliche Probleme zu schaffen.</p>
+</div>
+</li>
+</ul>
+</div>

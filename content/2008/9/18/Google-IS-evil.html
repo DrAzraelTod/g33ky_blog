@@ -1,0 +1,53 @@
++++
+title = "Google IS evil"
+date = "2008-09-18T05:09:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/760"
+aliases = "blog/760"
++++
+
+<p>Jetzt mal abgesehen von allen Datenkraken-Aktionen die Google so veranstaltet, habe ich heute mal feststellen d&uuml;rfen WIE b&ouml;sartig diese Firma ist.</p>
+<p>Zielsetzung war eine Seitensuche via Google zu implementieren, genutzt wird die im billigsten Fall 100$/Jahr teuere CSE-Suche von Google, die die Ergebnisse via eines IFrames einbindet.</p>
+<p>Leider musste ich feststellen dass Google intern seine minimale <a href="http://groups.google.com/group/google-custom-search-cse-and-your-site/browse_thread/thread/382cd324d99fe66c/10049a4a923347bd" target="_blank">Breite des IFrames auf 500 festgelegt</a> hat. Das ist grunds&auml;tzlich nicht bl&ouml;d, in Kombination eines Seitendesigns das laut Dipl. Designer eine max. Breite von 470 besitzt wirkt es grauenvoll.<!--more--></p>
+<p>Also habe ich mir mal <a href="http://www.google.com/afsonline/show_afs_search.js" target="_blank">das aufgerufene JS-File</a> runtergeladen und angesehen ob ich nicht die Breite etwas festlegen k&ouml;nnte.</p>
+<p>Nachdem ich den bis zur Unkentlichkeit Verst&uuml;mmelten (<a href="http://en.wikipedia.org/wiki/Obfuscated_code" target="_blank">obfuscated</a>) Javascript-Kot dann von 6 Zeilen auf reichlich 120 ausgepackt hatte, konnte ich dann auch endlich diese Variable &auml;ndern.</p>
+<p>Wer auch immer gedacht hat es w&auml;re eine tolle Idee das so zur Verf&uuml;gung zu stellen, ich w&uuml;nschte um seines Willen fast diese Christenspinner h&auml;tten recht und es g&auml;be eine H&ouml;lle in der er ewig schmoren kann.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_620" onclick="set_comment_reference(620)" title="auf diesen Kommentar antworten">#620</a>:
+    18.Sep.2008 09:09
+    von
+    
+      
+        wayne
+      
+    
+    
+  </p>
+<p>hm eine gute anlaufstelle w&auml;re sowas wie: <a href="http://www.google.com/search?hl=en&amp;q=javascript+formatter%3Cbr" rel="nofollow">http://www.google.com/...</a> /&gt;
+yeah wieder mit google =D</p>
+
+<p class="infos">
+<a href="#comment_621" onclick="set_comment_reference(621)" title="auf diesen Kommentar antworten">#621</a>:
+    19.Sep.2008 09:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Das w&auml;re nat&uuml;rlich auch eine Idee gewesen...<br/>
+Auf das offensichtliche kommt man wohl immer erst wenn es zu sp&auml;t ist. -.-</p>
+
+<p class="infos">
+<a href="#comment_622" onclick="set_comment_reference(622)" title="auf diesen Kommentar antworten">#622</a>:
+    26.Sep.2008 10:09
+    von
+    
+      
+        <a href="/2008/09/26/howto-google-ajax-suche-mit-cse/" target="_blank">
+          HOWTO: Google-Ajax-Suche mit CSE &amp;laquo; G33KY^2 - The Nerd Strikes Back
+        </a>
+</p>
+<p>[...] Google-Ajax-Suche mit&nbsp;CSE  Neulich erst habe ich mich aufgeregt dass man das Google-Iframe f&uuml;r die CSE-Suche so mies anpassen kann. Der Grund daf&uuml;r ist [...]</p>
+</div>

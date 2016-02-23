@@ -1,0 +1,97 @@
++++
+title = "\"Slug\" - Linksys NSLU2"
+date = "2009-09-15T10:09:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/1453"
+aliases = "blog/1453"
++++
+
+<p>Letzte Woche habe ich mir eine neue <a href="http://de.wikipedia.org/wiki/NSLU2" target="_blank">NSLU2 von Linksys</a> zugelegt und damit endg&uuml;ltig mein altes Not-Book ersetzt (das seinerseits meinen Micro-ITX-Server ersetzt hatte). Bei eben diesem Ger&auml;t handelt es sich rein grunds&auml;tzlich um einen reinen NAS-Adapter mit dem urspr&uuml;nglich einfach nur 1-2 USB-Festplatten im Netzwerk freigegeben werden sollten. Da man aber <a href="http://debian.asconix.com/debian-lenny-nslu2-howto" target="_blank">auf</a> <a href="http://www.tecchannel.de/storage/nas/1744030/nslu2_linksys_nas_usb_fileserver_domain_controller_festplatte_pdc_windows_server/" target="_blank">sehr</a> <a href="http://www.cyrius.com/debian/nslu2/" target="_blank">einfache</a> Art (Update-Dialog, Image ausw&auml;hlen, Anweisungen folgen) ein alternatives Betriebssystem installieren kann (in meinem Fall eine vollwertige Debian), l&auml;sst sich das Ganze mit recht wenig Aufwand enorm erweitern.<br/><!--more--></p>
+<p>Da die Kiste weit weniger Strom braucht, keinerlei Ger&auml;usche von sich gibt (ok, ich hab eine externe Festplatte dran die man h&ouml;ren K&Ouml;NNTE) und auch in der Anschaffung billiger war als die n&auml;chstbesten hundert M&ouml;glichkeiten, werde ich mich damit abfinden dass die Kiste nicht ganz so viel Leistung hat (aber noch ausreichend, einzig der RAM ist etwas knapp da viel Python drauf l&auml;uft).<br/>Selbst wenn ich jedoch f&uuml;r jeden Dienst eine einzelne Slug kaufen w&uuml;rde, w&auml;ren die Gesamtkosten wohl noch immer niedriger als f&uuml;r einen einzelnen, L&uuml;fterlosen PC mit der selben Leistung (dann muss ich mir aber was sinnvolleres  als ein Steckernetzteil f&uuml;r alle Kisten zusammen zulegen^^)</p>
+<p>Wem Debian nicht gef&auml;llt, der kann sich auch die angepasste Variante des original-Systemes (<a href="http://www.nslu2-linux.org/wiki/Unslung/HomePage" target="_blank">Unslung</a>) installieren, so das Web-Interface erhalten und dennoch neue Software installieren. Auch von Ubuntu-Versionen auf der Kiste habe  ich bereits geh&ouml;rt (Auch wenn sich meinem Verstand der Vorteil von Ubuntu gegen&uuml;ber Debian auf einem Server, wehement entzieht, vor allem da wohl keine Aktuellen Versionen von Ubuntu mehr f&uuml;r diese Platform erscheinen werden.)</p>
+<p></p><h3>Daten</h3><br/><ul><br/><li>CPU: Intel XScale IXP420 (je nach Variante mit 133 oder 266 MHz)</li><br/><li>RAM: 32MB</li><br/><li>Anschl&uuml;sse: 2xUSB, 1x 100MBit Ethernet (+1x RS232 intern, nicht angeschlossen)</li><br/><li>Stromverbrauch: unter 20W</li><br/><li>K&uuml;hlung: komplett passiv</li><br/><li>Preis: ca. 70&euro;</li><br/></ul>
+<p></p><h3>Software die bei mir gerade l&auml;uft</h3><br/><ul><br/><li>Debian Betriebssystem (2.6.26-2-ixp4xx armv5tel GNU/Linux)</li><br/><li>SMB-Server (<a href="http://de.wikipedia.org/wiki/Samba_(Software)#Bestandteile_und_grafische_Benutzeroberfl.C3.A4chen" target="_blank">Swat</a> war kurz installiert um mir schreibarbeit zu ersparen, ist aber wieder runtergeflogen)</li><br/><li>HTTP-Server (momentan Python-Basis, <a href="http://www.cherrypy.org/" target="_blank">CherryPy</a>, eigener Code noch im Aufbau)</li><br/><li>SSH-Terminal mit <a href="http://de.wikipedia.org/wiki/GNU_Screen" target="_blank">GNU Screen</a>, <a href="http://irssi.org/" target="_blank">IRSSI</a>, <a href="http://mcabber.com/" target="_blank">mcabber</a>, <a href="http://libtorrent.rakshasa.no/" target="_blank">rTorrent</a>, <a href="http://www.gnu.org/software/bc/" target="_blank">bc</a></li><br/><li><a href="http://code.google.com/p/pychao/" target="_blank">pyChao IRC-Bot</a> mit <a href="http://home.g33ky.de/lastfacts.xml">Fact-Ausgabe</a> via HTTP (wird wie bereits geschrieben momentan umgebaut)</li><br/></ul>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1332" onclick="set_comment_reference(1332)" title="auf diesen Kommentar antworten">#1332</a>:
+    16.Sep.2009 02:09
+    von
+    
+      
+        <a href="http://ag7.alltagsgrauen.info/" target="_blank">
+          fwolf
+        </a>
+</p>
+<p>Du wei&szlig;t ja: Mit einem simplen Patch (wenn nicht sogar Firmware-seitig) tuckert die M&uuml;hle ganz fix auch mit 266 MHz. Also ist 133 MHz nur ein &Uuml;bergangsstadium ;)</p>
+<p>cu, w0lf.</p>
+
+<p class="infos">
+<a href="#comment_1333" onclick="set_comment_reference(1333)" title="auf diesen Kommentar antworten">#1333</a>:
+    16.Sep.2009 04:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Klar.. die CPU ist in beiden Varianten die selbe und den Takt zu &auml;ndern ist relativ wenig aufw&auml;ndig. Seit einiger Zeit werden aber wohl nur noch NSLU2s hergestellt die bereits von Haus aus auf 266MHz laufen, meine geh&ouml;rt dazu. ;-)</p>
+
+<p class="infos">
+<a href="#comment_1334" onclick="set_comment_reference(1334)" title="auf diesen Kommentar antworten">#1334</a>:
+    16.Sep.2009 05:09
+    von
+    
+      
+        <a href="http://ag7.alltagsgrauen.info/" target="_blank">
+          fwolf
+        </a>
+</p>
+<p>BTW: Schau mal bei Ende der Vernunft vorbei - der hat da noch so einiges angestellt mit der Slug (u.&auml;. Dingen von Linksys). Au&szlig;erdem kommt die Slug wohl nur so auf die 6 Watt ..</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1335">
+<p class="infos">
+<a href="#comment_1335" onclick="set_comment_reference(1335)" title="auf diesen Kommentar antworten">#1335</a>:
+    17.Sep.2009 09:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Die slug intern vlt.. aber bei dem Netzteil was da mitgeliefert wurde bin ich mir nicht so ganz sicher :-/<br/>
+Diese mistigen Steckernetzteile verbraten ja meist schon permanent das was sie als Maximaloutput leisten k&ouml;nnten auch wenn noch nichtmal ein Verbraucher dran h&auml;ngt.</p>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_1336" onclick="set_comment_reference(1336)" title="auf diesen Kommentar antworten">#1336</a>:
+    24.Sep.2009 08:09
+    von
+    
+      
+        <a href="http://bunix.de" target="_blank">
+          reaper
+        </a>
+</p>
+<p>Wenn ich dich richtig verstanden hab nutzt du das Teil auch als Fileserver, hast du da mal die Datenraten gemessen? Ich hab so mit solchen NAS Dingern immer wieder ins Klo gegriffen und suche immer noch nach etwas mit mehr als 2 MB pro Sekunde &uuml;bers LAN ;)</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1337">
+<p class="infos">
+<a href="#comment_1337" onclick="set_comment_reference(1337)" title="auf diesen Kommentar antworten">#1337</a>:
+    25.Sep.2009 08:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Die Geschwindigkeit ist nicht berauschend, bei SMB bin ich selten &uuml;ber 3,6MB/s gekommen. Via NFS soll das ganze angeblich erheblich schneller gehen (nicht von mir getestet).<br/>
+Leider ist f&uuml;r sowas leider die CPU meist doch ziemlich knapp bemessen, schon etwas peinlich wenn man  bedenkt dass das normalerweise die Hauptaufgabe dieser Kisten darstellt.</p>
+<p>Woran man &uuml;brigens &uuml;berhaupt nicht denken will ist ein verschl&uuml;sseltes Dateisystem zu verwenden.  F&uuml;r diesen Fall kann man der Geschwindigkeit endg&uuml;ltig Lebewohl sagen.</p>
+</div>
+</li>
+</ul>
+</div>

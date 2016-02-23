@@ -1,0 +1,158 @@
++++
+title = "Google Chrome in \"brauchbar\""
+date = "2009-11-06T12:11:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/1470"
+aliases = "blog/1470"
++++
+
+<p><a href="http://g33ky.de/2008/10/20/google-chrome/">Ja ich bin ein Fan dieses Browsers</a>, nicht weil er so tolle Funktionen hat, nicht weil er von Google ist und erst recht nicht weil er so toll aussieht oder als OpenSource ver&ouml;ffentlicht wurde. Nein, mein Grund diesen Browser mehr zu m&ouml;gen als seine Konkurrenz ist ein ganz einfacher und simpler Fakt: Google hat verstanden wie ein Browser f&uuml;r den Nutzer sichtbar sein soll: m&ouml;glichst gar nicht!<!--more--></p>
+<p>Sehen wir es doch mal so, Software die einfach nur funktioniert bemerkt man im idealfall nicht. Wenn ich meine Filme vom Netzlaufwerk wie lokal &ouml;ffnen kann und ohne gro&szlig;e Geschwindigkeits- oder Betriebssystemprobleme darauf zugreifen kann, dann werde ich mir keine Gedanken machen mit welchem Protokoll ich die Daten &uuml;bertrage oder was ich noch daran rumstellen k&ouml;nnte damit das alles besser l&auml;uft.<br/>Analog ist das nat&uuml;rlich mit Browsern. Je weniger ich mich Aufrege weil der Browser ewig l&auml;dt, je weniger Platz der Browser auf meinem Bildschirm einnimmt (im Verh&auml;ltnis zum Seiteninhalt) und je weniger Ressourcen das St&uuml;ck Software dabei frisst, desto weniger werde ich den Browser beachten.</p>
+<p>Wenn ich mich aber &uuml;berhaupt nicht um den Browser k&uuml;mmere, dann werde ich auch keine dutzend Erweiterungen installieren, ich werde nicht permanent am Aussehen rumstellen oder versuchen die Geschwindigkeitsprobleme mit kleinen Tricks und Kniffen zu umgehen. Dann st&ouml;rt es mich nat&uuml;rlich auch nicht wenn die eine oder andere Funktion fehlt, die meisten Nutzer werden sowieso mit M&uuml;h und Not &uuml;berhaupt mal einen Einstellungsdialog &ouml;ffnen und auch das werden sie nur tun wenn sie keine andere Wahl haben (z.B. weil sie hinter einem Proxy sitzen).</p>
+<p>Auch wenn Chrome nun also alles tut um aus dem Sichtfeld des Nutzers zu bleiben, gibt es einige Stellen die einfach noch mangelhaft sind. So ist das blaue, runde Design vlt. f&uuml;r sich genommen ganz nett und braucht im Gegensatz zu Firefox/IE nur 2-3 Zeilen Platz auf dem Bildschirm statt 5-7, es sieht aber gleichzeitig Bonbonm&auml;&szlig;ig bunt aus und passt sich nicht im Geringsten in Systemweite vorgaben ein (wie sehr ich solche am Fenstersystem vorbei "optimierten" Anwendungen "mag" will ich hier lieber nicht schon wieder er&ouml;rtern).<br/>Dank den neuerdings implementierten Skins aber kann man das Aussehen recht gut anpassen... es ist noch immer nicht so ideal wie wenn das Design des Fenstersystemes verwendet werden w&uuml;rde, aber man kann sich ja ein passendes Farbschema suchen und schon f&auml;llt der Unterschied nichtmehr  so extrem auf (wenn das f&uuml;r jedes Programm n&ouml;tig w&auml;re, w&uuml;rde es zu arbeit ausarten).</p>
+<p>Ein weiterer Punkt sind sicherlich Ressourcenfresser an denen der Browser nicht viel &auml;ndern kann. Da w&auml;ren z.B. schlecht optimierte Seiten mit &lt;Flash-Blink-Elementen an jeder Ecke oder Werbebanner die man eigentlich garnicht sehen will. Unter  Firefox gab es daf&uuml;r schon lange AdBlock-/Flashblock-Plugins die die Schmerzen linderten und man konnte sich nat&uuml;rlich auch jederzeit via Privoxy, /etc/hosts o.&auml;. eine generische Notl&ouml;sung zusammenfrickeln, aber wenn wir ehrlich sind hat das doch au&szlig;er ein paar Nerds denen es mehr um ein Proof-Of-Concept ging denn um Schmerzen, eh niemand wirklich getan.<br/>Die neueren Entwickler-Versionen von Chrome haben jedoch ein offenbar fast brauchbar funktionierendes Plugin-System (mehr ein reines einbinden von HTML/JS-Elementen), mit dem ein paar Autoren auch bereits 2-3 brauchbare Erweiterungen gebaut haben.</p>
+<p>AdBlock+ z.B. sorgt mit 3 Klicks daf&uuml;r dass ein Werbebanner im Nirvana des display:none verschwindet (auch wenn die Elemente momentan nur ausgeblendet werden, was performancem&auml;&szlig;ig noch nicht perfekt ist, ist das immer noch weit besser als nichts).<br/>Nebenbei ist die Steuerung des zu blockenden Elementes viel h&uuml;bscher geworden als ich das vom Firefox-Vorbild her kenne, nur in seltenen F&auml;llen merkt man halt an ein paar Bugs dass die Entwicklung des Plugins gerade erst begonnen hat.</p>
+<p>FlashBlock w&auml;re dann das zweite Puzzleteil, mit ihm werden wie beim Firefox-Vorbild nur dann Flash-Elemente geladen, wenn ich bewusst auf das Symbol dass erstmal anstelle des Elementes eingeblendet wird, geklickt habe. Der einzige "Nachteil" den ich bisher von dieser Vorgehensweise gesehen habe ist wohl dass ein Youtube-Video nicht sofort startet wenn ich die Seite &ouml;ffnen lass (*g&auml;hn*). Die Vorteile hingegen belaufen sich auf verminderte Datenschutzprobleme (Flash-Cookies) und ein <a href="http://g33ky.de/2008/12/03/block-flash-save-a-tree/">paar Monate</a> eingesparte <a href="http://g33ky.de/2008/07/04/flash-in-die-toilette-and-please-flush/">CPU-Zeit pro Jahr</a> an surfen.<br/>Meiner Meinung nach ist das ein verdammt guter Tausch.</p>
+<p>Wie kommt man nun an all diese Spielzeuge?<br/></p><ul><br/><li><a href="http://www.google.com/chrome/?hl=de" target="_blank">Chrome installieren</a></li><br/><li><a href="http://dev.chromium.org/getting-involved/dev-channel/using-the-channel-changer" target="_blank">auf aktuellere (dev) Version umstellen (daf&uuml;r vlt. mit mehr Bugs behaftet als stabile Version)</a></li><br/><li><a href="http://www.chromeextensions.org/appearance-functioning/adblock/" target="_blank">AdBlock+</a></li><br/><li><a href="http://www.chromeextensions.org/appearance-functioning/flashblock/" target="_blank">FlashBlock</a></li><br/><li><a href="https://tools.google.com/chrome/intl/en/themes/index.html" target="_blank">Themes</a></li><br/></ul>
+<p>Da jetzt sicher wieder die <a href="http://g33ky.de/2008/10/23/poses-google/">Anti-Google-Flamewars</a> beginnen, m&ouml;chte ich entsprechende Leute doch gleich auffordern mir nicht nur zu sagen warum Chrome/Google b&ouml;se ist, sondern gleich einen verwendbaren Browser zu nennen, der nicht von einer gro&szlig;en Firma gest&uuml;tzt wird (IE =&gt; MS, Safari =&gt; Apple, Chrome =&gt; Google, Firefox (Mozilla Foundation) =&gt; 85% Google) und sich eine gute Begr&uuml;ndung zu &uuml;berlegen warum dieser Browser besser sein soll, bzw. was er im Bezug auf die Privatsph&auml;re des Nutzers so viel besser machen soll als Chrome... ich w&uuml;nsche viel Spa&szlig;.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1353" onclick="set_comment_reference(1353)" title="auf diesen Kommentar antworten">#1353</a>:
+    06.Nov.2009 10:11
+    von
+    
+      
+        <a href="http://blog.canuco.de" target="_blank">
+          Thorben
+        </a>
+</p>
+<p>Als Moechtegernhacker sollte ich den hier pluggen: <a href="http://uzbl.org%3C/p%3E" rel="nofollow">http://uzbl.org</a></p>
+<p>Ist mein standardbrowser obwohl ich das hier mit Firefox schreib.</p>
+<p>Hattest du dem aufm Radar?</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1354">
+<p class="infos">
+<a href="#comment_1354" onclick="set_comment_reference(1354)" title="auf diesen Kommentar antworten">#1354</a>:
+    06.Nov.2009 10:11
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Ja, ist mir bekannt und unter Linux habe ich auch schon mehrmals damit rumgespielt. So richtig angenehm finde ich das Ding aber nicht, vor allem da es mir erstmal zu lange dauern w&uuml;rde mir die ganzen Scripte zur Bookmarkverwaltung oder so zu schreiben oder aus drittquellen zusammen zu suchen.</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1355">
+<p class="infos">
+<a href="#comment_1355" onclick="set_comment_reference(1355)" title="auf diesen Kommentar antworten">#1355</a>:
+    08.Nov.2009 11:11
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>Ausserdem st&uuml;rzt einem das drecksteil derzeit viel zu oft unterm arsch weg.</p>
+</div>
+</li>
+<li>
+<div class="comment" id="comment_1357">
+<p class="infos">
+<a href="#comment_1357" onclick="set_comment_reference(1357)" title="auf diesen Kommentar antworten">#1357</a>:
+    09.Nov.2009 02:11
+    von
+    
+      
+        <a href="http://blog.canuco.de" target="_blank">
+          Thorben
+        </a>
+</p>
+<p>Hat gestern zufaellig n major Versionssprung gemacht, man muss nu nicht mehr so viel rumscripten wenn man nicht will.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_1356" onclick="set_comment_reference(1356)" title="auf diesen Kommentar antworten">#1356</a>:
+    09.Nov.2009 02:11
+    von
+    
+      
+        Alex
+      
+    
+    
+  </p>
+<p>Chrome ist sehr schnell (im Starten und beim Seitenaufbau), hat aber den Nachteil des (soweit ich gelesen habe) ziemlich umfangreicehn heim-telefonierens.</p>
+<p>Also den Iron von SRWare verwenden:<br/>
+<a href="http://www.srware.net/software_srware_iron_chrome_vs_iron.php%3Cbr" rel="nofollow">http://www.srware.net/...</a> /&gt;
+Hat die gleiche Basis, ist genauso schnell, vertr&auml;gt die Themes, die Extensions usw. vom Chrome, ist aber koscher ;-)</p>
+<p>Hat inzwischen auch bei mir den FF als Standard-Surfbrowser abegl&ouml;st.<br/>
+Aber:<br/>
+Webseiten bugfixen/entwickeln/analysieren/usw. mach ich immer noch mit dem FF, dazu sind Firebug, Webdeveloper Tools usw. einfach zu m&auml;chtig und hilfreich.</p>
+<p>Also sozusagen zweckgebundener Browsereinsatz bei mir :-D</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1358">
+<p class="infos">
+<a href="#comment_1358" onclick="set_comment_reference(1358)" title="auf diesen Kommentar antworten">#1358</a>:
+    09.Nov.2009 02:11
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>und welche ET-Funktionen w&auml;ren das? Dass Chrome bei Eingaben in der Adresszeile eine Google-Suche macht und somit Google wei&szlig; was du eingibst? Die Anfrage wie denn die Liste der aktuell als sch&auml;dlich markierten Seiten aussieht?<br/>
+Das Tolle ist ja wie sich solche Panik ausbreitet ohne dass am Ende noch wer &uuml;berhaupt ne Ahnung hat wovor er sich denn eigentlich gerade f&uuml;rchten muss.</p>
+<p>Fast alle dieser Funktionen erf&uuml;llen 3 Kriterien:</p>
+<p>ohne sie sind bestimmte Funktionen nicht zu implementieren<br/>
+  andere Browser machen das genauso (Firefox sogar mit Google, Microsoft halt mit Bing)<br/>
+  sie sind auch in Chrome via Config-Men&uuml; abschaltbar</p>
+<p>Die einzige Ausnahme dazu ist die Installations-abh&auml;ngige ID die der Browser bei Updates oder Bugmeldungen an Google sendet... Sie dient durchaus einem offensichtlichem Zweck, ist aber nicht ganz so einfach abzuschalten.</p>
+<p>Zum Entwickeln setze ich auch meistens noch Firefox ein, wobei ich momentan nichtmal mehr eindeutig den Finger auf den Grund legen k&ouml;nnte, warum ich das tu.<br/>
+Die Chrome-Entwicklungstools waren schon von anfang an ziemlich gut und sind jetzt bereits auf einigen Gebieten um L&auml;ngen besser als das Firefox-Pedant. Vor allem die JS-Vervollst&auml;ndigung ist extrem praktisch, daf&uuml;r geht das &Auml;ndern von CSS-Eintr&auml;gen leider noch nicht ganz so sch&ouml;n wie mit Firebug.</p>
+</div>
+</li>
+<li>
+<div class="comment" id="comment_1359">
+<p class="infos">
+<a href="#comment_1359" onclick="set_comment_reference(1359)" title="auf diesen Kommentar antworten">#1359</a>:
+    15.Nov.2009 01:11
+    von
+    
+      
+        <a href="http://ag7.alltagsgrauen.info/" target="_blank">
+          fwolf
+        </a>
+</p>
+<p>und was n&uuml;tzt mir das bitte als Linux-Benutzer?<br/>
+Gar nichts, schon klar. Eine Windoof-VM werde ich daf&uuml;r jedenfalls nicht extra starten - also nur f&uuml;r's Surfen <em>kopfsch&uuml;ttel</em></p>
+<p>cu, w0lf.</p>
+<p>ps: und komm mir jetz nicht mit: "Das musst du doch eh" - denn Google Chrome gibt es seit einiger Zeit auch nativ f&uuml;r Linux :P</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1360">
+<p class="infos">
+<a href="#comment_1360" onclick="set_comment_reference(1360)" title="auf diesen Kommentar antworten">#1360</a>:
+    15.Nov.2009 12:11
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>denn Google Chrome gibt es seit einiger Zeit auch nativ f&uuml;r Linux :P<br/>
+neuerdings sogar fast so aktuell wie die Windows-Variante, mit Flash-unterst&uuml;tzung, Themes und Plugins... zumindest in den 4.0er Dev-Builds</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>

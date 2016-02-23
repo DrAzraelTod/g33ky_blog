@@ -1,0 +1,188 @@
++++
+title = "DNS-Sperren unbedingt umgehen"
+date = "2009-05-04T12:05:00"
+author = "Dr. Azrael Tod"
+tags = ["Politik", "Rant", "Säue durchs Dorf treiben", "Technik"]
+issoid = "blog/1384"
+aliases = "blog/1384"
++++
+
+<p>Dass unsere <a href="http://de.wikipedia.org/wiki/Ursula_von_der_Leyen#Vertrag_zur_Filterung_von_Kinderpornographie" target="_blank">Lieblings-Bundes-Familienministerin</a> gerade versucht in aller Stille eine Zensurinfrastruktur mit den Worten "Denkt denn keiner mal an die Kinder" zu erschaffen ist ja jetzt wirklich nichts neues mehr. Auch die schlichte Tatsache dass dies im ersten Schritt mit DNS-Sperren durchgef&uuml;hrt werden soll (ja glaubt ihr wirklich das w&uuml;rde lange so bleiben? die n&auml;chste <a href="http://de.wikipedia.org/wiki/Salami-Taktik" target="_blank">Salamischeibe</a> kommt sofort) ist wohl langsam allen bekannt, ebenso dass man diese Sperren umgehen kann wenn man nichtmal 5 Minuten Zeit hat.<br/>Weiterhin ist wohl ebensowenig neu dass die Provider die Zugriffe auf die "Stoppschildseite" loggen sollen und bei Bedarf an das BKA weiterleiten.</p>
+<p>F&uuml;r mich stellt sich jetzt also die Frage: Was machen wir mit diesem Wissen?<!--more--><br/>Stellen wir uns doch mal ein einfaches Gedankenexperiment vor: Ein wirklich "guter Freund" von dir will sich mal einen Scherz erlauben. Da gerade die neuesten Zensurlisten doch mal wieder irgendwo geleakt sind nimmt er sich also die Adressen von ein paar Bildern die das BKA zensiert und packt die Links in eine E-Mail.<br/>Wir alle wissen dass man Mails z.B. von Freemail-Providern, aus Internetcaf&eacute;s ziemlich anonym absenden kann, er schwebt also kaum in Gefahr jemals entdeckt zu werden. Nat&uuml;rlich fangen Spam-Filter heutzutage die meisten automatisch generierten Mails ab, aber seine ist ja nicht automatisch generiert und wird auch nicht an tausende Personen versendet. Sie geht nur an dich und hat damit eine ziemlich gute Chance durch den Filter zu kommen.</p>
+<p>Du bekommst also eine Mail und weil du neugierig bist was dir da jemand f&uuml;r tolle Photos von der letzten Veranstaltung zeigen will, klickst du auf "eingebettete Bilder anzeigen". Dein Client reagiert, l&ouml;st f&uuml;r jedes Bild einen der gesperrten Hostnamen auf und prompt kommen 20 Requests beim BKA an. Toll oder?<br/>Dabei ist es nat&uuml;rlich auch egal ob sich dein guter Freund wirklich an den Kinderpornos bedient hat, oder ob ihm nur der blinkende GIF-Pfeil auf einer dieser Seiten so gefallen hat... aber solche Kleinigkeiten beachtet eh schon lange keiner mehr.</p>
+<p>Nun habt ihr also deine 20 DNS-Abfragen (die alle auf das selbe Stoppschild zeigen) und dein Mailclient (oder Browser bei Webmail) versucht nun via HTTP die Bilder zu laden. Aber da es auf diesem Host die selbigen Bilder nat&uuml;rlich nicht gibt, bekommt er nur eine Umleitung zu sehen und meldet dir entweder dass das Bild nicht gefunden werden konnte oder zeigt dir im ganz kreativen Fall (da m&uuml;sste ja jemand beim Provider Aufwand in sowas stecken, daran glaub ich irgendwie nicht) sogar ein Bild von der Stopp-Seite an.</p>
+<p>Egal was passiert.. die Wahrscheinlichkeit ist gro&szlig; dass du die Mail einfach in den Spamfilter wirfst (oder nichtmal das, du k&ouml;nntest ja die Bilder nicht sehen und nochmal um andere Links bitten weil die alten kaputt sind... -&gt; weitere 20 Zugriffe) und nie wieder dr&uuml;ber nachdenkst (zumindest bis die netten Herren vom BKA vor der T&uuml;r stehen und mal eben eine Hausdurchsuchung machen wollen, da du ja nachweislich letzte Woche auf 20 verschiedenen KiPo-Seiten wart).<br/>Doch selbst wenn dir bewusst ist was da gerade abgelaufen ist.. was willst du tun? Beim BKA anrufen und denen mal eben sagen dass sie die Zugriffe von deiner IP mal kurz ignorieren sollen?</p>
+<p>Nein! Du musst vorher handeln! Und wie es der Zufall will gibt es sogar eine M&ouml;glichkeit diese guten Freunde ins Leere laufen zu lassen. Wenn man sich also wie an so vielen Stellen beschrieben einen alternativen DNS-Server gew&auml;hlt h&auml;tte, w&auml;ren die Verbindungen auch weiterhin auf die KiPo-Server aufgel&ouml;st worden.<br/>Du h&auml;ttest also entweder sofort gemerkt womit ihr es zu tun habt und welch b&ouml;sartigen Freund du da hast oder im schlimmsten Fall h&auml;ttest du einfach nur ein paar 404er bekommen. Was auf keinen Fall passiert w&auml;re, w&auml;re dass ein ganzer Trupp Polizisten bei dir vor der T&uuml;r steht, etliche hundert bis tausend Euro an Aufwand mit den Ermittlungen gegen dich verbrannt werden und dass dein "guter Freund" dir mit dieser Aktion mal so richtig eins auswischen konnte.</p>
+<p>Vlt. k&ouml;nnte man ja mit dem gesparten Geld sogar mal jemanden bezahlen der die T&auml;ter verfolgt.. ist aber nur sone Idee.</p>
+<p><iframe allowfullscreen="" frameborder="0" height="315" src="http://www.youtube.com/embed/1NNG5I6DBm0" width="420"></iframe></p>
+<p>Du denkst dieser Beitrag war &uuml;berm&auml;&szlig;ig zynisch? Dann schlaf weiter.. die Leute vom BKA kommen schon bald vorbei und wecken dich (<a href="http://video.google.de/videoplay?docid=-1550832407257277331" target="_blank">Die kommen meist so zwischen 6 und 7 Uhr  Morgens</a>).</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1263" onclick="set_comment_reference(1263)" title="auf diesen Kommentar antworten">#1263</a>:
+    04.May.2009 12:05
+    von
+    
+      
+        <a href="http://www.wangoo.de" target="_blank">
+          sirsnookie
+        </a>
+</p>
+<p>Klasse Artikel - du hast eins nur vergessen. Outlook z.B. l&auml;d die Bilder sowieso direkt beim klicken auf die Mail, also wenn du sie l&ouml;schen willst (rechtsklick? haha die mail wird aktiviert und l&auml;d den content) machst du dich schon strafbar.</p>
+<p>Das sch&ouml;ne dabei ist ja, als BEWEIS  liegt die IP vor (wers war kann man ja beim I-Net Caffee so gut nachvollziehen...aber das ist was anderes.) und DU armer Wicht musst nun nachweisen das DU eben NICHT mit Absicht drauf gekommen bist.</p>
+<p>Du hast aber was vergessen, die Jungs nehmen <em>alles</em> mit - DVDs, Filme, Spiele, PC, Laptop, Internetf&auml;higes Handy, USB Sticks, Festplatten etc. Am Ende des Tages kannst du froh sein wenn du noch nen TV bei dir stehen hast ...</p>
+
+<p class="infos">
+<a href="#comment_1264" onclick="set_comment_reference(1264)" title="auf diesen Kommentar antworten">#1264</a>:
+    04.May.2009 08:05
+    von
+    
+      
+        <a href="http://martin-grandrath.de" target="_blank">
+          Martin Grandrath
+        </a>
+</p>
+<p>Gut geschrieben und auf den Punkt gebracht.  Allerdings beginne ich mich zu fragen, wie lange es wohl dauert bis wir vom ISP unseres Vertrauens auf manipulierte DNS-Server zwangsumgeleitet werden.</p>
+
+<p class="infos">
+<a href="#comment_1265" onclick="set_comment_reference(1265)" title="auf diesen Kommentar antworten">#1265</a>:
+    04.May.2009 10:05
+    von
+    
+      
+        <a href="http://dfghj.de/zensursula/blog/2009/05/04/news-vom-montag-morgen/" target="_blank">
+          News vom Montag morgen at zensursu.la
+        </a>
+</p>
+<p>[...] nochmal ein Artikel, warum wir DNS Sperren unbedingt umgehen [...]</p>
+
+<p class="infos">
+<a href="#comment_1266" onclick="set_comment_reference(1266)" title="auf diesen Kommentar antworten">#1266</a>:
+    04.May.2009 12:05
+    von
+    
+      
+        <a href="http://aquawings.net" target="_blank">
+          Yuri
+        </a>
+</p>
+<p>und am besten noch hier unterschreiben: <a href="https://epetitionen.bundestag.de/index.php?board=892.0%3C/p%3E" rel="nofollow">https://epetitionen.bu...</a>
+</p><ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1272">
+<p class="infos">
+<a href="#comment_1272" onclick="set_comment_reference(1272)" title="auf diesen Kommentar antworten">#1272</a>:
+    04.May.2009 11:05
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>schon lange geschehen ;-)<br/>
+Wobei ich die Registrierung unn&ouml;tig komplex finde und schon ziemlich unversch&auml;mt ist was man da alles angeben soll.</p>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_1267" onclick="set_comment_reference(1267)" title="auf diesen Kommentar antworten">#1267</a>:
+    04.May.2009 12:05
+    von
+    
+      
+        <a href="http://www.wangoo.de" target="_blank">
+          SirSnookie
+        </a>
+</p>
+<p>Naja ich denke an Port 53 werden die sich nicht vergehen. DIe Provider an sich - denen ist das egal - die wollten mit dem Vertrag auch nur PR betreiben das es nachher nicht hei&szlig;t: "Guck mal, alle gro&szlig;en Provider unterst&uuml;tzen KiPo".</p>
+
+<p class="infos">
+<a href="#comment_1268" onclick="set_comment_reference(1268)" title="auf diesen Kommentar antworten">#1268</a>:
+    04.May.2009 12:05
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Zwangsumleitung auf DNS-Server sehe ich irgendwie auch noch nicht kommen. Ich vermute viel eher dass als n&auml;chste Salamischeibe dann deep-packet-inspection kommt, weil irgendwer &uuml;berraschenderweise feststellt dass die DNS-Umleitungen keinen Erfolg bringt.<br/>
+...kann ja keiner damit rechnen.</p>
+
+<p class="infos">
+<a href="#comment_1269" onclick="set_comment_reference(1269)" title="auf diesen Kommentar antworten">#1269</a>:
+    04.May.2009 12:05
+    von
+    
+      
+        <a href="http://www.wangoo.de" target="_blank">
+          SirSnookie
+        </a>
+</p>
+<p>hm daf&uuml;r reicht weder Kapital noch Platz der Provider - dann k&ouml;nnten die vielleicht noch 500 kbsp Anschl&uuml;sse verkaufen aber keine 20.000er mehr.</p>
+
+<p class="infos">
+<a href="#comment_1270" onclick="set_comment_reference(1270)" title="auf diesen Kommentar antworten">#1270</a>:
+    04.May.2009 12:05
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Hat sich unser Staat jemals davon ob etwas technisch oder physikalisch m&ouml;glich ist, abhalten lassen seine Entscheidungen zu f&auml;llen?<br/>
+Am Ende bekommen dann die Provider richtig teuere Cisco-Hardware vom Staat spendiert und k&ouml;nnen die dann auch gleich nutzen um die p&ouml;sen Filesharer auszubremsen oder ihre eigenen bezahldownloads zu beschleunigen.</p>
+
+<p class="infos">
+<a href="#comment_1271" onclick="set_comment_reference(1271)" title="auf diesen Kommentar antworten">#1271</a>:
+    04.May.2009 12:05
+    von
+    
+      
+        <a href="http://www.wangoo.de" target="_blank">
+          sirsnookie
+        </a>
+</p>
+<p><em>lach</em> Da hat aber der Herr von und zu Finanzminister das P in den Augen. Firmen die zu viel Abschreiben - das geht nicht! Und dann noch Geld vom Staat f&uuml;r sowas triviales wie "Internet" geht schon mal garnicht. Das Problem was wir haben, ist, das da "oben" nur &auml;ltere Leute &aacute; la Rechtsanwalt hocken und das Alter macht ihnen erst recht zu schaffen. Dort ist halt niemand der denen sagt: Das geht so nicht. Sondern die werden mit beifall befeuert und dann gehts zum Berater - der hat dann das Problem mit dem m&ouml;glichst schnell umsetzen. Kein Wunder das dann da sowas bei raus kommt. Ich glaube nicht das der Leierkasten &uuml;berhaupt  ne Ahnung hat - was da gemacht wird sondern nur das wiederholt was ihre Berater/innen auf einen kleinen Zettel geschrieben haben.</p>
+
+<p class="infos">
+<a href="#comment_1273" onclick="set_comment_reference(1273)" title="auf diesen Kommentar antworten">#1273</a>:
+    05.May.2009 12:05
+    von
+    
+      
+        <a href="http://www.wangoo.de" target="_blank">
+          sirsnookie
+        </a>
+</p>
+<p>Ich hab hier noch ein nettes Video gefunden - einigerma&szlig;en passend f&uuml;r das Thema:</p>
+<p>http://www.elektrischer-reporter.de/elr/video/124/</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1274">
+<p class="infos">
+<a href="#comment_1274" onclick="set_comment_reference(1274)" title="auf diesen Kommentar antworten">#1274</a>:
+    05.May.2009 08:05
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Ja, hatte ich auch schon gesehen und ist auch schon vor mehreren Tagen mal in meinem Newsfeed f&uuml;r sowas gelandet und dar&uuml;ber auch in meinem Friendfeed-Account.</p>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_1275" onclick="set_comment_reference(1275)" title="auf diesen Kommentar antworten">#1275</a>:
+    21.Jul.2009 09:07
+    von
+    
+      
+        Damian
+      
+    
+    
+  </p>
+<p>Was h&auml;llst du davon eine eMailliste aller Abgeordneten online zu stellen und genau das Szenario mal in Umgekehrter Form auf unsere Volksvertreter abzufeuern ;)</p>
+</div>

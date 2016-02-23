@@ -1,0 +1,13 @@
++++
+title = "Die erste Version von pyChao"
+date = "2008-10-05T09:10:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/882"
+aliases = "blog/882"
++++
+
+<p></p><p style="text-align:left;">Nachdem ich gestern ja meine Fact-Datenbank <a href="/2008/10/04/fact-db-importiert/" target="_self">in eine SQLite-Datenbank gepackt</a> habe, fehlte nat&uuml;rlich noch ein passender IRC-Bot, der auch damit umgehen kann. Zielplattform ist wie gesagt erstmal Python (daher auch der Projektname pyChao, nach Sacred-Chao und Free-Chao bereits die dritte Version).</p><br/><p style="text-align:left;">Zwar hatte ich eine Version von <a href="http://www.wangoo.de" target="_blank">Snookie</a>, aber das <a href="http://twistedmatrix.com/" target="_blank">Framework</a> hat mir nicht so richtig gefallen, es w&auml;re auch nur f&uuml;r IRC etwas starker Overkill. Also habe ich mich heute, nachdem ich die bestehende Version erstmal dazu brachte UTF-8-Umlaute zu verstehen, daran gemacht eine eigene Version zu schreiben die nichts weiter als Sockets nutzt.<!--more--></p><br/><p style="text-align:left;">Nach einigen Basteleien versteht der Bot derzeit gerade mal die folgenden 3 Kommandos:</p>
+<p></p><ul><br/> <li>!fact - zeigt einen zuf&auml;lligen Fact mit ID und Autor an</li><br/> <li>!addfact - legt einen neuen Eintrag in der Datenbank an</li><br/> <li>!factinfo &lt;ID&gt; - zeigt Zusatzinformationen zu dem Fact mit der ID=&lt;ID&gt; an, also Channel, Datum und Autor</li><br/></ul><br/>Der Quellcode ist noch ziemlich grundlegend und h&auml;sslich, von Sicherheit, Konfigurationsdateien oder &auml;hnlichen Sachen will ich lieber garnicht reden und allgemein ist das Ding ziemlich Buggy.
+
+<p>ABER: Es l&auml;uft!</p>
+<p>So, und nun zu dem was ihr alle sehns&uuml;chtig erwartet: <a href="http://privatepaste.com/d9p8H7kYjW" target="_blank">Der Qu&auml;hlkot!</a></p>

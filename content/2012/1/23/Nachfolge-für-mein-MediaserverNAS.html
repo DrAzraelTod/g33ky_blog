@@ -1,0 +1,177 @@
++++
+title = "Nachfolge für mein Mediaserver/NAS"
+date = "2012-01-23T12:01:00"
+author = "Dr. Azrael Tod"
+tags = ["Gadget", "Hardware", "Nerdig", "Technik"]
+issoid = "blog/1562"
+aliases = "blog/1562"
++++
+
+<p>Ich habe jetzt seit fast 3 Jahren ziemlich unver&auml;ndert eine Atom330-Kiste im Wohnzimmer stehen, die einerseits lange Zeit g33ky.de gehostet hat, meine Dateien im Netzwerk verteilen sollte und als Mediacenter-PC ein paar Filme abspielen soll.<br/>Das tut sie auch beinahe ertr&auml;glich gut, der L&uuml;fter ist ziemlich leise, die Leistung reicht f&uuml;r das meiste aus und ich habe es geschafft in das Mini-ITX-Geh&auml;use (Shuttle X27D) immerhin 2 SATA-Festplatten zu quetschen.</p>
+<p>Allerdings w&uuml;nsche ich mir schon seit l&auml;ngerem einen brauchbaren Ersatz daf&uuml;r, der <br/></p><ol><br/><li>v&ouml;llig ohne mechanischen L&uuml;fter auskommt</li><br/><li>h.264/theora/whatever in 1080p Widergeben kann</li><br/><li>weniger Strom verbraucht</li><br/><li>HDMI sinnvoller unterst&uuml;tzt (die Atom-Kiste hat nur einen zus&auml;tzlichen Chip der aus einem analogen Signal wieder einen DVI-Anschluss baut)</li><br/></ol>
+<p>F&uuml;r Ungedultige: <a href="#TLDR">TL/DR oder auch Schlussfolgerungen</a></p>
+<p></p><h3>x86(-64)</h3><br/>Die Idee das auf x86er-Basis aufzubauen, habe ich dann recht fr&uuml;h aufgeben m&uuml;ssen. Die Dinger gibt von Intel es in den Geschmacksrichtungen "taugt nicht" (Atom), "teuer und braucht gro&szlig;en L&uuml;fter" (h&ouml;herwertige Intel-Kisten).<br/>Alternativ k&ouml;nnte man sich noch die AMD Fusion-Kisten ansehen, die _k&ouml;nnten_ ausreichen um 1080p in Hardware laufen zu lassen. Ansonsten bringen die Kisten etwas mehr Leistung als Atom, fallen preislich nicht aus dem Rahmen, man kann sie als Set mit Micro-ATX-Motherboard kaufen. Anbieten w&uuml;rde sich hier wahrscheinlich das <a href="http://www.asus.de/Motherboards/AMD_CPU_on_Board/E35M1I_DELUXE/" target="_blank">Asus E35M1-I DELUXE</a>, das sogar passiv gek&uuml;hlt ist und wohl noch einiges an Ausbauf&auml;higkeit bez&uuml;glich externer Festplatten bietet, allerdings scheinbar auch gerne mal fiepende Ger&auml;usche produzieren soll.
+
+<p>Leider passen die Kisten damit alle nicht in mein bestehendes Geh&auml;use (L&uuml;fter zu hoch), erzeugen meist immer noch Ger&auml;usche (das Asus zwar nicht mit L&uuml;fter, dort soll aber daf&uuml;r ), sind nicht deutlich stromsparender und ich m&uuml;sste mir zumindest <a href="http://epiacenter.de/modules.php?name=Content&amp;pa=showpage&amp;pid=226" target="_blank">mit Pico-PSU</a> o.&auml;. noch was f&uuml;r die Stromversorgung basteln, die bei Mini-ITX eben nicht als klobiges Netzteil im Geh&auml;use sitzen sollte.</p>
+<p></p><h3>ARM</h3><br/>Bleibt nat&uuml;rlich als andere "offensichtliche" Variante ein System auf ARM-Basis.<br/>Die gibt es mit folgenden Eigenschaften, von denen man sich immer 2 Aussuchen darf:<br/><ul><br/><li>mit Leistung</li><br/><li>kaufbar</li><br/><li>mit allen Features die ich brauche</li><br/><li>in passendem Format</li><br/></ul><br/>au&szlig;erdem generell in klein, leise und stromsparend, manche sogar billig.
+
+<p></p><h4>ausgeschlossene Platformen von Offener Hardware:</h4><br/><ul><br/><li>Eagleboard (OMAP5, existiert nicht kaufbar, SATA?)</li><br/><li>Hawkboard OMAP-L138 (schon auf der HP des Projektes wird erstmal gewarnt dass es instabil ist)</li><br/><li><a href="http://Pandaboard.org" target="_blank">Pandaboard</a> (kein SATA, OMAP4430 dual-core ARM Cortex-A9, 1GHz)<br/></li></ul>
+<p></p><h4>IconBit-Hardware</h4><br/><ul><br/><li><a href="http://www.amazon.de/IconBit-XDS200DUO-Netzwerk-Multimedia-Player/dp/B005FZFEKQ" target="_blank">XDS200duo</a> - 2 Festplatten, keine offene Software</li><br/><li><a href="http://www.iconbit.com/catalog/android/iconbit_toucan_w/" target="_blank">Toucan W</a> - nette Hardware, Android, keine Festplatte</li><br/><li><a href="http://www.iconbit.com/catalog/players/iconbit_xds1003d/" target="_blank">XDS1003d</a> - aktiver L&uuml;fter, seltsamer Android-Verschnitt mit "fast switch" zu irgendwas propriet&auml;rem, eine Festplatte, frickelig (ist das vlt. sowas wie <a href="http://www.youtube.com/watch?v=0FopcpZexlw" target="_blank">Myriad Alien Vue</a>? quasi eine alternative Android VM?)</li><br/></ul>
+<p></p><h4>Tegra2</h4><br/>NVidias Tegra2 SoC ist in letzter Zeit scheinbar ziemlich weit verbreitet als Platform um kleine Media-Kisten zu bauen. Die Leistung w&uuml;rde mir auch vollkommen ausreichen und man sieht ja in meinem <a href="/2011/9/12/ARM-Cortex-A9-Netbook-Toshiba-AC100-10V/">Toshiba AC100-10V</a> wie nett sich sowas verwenden l&auml;sst. Ansonsten haben die Kisten nat&uuml;rlich alle die gleichen, vom SoC geerbten, Probleme: max. 1GB RAM und kein SATA. Die Kisten die behaupten mit SATA zu kommen, tun das meist einfach indem ein weiterer Chip drauf l&auml;uft der sich hinter USB klemmt und aus SATA-Ger&auml;ten USB-Ger&auml;te macht. Das ist nat&uuml;rlich weder performant, noch das was ich damit erreichen will wenn ich eine Festplatte intern verbaue.<br/><ul><br/><li><a href="http://trimslice.com/web/" target="_blank">TrimSlice</a>, verf&uuml;gbar, billig, h&uuml;bsch und kann 0-1 interne SATA-Platten je nach Version. Wenn die geerbten Schwachstellen nicht w&auml;ren, h&auml;tte ich davon wohl schon eins bestellt.</li><br/><li><a href="http://developer.nvidia.com/tegra-development-kits" target="_blank">Tegra Development Kits</a>, kein HDMI, kein Ethernet, kein SATA, teuer, schwer erh&auml;lltlich</li><br/><li><a href="http://www.avionic-design.de/de/produkte/PlutuX.html" target="_blank">PlutuX</a>, keine Informationen gro&szlig; verf&uuml;gbar, kaum erh&auml;lltlich</li><br/><li><a href="http://www.seco.com/en/item/quadmo747-x_t20/" target="_blank">QUADMO747-X/T20</a>, HDMI, SATA, aber unbrauchbares (f&uuml;r mich) Format und auch kaum kaufbar</li><br/><li><a href="http://www.toradex.com/Products/Colibri/Modules/Colibri-T20" target="_blank">Toradex Colibri T20</a>, kein SATA, kein vollst&auml;ndiges System, not the Droid i'm looking for either</li><br/><li><a href="http://www.msc-ge.com/de/produkte/com/moduls/overview/6100-www.html" target="_blank">MSC Q7-NT2</a> 1x SATA, noch so eine Development-Kiste</li><br/><li><a href="http://www.tely.com/product/why-choose-telyhd" target="_blank">TelyHD</a>, Kamera-System auf Android-Basis zum auf den Fernseher klemmen, kein SATA, 512MB RAM, $250</li><br/></ul>
+<p></p><h4>Tegra3</h4><br/>Tegra3-Systeme w&uuml;rden quasi Punktgenau die Probleme l&ouml;sen die man aktuell mit Tegra2 hat. Sie haben SATA, k&ouml;nnen bis 4GB RAM verwenden und sollten so ganz nebenbei auch noch mehr Leistung bei geringerem Stromverbrauch erm&ouml;glichen. Leider gibt es bei Tegra3 momentan ein sehr deutliches Problem: Man kann es nicht kaufen.<br/>Momentan scheint es genau ein einziges Ger&auml;t damit im Laden zu geben: <a href="http://www.amazon.de/dp/B0067VGSHA" target="_blank">Asus EeePad Transformer Prime TF201</a>. Jetzt sind fast 700&euro; f&uuml;r ein Ger&auml;t mit dem v&ouml;llig falschen Format f&uuml;r meinen Anwendungszweck nicht gerade ideal, aber <i>sollte ich irgendwann</i> tats&auml;chlich noch einmal ein Notebook kaufen wollen, dann k&ouml;nnte es so etwas wie der bereits angek&uuml;ndigte Nachfolger TF700T sein, der technisch ziemlich identisch ist, aber auf seine 10.2 Zoll Bildschirmdiagonale mal eben eine Aufl&ouml;sung von 1.920x1200 Pixel quetschen will. (Soll allerdings fr&uuml;hestens Juli 2012 &uuml;berhaupt erst kaufbar werden)
+
+<p></p><h4>Viele Varianten mit Marvell Kirkwood</h4><br/>Die Kirkwood-Dinger sind wohl haupts&auml;chlich bekannt durch die <a href="http://de.wikipedia.org/wiki/SheevaPlug" target="_blank">SheevaPlug</a> und <a href="http://de.wikipedia.org/wiki/GuruPlug" target="_blank">GuruPlug</a>-Ger&auml;te. Grunds&auml;tzlich haben die Dinger bei weitem genug Leistung, k&ouml;nnen eigentlich SATA und sind auch Netzwerkseitig mehr als gut genug ausgestattet. Das einzige Problem: Die Dinger sind auf vieles optimiert, aber nicht auf Audio/Video. (verwandt, sowohl von den Features als auch von der CPU her: <a href="http://www.globalscaletechnologies.com/t-dreamplugdetails.aspx" target="_blank">DreamPlug</a>, nat&uuml;rlich auch nicht deutlich besser geeignet)
+
+<p>So gibt es zwar Ger&auml;te wie die OpenRD-Kisten (siehe <a href="http://open-rd.org/" target="_blank">Open-RD.org</a> oder <a href="http://www.pactroninc.com/OpenRDTasman.htm" target="_blank">Pactronic - OpenRD Tasman</a>), die beinahe vollst&auml;ndige Rechner darstellen, &uuml;ber VGA und Klinkenstecker hinaus geht das aber schon von den Anschl&uuml;ssen her kaum. Auch haben die Kisten meist wieder nur 512MB RAM, kommen in Geh&auml;usen die ich mir nur ungern ins Wohnzimmer stellen w&uuml;rde und sehen allgemein sowieso wieder nach weit mehr Frickel aus, als ich mir zumuten will.</p>
+<p></p><h4>Marvell Armada 510</h4><br/>Die Kisten sind wirklich interessant, sie k&ouml;nnen HD-Video wiedergeben, sind klein, leise, Audio/Video-tauglich, kommen meist mit 1GB RAM, sie k&ouml;nnen theoretisch SATA... UND: man kann sie kaufen (zumindest CuBox, auch wenn man da ein paar Wochen Lieferzeit und 50&euro; Porto einrechnen muss und SBC-A510, auch wenn das einen kostenpflichtigen Developer-Account ben&ouml;tigt und recht teuer wird).<br/><ul><br/><li><a href="http://www.solid-run.com/products/cubox" target="_blank">CuBox</a> - nettes miniatur-System, nat&uuml;rlich "nur" eSATA (war klar bei der gr&ouml;&szlig;e), und viele andere nette Features - <a href="http://robvinc.deviantart.com/" target="_blank">RobVinc</a> hat sich gerade eine der Kisten gekauft und scheint noch zufrieden zu sein... vlt. schreibt er ja mal genaueres *stupps*</li><br/><li><a href="http://liliputing.com/2010/01/marvell-shows-off-ultrathin-smartbook-prototype-with-armada-510-cpu.html" target="_blank">Namenloses Armada-Smartbook</a> - keine wirkliche Alternative, ist wohl auch noch weniger Marktreif als das <a href="/2011/9/12/ARM-Cortex-A9-Netbook-Toshiba-AC100-10V/">AC100</a></li><br/><li><a href="http://www.compulab.co.il/a510/html/a510-sb-datasheet.htm" target="_blank">SBC-A510</a> - quasi ein <a href="http://www.compulab.co.il/a510/html/a510-cm-datasheet.htm" target="_blank">CM-A510</a>-Entwickler-Brett auf Mini-ATX-Gr&ouml;&szlig;e hochgezogen und mit den passenden Anschl&uuml;ssen versehen. Wenn die Kiste f&uuml;r brauchbare Preise verf&uuml;gbar w&auml;re, w&auml;re das wohl eine durchaus brauchbare Variante.</li><br/><li><a href="http://www.teltarif.de/kleine-ebox-von-marvell-mit-ubuntu-schafft-1080p-hd-videos/news/x11867.html" target="_blank">Marvell EBox</a> - reines Demoger&auml;t, nur analoges Video/Audio, auch kein SATA</li><br/></ul>
+<p></p><h4>Marvell Armada 1500</h4><br/>Die Kisten sind bisher kaum verf&uuml;gbar. Wie die Armada 510er erf&uuml;llen sie grunds&auml;tzlich alle meine Anforderungen, bieten mehr Leistung und kosten auch nicht deutlich mehr. Man k&ouml;nnte sie fast wie die Tegra3-Kisten als "geile Idee aber wohl nicht mehr dieses Jahr" einordnen, wenn Google nicht angek&uuml;ndigt h&auml;tte dass <a href="http://www.engadget.com/2012/01/05/google-tv-officially-switching-to-arm-marvell-armada-1500-cpu-t/" target="_blank">die kommenden Ger&auml;te mit GoogleTV auf Basis der Armada 1500 aufbauen sollen</a>.<br/>Das l&auml;sst die Vermutung zu dass wir "noch dieses Jahr" <a href="http://www.theverge.com/2011/12/7/2618225/eric-schmidt-le-web-paris-google-tv-majority-all-tvs" target="_blank">relativ viele Ger&auml;te</a> damit im Laden sehen werden, in allen m&ouml;glichen Formen und Gr&ouml;&szlig;en. Vlt. wird es dabei ja auch das eine oder andere geben welches man prima mit einem echten Linux versehen und so einsetzen kann, wie mir es vorschwebt.
+
+<p></p><h4>andere Android-Kisten</h4><br/>Nein, ernsthaft sind die Optionen hier nicht in Betracht zu ziehen... aber sie existieren:<br/><ul><br/><li><a href="http://www.amazon.de/Hama-Internet-TV-Box-Player-Samsung-Kartenslot/dp/B005HNZC5I" target="_blank">Hama Internet-TV-Box</a></li><br/><li><a href="http://www.amazon.de/Android-Flash-Enabled-Google-Browser/dp/B005FCFT9K/" target="_blank">"UK Sales Team"-Noname-Kiste</a></li><br/><li><a href="http://www.nixeus.com/Nixeus-Fusion-XS-Network-Media-Player" target="_blank">Nixeus Fusion XS</a> - wohl noch die sinnvollste Kiste hier, leider ohne Festplatte, aber mit Marvell Armada 1000 Dual-Core SoC</li><br/></ul>
+<p></p><h4>andere Kisten, mit Closed-Source/unbekanntem OS</h4><br/>Hier wird es ekelig. Die Kisten k&ouml;nnen teilweise wirklich alles was ich will, aber will man sich sowas wirklich antun? Andernseits: bei meinem Fernseher und <a href="http://www.amazon.de/gp/product/B003AXJ9ME" target="_blank">AV-Reciever</a> "geht" es ja auch, auch wenn ich mich gerade &uuml;ber die Software des Toshiba-Fernsehers schon mehrmals aufgeregt hab. Ich f&uuml;hle mich gespalten...<br/><ul><br/><li><a href="http://www.nixeus.com/Nixeus-Fusion-HD-Network-Media-Player" target="_blank">Nixeus Fusion HD</a> spielt alle Formate, frisst eine Festplatte, Hersteller-Unterst&uuml;tzung soll super sein, wenn es auch nur die Spur einer M&ouml;glichkeit g&auml;be da was sinnvolles draufzuwerfen, h&auml;tte ich die Kiste wohl schon bestellt</li><br/></ul>
+<p></p><h3 id="TLDR">Schlussfolgerungen / verbleibende M&ouml;glichkeiten</h3><br/><ul><br/><li>x86 ist nahezu tot f&uuml;r meine Zwecke, bestenfalls mit sehr viel Frickel k&ouml;nnte ich mir <a href="http://www.asus.de/Motherboards/AMD_CPU_on_Board/E35M1I_DELUXE/" target="_blank">Asus E35M1-I DELUXE</a> kaufen, es mit m&uuml;h und not vlt. sogar noch irgendwie in mein bestehendes Geh&auml;use quetschen, mich mit hohem Stromverbrauch und Temperaturproblemen rum&auml;rgern und w&auml;re auch die n&auml;chsten paar Jahre unzufrieden. Leistung h&auml;tte ich dann vlt. gerade so genug, aber ob ich HD-Filme unter Linux zum Laufen bekomme ist weiterhin fraglich und ohne Bin&auml;ren Treiberm&uuml;ll wird es wohl nichts.</li><br/><li>Ich k&ouml;nnte mir eine Tegra2-Kiste wie <a href="http://trimslice.com/web/" target="_blank">TrimSlice</a> oder &auml;hnliches kaufen, auf brauchbare Festplatten-Anbindung verzichten und pseudo-gl&uuml;cklich sein. Das l&auml;uft aber auf Rumgefluche wegen langsamer Festplatten und externen Kabelm&uuml;ll hinaus und ist mir momentan das Geld nicht wert.</li><br/><li>Ich frickel (narf) mir f&uuml;r sehr viel Geld ein <a href="http://www.compulab.co.il/a510/html/a510-sb-datasheet.htm" target="_blank">SBC-A510</a> in mein Geh&auml;use oder kauf mir f&uuml;r wenig Geld eine <a href="http://www.solid-run.com/products/cubox" target="_blank">CuBox</a> und leb mit minimal mehr Kabelsalat.</li><br/><li>Ich k&ouml;nnte auf Tegra3-Ger&auml;te oder (realistischer) die neue Generation Google-TV-Zeugs warten und dann was vern&uuml;nftiges kaufen. (aber halt nicht in den n&auml;chsten 0.5-1.5 Jahren)</li><br/><li>Ich kaufe mir eine der Kisten von IconBit, vor allem <a href="http://www.iconbit.com/catalog/players/iconbit_xds1003d/" target="_blank">XDS1003d</a> (leider Closed-Source, aktiver L&uuml;fter) und <a href="http://www.iconbit.com/catalog/android/iconbit_toucan_w/" target="_blank">Toucan W</a> (Android, keine Festplatte) sehen interessant aus.</li><br/></ul>
+<p></p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1563" onclick="set_comment_reference(1563)" title="auf diesen Kommentar antworten">#1563</a>:
+    23.Jan.2012 01:01
+    von
+    
+      
+        RobVinc
+      
+    
+    
+  </p>
+<p>CuBox..</p>
+<p>Also klein ist die kiste ja schon 3x3x3cm&sup3;.. <br/>
+Hat auch genug wumms von der CPU her, hab zurzeit ein Debian Wheezy drauf laufen, dass aber noch optimiert werden muss, gerade f&uuml;r Multimedia muss ich noch mal schaun wie das Ubuntu das mitgeliefert wurde einiges macht..</p>
+<p>Positiv:<br/>
+- Klein, das steckernetzteil bruacht fast schon mehr Platz als die Box.<br/>
+- relativ g&uuml;nstig <br/>
+- 1080p output</p>
+<p>Negativ:<br/>
+- zuleicht (wird durch starre/schwere Kabel leicht umgeworfen)<br/>
+- die Anschl&uuml;sse liegen auch ziemlich eng zusammen<br/>
+- 2 GB ram w&auml;ren w&uuml;nschenswert<br/>
+- nur micro-SD als internes laufwerk, ne SATA-SSD w&auml;re w&uuml;nschenswert</p>
+<p>Habe die Box ca. 1 Woche in Betrieb,  und muss noch vieles testen..</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1564">
+<p class="infos">
+<a href="#comment_1564" onclick="set_comment_reference(1564)" title="auf diesen Kommentar antworten">#1564</a>:
+    23.Jan.2012 01:01
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Naja, gut.. dass die Kiste jetzt auch nicht unbedingt die Kiste ist die man sich neben den Fernseher legen will, ist ja bei dem Format klar. (daher versteh ich auch kaum was man da mit IR und co. will)<br/>
+Ich hatte bei der Kiste eher &uuml;berlegt die irgendwo in eine Schublade zu verbannen, Kabel von hinten zuzuf&uuml;hren und alles als versteckte Dreckecke m&ouml;glichst komplett aus dem Gesichtsfeld heraus zu halten.</p>
+<p>Was sich f&uuml;r mich haupts&auml;chlich an Fragen stellt, w&auml;re:</p>
+<ul>
+<li>Tun die Videocodecs und Grafik auch unter $distribution oder muss ich mich da mit (bestenfalls armel-only) bin&auml;rtreibern oder so rumschlagen? Sprich: hab ich was von 1080p-Output oder kann ich das praktisch nie nutzen?</li>
+<li>Wird die Kiste sehr warm?</li>
+</ul>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_1567" onclick="set_comment_reference(1567)" title="auf diesen Kommentar antworten">#1567</a>:
+    02.Feb.2012 09:02
+    von
+    
+      
+        <a href="http://www.sehnsuchtsort.de/" target="_blank">
+          Peter Macheli
+        </a>
+</p>
+<p>Ich stehe vor einem &auml;hnlichen Problem und habe mich entschieden, auf den Raspberry Pi zu warten. <a href="http://www.raspberrypi.org/" rel="nofollow">http://www.raspberrypi...</a> </p>
+<p>Bei dem Preis nehme ich dann notfalls einfach zwei.</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1568">
+<p class="infos">
+<a href="#comment_1568" onclick="set_comment_reference(1568)" title="auf diesen Kommentar antworten">#1568</a>:
+    02.Feb.2012 12:02
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>uhh..</p>
+<ul>
+<li>max. 256MB RAM</li>
+<li>kein SATA nur USB</li>
+<li>langsamere CPU</li>
+</ul>
+<p>Ja, die Kisten sollen mit $25 wirklich spottbillig werden, aber das &auml;ndert nichts daran dass sie f&uuml;r meinen Einsatzzweck leider v&ouml;llig nutzlos sind.</p>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_1569" onclick="set_comment_reference(1569)" title="auf diesen Kommentar antworten">#1569</a>:
+    08.Feb.2012 08:02
+    von
+    
+      
+        <a href="http://www.fs-net.de/cms/index.php?id=71&amp;tx_ttnews[tt_news]=95&amp;tx_ttnews[backPid]=5&amp;cHash=767f29e55c94b8d17b21884f31972e1e" target="_blank">
+          Santus
+        </a>
+</p>
+<p><a href="http://www.fs-net.de/cms/index.php?id=71&amp;tx_ttnews[tt_news]=95&amp;tx_ttnews[backPid]=5&amp;cHash=767f29e55c94b8d17b21884f31972e1e">Seht Euch das mal an!</a> K&ouml;nnte was sein.</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1570">
+<p class="infos">
+<a href="#comment_1570" onclick="set_comment_reference(1570)" title="auf diesen Kommentar antworten">#1570</a>:
+    08.Feb.2012 10:02
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>&Auml;h.. und was soll man damit wollen?</p>
+<p>Das erste der beiden Ger&auml;te ist jetzt nicht berauschend toll, aber brauchbar, kann aber halt weder SATA noch ist angegeben wieviel RAM die Kiste haben soll, noch ist da sonst irgendwas besonderes dran (au&szlig;er dass es wohl besonders wenige Leute geben wird die das nutzen).</p>
+<p>Die zweite Kiste ist noch unpraktischer f&uuml;r meine Zwecke, hat aber wenigstens ne Angabe dass da nur 256M RAM rein kommen.</p>
+<p>Selbst TrimSlice oder CuBox w&auml;ren deutlich besser geeignet f&uuml;r das was ich damit tun will.</p>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_1573" onclick="set_comment_reference(1573)" title="auf diesen Kommentar antworten">#1573</a>:
+    09.Mar.2012 02:03
+    von
+    
+      
+        bauersein
+      
+    
+    
+  </p>
+<p><a href="http://lifehacker.com/5391308/build-a-silent-standalone-xbmc-media-center-on-the-cheap">Das w&auml;re auch ne idee</a></p>
+<p>Qapla' </p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1574">
+<p class="infos">
+<a href="#comment_1574" onclick="set_comment_reference(1574)" title="auf diesen Kommentar antworten">#1574</a>:
+    09.Mar.2012 10:03
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>ernsthaft? Du schl&auml;gst mir einen Atom230 als Nachfolger f&uuml;r meinen Atom330 vor? 0o</p>
+<p>Beide k&ouml;nnen &uuml;brigens kein 1080p wiedergeben, da ist der 220er nicht gerade n&auml;her dran als sein Nachfolger. Genauso sind beide auch nicht gerade stromsparend, billig oder gut passiv k&uuml;hlbar (auch wenn ich das tun <em>kann</em> wenn ich es wirklich drauf anlege)</p>
+</div>
+</li>
+</ul>
+</div>

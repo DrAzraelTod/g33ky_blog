@@ -1,0 +1,48 @@
++++
+title = "ASCII-Art"
+date = "2008-08-26T11:08:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/615"
+aliases = "blog/615"
++++
+
+<p>Immer wieder sto&szlig;e ich beim t&auml;glichen Feedlesen auf Links bez&uuml;glich irgendwelcher Webdienste, die einfache Pixelbilder n&auml;herungsweise in ASCII-Art ausgeben.<!--more--></p>
+<p>Wer jetzt mit dem Begriff ASCII-Art nichts anfangen kann: es handelt sich um die Idee rein mit ASCII-Zeichen Figuren zusammen zu setzen bis hin zum Zeichnen von Bildern. Dies ist vor allen in der Warez-Szene und in irgendwelchen propriet&auml;ren Communities recht verbreitet. Bei ersterem um die NFOs zu versch&ouml;nen und sich durch Zeichnungen um den Text, kleinere eingebettet Bildchen und Rahmen/Tabellen zum besseren Darstellen der Informationen von anderen Gruppen hervor zu heben.<br/>In Online-Communities werden diese Bildchen vor allem f&uuml;r Schneeball-Nachrichten missbraucht, man zeichnet irgendwelche kleinen Tierchen</p>
+<p>Da ich mich w&auml;hrend meines Studiums eine Weile recht intensiv mit derartigen Spielereien besch&auml;fftigt hab (unter anderem in Zusammenarbeit mit Toranor) kann ich &uuml;ber die meisten Tools nur lachen. Sie m&ouml;gen teilweise durchaus ganz nette Ergebnisse liefern, doch vieles ist einfach meilenweit entfernt von dem was mit wirklich guten Programmen m&ouml;glich ist.</p>
+<p>So gibt es viele Programme die unter dem Umwandeln eines Bildes einfach verstehen dass Rastergrafiken in Raster aus eingef&auml;rbten Buchstaben umgesetzt werden, evtl. bringt man es noch fertig die Grafik vorher zu skalieren um die Gr&ouml;&szlig;e nicht ins Extreme steigen zu lassen.</p>
+<p>Eine weitere Randbemerkung sei mir noch gestattet: In vielen Foren/SocNets und &auml;hnlichem Bl&ouml;dsinn werden h&auml;ufig beliebige Schriften verwendet um "ASCII-Art" zu erstellen. Wirklich gute und wiederverwendbare Ergebnisse erh&auml;llt man jedoch nur mit fixed-width-fonts, bei denen (wie der Name ja bereits sagt) jedes Zeichen die gleiche Breite hat. Alles andere f&uuml;hrt nur zu Rumgefrickel, das dann auch nur mit einer bestimmten Schriftart sinnvoll anzusehen ist. (Die Nachteile sollten auf der Hand liegen.)</p>
+<p>Um mal endlich zu wirklich guten Programmen zu kommen, m&ouml;chte ich 2 Systeme vorstellen, mit denen man eigentlich bereits nahezu alle Anwendungen abdecken kann:<br/></p><h2>Jave</h2><br/>Bei <a href="http://www.jave.de/" target="_blank">Jave</a> (<strong>J</strong>ava <strong>A</strong>scii <strong>V</strong>ersatile <strong>E</strong>ditor) handelt es sich haupts&auml;chlich um einen Bildeditor in Java. Man zeichnet halt mit verschiedenen Pinsel-, Stempel-, Linien-, F&uuml;ll- oder Sonstwas-Werkzeugen auf eine Fl&auml;che und erzeugt auf diese Art Bilder wie man es von jedem Paint oder &auml;hnlichem gewohnt ist. Der einzige Unterschied zu den Myriaden anderer Programme: Das Ergebnis besteht aus ASCII-Art! Jave ist dabei auch schlau genug, um z.B. aus 2 sich &uuml;berschneidenden Geraden mal eben ein X oder + zu zeichnen (das ist noch der einfachste Fall, Jave beherrscht eine gro&szlig;e Menge an wirklich beeindruckender Zeichenfunktionen, die alle unauff&auml;llig im Hintergrund ablaufen), Farbverl&auml;ufe sind genausowenig ein Problem wie Freihandkurven und auch wenn einem die Gradienten des Farbverlaufes nicht Gefallen kann man seinen eigenen zusammenstellen.
+
+<p>Nebenbei unterst&uuml;tzt Jave noch <a href="http://www.jave.de/figlet/figlet.html" target="_blank">Figlet</a>-Schriften (ein standard f&uuml;r die Definition von "Schriftarten" in ASCII-Art, wird mitlerweile von einigen Programmen verstanden und es existieren wahnsinnig viele verwendbare Schriften), kann 3D-Objekte zu ASCII-Art rendern, Animationen erstellen (z.B. auch aus genannten 3D-Szenen) und diese in den verschiedensten Ausgabeformaten (wenn es sein muss auch in einem Javascript-Schnipsel, je nach Geschmack mit oder ohne Kompression) auf die Platte zu speichern.</p>
+<p>Die Umwandlung von Pixel-Bildern zu ASCII-Art macht Jave nat&uuml;rlich so ganz nebenbei auch noch.. das dann auch gleich in allen m&ouml;glichen Geschmacksrichtungen und bei Bedarf mit so netten Ideen wie ein bin&auml;res Bild mal eben automatisiert mit benutzerdefiniertem Text darzustellen.</p>
+<p>Jave l&auml;sst eigentlich keine W&uuml;nsche offen, dadurch dass es wirklich nicht zu den Anwendungen geh&ouml;rt die man jeden Tag nutzt und eher auf den abstrusesten Platformen laufen soll die Geeks einfallen, ist auch Java als Sprache nicht wirklich ein Gegenargument. (Im Gegensatz z.B. zu diversen IDEs die man als Entwickler permanent offen haben will, die dank der ganzen Java-VM aber permanent den Speicher zum&uuml;llen und mit ewigen Ladezeiten nerven... aber das geh&ouml;rt eigentlich garnicht hierhin).<br/></p><h2>AAlib</h2><br/><a href="http://aa-project.sourceforge.net/" target="_blank">AAlib</a> entstand angeblich weil die Jungs gerne ein Tux-Bildchen von der Linux Texas Users Group w&auml;hrend des Bootvorganges sehen wollten.. auf nicht-grafikf&auml;higen Bildschirmen.<br/><blockquote>Once upon a time we've (my friend Kamil and I) bought two old Herculeses as secondary monitors. We didn't know for that time that our Diamond Stealths 64 cards would become obsolete soon. The next day we downloaded the logo of Linux Texas Users Group - nice silly penguin looking like a cowboy! It was so exciting logo ... we decided that we couldn't live without it and we wanted to see it at boot time as a logo on our secondary monitors. There was a small problem - Hercules doesn't support color graphics. So we decided to convert the penguin image to ascii art using netpbm tools.
+
+<p>The output was very ugly because the converting algorithm was absolutly stupid. During the night I designed a new convertor that used a font bitmap to creat an aproximation table. The output wasn't very good since the algorithm wasn't tuned so well. Many months this small piece of code was waiting on my disc for the day "D". Meanwhile I started a new project XaoS (a fractal zoomer) with my friend Thomas. And then I got an idea: Ascii Art Mandelbrots! I was really impressed by the result! <a href="http://www.paru.cas.cz/~hubicka/XaoS" target="_blank">XaoS</a> was faster, portable and looking much better than ever before. I found a new way to go ...</p></blockquote><br/>Der urspr&uuml;ngliche Algorithmus wurde immer wieder stark erweitert und irgendwann war das Ganze dann zu einer vollst&auml;ndigen "Grafikbibliothek" ausgewachsen. Sprich: die Funktionen orientieren sich eher an Bibliotheken f&uuml;r den Vesa-Modus oder andere Grafiksysteme denn an irgendwelchen Programmen f&uuml;r die Dateikonvertierung (es gibt mit <a href="http://aa-project.sourceforge.net/aavga" target="_blank">AAvga</a> sogar einen Wrapper f&uuml;r SVGAlib).<br/>AAlib ist heute noch immer bei fast allen Linux-Distributionen dabei und l&auml;sst sich so bequem installieren ohne auch nur irgendwelche Sourcen compilieren zu m&uuml;ssen. Unter Windows und &auml;hnlichen zur&uuml;ckgebliebenen Systemen hat man allerdings meist die oft zitierte A****-Karte (<a href="http://www.cygwin.com" target="_blank">Cygwin</a> bringt zwar auch Windows-Nutzer in den Genuss aber die Geschwindigkeit k&ouml;nnte etwas leiden.) DOS z&auml;hlt nat&uuml;rlich nicht zu diesen R&uuml;ckst&auml;ndigen Betriebssystemen!
+
+<p>Viele andere Programme bauen also auf dieser Bibliothek auf und nutzen sie um oft erstaunliches darzustellen. Erw&auml;hnen muss man wohl unbedingt <a href="http://linux.die.net/man/1/aaxine" target="_blank">AAXine</a>/<a href="http://oreilly.com/pub/h/4441" target="_blank">Mplayer</a> (DVDs ansehen auf dem Terminal), <a href="http://webpages.mr.net/bobz/ttyquake/" target="_blank">ttyquake</a> (Quake!), <a href="http://aa-project.sourceforge.net/aview" target="_blank">Aview</a> (einen Bildbetrachter f&uuml;r die Konsole, ideal in Kombination mit einem Konsolenbrowser wie <a href="http://de.wikipedia.org/wiki/Lynx_(Browser)" target="_blank">Lynx</a>/<a href="http://links.sourceforge.net" target="_blank">Links</a>/<a href="http://elinks.or.cz" target="_blank">Elinks</a> oder &auml;hnlichem) und <a href="http://linux.die.net/man/1/aafire" target="_blank">AAFire</a> (eine Kaminsimulation).</p>
+<p>Wer einfach nur einmal sehen will was AAlib leisten kann, dem muss man wohl die Grafikdemo <a href="http://aa-project.sourceforge.net/bb" target="_blank">BB</a> ans Herz legen (ist ebenfalls in den meisten Distributionen dabei), die wirklich erstaunliche Animationen zeigt.</p>
+<p><a href="http://aa-project.sourceforge.net/gallery/" target="_blank">Beispiele</a> f&uuml;r die Qualit&auml;t der Bildumwandlung gibt es nat&uuml;rlich auch.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_461" onclick="set_comment_reference(461)" title="auf diesen Kommentar antworten">#461</a>:
+    04.Oct.2008 05:10
+    von
+    
+      
+        <a href="http://www.hirner.at" target="_blank">
+          helmeloh
+        </a>
+</p>
+<p>Ein ein Fan von ASCII-Art, allerdings bevorzuge ich die Hardcore Version, also mit einem Editor in Standardschriften, die auf jedem System verf&uuml;gbar sind.</p>
+
+<p class="infos">
+<a href="#comment_462" onclick="set_comment_reference(462)" title="auf diesen Kommentar antworten">#462</a>:
+    04.Oct.2008 05:10
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Naja, genau genommen machen die vorgestellten Tools nichts anderes. Aber am wahren Sinn von ascii-art geht das zugegebenerma&szlig;en schon etwas vorbei.</p>
+</div>

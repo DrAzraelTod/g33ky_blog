@@ -1,0 +1,55 @@
++++
+title = "select * from bar where text like \"foo\""
+date = "2009-03-13T01:03:00"
+author = "Dr. Azrael Tod"
+tags = ["Quählkot"]
+issoid = "blog/1328"
+aliases = "blog/1328"
++++
+
+<p>Nachdem ich heute mal wieder etwas an <a href="http://code.google.com/p/pychao" target="_blank">pyChaos</a> HTML-Ausgabe (ja die ist nur rudiment&auml;r vorhanden und potth&auml;sslich) rumgeschraubt habe, bin ich mal wieder auf ein einfaches Problem gesto&szlig;en.<br/>Beim Versuch die <a href="http://home.g33ky.de/fact/3368.html" target="_blank">referenzierenden Facts</a> auf der jeweiligen Fact-Seite anzuzeigen, habe ich erstmal eine wirklich h&auml;ssliche L&ouml;sung gebaut, die wohl jedem kalte Schauer &uuml;ber den R&uuml;cken jagt der schon einmal ernsthaft mit Datenbanken gearbeitet hat.<!--more--><br/>F&uuml;r jede generierte Seite, frage ich bei diesem Ansatz alle Facts ab, die die ID des aktuellen Facts im Text enthalten.</p>
+<p>Wenn ich z.B. Fact #1 abfrage, erzeugt das also eine Abfrage wie "select fid from fact where text like '%#1%'". Das w&auml;re an sich schon ziemlich schlimm, dadurch dass ich aber noch verschiedene Varianten abfrage, wodurch dieser Text eingeschr&auml;nkt sein k&ouml;nnte (z.B. um nur Ergebnisse f&uuml;r <a href="http://home.g33ky.de/fact/1.html" target="_blank">#1</a> und nicht <a href="http://home.g33ky.de/fact/1987.html" target="_blank">#1987</a> zu finden) muss die Datenbank diese Suche sogar noch mehrmals ausf&uuml;hren.<br/>Wenn ich also 16 Varianten abfrage (SQLite unterst&uuml;tzt ja von Haus aus keine Regexpressions), geht die Datenbank alle Texte 16 mal durch und sucht nach diesem String.<br/>Dadurch dass ich auch ein % am Anfang der Abfrage habe wird die Sache noch schlimmer: selbst ein Index &uuml;ber dieses Feld kann mir nun nicht mehr helfen, wie soll man auch einen bin&auml;ren Baum durchsuchen, wenn man nicht wei&szlig; wo man anfangen soll?</p>
+<p>Das Ergebniss dieser d&auml;mlichsten aller Grundideen sieht man dann, wenn pyChao beim Start erstmal alle Seiten generiert. Wartezeiten von einer Minute f&uuml;r ein paar Tausend Dateien sind keine Seltenheit.</p>
+<p>Die sinnvollere L&ouml;sung w&auml;re nat&uuml;rlich einfach: Ich brauche eine weitere Tabelle, in der ich die Relationen zwischen den Facts abspeicher. Dann wird es pl&ouml;tzlich m&ouml;glich diese Abfrage &uuml;ber einen einzigen Durchgang eines Indizierten Feldes mit = statt like zu holen.</p>
+<p>SELECT fid from fact_refs_fact where reference = '1';</p>
+<p>Dies erzeugt dann zwar beim Schreiben eines Facts minimal mehr Aufwand, sollte das Abfrageverhalten jedoch um einige Potenzen beschleunigen.</p>
+<p>Was mir an dieser Stelle auch mal wieder aufgefallen ist: Ich kann mich nicht erinnern dass ich derartiges jemals w&auml;hrend meiner Berufsausbildung oder meines Stuiums geh&ouml;rt zu haben.<br/>Nat&uuml;rlich geht es hier nicht gerade um ein Thema dass so hochwissenschaftlich ist dass man es sich niemals selbst erarbeite k&ouml;nnte, doch imho sollte es DRINGEND in einem Fach namens Datenbanksysteme angeschnitten werden. An der FH-Zwickau scheint man dies jedoch nicht f&uuml;r n&ouml;tig zu halten, weder an eine Vorlesung in der mal erw&auml;hnt wurde dass Datenbanken intern ihre Indices so organisieren, noch an irgendeine andere Vorlesung mit Theoretischen Hintregr&uuml;nden zu diesem Thema kann ich mich erinnern.</p>
+<p>Wahrscheinlich war unser Lehrplan einfach bereits mit <a href="/2008/02/15/wahnsinn-studium-3/">Vorlesungen in denen wir lernen mussten erstmal mit COBOL klarzukommen</a> (der Hauptinhalt der Vorlesung Datenbanksysteme, in Erweiterungen zu diesem Fach wurde dann die grunds&auml;tzliche Verwendung von Oracle und &auml;hnlichem besprochen statt irgendwas zu vertiefen) vollgestopft, dass uns keine Zeit mehr blieb &uuml;berhaupt irgendwas sinnvolles damit zu tun.<br/>Aber ich habe ja auch schon <a href="/2008/02/13/wahnsinn-studium-2/">mehrmals</a> <a href="/2008/02/12/wahnsinn-studium-1-die-kunst-der-informatik/">festgestellt</a> dass ein Abschluss von der FH Zwickau in diesem Fachbereich absolut nichtssagend betreffs der F&auml;higkeiten eines Studenten ist.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1207" onclick="set_comment_reference(1207)" title="auf diesen Kommentar antworten">#1207</a>:
+    13.Mar.2009 05:03
+    von
+    
+      
+        <a href="http://ag7.alltagsgrauen.info/" target="_blank">
+          fwolf
+        </a>
+</p>
+<p>Glaub mir: Das ist nicht nur bei der FH Zwicksau so ;)</p>
+<p>cu, w0lf.</p>
+
+<p class="infos">
+<a href="#comment_1208" onclick="set_comment_reference(1208)" title="auf diesen Kommentar antworten">#1208</a>:
+    13.Mar.2009 05:03
+    von
+    
+      
+        <a href="http://ag7.alltagsgrauen.info/" target="_blank">
+          fwolf
+        </a>
+</p>
+<p>ups .. wie ist denn da das 's' mit reingerutscht?</p>
+<p>cu, w0lf.</p>
+
+<p class="infos">
+<a href="#comment_1209" onclick="set_comment_reference(1209)" title="auf diesen Kommentar antworten">#1209</a>:
+    13.Mar.2009 05:03
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Ich habs f&uuml;r Absicht gehalten^^</p>
+</div>

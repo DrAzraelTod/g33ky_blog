@@ -1,0 +1,63 @@
++++
+title = "Script-Geschwindigkeiten"
+date = "2008-10-07T08:10:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/903"
+aliases = "blog/903"
++++
+
+<p>Wenn ich mir ansehe was wir fr&uuml;her von Scriptsprachen gehalten haben und dies mal mit meiner aktuellen Einstellung vergleiche, so bin ich erheblich mehr als nur Verwundert.<br/>Zu meiner Zeit sagte man noch dass man Interpretersprachen nur f&uuml;r kleine Aufgaben verwenden sollte. Z.B. mal schnell ein paar Verzeichnisse anlegen, ein Auswahlmen&uuml; anzeigen oder beim Systemstart ein paar Programme aufrufen.<!--more--><br/>Genau f&uuml;r solche Dinge haben wir damals <a href="http://de.wikipedia.org/wiki/Stapelverarbeitung" target="_blank">Batch-Dateien</a> verwendet. Klar war das keine vollwertige Sprache, aber man wollte ja damit auch keine Programme schreiben... nur Aufrufen.<br/>(&Uuml;brigens war Batch mit <a href="http://de.wikipedia.org/wiki/QBasic" target="_blank">QBasic</a> das erste was ich auch nur ann&auml;hernd in Richtung Softwareentwicklung lernte.)</p>
+<p>Heutzutage hingegen machen wir alles mit interpretierten Sprachen. Auf dem Webserver erzeugen wir Markup-Code mit PHP oder Python, dieser Code enth&auml;llt dann wieder Javascript-Code, der auf Client-Seite ausgef&uuml;hrt wird. Wenn wir ein Programm schreiben das auf unterschiedlichen Systemen laufen soll, programmieren wir in Java. Wenn wir ein kleines Tool brauchen schreiben wir Python.</p>
+<p>Ich stelle jetzt nicht die Frage ob nativ compilierte Programme tot sind, ich stelle allerh&ouml;chstens eine &auml;hnliche: "Liegen compilierte Sprachen im Sterben?"</p>
+<p>Nat&uuml;rlich haben wir weniger Performanceprobleme als zu meinen DOS-Zeiten mit Batch und nat&uuml;rlich sind die Sprachen nichtmal ann&auml;hernd mit dem Kr&uuml;ppel Batch zu vergleichen. Doch f&uuml;r mich stellt sich immer auch die Frage, ob der Mangel an Performanceproblemen mehr an unseren schnellen Systemen liegt (deren volles Potential wir im Umkehrschluss nicht nutzen) oder ob die Interpreter wirklich um derartige Gr&ouml;&szlig;enordnungen schneller geworden sein sollen.</p>
+<p>just my 2 cents</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_719" onclick="set_comment_reference(719)" title="auf diesen Kommentar antworten">#719</a>:
+    07.Oct.2008 10:10
+    von
+    
+      <a href="/blog/author/toranor/">
+        toranor
+      </a>
+</p>
+<p>Nehmen wir doch mal den 468dx4 wenn der 40megaflops erreicht hat konnte man feiern, und den 10 sek sp&auml;ter wohl in die m&uuml;lltonne werfen. aktuell sitz ich grad an nem laptop, der locker 10 gigaflops bringt. macht fakttor 200. dazu habe ich anstatt 4 mb 4 gb ram, der auch nicht aufm bustakt von 33mhz sondern 666mhz rumd&uuml;mpelt. so gesehen ist der hauptteil des geschwindigkeitszuwachses wohl der hardware zu verdanken. batch ist afaik nicht schneller geworden. die anderen sprachen evtl. aber das ist nicht das gros.</p>
+
+<p class="infos">
+<a href="#comment_720" onclick="set_comment_reference(720)" title="auf diesen Kommentar antworten">#720</a>:
+    07.Oct.2008 11:10
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Mein Problem ist halt dass wir fr&uuml;her Batch nicht verwenden wollten weil es um einen Faktor von &gt;&gt;3 langsamer war als ein nativ ausgef&uuml;hrtes Program<br/>
+Unsere Rechner sind heutzutage nat&uuml;rlich erheblich schneller geworden, dennoch jammern alle dass die Rechenzeiten immer noch bei vielen Aufgaben viel zu langsam w&auml;ren.<br/>
+K&ouml;nnen wir es uns wirklich leisten &uuml;berall zu interpretieren oder Programme immer wieder durch einen Precompiler zu jagen, statt einmalig zu Compilieren?</p>
+
+<p class="infos">
+<a href="#comment_721" onclick="set_comment_reference(721)" title="auf diesen Kommentar antworten">#721</a>:
+    07.Oct.2008 03:10
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>http://shootout.alioth.debian.org/</p>
+
+<p class="infos">
+<a href="#comment_722" onclick="set_comment_reference(722)" title="auf diesen Kommentar antworten">#722</a>:
+    07.Oct.2008 08:10
+    von
+    
+      
+        <a href="http://www.bunix.de" target="_blank">
+          reaper
+        </a>
+</p>
+<p>Tod? Sterben? Mit nichten, wer auch immer behauptet das Skriptsprachen in Performance kritische Bereiche vordringen k&ouml;nnten ist definitiv auf dem Holzweg. Auf Embedded Hardware z.B. wird niemand auf die Idee kommen PHP zum Einsatz zu bringen. Java hat ja auf vielen Handys schon Einzug gehalten aber auf minimal Hardware geht einfach nix ohne maschinennahe Programmierung.</p>
+<p>F&uuml;r kleines Webgefriemel finde ich Skriptsprachen als akzeptabel, genauso Shellskripte f&uuml;r Convenience Aufgaben. Im Gesch&auml;ftskritischen Bereich wiederum m&ouml;chte ich die Syntaxfehler nicht erst sehen wenn der Kunde nicht bestellen kann. Da brauche ich andere Werkzeuge zur Qualit&auml;tssicherung und ein Compiler ist da einfach mal der erste Schritt.</p>
+<p>Witzig in diesem Kontext ist vielleicht auch die Bude (<a href="http://www.numiton.com/products/ptoj-overview.html" rel="nofollow">http://www.numiton.com...</a>) die automatisiert PHP in Java Code wandelt. Mal abgesehen davon der Code echt zum f&uuml;rchten aussieht, schon ein krasses Projekt.</p>
+</div>

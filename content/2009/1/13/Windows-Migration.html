@@ -1,0 +1,89 @@
++++
+title = "Windows-Migration"
+date = "2009-01-13T01:01:00"
+author = "Dr. Azrael Tod"
+tags = ["PC", "Rant", "Softwareschrott", "Technik"]
+issoid = "blog/1174"
+aliases = "blog/1174"
++++
+
+<p>Hier mal einige Notizen zum Versuch mal Windows l&auml;nger als Ersatz f&uuml;r Linux zu verwenden. Der Grund f&uuml;r diese Aktion waren die Probleme die ich noch bis vor kurzem mit Linux auf meinem <a href="/2008/10/19/medion-akoya-mini-e1210/">Akoya </a>hatte. Dank <a href="http://www.x.org/wiki/Projects/XRandR" target="_blank">Xrandr </a>und einigen Spielereien mit <a href="http://sourceforge.net/projects/ndiswrapper/" target="_blank">Ndiswrapper </a>statt dem nativ, passenden WLAN-Treibermodul hat sich das meiste jetzt aber gel&ouml;st.<!--more--><br/></p><h2>Distributionswahl</h2><br/>Es gibt scheinbar generell nur einige, wenige verschiedene Distributionen von Windows und sie alle stammen vom selben Hersteller und werden nur mit wirklich extrem minimaler Softwareausstattung geliefert. Selbst eine einfache Office-Suite muss man zukaufen und ein vern&uuml;nftiges Bildbearbeitungsprogramm (wie <a href="http://www.gimp.org" target="_blank">Gimp</a>) gibt es &uuml;berhaupt nicht dazu.
+
+<p>Da auch noch alle Distributionen kostenpflichtig sind, habe ich mich erstmal f&uuml;r die Variante "Windows XP Home" entschieden, da sie zu Akoya bereits mitgeliefert wurde und so keine Zusatzkosten verursachte.<br/></p><h2>Installation</h2><br/>Da gehts ja schon los... Zwar wird zu Akoya einiges an CDs mitgeliefert, aber wie soll ich die ohne Zubeh&ouml;r auf einen Rechner bekommen, der keinerlei optisches Laufwerk eingebaut hat?<br/>Auch Versuche eine M&ouml;glichkeit zu finden, wie man Windows via USB-Stick oder Netzwerk-Installation von einem anderem Rechner (auch nicht von @home) installieren kann scheinen komplett ins leere zu laufen.<br/>Ich bin also gezwungen von einem externen DVD-Laufwerk zu booten, dieses muss nachgekauft werden.
+
+<p>Die Installation selbst ist etwas langwierig, aber nicht sonderlich schwierig. Interessanter Weise fragt mich die Software nach wirklich jedem Mist (Warum sollte ich bei der sehr minimalen Softwareauswahl auch noch gro&szlig;artig Pakete abw&auml;hlen?), aber so einfache Sachen wie die Einstellungen des Boot-Managers werden komplett ignoriert.<br/>Dementsprechende &uuml;berschreibt Windows dann auch gleich mal meinen GRUB, den ich f&uuml;r Linux dann erst wieder umst&auml;ndlich wiederherstellen muss... DAS nenn ich doch mal durchdacht. -.-<br/>Der neue Bootmanager enth&auml;llt auch keinerlei Eintr&auml;ge f&uuml;r andere Betriebssysteme. Denkt Microsoft dass sie das einzige Betriebssystem herstellen oder woher kommt diese Ignoranz?<br/></p><h2>Paketverwaltung</h2><br/>...ist nicht vorhanden. Wie zum Henker soll ich entscheiden welche Programme gut unter dem System laufen? Wie soll ich hunderte Programme aktuell halten? Wie soll ich abh&auml;ngigkeiten verwalten und vor allem woher soll ich die Zeit nehmen, mir von jedem zweiten Programm die sinnvollen Quellen zu suchen, mit keinem besser geeignetem Tool als Google?`<br/>Zum Thema Sicherheit tr&auml;gt das auch nicht gerade bei, man f&auml;ngt irgendwann an jedes Programm aus unbekannten Quellen einfach erstmal auszuprobieren, auch die Abfrage vor dem Start eines neuen Programmes, dass die Signatur unbekannt w&auml;re und ob man das wirklich will, wird nach kurzer Zeit einfach aus Routine weggeklickt und hilft nicht wirklich.
+
+<p>Der einzige Ansatz zur Paketverwaltung umfasst nur bei Windows mitgelieferte Software (was verdammt wenig ist) und eine Deinstallationsroutine f&uuml;r bereits installiertes. Das w&auml;re ja immerhin schonmal etwas... wenn es funktionieren w&uuml;rde. Was soll ich mit einer automatisierten Deinstallation, die meistens alles an Abh&auml;ngigkeiten, Temp-Daten und sonstigen nach der Installation angelegten Daten im System bel&auml;sst?<br/></p><h2>Rechteverwalten</h2><br/>Ich will mein sch&ouml;nes, einfaches Unix-Rechtesystem! Was soll dieser Bl&ouml;dsinn eine ellenlange Tabelle als Rechtesystem anzuzeigen oder alternativ nur Schreibgesch&uuml;tzt/Archiv/Versteckt (was alles eigentlich ignoriert wird).<br/>Via default sind sogar nahezu alle Systemdaten f&uuml;r alle Nutzer des Systems schreibbar, das ist unzumutbar.<br/><h2>Dateistruktur</h2><br/>Manche Programme legen die Daten zum Nutzer direkt in seinen "Eigenen Dateien" (soll wohl sowas wie ~/ sein) ab, andere in dem Verzeichniss wo sie gerade ausgef&uuml;hrt werden oder wo die Binary liegt, wieder andere in Config-Verzeichnissen oberhalb von "Eigene Dateien" (das entspricht dann wohl "~/.irgendwas") und viele Daten werden einfach auf den un&uuml;bersichtlichen Binaryblob geworfen der sich Registry schimpft. <a href="/2008/10/06/wo-sollten-config-daten-liegen/" target="_self">Kann man nicht mal ein System durchsetzen, ordentlich durchdenken und dann f&uuml;r alle Verpflichtend machen?</a><br/><h2>Systemn&auml;heres</h2><br/>Ich habe es nicht geschafft sonderlich viele Dateisysteme unter Windows zu verwenden. Mit <a href="http://www.fs-driver.org/" target="_blank">IFS</a> war es mir m&ouml;glich Ext2-Dateisysteme einzubinden, das ist jedoch nirgendwo von Microsoft dokumentiert, wird nicht unterst&uuml;tzt, l&auml;uft wahnsinnig instabil und sollte auf _keinen_ Fall f&uuml;r wichtige Anwendungen eingesetzt werden.<br/><a href="http://de.wikipedia.org/wiki/NTFS" target="_blank"> NTFS </a>ist als Dateisystem relativ gut geeignet, und FAT weit verbreitet, es ist also m&ouml;glich fast alle Datentr&auml;ger zu verwenden die da drau&szlig;en so rumschwirren... aber was wenn doch mal etwas an offenen Standards daher kommt?
+
+<p>Bereits wenn man etwas derartig primitives wie eine SSH-Verbindung zu einem Server starten will steht man vor einer Mauer. Die Shell unter Windows ist von Haus aus nahezu unverwendbar, all die netten, kleinen Tools die man von Unixoiden Systemen kennt fehlen. Die einzige, mitgelieferte M&ouml;glichkeit einen Terminalzugriff zu erm&ouml;glichen, stell Telnet dar. Ich muss wohl niemandem erz&auml;hlen wie gef&auml;hrlich das ist. Durch Nachinstallation von Software aus Drittquellen wird dies allerdings zumindest m&ouml;glich, gut dass diese als Binary geliefert wird, denn ein Compiler wird ebenfalls nicht mitgeliefert.</p>
+<p>Bei Fileservern sieht es &auml;hnlich aus. FTP kann man einbinden wie ein lokales Laufwerk, aber SFTP oder andere, sinnvollere Protokolle funktionieren wieder nur mit Drittsoftware (und dann auch nur in jeweils diesem Programm, ein Einbinden ins System ist &uuml;berhaupt nicht m&ouml;glich).<br/></p><h2>Schlussfolgerung</h2><br/>Mit den Worten: un&uuml;bersichtlich, un&uuml;berlegt, unzusammenh&auml;ngend, umst&auml;ndlich und unsicher ist meine Meinung zu diesem System ziemlich gut zusammengefasst. Ich kann nur jedem empfehlen die Finger von diesem System zu lassen, wenn es nicht unbedingt sein muss. Alleine die Verwaltung der installierten Software kostet unmengen an Zeit, da der Nutzer selbst sich darum k&uuml;mmern muss das System auf einem aktuellem Stand zu halten. Andere Dinge wie die Unterst&uuml;tzung von offenen Dateisystemen, SFTP-Einbindung oder auch einfach nur Systemeinstellungen per Shell-Script zu &auml;ndern sind scheinbar vom Hersteller nie vorgesehen gewesen und werden dementsprechend einfach nicht gemacht.
+
+<p>Diese Leistungen bei einer kommerziellen Distribution zur Verf&uuml;gung zu stellen, kombiniert mit der nahezu komplett fehlenden oder unbrauchbaren Dokumentation (primitivste Sachen werden Schritt f&uuml;r Schritt erkl&auml;rt, aber wehe man hat ein Problem) und dem extrem minimalem Lieferumfang lassen nur den Schluss zu, dass es sich bei diesem Betriebssystem um einen Witz handeln muss.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1057" onclick="set_comment_reference(1057)" title="auf diesen Kommentar antworten">#1057</a>:
+    13.Jan.2009 05:01
+    von
+    
+      
+        <a href="http://macfidelity.de" target="_blank">
+          fidel
+        </a>
+</p>
+<p>Hrhr - netter Ansatz - k&ouml;nntest in dem Stile sicherlich ein unterhaltsames Comedy-Blog starten :)</p>
+
+<p class="infos">
+<a href="#comment_1058" onclick="set_comment_reference(1058)" title="auf diesen Kommentar antworten">#1058</a>:
+    14.Jan.2009 02:01
+    von
+    
+      <a href="/blog/author/toranor/">
+        toranor
+      </a>
+</p>
+<p>So, muss ich mich doch mal als Windoof-"Fan" outen. (und jetzt sagt nicht ihr h&auml;ttet das nicht gewusst)</p>
+<p>Fan von Windows bin ich nicht wirklich, ich hab gelernt demit zu leben.<br/>
+Warum ? Ich spiele gern, als ehemaliger "Pro-Gamer" sind das die Reste der Sucht :-), und leider ist das Windows pflicht. Jetzt kommt mir nicht mit "gibts doch auch f&uuml;r linux". Gibt leider nicht alles f&uuml;r Linux. und Wine ist auch keine L&ouml;sung, da dort einfach die Geschwindigkeit fehlt.<br/>
+Das f&uuml;hrte dazu, dass ich mich dann irgendwann mit WIn angefreundet habe, und das System mehr oder weniger besser kennengelernt habe.</p>
+<p>WinXP ist schonmal ne schlechte Wahl. Das is bunt und kann sonst nix. Besser win2k, aber das ist alt. Vista ist der totale Horror. Blibt nur noch Server 2k3 &uuml;brig, und da bin ich dann auch h&auml;ngen geblieben:<br/>
+ALs Shell ist wieder cmd am Start, diesmal aber mit nem Haufen mehr Befehlen und Tools, zwar nicht so gut wie bei Linux, aber besser als die "normalen" Windows.</p>
+<p>Die Installation von Usb ist m&ouml;glich, im Prinzip auch empfehlenswert, weil irgend nen Spassvogel die Dateien, die beim Start der Installroutine von Win geladen werden in der falschen reihenfolge auf der CD abgelegt hat, was dazu f&uuml;hrt, dass euer armes cd-laufwerk nur am hin und herspringen ist.<br/>
+Falss das jemand interessiert, schreib ich mal nen Blogeintrag &uuml;ber Wininstall von Usb.</p>
+<p>Die Bezeichung "Binaryblob" f&uuml;r die Registry ist noch untertrieben. Die Registry verh&auml;lt sich wie angereichertes Uran. Wenn der HAufen eine kritische Gr&ouml;sse erreicht geht das ganze System den Bach runter. Also viele Programme istallieren ist nicht drin. Das wiederum erkl&auml;rt auch warum es keine Paketverwaltung gibt: macht keinen Sinn. Wenn man so viele Programme hat, das ne Paketverwaltung sinnvoll w&auml;re, ist Win sowieso schon kaputt, und man muss es neu aufspielen.<br/>
+Einzigst praktikable L&ouml;sung ist "portable"-Software. Hier kann man dann auch auf Paketverwaltungen von dritten zur&uuml;ckgreifen (bsp: <a href="http://portableapps.org" rel="nofollow">portableapps.org</a>). Nun das Problem ist die Software, welche es nicht als "portable" Version gibt. Ich hab mir nun &uuml;ber die Jahre die M&uuml;he gemacht, so ziemlich alle Software die ich benutze "portable" zu machen. Das ist aber leider mitunter nicht einfach, das von Quelloffenheit keine Rede sein kann, und man dann immer raten darf wo was warum liegt. Vor allem die Spielehersteller machen es einem in der Hinsicht schwer, da man nicht nur teile des Grafiksystems directX, sondern neuerdings auch jeden Scheiss (windows live z.b.) mitnehmen muss.<br/>
+Hat man es dann aber mal so weit, muss ich sagen, dass Win2k3 Server ein stabiles System abgibt. in den 20 Monaten hatte ich lediglich einen Bluescreen, und der war selbstverschuldet. L&auml;nger testen konnt ich nicht, weil die Festplatte sich durch aufsetzten des Lesekopfes verabschiedet hatte. Die geschwindigkeit war in dem Testzeitraum konstant gut, und liess nicht nach.<br/>
+Was die Sicherheit angeht, hatte ich trotz fehlender Firewall und AV-Programm keine Probleme.</p>
+<p>Zur Rechteverwaltung: Die gibt es. Auch im XP. Die nutzt nur keiner, weil umst&auml;ndlich und h&auml;sslich. An einer Stelle merkt man aber das sie funktioniert: Wenn man jene chaotische Ordnerstruktur "Eigene Dateien, %windir%\system*, %local_user%" sichern will, kann man nicht drauf zugreifen.</p>
+<p>Das W2k3 nun den beinamen Server tr&auml;gt sei dazu auch noch was gesagt. Microsoft Dateiserver ist statisch. d.h. jede &auml;nderung muss ich dem ding von Hand verklickern. Im Vergleich dazu: FilezillaFTP, hier reicht ein Druck auf f5 und eventuelle &auml;nderunegn werden &uuml;bernommen.</p>
+<p>Zum schluss noch was ganz h&auml;ssliches: Die native FTP-Unterst&uuml;tzung. Wer mal heulen will sollte die nutzen.</p>
+<p>Fazit:<br/>
+Das einzig brauchbare Windows ist Server 2k3. Da darauf leider Call of Duty 5 l&auml;uft und es an jedglichen sinnigen Serverfunktionen fehlt k&uuml;re ich W2k3 zum schlechtesten OS ever.<br/>
+Hat M$ im vergleich zu  seinen anderen OS gut gemacht, aber leider Ziel verfehlt.</p>
+
+<p class="infos">
+<a href="#comment_1059" onclick="set_comment_reference(1059)" title="auf diesen Kommentar antworten">#1059</a>:
+    14.Jan.2009 08:01
+    von
+    
+      
+        <a href="http://www.matworx.de" target="_blank">
+          madda
+        </a>
+</p>
+<p>XD is ja witzig ^^ ich bastel grad quasi an einem &auml;hnlichen Beitrag ^^'</p>
+<p>Ma nochma dr&uuml;ber schauen und online stellen ^^</p>
+<p>Leider hast Du Recht in allen Punkten, aber trz ist es f&uuml;r manch eine Anweungd leider unumg&auml;ngliches dieses St&uuml;ck Schrottware zu installieren ^^</p>
+
+<p class="infos">
+<a href="#comment_1060" onclick="set_comment_reference(1060)" title="auf diesen Kommentar antworten">#1060</a>:
+    15.Jan.2009 05:01
+    von
+    
+      
+        <a href="http://macfidelity.de" target="_blank">
+          fidel
+        </a>
+</p>
+<p>@toranor: als Erg&auml;nzung zu CMD g&auml;be es noch die sogenannte PowerShell ;)<br/>
+H&ouml;rt sich nach mehr an wie es dann tats&auml;chlich ist, aber in manchen F&auml;llen schon eine Erw&auml;gnug wert wenn man auf diesme OS unterwegs ist.</p>
+</div>

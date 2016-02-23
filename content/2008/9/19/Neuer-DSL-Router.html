@@ -1,0 +1,125 @@
++++
+title = "Neuer DSL-Router"
+date = "2008-09-19T12:09:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/767"
+aliases = "blog/767"
++++
+
+<p>Freenet hat Donnerstag geliefert! Einen neuen WLAN-AP mit DSL-Router (<a href="http://www.samsung.com/global/business/telecommunication/productInfo.do?ctgry_group=14&amp;ctgry_type=32&amp;b2b_prd_id=218" target="_blank">Samsung 3210 Phone WLAN SL</a>) den es zu meiem DSL-Anschluss dazu gibt. Das Ger&auml;t scheint zumindest vom Funktionsumfang einiges auf dem Kasten zu haben, 4 LAN-Anschl&uuml;sse, 3 Telefon-Anschl&uuml;sse, USB-Anschluss mit Printserver und unterst&uuml;tzung f&uuml;r bis zu 3 USB-Festplatten, nat&uuml;rlich auch alle M&ouml;glichen Standardfunktionen wie DynDNS-Unterst&uuml;tzung, WPA2-Verschl&uuml;sselung, ISDN-Verwaltung und UPnP, aber auch solchen Geigel wie Raum&uuml;berwachung per Telefon (lautst&auml;rkengesteuert, bei erreichen eines bestimmten Pegels wird eine Nummer gew&auml;hlt), Email-Benachrichtigung, Weckerfunktion, URL-Filter und zeitgesteuerte Internetsperren f&uuml;r bestimmte Rechner (ideal f&uuml;r Kinder).<!--more--></p>
+<p>Die meisten Funktionen die &uuml;ber den Standard hinaus gehen sind nat&uuml;rlich Bl&ouml;dsinn, ich glaube kaum dass ich die Wecker-Funktion oder E-Mail-Benachrichtigung jemals nutzen werde.<br/>Der USB-Port scheint erstmal die genialste Erweiterung im Gegensatz zu anderen Ger&auml;ten zu sein, leider konnte ich das Ger&auml;t noch nicht dazu bewegen den USB-Drucker meiner besseren H&auml;lfte (Brother DCP-115C) zu erkennen, womit die Verwendung als Printserver wohl so ziemlich ins Wasser f&auml;llt.</p>
+<p>Auch die Verwendung als Dateiserver gestaltet sich eher schwierig, Zugriff erh&auml;llt man nur via FTP, Unterst&uuml;tzung f&uuml;r meine EXT3-Festplatte ist ebenfalls Fehlanzeige und auch meinen Cardreader konnte weder mit CF-Karten noch mit SD-Karten (ganz zu schweigen von beidem gleichzeitig) verwenden. Auch der FAT-Formatierte 1GB-USB-Stick meiner Freundin funktionierte nicht gleich, was mich endg&uuml;ltig verwirrte, da meine 512MB FAT-Partition auf meiner 160GB USB-Festplatte (kleine Sammlung mit Windows-Tools und Ext3-Treiber f&uuml;r XP um meine Festplatte auch dort verwenden zu k&ouml;nnen) und mein eigener 2GB-USB-Stick (ebenfalls FAT) keinerlei Probleme verursachten.<br/>Bei sp&auml;teren Tests konnte ich dann auch den 1GB-Stick noch zum Funktionieren bewegen, dies schien mir aber nicht sehr stabil.</p>
+<p>Ich vermute mal dass au&szlig;er FAT sicher noch NTFS als Dateisystem nutzbar ist (was mich nicht weiter bringt, da die einzige NTFS-Partition bei uns im Notebook meiner Freundin steckt, der Rest ist Ext und wenn &gt;= 2GB auch mal FAT).<br/>Die Geschwindigkeit war zumindest problemlos ausreichend um eine Videodatei mittlerer Qualit&auml;t live vom Netzwerk anzusehen, zu weiteren Tests bin ich jedoch noch nicht gekommen.<br/>F&uuml;r eine ernstere Verwendung fehlen aber wie gesagt die Unterst&uuml;tzung anderer Dateisysteme, Netzwerkprotokolle und nat&uuml;rlich eine Rechte- und Nutzerverwaltung. Es ist aber immerhin sch&ouml;n diese hardwareseitigen Voraussetzungen zu haben, mit <a href="http://www.dd-wrt.com/wiki/index.php/Supported_Devices" target="_blank">anderer</a> <a href="http://wiki.openwrt.org/Hardware/Samsung" target="_blank">Firmware</a> l&auml;sst sich da sicher noch einiges dran drehen.<br/>Ich glaube zwar nicht ernsthaft dass das Ger&auml;t wirklich mal meinen Homeserver ersetzt aber zumindest theoretisch besteht eine gewisse Chance dass es mal die n&ouml;tigen Funktionen f&uuml;r einige Aufgaben bieten wird.</p>
+<p>Das Interface wirkt recht ausgereift und aufger&auml;umt, die Einstellungen sind daher auch schnell getroffen, nicht mal die initiale IP-Adresse muss man noch raussuchen da man bei einem unkonfigurierten Ger&auml;t erstmal grunds&auml;tzlich auf die Oberfl&auml;che umgeleitet wird.<br/>Einzig die M&ouml;glichkeit erst ALLE WLAN-Einstellungen zu treffen und dann mit einem Schlag zu &uuml;bernehmen w&auml;re sch&ouml;n, es ist einfach ung&uuml;nstig nach dem Einstellen von Verschl&uuml;sselung, Netzwerknamen und IP-Adressen jeden Schritt einzeln auf den Neustart der Netzwerkverbindung warten zu m&uuml;ssen. (Aber wahrscheinlich werden die wenigsten das WLAN &uuml;ber WLAN einstellen, f&uuml;r sowas besitzt das Ger&auml;t nunmal seine Kabelanschl&uuml;sse.)</p>
+<p>Von den Problemen die andere mit dem Ger&auml;t hatten (was man halt per Google so findet) scheint ja erstmal eine ziemlich negative Meinung vorzuherrschen. Auf der anderen Seite wird mein AP aber nicht sonderlich warm, erzeugt keinen Summton und verursachte auch sonst noch keine Probleme (Stabilit&auml;t der Internetverbindung bleibt abzuwarten).</p>
+<p>Alles in allem erstmal ein sch&ouml;nes Ger&auml;t, vor allem f&uuml;r den Preis von nur 10&euro; Porto (den Rest nimmt Freenet offensichtlich durch h&ouml;here Internetgeb&uuml;hren ein), wenn es nicht im Dauerbetrieb irgendwelche Macken aufweist werde ich wohl wirklich mit diesem Ger&auml;t verbleiben. Durchaus ein Vorteil gegen&uuml;ber anderen Internetanbietern die Ger&auml;te mit allerh&ouml;chstens Grundfunktionen dazuliefern. (TeleColumbus lieferte z.B. nur ein Kabelmodem mit 1xLAN+1xUSB, f&uuml;r mehr als 2 Ger&auml;te (und USB geht nat&uuml;rlich auch nur unter Windows mit zus&auml;tzlichem Treiber) musste ein AP nachgekauft werden.)</p>
+<p>Jetzt habe ich bereits die n&ouml;tige Hardware und die Zugangsdaten, alles was jetzt noch fehlt ist die Freischaltung seitens des Anbieters. Termin daf&uuml;r ist weiterhin der Vormittag des 26. diesen Monats.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_627" onclick="set_comment_reference(627)" title="auf diesen Kommentar antworten">#627</a>:
+    19.Sep.2008 01:09
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>Schon nach alternativer Firmware gesucht ;)</p>
+
+<p class="infos">
+<a href="#comment_628" onclick="set_comment_reference(628)" title="auf diesen Kommentar antworten">#628</a>:
+    19.Sep.2008 01:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Noch nicht.. Guhgl spuckt allgemein nicht sonderlich viel zu diesem System speziell aus.</p>
+
+<p class="infos">
+<a href="#comment_629" onclick="set_comment_reference(629)" title="auf diesen Kommentar antworten">#629</a>:
+    19.Sep.2008 01:09
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>Angeblich tuts OpenWRT auf der Kiste. F&uuml;r den geneigten nur-user w&auml;re aber ddwrt wahrscheinlich geeigneter. sag mir mal deine erfahrungen, falls du da was mit machst, eventuell fliegt der epia hier dann doch irgendwann achtkantig raus.</p>
+
+<p class="infos">
+<a href="#comment_630" onclick="set_comment_reference(630)" title="auf diesen Kommentar antworten">#630</a>:
+    19.Sep.2008 02:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>F&uuml;r solche Experimente sollte ich aber sicherheitshalber erstmal einen Ersatzrouter bereit liegen haben... Von daher wirds wohl in den n&auml;chsten paar Wochen nichts.</p>
+
+<p class="infos">
+<a href="#comment_631" onclick="set_comment_reference(631)" title="auf diesen Kommentar antworten">#631</a>:
+    19.Sep.2008 07:09
+    von
+    
+      
+        <a href="http://rankaholics.de/" target="_blank">
+          Thomas
+        </a>
+</p>
+<p>Hiho,</p>
+<p>ich habe zuf&auml;lligerweise genau den gleichen schicken Router und habe auch eine gepachte Firmware raufgespielt, so dass ich jetzt Telnet-zugang habe:<br/>
+<a href="http://codecocktail.wordpress.com/2008/08/14/gepatchte-routerfirmware-mit-telnetzugang/%3C/p%3E" rel="nofollow">http://codecocktail.wo...</a>
+</p><p>Gr&uuml;&szlig;e, Thomas</p>
+
+<p class="infos">
+<a href="#comment_632" onclick="set_comment_reference(632)" title="auf diesen Kommentar antworten">#632</a>:
+    19.Sep.2008 08:09
+    von
+    
+      
+        <a href="http://rankaholics.de/" target="_blank">
+          Thomas
+        </a>
+</p>
+<p>Ich finde deine Artikel super, deswegen habe ich dich mal in meine Blogroll aufgenommen ( <a href="http://codecocktail.wordpress.com" rel="nofollow">http://codecocktail.wo...</a> ), wenn dich das st&ouml;rt sag an^^ Bei dir habe ich soetwas nicht gesehen, von daher kann ich dich auch schlecht bitten mich ebenfalls aufzunehmen, aber ist ja auch net so tragisch^^</p>
+
+<p class="infos">
+<a href="#comment_633" onclick="set_comment_reference(633)" title="auf diesen Kommentar antworten">#633</a>:
+    22.Sep.2008 09:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>netter Link :-)</p>
+<p>und nein wir haben auf G33KY^2 wirklich keine Blogroll, verlinkung erfolgt bei mir eher durch meine Newsfeeds. Ich werde dich also mal mit in meinen Newsreader aufnehmen und du bekommst nen Link immer dann wenn du gerade was gutes geschrieben hast. ;-)</p>
+
+<p class="infos">
+<a href="#comment_634" onclick="set_comment_reference(634)" title="auf diesen Kommentar antworten">#634</a>:
+    22.Sep.2008 02:09
+    von
+    
+      
+        <a href="http://rankaholics.de/" target="_blank">
+          Thomas
+        </a>
+</p>
+<p>ok, klingt doch gut, dankesch&ouml;n =)</p>
+
+<p class="infos">
+<a href="#comment_635" onclick="set_comment_reference(635)" title="auf diesen Kommentar antworten">#635</a>:
+    22.Sep.2008 05:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>naja.. ganz so toll ist es nicht...<br/>
+erstens hab ich atm. kein inet (aber das hoffentlich nur noch bis freitag) und komme daher nicht zum sortieren<br/>
+zweitens hab ich paar hundert feeds zuviel in der liste, muss das mal wieder aufr&auml;umen <em>g</em></p>
+</div>

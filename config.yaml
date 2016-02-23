@@ -1,0 +1,43 @@
+baseurl: "http://g33ky.de"
+title: "G33KY³ - Return of the Nerd"
+footnotereturnlinkcontents: "↩"
+#theme: simple-hugo
+theme: g33ky
+bind: 5.45.111.216
+watch: true
+disqusShortname: "g33ky"
+languageCode: "de-DE"
+permalinks:
+  post: /:year/:month/:day/:title/
+params:
+  author: "Dr. Azrael Tod"
+  title: "The nerd strikes back"
+  copyright: "Alle Beiträge unterliegen der Creative-Commons Lizenz CC-BY-SA"
+  funline: "Proudly made without PHP, Java, Perl, MySQL, Postgres and 0xFEFEC0DE"
+menu:
+  main:
+    - Name: "Home"
+      Weight: -120
+      Identifier: "test"
+      URL: "/"
+    - Name: "Tags"
+      Weight: -110
+      Identifier: "tags"
+      URL: "/tags/"
+    - Name: "Feed"
+      Weight: -100
+      Identifier: "feed"
+      URL: "/index.xml"
+Author:
+  - name: "Dr. Azrael Tod"
+    email: "blog@g33ky.de"
+    github: "DrAzraelTod"
+    twitter: "DrAzraelTod"
+  - name: "profmakx"
+  - name: "Toranor"
+  - name: "kleine Zuzi"
+  - name: "Cindy"
+permalinks:
+  posts = "/:year/:month/:day/:filename/"
+taxonomies:
+  tag: "tags"

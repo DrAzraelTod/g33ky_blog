@@ -1,0 +1,13 @@
++++
+title = "Fact-DB importiert"
+date = "2008-10-04T11:10:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/872"
+aliases = "blog/872"
++++
+
+<p>Ich habe gerade in 2-3 st&uuml;ndiger Kleinarbeit meine Fact-DB mal in eine sqlite-Datenbank gepackt. Die urspr&uuml;ngliche Textdatei war auf mehr Arten kaputt als man es f&uuml;r M&ouml;glich halten sollte.</p>
+<p>Da ich nie ein bestimmtes Format festgelegt hatte und nur einfach immer weiter Zeilen in eine Textdatei geworfen hab, bestand sie aus den verschiedensten Textformaten.<!--more--> Mal waren die Sonderzeichen in UTF8, mal in einem ISO-Format, zu gewissen Teilen waren die Umlaute durch mehrmaliges konvertieren derartig kaputt dass pl&ouml;tzlich alle durch die gleiche Bitfolge repr&auml;sentiert wurden (das kann man nichtmal mit dem besten Script wirklich automatisch beheben, allerh&ouml;chstens durch Vergleichen mit einem W&ouml;rterbuch aber such da mal Sachen wie "p&ouml;se").<br/>Zeilenumbr&uuml;che waren nat&uuml;rlich auch in den verschiedensten Formaten gemischt, kein Wunder, Sacred-Chao lief mal unter Windows, mal unter Linux und manchmal wurden Sachen von Hand nachbearbeitet. Weit &uuml;ber 2400 Zeilen an Text zu &uuml;berarbeiten macht wirklich keinen Spa&szlig;. Dies gilt doppelt wenn nichtsichtbare Zeichen ver&auml;ndert werden m&uuml;ssen.</p>
+<p>Ziel der ganzen Aktion ist nat&uuml;rlich auch die Datenbank um andere Angaben zu erweitern (Zeitpunkt des Facts, Channel, ID) und das ganze System von meinem mies programmierten PHP-Bot auf eine vern&uuml;nftige Platform zu schieben. Von <a href="http://www.wangoo.de/" target="_blank">Snookie</a> stammte z.B. der Hinweis auf das <a href="http://twistedmatrix.com/" target="_blank">Twisted-Framework</a> f&uuml;r Python mit dem sich das ziemlich leicht realisieren l&auml;sst. Beispielcode liegt aus der selben Quelle auch schon fast funktionsf&auml;hig vor.</p>
+<p>Die n&auml;chsten Schritte sind dann also den Bot um sinnvolle Abfragefunktionen zu erweitern bzw. letzte Zeichencode-Probleme zu beheben, danach eine Ausgabe als RSS/Atom-Dateien auf meinen Webspace zu werfen wenn ein fact eingestellt wird.<br/>Wenn dann noch mein <a href="/?s=Homeserver+Geh%C3%A4use">Server</a> endlich l&auml;uft kann ich mich auch irgendwann an zus&auml;tzliche Funktionen machen. Z.B. w&auml;re ein Jabber-Interface f&uuml;r den Bot auch eine sch&ouml;ne Sache.</p>
+<p>"Es gibt viel zu tun! Lassen wir es sein!"</p>

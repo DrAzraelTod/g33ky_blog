@@ -1,0 +1,48 @@
++++
+title = "Kurzeinführung IPv4"
+date = "2008-10-04T12:10:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/855"
+aliases = "blog/855"
++++
+
+<p>Da ich gerade privat mal f&uuml;r eine E-Mail eine kurze Einf&uuml;hrung in <a href="http://de.wikipedia.org/wiki/IPv4" target="_blank">IPv4</a> geschrieben habe, dachte ich mir ich erweiter die noch ein wenig und stell sie auf den Blog. Bevor jemand fragt: Ja mir ist klar dass hier die meisten &uuml;ber alles bescheid wissen was ich hier mal eben schreibe.<!--more--><br/></p><blockquote>Wir haben eine dynamische, geroutete (von Route, also dem Weg den "sich" die Daten durch das Netz suchen) Adresse. Ich k&ouml;nnte dir unsere aktuelle IP-Adresse geben aber das willst du sicher nicht wissen *g* Weil die sich alle 24 Stunden (oder wenn wir den Router neu starten) &auml;ndert, bringt das ja auch nicht viel.<br/>Der Grund f&uuml;r die &Auml;nderungen ist, dass Provider f&uuml;r Freenet nur eine bestimmte Anzahl solcher Nummern gekauft haben. Wenn man sich also einw&auml;hlt bekommt man irgendeine die gerade niemand anders hat, bei Modemverbindungen brauchte man dadurch z.B. nur ein Zehntel oder so der Menge, h&auml;tte man jedem eine fest zugewiesen.<br/>Nachteil f&uuml;r die Nutzer ist dass wir nicht ohne weiteres sagen k&ouml;nnen "Ich kauf mir jetzt die Adresse foobar.de und lass die auf meine Adresse zeigen" die Adresse &auml;ndert sich ja st&auml;ndig.<br/>Nichtgeroutete Adressen sind dann die, die so definiert sind dass sie im Internet nicht weitergeleitet werden. Wenn also jemand in Timbuktu 192.168.230.123 eingibt kommt der nicht an meinen PC, auch wenn der diese Adresse h&auml;tte. Jeder darf also so viele nichtgeroutete Adressen vergeben wie er will. Daher haben wir auch hinter unserem Router solche Adressen f&uuml;r jeden Rechner, der Router leitet dann die Daten ins Interne und zur&uuml;ck jeweils &uuml;ber die eine Adresse die er sich vom Provider holt um.</blockquote><br/>Um die Sache mal etwas zu erweitern...
+
+<p>Nichtgeroutete Adressbereiche liegen zwischen folgenden Adressen:<br/></p><ul><br/> <li> 10.0.0.0 bis 10.255.255.255 -&gt; Klasse A</li><br/> <li> 172.16.0.0 bis 172.31.255.255 -&gt; Klasse B</li><br/> <li> 192.168.0.0 bis 192.168.255.255 -&gt; Klasse C</li><br/> <li> 169.254.0.0&ndash;169.254.255.255</li><br/></ul><br/>Die Klassen, die ich oben angegeben habe, beziehen sich auf die Menge der verf&uuml;gbaren Adressen und welcher Block f&uuml;r Netzwerk oder f&uuml;r den einzelnen Client z&auml;hlen. Die 4 Byte-Bl&ouml;cke (jeweils eine Zahl von 0 bis 255) sind genau wie im Dezimalsystem nach Wertigkeit geordnet. Das bedeutet wenn man die IP-Adressen hochz&auml;hlt folgt auf 0.0.0.1 0.0.0.2 und auf 0.0.0.255 die 0.0.1.0. Wenn ich also ein Klasse B-Netzwerk habe, beziehen sich die ersten beiden Byte (172.16.) auf das Netzwerk und die letzten beiden (.0.0) auf den jeweiligen Rechner.
+
+<p>Ich kann also in meinem privaten Class-B-Supernetzwerk (damit Class-B n&ouml;tig ist, brauchen wir einige Ger&auml;te, das werden die wenigsten Privatpersonen mal eben rumstehen haben) ein Netz 172.16.0.0, ein Netz 172.17.0.0 und ein Netz 172.31.0.0 aufbauen (naja und halt noch ein paar andere Netzwerke, so 16*256 oder so).<br/>In jedem dieser Netzwerke kann ich mir dann einen rechner .0.1, einen mit .0.2 und einen mit .0.3 usw. zuordnen. (Das macht 65.536 Clients f&uuml;r jedes dieser Netzwerke)</p>
+<p>F&uuml;r Class A steht mir als privates Netzwerk leider nur eins zur Verf&uuml;gung... also alles was mit 10. anf&auml;ngt. Daf&uuml;r gleicht sich das mit 256^3 Rechnern in diesem Netzwerk mehr als aus. Klasse C im Gegensatz l&auml;sst mich 256 private Netzwerke bilden, jedes daf&uuml;r "nur" mit 255 Rechnern. Das reicht aber f&uuml;r die meisten Privatpersonen durchaus aus, daher wird es meistens auch genutzt.</p>
+<p>Das gro&szlig;e Problem mit diesen IPv4 Adressen ist, dass wir nur 256^4 Adressen zur Verf&uuml;gung haben. Diese 4.294.967.296 Adressen werden dann noch um die ganzen privaten Adressen reduziert (wie bereits bemerkt k&ouml;nnen wir sie ja im Internet nicht nutzen). Au&szlig;erdem gehen noch Adressen f&uuml;r <a href="http://de.wikipedia.org/wiki/Loopback">Loopback</a>, <a href="http://de.wikipedia.org/wiki/Multicast">Multicast</a> und verschiedenste andere reservierte Bl&ouml;cke weg.</p>
+<p>Diese unglaublich hohe Zahl an Adressen scheint ziemlich gro&szlig;, aus genau diesem Grund wurde sie auch als das IP-Protokoll erfunden wurde durchaus als ausreichend angesehen. Das Internet ist jedoch extrem angewachsen, heutzutage hat ja schon fast jedes Handy einen Internetzugang von 2-3 PCs pro Haushalt mal ganz abgesehen.<br/>Jetzt k&ouml;nnen wir diese Adressen wie bereits ganz oben bemerkt mit einem Router und einem Netzwerk aus privaten Adressen f&uuml;r viel mehr Adressen verwenden (dieser Vorgang nett sich NAT, <a href="http://de.wikipedia.org/wiki/Network_Address_Translation" target="_blank">Network Adress Translation</a>) doch dies hat einige Nachteile. Wenn z.B. jemand eine Verbindung von au&szlig;en mit einer privaten Adresse aufbauen will geht das nur sehr schwierig. Dies wird jedoch n&ouml;tig, will man einen Webserver betreiben oder &auml;hnliche Dienste anbieten. Gut, einen Server betreiben ja nur wenige zuhause... doch was tun wir wenn wir jemandem anders eine Datei per Messenger senden wollen? Einer der beiden Gespr&auml;chspartner will also eine Adresse zum anderen aufbauen, wenn beide hinter einem NAT sitzen wird dies etwas schwierig. Es ist durchaus nicht unm&ouml;glich, doch es geht, kurz gesagt, beschissen umst&auml;ndlich.</p>
+<p>IPv4-Adressen sind auch &auml;u&szlig;erst schlecht aufgeteilt. Die USA halten mal eben alleine 74% aller Adressen. F&uuml;r den Rest der Welt bleibt dann der ganze Rest. Die ganze Bev&ouml;lkerung in China hat z.B. weniger Adressen zur Verf&uuml;gung als mal eben ein einzelner Anbieter in den USA. Da dies danach entschieden wurde, wann welche Region sich die Adressen gesichert hat, trifft es also mal wieder die &auml;rmsten Teile der weltweiten Bev&ouml;lkerung.</p>
+<p>Wie bringen wir also immer mehr Rechner ans Netz? Wir steigern die Menge der Adressen! Das geht leider mit IPv4 nicht, also m&uuml;ssen wir das Protokoll komplett &uuml;berarbeiten. Das wurde getan und das Ergebnis nennt sich IPv6 (jap, v5 wurde mal wieder <a href="http://www.easy-network.de/ipv5.html" target="_blank">vergessen</a>)<br/>Um die Frage nach der genauen Menge der Adressen bei IPv6 zu beantworten (und mir dazu die Rechnerei zu ersparen) bem&uuml;hen wir mal kurz Wikipedia:<br/></p><blockquote>Eine IPv6-Adresse ist 128 Bit lang (IPv4: 32 Bit). Damit gibt es etwa 3,4 * 10^38 (340,28 Sextillionen = eine Zahl mit insgesamt 39 Stellen) IPv6-Adressen. IPv4 kann maximal 232 Adressen vergeben, also etwa 4,29 &middot; 10^9.</blockquote><br/>Um das mal auf etwas besser vorstellbare Bereiche umzurechnen: Es handelt sich um ca. 655.570.793.348.866.943.898.599 Adressen pro Quadratmeter Erde, also mit Meeresfl&auml;che und allem. (Hey, ich sagte ETWAS besser vorstellbar, nicht viel besser.)
+
+<p>Weil die beiden Versionen v4 und v6 nicht kompatibel sind, k&ouml;nnen Systeme die nur eins von beidem verwenden leider auch nicht miteinander reden. Man kann allerdings beides parallel verwenden und dann sowohl auf v4 als auch auf v6-Server zugreifen. Weiterhin kann man die Protokolle &uuml;ber das jeweils andere "tunneln", sprich ich verpacke meine IPv6 Daten in v4-Daten, sende sie &uuml;ber ein v4-Netzwerk an einen v4-Server, dieser entpackt die Pakete und leitet sie &uuml;ber ein v6-Netzwerk an einen v6-Server weiter... oder halt umgekehrt.</p>
+<p>Da driften wir dann aber auch schon in IPv6-Details ab, die ich wohl lieber in einem seperaten Post behandeln sollte. Das ganze ist eh schon zu einem halben Roman geworden. Sollten noch Fragen bestehen freue ich mich darauf sie, soweit m&ouml;glich, in den Kommentaren zu beantworten.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_704" onclick="set_comment_reference(704)" title="auf diesen Kommentar antworten">#704</a>:
+    07.Oct.2008 09:10
+    von
+    
+      
+        <a href="http://www.markuswalther.org" target="_blank">
+          Markus
+        </a>
+</p>
+<p>Hehe, sch&ouml;ner Artikel :-)<br/>
+Schade, dass die Umr&uuml;stung auf IPv6 so derma&szlig;en schleift... In meinem lokalen Netz ist schon alles eingerichtet und ich warte immer noch darauf, dass mein Provider (Versatel) endlich mal nen Upgrade fertigbringt -.-</p>
+<p>PS: hat der 169er-Bereich eigentlich nen Namen? Also es ist ja dieses APIPA von Microsoft, aber wenn noch kein Name vergeben wurde w&uuml;rde ich f&uuml;r "Class D" (DAU) tendieren, denn damit bekommt jeder nen Netzwerk hin auch ohne jemals etwas von "IP" geh&ouml;rt zu haben <em>lol</em></p>
+
+<p class="infos">
+<a href="#comment_705" onclick="set_comment_reference(705)" title="auf diesen Kommentar antworten">#705</a>:
+    07.Oct.2008 09:10
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>"link local" es ist eigentlich nur ein einzelnes, weiteres "Class B"-Netz</p>
+<p>F&uuml;r solche Probleme gibts ja auch zur Not noch V6-Tunnel, verwende ich gerne zum Testen.</p>
+</div>

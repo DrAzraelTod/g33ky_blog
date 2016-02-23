@@ -1,0 +1,32 @@
++++
+title = "Softwarequalität von Mozilla"
+date = "2015-05-19T06:05:00"
+author = "Dr. Azrael Tod"
+tags = ["\"Freie\" Software", "Maueralt", "Open Source", "PC", "Quählkot", "Rant", "Softwareschrott", "Technik"]
+issoid = "blog/1617"
+aliases = "blog/1617"
++++
+
+<p>Willst du wirklich Qualit&auml;tssoftware, gibt es eigentlich nur 2 M&ouml;glichkeiten:<br/></p><ul><li>kaufe bei gro&szlig;en Firmen mit Weltruhm (Produkte mit gro&szlig;er Verbreitung, &uuml;ber viele Jahre etabliert, werden auch die n&auml;chsten Jahrzehnte noch existieren)</li><li>nimm OpenSource, dann kannst du dir kaputtes selbst reparieren und die Software an &Auml;nderungen anpassen, sollte der Ursprung wegbrechen</li></ul><br/>Bei Mozilla Firefox/Thunderbird sind beide Punkte erf&uuml;llt, es kann also &uuml;berhaupt nichts mehr schief gehen!
+
+<p>(Kenner bemerken dass ich diesen Absatz nicht ganz komplett Ernst meinte)</p>
+<p>Beweisst&uuml;ck 1: Ein winziges Problem beim Donnervogel und Feuerfuchs</p>
+<p><img alt="behinderter vogel" src="/static/images/blog/stupidbird.png" style="max-width: 95%"/></p>
+<p>Ursache ist dass ich grunds&auml;tzlich Software nicht vertraue meine Passw&ouml;rter verschl&uuml;sselt zu speichern. Wenn diese Software das dann ohne von mir einzugebenden Schl&uuml;ssel tun soll (das kann &uuml;ber System-Anmeldung und dazu geh&ouml;renden Schl&uuml;sselbund oder beim Programmstart erfolgen), dann gibt es keine M&ouml;glichkeit die Daten so abzuspeichern dass nicht jederzeit jeder meine Passw&ouml;rter lesen kann.</p>
+<p>Daher aktiviere ich in Thunderbird/Firefox besagte Master-Passw&ouml;rter, mit welchem die Daten dann gesichert werden sollten (wird wahrscheinlich trotzdem albernst unsicher sein).</p>
+<p>Wenn Thunderbird startet, wird also f&uuml;r die erste Aktion die ein Passwort ben&ouml;tigt eine Aufforderung das Master-Passwort einzugeben ge&ouml;ffnet. Wenn andere Funktionen das gleiche Problem haben, gibt es mehr von diesen Dialogen. Alle Dialoge werden &uuml;bereinander gestapelt, sehen gleich aus und wollen sich die Eingabe schnappen.</p>
+<p>Plugins verursachen solche Abfragen, zus&auml;tzliche Accounts verursachen solche Abfragen, ALLES VERURSACHT SOLCHE ABFRAGEN!</p>
+<p>Die 7 Eingabeboxen im Bild ergeben sich bei mir durch 2 Mail-Accounts, Lightning-Kalender-Anbindung und einen eingebundenen GMail-Kalender. Das ist kein Fake, &Uuml;bertreibung oder absichtlich produzierter Katastrophenfall. (allerdings liegen die Dialoge normalerweise Deckungsgleich)</p>
+<p>Dazu gibt es seit kurzem, also seit 2002, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=177175#c129">ein Ticket mit "partial workaround"</a> und sogar Patches. (auch ein <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=95397">unspezifischeres Ticket von 2001 existiert</a>)</p>
+<p>Sp&auml;ter haben Leute noch dutzendweise (w&ouml;rtlich) andere Tickets ge&ouml;ffnet, die alle mit Hinweis auf duplizierung/abh&auml;ngigkeit/wontfix und teilweise mit Link zum &auml;ltesten (oder auch mal zum zweit- oder dritt&auml;ltesten) geschlossen wurden.</p>
+<p></p><h3>partial Workaround</h3><br/>Es gibt einen nicht-verlinkten Hinweis auf <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=177175#c103">Kommentar 103</a> der einen "partial workaround" enthalten soll.<br/><blockquote>A new feature "Sign into the browser" is coming soon and I am pretty sure that it will change lots of things regarding how the master password mechanism works, and that work will probably lead to a new UX for master password which will likely  fix this bug. But, such work on "Sign into the browser" will not start for several weeks or more; I don't even know what changes to Master Password and related stuff will be neded for it yet.
+
+<p>Workaround #1:<br/>I recommend that everybody that has FIPS mode enabled disable it. There is really not a significant security benefit to the FIPS mode; it is more for government regulatory compliance. Also, Firefox does not automatically become FIPS compliant when you enable the FIPS mode; there is a series of additional, undocumented (even I do not know all of them) steps that must be completed.</p>
+<p>Workaround #2:<br/>Disable the master password and rely on operating-system-level account management/passwords/encryption. I understand that this won't work for everybody, and for the people it does work for (AFAICT, most people) it requires learning how to effectively use the operating-system-level features, but IMO it is by far the best solution, even after we fix this bug.</p></blockquote><br/>Zusammenfassung:<ol><li>"L&ouml;sung kommt bald"</li><li>"deaktiviere FIPS-Mode!"</li><li>"verwende kein Master-Passwort!"</li></ol><br/>zu 1.: "comming soon" und "such work [..] will not start for several weeks or more" verweist dabei auf die n&auml;here Zukunft aus Sicht von April 2012. Naiv wie ich bin, h&auml;tte ich ja beinahe vermutet dass solche Termine von heute aus gesehen in der Vergangenheit liegen w&uuml;rden, aber das ist offensichtlich ein Fehler.
+
+<p>"<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/FIPS_Mode_-_an_explanation">FIPS-Mode</a>" ist dabei ein Bullshit-Flag das soweit mir bekannt ist eigentlich nichts wirklich tut und per Default deaktiviert ist. Ich sehe nicht wie das einen Einfluss auf das Problem haben soll (ok, es k&ouml;nnte f&uuml;r <b>noch mehr</b> Eingabefenster sorgen)</p>
+<p></p><h3>WAT?</h3>
+<p>Es existieren also heftige Bugs, die:<br/></p><ul><li>sowohl Firefox, Thunderbird als auch alles andere Mozilla-Dings betreffen</li><li>seit mehr als einem Dutzend Jahren nicht angefasst wurden</li><li>vor Jahren mit im Ticket verlinkten Patches versehen wurden, diese haben es aber niemals ins Release geschafft</li><li>die Verwendung der Software wird bei jedem Start absurd unbenutzbar (bei mir 7 Eingabeboxen) und potentiell gef&auml;hrlich durch DAUs die wild Passw&ouml;rter eingeben/verunsichert werden</li><li>einzig funktionierender Workaround lautet "fick doch die Sicherheit!"</li></ul>
+<p>Dann noch ein Spa&szlig;quote aus einem der letzten Kommentare:</p><blockquote>Please refrain from posting  "Please refrain from posting unsolicited 'still broken' comments" comments.<br/>Doing so just adds noise to the bug and doesn't actually help in reaching a solution.
+
+<p>If you want to "educate" the offending reporter, send him private email.</p></blockquote>

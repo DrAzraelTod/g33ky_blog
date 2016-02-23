@@ -1,0 +1,105 @@
++++
+title = "Kommentartracking"
+date = "2009-01-29T08:01:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/1218"
+aliases = "blog/1218"
++++
+
+<p>Da bei <a href="http://filzo.de/2009/01/28/robot-wars/comment-page-1/#comment-14454" target="_blank">Filzo</a> gerade mal wieder das Problem des Kommentartrackings aufgekommen ist, habe ich mir &uuml;berlegt ob man das nicht besser l&ouml;sen k&ouml;nnte.<br/>Bisherige Ans&auml;tze gehen immer von zentralen Platformen aus, die das Tracking f&uuml;r den Nutzer &uuml;bernehmen, doch warum sollte eine L&ouml;sung nicht dezentralisiert m&ouml;glich sein?<!--more--></p>
+<p>Warum sollte nicht die kommentierte Blogplatform dem Blog des Kommentators (verlinkt &uuml;ber den Eintrag einer URL beim posten) bescheid geben dass dieser einen neuen Eintrag verfasst hat?</p>
+<p>Realisieren w&uuml;rde ich das &uuml;ber ein weiteres link-tag im Header meines Blogs, wenn ich dann irgendwo kommentiere und meine URL angebe sucht die dortige Software nach meinem Link und &uuml;bergibt die URL der eigenen Kommentar-Feed-Adresse zu diesem Artikel.<br/>Mein Blog sollte dann das Tracking der Kommentare &uuml;bernehmen... oder bereits die Adresse woanders hin verweisend ausgegeben haben.<br/>Auf die Art w&auml;re es sogar sehr einfach m&ouml;glich dass ich mir eine alternative/spezialisierte Platform suche, die diese Art Tracking &uuml;bernimmt... es muss ja nichtmal viel mehr sein als ein spezialisierter Feedreader. Ich kann leicht meine steinzeitliche Blogsoftware auf entgegennehmen solcher Calls vorbereiten und ich k&ouml;nnte auch leicht f&uuml;r andere Platformen implementieren dass die Nutzer ihre eigenen URLs angeben k&ouml;nnen.</p>
+<p>Wenn ich z.B. meine <a href="http://friendfeed.com/drazraeltod" target="_blank">Friendfeed-URL</a> angebe und Friendfeed dieses Metatag f&uuml;r jeden Nutzer konfigurierbar anzeigt, wird halt &uuml;ber Friendfeed mein Provider f&uuml;r Kommentartracking aufgerufen. So k&ouml;nnen auch Nutzer ohne eigenes Blog solche Dienste verwenden.</p>
+<p>Nat&uuml;rlich wird es auch hier ein Spamproblem geben, das kann man aber auf die selbe Art "l&ouml;sen" wie sonst &uuml;berall auch: Filtern! Es sollte f&uuml;r einen Nutzer ja kein Problem darstellen das was er selbst an Kommentaren erzeugt zu Administrieren.</p>
+<p>Was haltet ihr von der Idee? Ich w&uuml;rde ja gerne mal ne Referenzimplementation bauen, aber irgendwie hab ich gerade genug andere Projekte offen und bin eh demn&auml;xt erstmal ne Woche im Urlaub.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1096" onclick="set_comment_reference(1096)" title="auf diesen Kommentar antworten">#1096</a>:
+    29.Jan.2009 10:01
+    von
+    
+      
+        <a href="http://codeschmie.de" target="_blank">
+          fa
+        </a>
+</p>
+<p>Da hab ich grad erst eine &auml;hnliche Diskussion gesehen: <a href="http://stylespion.de/kommentiert-wird-nun-ueberall-fluch-oder-segen/3418/%3Cbr" rel="nofollow">http://stylespion.de/k...</a> /&gt;
+Disqus (<a href="http://disqus.com/" rel="nofollow">http://disqus.com/</a>) geht in die Richtung, aber verteilt w&auml;r schon sch&ouml;ner als zentralisiert bei einem Anbieter...<br/>
+Definitiv ein interessantes Thema, aber zu viele Schmerzen, dass ich mir bisher ernsthaft Gedanken gemacht h&auml;tte</p>
+
+<p class="infos">
+<a href="#comment_1097" onclick="set_comment_reference(1097)" title="auf diesen Kommentar antworten">#1097</a>:
+    29.Jan.2009 10:01
+    von
+    
+      
+        <a href="http://kaputtkaputt.de/?p=34" target="_blank">
+          Sinnvolles Kommentartracking
+        </a>
+</p>
+<p>[...] sich Gedanken machen, wie man die &Uuml;bersicht &uuml;ber seine Kommentare behalten kann. Dr. Azrael Tod schl&auml;gt vor, dass bei einem Kommentar die Internetseite des Kommentierenden von dem kommentierten Blog [...]</p>
+
+<p class="infos">
+<a href="#comment_1098" onclick="set_comment_reference(1098)" title="auf diesen Kommentar antworten">#1098</a>:
+    29.Jan.2009 12:01
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Hmm.. die M&ouml;glichkeiten um von anderen auf Blogs/Twitter/Friendfeed/Identica und so Kommentare zu eigenen Posts abzufassen h&auml;tten wir damit nat&uuml;rlich noch nicht... wir tracken nur was wir selbst an Unterhaltungen gef&uuml;hrt haben.<br/>
+Mal sehen, ich versuch mir heute mal auch daf&uuml;r eine L&ouml;sung einfallen zu lassen und poste evtl. Morgen nochmal was.</p>
+
+<p class="infos">
+<a href="#comment_1099" onclick="set_comment_reference(1099)" title="auf diesen Kommentar antworten">#1099</a>:
+    29.Jan.2009 04:01
+    von
+    
+      
+        <a href="http://ag7.alltagsgrauen.info/" target="_blank">
+          fwolf
+        </a>
+</p>
+<p>ggf. w&auml;re so etwas wie ein "Kommentator-Pingback-Plugin" hierf&uuml;r geeignet. WordPress zeichnet ja auch etwaige Referrer auf, tw. sind das bei mir durchaus Kommentare, die ich mal in irgendwelchen Blogs verzapft habe.</p>
+<p>Alternativ tut's sicher auch eine geeignete URL, nach der man mit Google -  oder besser noch: Metager - sucht. Wenn man diese URL selbst aus dem Ergebnis ausschlie&szlig;t (also als URL eines Suchergebnisses), hat man sicher einen guten Teil seiner Kommentare wiedergefunden.</p>
+<p>Sollte nat&uuml;rlich eine URL sein, die sich nicht so schnell &auml;ndert.</p>
+<p>cu, w0lf.</p>
+
+<p class="infos">
+<a href="#comment_1100" onclick="set_comment_reference(1100)" title="auf diesen Kommentar antworten">#1100</a>:
+    29.Jan.2009 04:01
+    von
+    
+      
+        <a href="http://ag7.alltagsgrauen.info/" target="_blank">
+          fwolf
+        </a>
+</p>
+<p>Nachtrag zur Alternavmethode: Mit "geeigneter URL" meine ich die Adresse, die regelm&auml;&szlig;ig im Kommentarfeld "Website"/"URL"/"Homepage"/whatever it may be called eingetragen wird ;)</p>
+<p>cu, w0lf.</p>
+
+<p class="infos">
+<a href="#comment_1101" onclick="set_comment_reference(1101)" title="auf diesen Kommentar antworten">#1101</a>:
+    08.Feb.2009 08:02
+    von
+    
+      
+        <a href="http://martin.ringehahn.de/blog/" target="_blank">
+          Martin Ringehahn
+        </a>
+</p>
+<p>Hihi. Ich bemerke grad, dass da scheinbar innerhalb der letzten 5 Jahre scheinbar nicht viel passiert ist. Siehe: <a href="http://www.roell.net/weblog/archiv/2004/12/08/wo_habe_ich_kommentiert_reverse_trackback.shtml%3C/p%3E" rel="nofollow">http://www.roell.net/w...</a>
+</p>
+<p class="infos">
+<a href="#comment_1102" onclick="set_comment_reference(1102)" title="auf diesen Kommentar antworten">#1102</a>:
+    14.Feb.2009 10:02
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Interessanterweise scheit das Interesse f&uuml;r eine derartige L&ouml;sung sich ja in Grenzen zu halten, auch wenn sich permanent Leute aufgrund des Problemes beschweren...</p>
+<p>wobei ja aber auch nie jemand die Behauptung aufgestellt hat, die Menschen w&auml;ren logisch.</p>
+</div>

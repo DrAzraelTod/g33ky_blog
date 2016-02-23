@@ -1,0 +1,90 @@
++++
+title = "Newsfeeds - Defective by Design?"
+date = "2008-08-28T11:08:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/637"
+aliases = "blog/637"
++++
+
+<p>Ein sehr gro&szlig;er Anteil meiner Freizeit geht mit dem Lesen von <a href="http://de.wikipedia.org/wiki/Newsfeed" target="_blank">Newsfeeds</a> drauf. Das kann ich mal als einfache Tatsache so stehen lassen. Ich sammle die Feed-Adressen von interessanten Blogs wie andere Briefmarken, sortiere aus was keine interessanten Daten/Artikel/Links mehr liefert, versehe die gelesenen Artikel mit Tags, gebe bestimmte Tags wieder als Newsfeed aus und antworte von Zeit zu Zeit auf Posts. Ich kann wohl kaum noch bestreiten dass in meinem Fall schon ein gewisses Suchtverhalten diesbez&uuml;glich vorliegt.</p>
+<p>Bei all der Zeit, die ich mit diesen Techniken verbringe, bin ich nat&uuml;rlich immer auf der Suche nach M&ouml;glichkeiten wie sich das Ganze bequemer l&ouml;sen l&auml;sst.<!--more--> Im Moment laufen fast alle meine Aktionen &uuml;ber <a href="http://www.google.com/reader/view" target="_blank">Googles "Reader"</a>, was ein ziemlich guter Webbasierender Feedreader ist. Die Uptime-Statistiken sind nat&uuml;rlich wie bei allen anderen Google-Produkten f&uuml;r ein kostenloses Tool einfach traumhaft, auch treten eigentlich nie irgendwelche Performanceprobleme auf der Google-Seite auf und Funktionen hat das Ding eigentlich auch fast alles was ich mir w&uuml;nschen kann.</p>
+<p>Ab ein paar hundert Newsfeeds jedoch wird Reader immer umst&auml;ndlicher zu verwenden.<br/>Die Seitenleiste mit der Feed&uuml;bersicht l&auml;sst sich auf kleinen Bildschirmen schon lange nicht mehr sinnvoll benutzen und das verwalten der Feeds ist so ziemlich unbrauchbar. (Doppelt eingetragene URLs werden nicht automatisch entdeckt, die Feeds Tags zuzuordnen l&auml;sst sich nur sehr umst&auml;ndlich bewerkstelligen und Tags die einem ganzem Feed zugeordnet sind, kann man scheinbar &uuml;berhaupt nicht von einem einzelnem Item entfernen.)</p>
+<p>Auch zeigt sich bei privaten Newsfeeds sehr schnell, dass ein polling der Quelle alle 3 Stunden (wenn man der einzige Leser ist) ziemlich fern von jeder Aktualit&auml;t ist. Auch 1 Stunde bei allen anderen Feeds ist nicht unbedingt die tollste Sache seit geschnitten Brot.</p>
+<p>Lokale Software (Testergebnisse zu <a href="http://de.wikipedia.org/wiki/Feedreader" target="_blank">einzelnen Clients</a> werden evtl. bald als Extraartikel folgen) hat es aber dennoch schwer mit derartigen Angeboten mitzuhalten. Nat&uuml;rlich w&uuml;rde ich am liebsten einen kleinen, schlanken Konsolen-Client verwenden und den RAM-fressenden Browser ganz deaktivieren. Leider bieten die wenigsten Newsfeeds den kompletten Inhalt gleich per Download an, also hat man dann den Konsolenclient UND den Browser offen. (Von eingebetteten Flash-Videos oder auch nur Bildern will ich lieber garnicht erst anfangen.)</p>
+<p>Ein weiteres Problem mit lokaler Software zeigt sich ebenfalls erst wenn man ein paar Newsfeeds mehr als "normal" liest. Es macht verdammt wenig Spa&szlig; 1x die Stunde &gt;300 XML-Dateien zu pollen. Dieser Effekt l&auml;sst sich verringern indem man die Dateien verteilt nacheinander abruft, mit einem Volumentarif w&uuml;rde ich mir das aber dennoch mehrmals &uuml;berlegen. Au&szlig;erdem sind wir bei 1 Abruf pro Stunde gerade erst bei der Aktualit&auml;t von Google Reader angekommen, vielen wird aber etwas wie "alle 10min" viel eher logisch erscheinen.</p>
+<p>Hier sehen wir dann auch bereits das was mich an <a href="http://de.wikipedia.org/wiki/RSS" target="_blank">RSS</a> bzw. <a href="http://de.wikipedia.org/wiki/Atom_(XML-Format)" target="_blank">Atom</a> am meisten st&ouml;rt.<br/>Egal ob sich &uuml;berhaupt etwas ge&auml;ndert hat und egal ob wir die letzten 10-50 Posts eh schon auf der Festplatte zwischengespeichert haben, wir laden jedes Mal alles in einer kompletten Datei aufs Neue herunter. Wenn der Newsfeed (wie eigentlich auch w&uuml;nschenswert) dann auch noch den kompletten Postinhalt enth&auml;llt kommen da schnell ein paar hunder KB zusammen.</p>
+<p>Besser w&auml;re es z.B. schon eine Indexdatei zu basteln, die dann auf XML-Dateien mit den jeweiligen Inhalten f&uuml;r jeden Post verlinkt. Erstens k&ouml;nnte man so auf viel Overhead seitens der XML-Struktur in der Hauptdatei verzichten (evtl. k&ouml;nnte man sogar auf XML ganz verzichten, ein imho lohnendes Ziel). Zweitens w&uuml;rde es dies auch erm&ouml;glichen &Auml;nderungen der Quelle und &auml;hnliches zu Indizieren.<br/>Eine CSV-&auml;hnliche Zeile mit &lt;timestamp&gt;,edit|new|deleted|blahfasel,&lt;post-id&gt;,&lt;post-URL&gt; w&uuml;rde pro Eintrag bereits reichen.</p>
+<p>Aber warum an einer defekt designten L&ouml;sung herumfrickeln wenn es bereits bessere Ideen gibt? Die Einfachste M&ouml;glichkeit w&auml;re wohl die Updates eher per per Push-Dienst auf den lokalen PC zu bekommen statt permanent nachsehen zu m&uuml;ssen ob neue Updates vorhanden sind. Eine weitere M&ouml;glichkeit sieht man bei diversen Web-Readern, es wird nur noch eine einzige Indexdatei f&uuml;r jeden Nutzer abgerufen, meist per AJAX, die schon sortiert die f&uuml;r den jeweiligen Nutzer interessanten Items enth&auml;llt.</p>
+<p>Nat&uuml;rlich w&auml;re ersteres eleganter, letzteres jedoch l&auml;sst sich offensichtlich einfacher realisieren ohne neben http noch andere Protokolle ins Spiel zu bringen (ansonsten g&auml;be es wohl auch endlos viele L&ouml;sungen, von denen jede besser ist als die aktuelle auf http-Basis).<br/>Allerdings gibt es auch f&uuml;r die erste Version bereits Protokolle &uuml;ber die es sich recht einfach l&ouml;sen lassen w&uuml;rde.</p>
+<p>Meine aktuelle Lieblingsvariante ist wohl der <a href="http://de.wikipedia.org/wiki/Alert-Dienst" target="_blank">Publish/Subscribe</a>-Mechanismus welcher im <a href="http://de.wikipedia.org/wiki/Jabber" target="_blank">Jabber</a>-Protokoll integriert wurde. Dabei handelt es sich um eine M&ouml;glichkeit, auf einem beliebigen <a href="http://www.xmpp.org/extensions/xep-0060.html" target="_blank">Pubsub</a>-Server (ist in z.B. <a href="http://de.wikipedia.org/wiki/Ejabberd" target="_blank">ejabberd</a> bereits integriert, ein Beispiel w&auml;re z.B. pubsub.jabber.ccc.de) in einer Struktur seine Updates an eine <a href="http://www.xmpp.org/extensions/xep-0060.html#nodetypes" target="_blank">Node</a> zu senden, von dort aus verteilt der Server dann automatisch die Informationen an alle Clients die sich eingetragen haben weiter.</p>
+<p>Leider krankt Pubsub derzeit noch stark daran dass es keine wirklich ausgereifte Implementierung auf Clientseite gibt. <a href="http://www.gajim.org" target="_blank">Gajim</a> unterst&uuml;tzt das XEP zwar scheinbar zu gewissen Werten (andere Clients scheinen afaik da noch &uuml;berhaupt keine Anstrengungen zu unternehmen), es gibt aber immer wieder Probleme wenn man versucht es wirklich zu nutzen. In meinen Tests war es mir noch nicht m&ouml;glich &uuml;berhaupt eine Meldung von irgendeiner Pubsub-Node zu bekommen.</p>
+<p>Auf der Serverseite sieht es theoretisch besser aus, z.B. besteht schon seit l&auml;ngerem ein <a href="http://wordpress.org/extend/plugins/jabber-feed" target="_blank">Plugin f&uuml;r Wordpress</a>, dass es recht einfach erm&ouml;glichen w&uuml;rde neue Posts oder Kommentare auch per Pubsub auszuliefern. Allerdings h&auml;ngt dies auch wieder an den Clients etwas, die Serverseitigen Scripte kann man ja atm nur &uuml;ber die XML-Konsole testen, die einige Clients bieten. Hier sollte nat&uuml;rlich die Grundregel gelten dass man NIEMALS einen Menschen dazu zwingen sollte <a href="http://de.wikipedia.org/wiki/Extensible_Markup_Language" target="_blank">XML-Code</a> zu tippen, in diesem Fall sogar Live mit einem Server zu reden. XML als "menschenlesbares" Datenformat ist wohl einer der Witze, die sich ein denkender Mensch nichtmal absichtlich h&auml;tte ausdenken k&ouml;nnen.</p>
+<p>Alle aktuell verwendbaren L&ouml;sungen haben ohnehin offensichtlich das XML-Format gemeinsam. F&uuml;r ein System das immer mehr und mehr Bandbreite schluckt, dessen Bereitstellung und Verarbeitung meiner Meinung nach in Zukunft immer wichtiger wird und dessen Inhalt meist nicht &uuml;ber &lt;timestamp&gt;&lt;autor&gt;&lt;link&gt;&lt;Datenpaket&gt; hinausgeht sollte man sich evtl. doch besser etwas anderes einfallen lassen. Aber das ist mal wieder nur meine Meinung.</p>
+<p>Randbemerkung: W&auml;hrend ich diesen Artikel geschrieben hab (dieser stellt mit 4 Tagen als Entwurf einen neuen, privaten Rekord dar) wurde das Thema bei einigen anderen Stellen angeschnitten, vor allem beziehe ich mich damit auf mehrere Diskussionen im IRC (kann ich euch leider nicht zum Nachlesen verlinken) als auch auf einen <a href="http://www.nerdcore.de/wp/2008/08/28/wieviele-feeds-lest-ihr/" target="_blank">Beitrag von Ren&eacute;</a>, zu dem es teilweise sehr interessante Kommentare gab.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_476" onclick="set_comment_reference(476)" title="auf diesen Kommentar antworten">#476</a>:
+    28.Aug.2008 12:08
+    von
+    
+      
+        <a href="http://blog.dagmar-tischer.de" target="_blank">
+          daniel
+        </a>
+</p>
+<p>Ich bin vor kurzem erst von Sharpreader auf google umgestiegen, aus einigen der erw&auml;hnten Gr&uuml;nden:<br/>
+Flash Integration<br/>
+Ich kann Feeds auf zwei Rechnern lesen (bie desktop Variante ist der Datenbestand (gelesen/ungelesen) inkonsistent<br/>
+Verarbeitung von RSS-Feed (sharpreader kam mit einigen Feeds nciht klar, google schon).<br/>
+Bin eigentlich sehr zufrieden (habe auf 150 Feeds abgespeckt...)</p>
+
+<p class="infos">
+<a href="#comment_477" onclick="set_comment_reference(477)" title="auf diesen Kommentar antworten">#477</a>:
+    28.Aug.2008 03:08
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Ich musste auch in letzter Zeit um einiges abspecken...<br/>
+Wenn man nach einem knappen Tag offline 600 ungelesene Nachrichten angezeigt bekommt und wei&szlig; dass man demn&auml;chst f&uuml;r 1-2 Monate offline sein k&ouml;nnte, ist klar dass man ein Problem hat. <em>G</em><br/>
+Im Moment sinds nur noch so 100-200 Nachrichten am Tag.</p>
+
+<p class="infos">
+<a href="#comment_478" onclick="set_comment_reference(478)" title="auf diesen Kommentar antworten">#478</a>:
+    31.Aug.2008 02:08
+    von
+    
+      
+        <a href="http://ag7.alltagsgrauen.info" target="_blank">
+          fwolf
+        </a>
+</p>
+<p>lange rede, kurzer sinn: hast du Gregarius schon angetestet?</p>
+<p>cu, w0lf.</p>
+
+<p class="infos">
+<a href="#comment_479" onclick="set_comment_reference(479)" title="auf diesen Kommentar antworten">#479</a>:
+    31.Aug.2008 01:08
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>nein, sieht imho aber &auml;hnlich aus wie Tiny Tiny RSS. Sicher ein netter Ansatz, aber er kombiniert auch gleich verschiedene Nachteile der lokalen und Web-basierenden Reader.<br/>
+Au&szlig;erdem sind derartige L&ouml;sungen vlt. f&uuml;r etwas erfahrene Nutzer sinnvoll, aber man kann nunmal von $0815-DAU nicht erwarten sich einen Webserver aufzusetzen und so zu konfigurieren dass er von &uuml;berall darauf zugreifen kann.</p>
+
+<p class="infos">
+<a href="#comment_480" onclick="set_comment_reference(480)" title="auf diesen Kommentar antworten">#480</a>:
+    01.Sep.2008 10:09
+    von
+    
+      
+        <a href="/2008/09/01/newsreader/" target="_blank">
+          Newsreader &amp;laquo; G33KY^2 - The Nerd Strikes Back
+        </a>
+</p>
+<p>[...]  Wie neulich schon angek&uuml;ndigt werde ich hier mal eine Liste von Newsreadern zusammenstellen. Zielplatform ist (wie bei mir [...]</p>
+</div>

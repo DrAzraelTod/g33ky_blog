@@ -1,0 +1,91 @@
++++
+title = "Gute Regular Expressions"
+date = "2008-06-27T12:06:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/426"
+aliases = "blog/426"
++++
+
+<p>Gajim, Trac und viele andere Projekte haben oft das Problem dass URIs nicht vollst&auml;ndig/garnicht erkannt werden, zu zeitig enden oder zuviel erkannt wird. (Sacred-Chao und seine <a href="http://drazraeltod.wordpress.com/zufallige_fakten" target="_self">Exportfunktion f&uuml;r Facts</a> bilden da keine Ausnahme, allerdings habe ich mir erheblich weniger M&uuml;he gemacht und auf RegExp komplett verzichtet)Aber laut "<a href="http://dieweltistgarnichtso.net/index.php?/archives/32-Constructing-a-regular-expression-that-matches-URIs.html" target="_blank">Die Welt ist garnicht so</a>" ist es ganz einfach eine passende RegExp f&uuml;r so ziemlich alle URIs zu erstellen.</p>
+<p>Das Ergebnis sieht dann ungef&auml;hr so aus:<br/></p><blockquote><code>((?&lt;=\()[A-Za-z][A-Za-z0-9+.-]*:([A-Za-z0-9+\.-_~:/\?#\[\]@!\$&amp;'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+(?=\)))|([A-Za-z][A-Za-z0-9+.-]*:([A-Za-z0-9+\.-_~:/\?#\[\]@!\$&amp;'\(\)\*\+,;=]|%[A-Fa-f0-9]{2})+)</code></blockquote><br/>ich suche immer noch nach einem Zeichen f&uuml;r Ironie an der Stelle wo die "gute" RegExp vorgestellt wird. Wundert sich ernsthaft noch jemand warum ich die Dinger noch nie leiden konnte?
+      
+    
+  <div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_219" onclick="set_comment_reference(219)" title="auf diesen Kommentar antworten">#219</a>:
+    27.Jun.2008 09:06
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>schreib halt eine LTL-Formel hin <em>schulterzuck</em>.</p>
+
+<p class="infos">
+<a href="#comment_220" onclick="set_comment_reference(220)" title="auf diesen Kommentar antworten">#220</a>:
+    27.Jun.2008 09:06
+    von
+    
+      
+        <a href="http://crackpod.pytalhost.com/" target="_blank">
+          CracKPod
+        </a>
+</p>
+<p>Hey,<br/>
+Ich schreibe ja auch gelegentlich Python Scripts und k&ouml;nnte RegExp eigentlich f&uuml;r manche Sachen ganz gut verwenden aber wie du schon sagtest, so ein Monster ist einfach h&auml;sslich. Vor allen Dingen blickt man &uuml;berhaupt gar nicht mehr durch falls man sich nicht verdammt gut mit Regul&auml;ren Ausdr&uuml;cken auskennt.</p>
+<p>Ich hasse diese Dinger auch.</p>
+<p>MfG,<br/>
+CracKPod</p>
+
+<p class="infos">
+<a href="#comment_221" onclick="set_comment_reference(221)" title="auf diesen Kommentar antworten">#221</a>:
+    27.Jun.2008 10:06
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>@makx: Nichmal Wikipedia sagt mir was eine LTL-Formel sein soll... so wie ich dich kenne wage ich irgendwie auch zu bezweifeln dass dies f&uuml;r <em>Nichtmathematiker</em> einfacher zu verstehen ist als RegExp. <em>g</em></p>
+<p>@CracKPod: bez&uuml;glich deines Zweiten Kommentars: Linktausch wird es hier nicht geben da ich keine Linkliste habe (wie auch schon recht oft geschrieben -.-)<br/>
+Zuletzt war das wohl unter den Kommentaren zu <a href="/2008/6/17/Wine-1.0">Wine 1.0</a>. Das selbe was ich <a href="http://www.seufz.6x.to/">Seufz</a> geantwortet hab gilt also auch f&uuml;r dich.</p>
+
+<p class="infos">
+<a href="#comment_222" onclick="set_comment_reference(222)" title="auf diesen Kommentar antworten">#222</a>:
+    27.Jun.2008 11:06
+    von
+    
+      
+        <a href="http://www.drni.de/blog/" target="_blank">
+          DrNI
+        </a>
+</p>
+<p>RegExen sind b&ouml;se Drachen: Ziemlich h&auml;sslich aber enorm stark! Ich hassliebe sie.</p>
+
+<p class="infos">
+<a href="#comment_223" onclick="set_comment_reference(223)" title="auf diesen Kommentar antworten">#223</a>:
+    27.Jun.2008 12:06
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>Ein regul&auml;rer Ausdruck ist ja nur eine M&ouml;glichkeit um eine regul&auml;re Sprache zu definieren. RegExps eignen sich "hervorragend" dazu das auftreten von bestimmten Mustern zu definieren. Wenn es daran geht das nicht-auftreten von solchen Dingern zu definieren eignen sich andere Formen besser, wie zum Beispiel logische Formeln. So schwer zu verstehen ist das ganze eigentlich nicht.</p>
+<p>Wenn man oben genannte RegExp ein bischen verzuckert mit etablierten dingen wie :digit:, dann wird das ganze bestimmt auch ne ganze Ecke &uuml;bersichtlicher.</p>
+<p>Nicht zuletzt ist es nicht verboten zu kommentieren, was eine Regexp matchen soll (fehlersuche ist zugegebenermaszen meistens zwecklos, da hat man schneller selber eine geschrieben).</p>
+<p>Mal davon abgesehen, dass das da oben streng genommen schon keine RegExp mehr ist sondern eine erweiterte solche mit Lookahead und Behind und solchen Spirenzchen.</p>
+
+<p class="infos">
+<a href="#comment_224" onclick="set_comment_reference(224)" title="auf diesen Kommentar antworten">#224</a>:
+    27.Jun.2008 11:06
+    von
+    
+      
+        <a href="/2008/06/27/regex2/" target="_blank">
+          RegEx#2 &amp;laquo; G33KY^2 - The Nerd Strikes Back
+        </a>
+</p>
+<p>[...]  Im gegensatz zu meinem letzten Beitrag hat Coding Horror jetzt mal einen Beitrag gebracht wie man RegExpressions wirklich sinnvoll [...]</p>
+</div>

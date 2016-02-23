@@ -1,0 +1,48 @@
++++
+title = "Router: Samsung SMT-G3210"
+date = "2008-09-27T09:09:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/820"
+aliases = "blog/820"
++++
+
+<p>Wie <a href="http://drazraeltod.wordpress.com/2008/09/19/neuer-dsl-router/" target="_self">bereits geschrieben</a> haben wir zu unserem Freenet-Zugang einen Samsung-Router bekommen. Das Ger&auml;t l&auml;uft auf Linux-Basis und bietet Hardwareseitig einige sch&ouml;ne Details wie einen USB-Anschluss, also habe ich mal versucht etwas mehr aus ihm heraus zu holen als dies im Originalzustand m&ouml;glich ist.</p>
+<p>Die erste Handlung war wohl mir den <a href="http://www.ip-phone-forum.de/showthread.php?t=161720" target="_blank">Thread zum G3210</a> im IP-Phone-Forum durchzulesen, dort findet man viele sinnvolle Informationen zu diesem Ger&auml;t, ver&auml;nderter Firmware und Zusatzsoftware.<!--more--></p>
+<p>Dort findet sich auch der Nutzer <a href="http://www.ip-phone-forum.de/member.php?u=173050" target="_blank">xor16rox</a>, der auf seiner Seite (zumindest verlinkt er in seiner Signatur darauf) <a href="http://bitflip.de/samsung/" target="_blank">bitflip.de</a> erstmal aktuelle Firmware, Tools und Howtos zu dem Ger&auml;t anbietet. Die <a href="http://bitflip.de/samsung/#firmwares" target="_blank">Firmware</a> erm&ouml;glicht es erstmal auf sehr einfachem Wege eine root-shell via telnet (und kurz darauf ssh) auf dem Router zu bekommen.</p>
+<p>In der Signatur des Nutzers nbx2001 findet sich dann ein weiterer Link, diesmal auf <a href="http://www.fireleech.com/" target="_blank">fireleech.com</a>, wo sich dann recht n&uuml;tzliche, vorcompilierte Software findet. Das geht von wget (welches sich in der Originalversion doch etwas von der mitgelieferten busybox-variante unterscheidet), geht weiter &uuml;ber ctorrent (Killer-feature!) und OpenVPN bis hin zu Kernelmodulen f&uuml;r Ext2/3.</p>
+<p>Da w&auml;ren wir dann auch schon beim gr&ouml;&szlig;ten Problem mit diesem Ger&auml;t. Es existieren zwar compilierte Kernelmodule aber ohne gr&ouml;&szlig;ere Umst&auml;nde l&auml;sst sich die Ext2/3-Unterst&uuml;tzung kaum aktivieren. Die effektivste Methode scheint darin zu bestehen sich gleich den ganzen Kernel selbst zu compilieren. Da f&auml;nde ich es aber eher noch sinnvoll sich doch <a href="http://openwrt.org" target="_blank">OpenWRT</a> als alternative Distri aufzuspielen. (Das werde ich aber erstmal beides lassen, solange ich keinen Austauschrouter da hab, sollte ich die Kiste dabei schrotten.)</p>
+<p>Weiterhin gibt es &uuml;brigens im Forum noch Programme wie nohup (<a href="http://www.ip-phone-forum.de/showthread.php?t=161720&amp;page=6" target="_blank">am Ende von Seite 6</a>) oder less (<a href="http://www.ip-phone-forum.de/showthread.php?t=161720&amp;page=7" target="_blank">Anfang Seite 7</a>, ist nicht dringend n&ouml;tig da more ja schon dabei ist) zu finden. Wem das alles noch nicht reicht, der kann sich nat&uuml;rlich auch mit der Toolchain (die es bei <a href="http://bitflip.de/samsung/#tools" target="_blank">bitflip unter Tools</a> gibt) seine eigenen Programme compilieren.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_671" onclick="set_comment_reference(671)" title="auf diesen Kommentar antworten">#671</a>:
+    16.Oct.2008 11:10
+    von
+    
+      
+        driss
+      
+    
+    
+  </p>
+<p>WLAN-Konfiguration</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_672">
+<p class="infos">
+<a href="#comment_672" onclick="set_comment_reference(672)" title="auf diesen Kommentar antworten">#672</a>:
+    16.Oct.2008 11:10
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>@driss:<br/>
+Ich habe 2 Fragen:<br/>
+ - Was soll mir dieser ausf&uuml;hrliche Text jetzt bitte sagen?<br/>
+ - Warum gibst du samsung.router (was diese Samsung-Ger&auml;te auf ihre Config umleiten) als deine pers&ouml;nliche URL an?</p>
+<p>-.-</p>
+</div>
+</li>
+</ul>
+</div>

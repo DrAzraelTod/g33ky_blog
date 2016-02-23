@@ -1,0 +1,63 @@
++++
+title = "Webprojekte: Caching"
+date = "2009-09-18T01:09:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/1457"
+aliases = "blog/1457"
++++
+
+<p>Aus beruflichen Gr&uuml;nden (<a href="http://seto-social.de" target="_blank">seto-social</a>) habe ich mich in den letzten Monaten immer mal wieder damit befasst wie man bei stark interaktiven Webprojekten am g&uuml;nstigsten Cachen, also bereits generierte Daten zwischenspeichern, k&ouml;nnte.</p>
+<p>Die Standardversion ist wohl bei den meisten Frameworks bereits generierte Teile einer Seite oder gar komplette Seiten als statischen Content auf der Festplatte zwischenzulagern und so PHP-Ausf&uuml;hrungs-Aufwand drastisch zu verringern.<br/>Bei relativ statischen Seiten funktioniert dies auch sehr sch&ouml;n, ein Blog kann z.B. den kompletten Artikel als HTML ablegen und nur bei &Auml;nderungen oder Kommentaren aktualisieren.<br/>Doch was macht man bei Dingen die sich permanent aktualisieren oder gar f&uuml;r jeden Nutzer anders aussehen?<!--more--></p>
+<p>Bei diesem Problem hilft es dann auch nichts dass z.B. <a href="http://www.symfony-project.org/" target="_blank">Symfony</a> f&uuml;r nahezu jede Caching-Engine (sei es Memcached, XCache, APC oder EAccelerator) ein eigene Klasse mitbringt, die alle von sfCache abgeleitet sind und alle relativ leicht austauschbar die selben Funktionen bieten.<br/>Schlimmer noch: Caching-Engines zu verwenden die die komplette Seite &uuml;ber mehrere Requests hinweg aus dem RAM holt ist nat&uuml;rlich extrem schnell... aber alles andere als RAM-sparend.</p>
+<p>G&uuml;nstiger ist da schon die Klasse sfFunctionCache, die darauf ausgelegt ist einzelne Funktionsaufrufe zu Speichern und so auf einer viel kleineren Ebene arbeitet. Doch auch hier ist es wie so oft: Die Idee ist gut, aber die Umsetzung nicht so genial.<br/>sfFunctionCache erwartet als Identifikator jeweils einen String (normalerweise also z.B. den Funktionsnamen) und speichert dann Beliebigen Text in eine Datei mit diesem Namen.</p>
+<p>Die erste Variante dieser Vorgehensweise war den String f&uuml;r den Identifikator zu erweitern... Ein MD5-Hash der Parameter macht es z.B. m&ouml;glich Funktionen auch abh&auml;ngig von ihrem Eingangswert zu speichern.<br/>Leider sind nun Dateizugriffe nicht gerade das schnellste was man sich so vorstellen kann. Vor allem wenn man versucht auf m&ouml;glichst kleiner Ebene zu Cachen und so enorme Mengen an Aufrufen hat und daf&uuml;r nur minimale Datenmengen Speichert.<br/>In extremen F&auml;llen kann dies z.B. dazu f&uuml;hren dass tausende Dateien angelegt werden, alle mit einem serialisiertem Boolean-Wert als einzigem Inhalt. Diese Dateien werden dann bei jedem Zugriff wieder angefasst und treiben die IO-Last des Servers schneller in die H&ouml;he als man wissen will.</p>
+<p>Nat&uuml;rlich k&ouml;nnte man hier auch wieder auf alternative Caching-Engines umsteigen, dann ist jedoch die Symfony-Klasse sfFunctionCache wieder ziemlich sinnlos, da diese wieder nur von sfFileCache abgeleitet wurde statt irgendwie von einer generischen Klasse.<br/>Auch k&ouml;nnte man die Caching-Engine direkt ansprechen, es ist ja nicht direkt so als w&auml;ren die APIs f&uuml;r diese Systeme extrem komplex.</p>
+<p>In unserem Fall aber haben wir uns f&uuml;r einen anderen Ansatz entschieden. Anstelle eine weitere Engine zu installieren, die Daten verwaltet, fanden wir es sinnvoller eine bereits installierte Software zu verwenden, die ebenfalls darauf optimiert ist kleine Datenh&auml;ppchen zu verwalten, zu suchen und diese m&ouml;glichst schnell zugreifbar zu machen.<br/>Wir verwendeten MySQL!</p>
+<p>Um also unsere Funktionen zu beschleunigen, setzten wir einfach f&uuml;r jeden Funktionsaufruf eine Zeile in eine MySQL-Tabelle, die nur aus dem Prim&auml;rschl&uuml;ssel (ein String der aus dem Funktionsnamen und dem Parameterhash besteht), dem Ablaufzeitpunkt und einem Content-Feld mit serialisierten Daten besteht.<br/>Weil wir sehr wenige Daten speichern, diese aber extrem schnell sein sollten, verwenden wir Memory als Tabellentyp.</p>
+<p>Um nun eine Funktion aufzurufen, brauchen wir nur noch nachsehen ob diese bereits im Cache liegt (eine Suche via PK, sollte schnell gehen, den Zeitpunkt ignorieren wir hier mal) und wenn dem der Fall ist, so unserialisieren wir die Daten und geben Sie zur&uuml;ck.<br/>Wenn dem nicht der Fall ist, so f&uuml;hren wir die gew&uuml;nschte Funktion aus (via call_user_func) und pr&uuml;fen ob die Daten l&auml;nger sind als die maximale Stringl&auml;nge der Datenbank (wir wollen ja weder defekte Daten speichern, noch wegen 1-2 Aufrufen am Tag massiv lange Varchars produzieren).<br/>Wenn die serialisierten Daten also in die Datenbank passen, f&uuml;gen wir sie ein und geben sie gleichzeitig als R&uuml;ckgabewert zur&uuml;ck.</p>
+<p>Dies erm&ouml;glicht es uns beliebige Funktionen relativ einfach zu den gespeicherten hinzuzuf&uuml;gen, indem wir im entsprechenden Objekt die Funktion umbenennen (idealerweise nach einem festem Schema, aus foo() wird also z.B. fooCache()) und in der __Call-Funktion des Objektes beim Aufruf einer nicht vorhandenen Funktion zu pr&uuml;fen ob statt der gew&uuml;nschten Funktion vlt. doch eine existiert deren Namen nach unserem Schema ver&auml;ndert wurde...<br/>Wenn wir also feststellen dass jemand von unserem Objekt die Funktion foo() haben m&ouml;chte und wir nur eine fooCache() haben, so rufen wir unsere Cache-Lib auf und lassen diese die Arbeit machen (im Cache nachschlagen, Ergebnisse bei Bedarf von fooCache holen und &auml;hnliches).</p>
+<p>Diese Vorgehensweise ist sicher noch nicht ideal... aber sie beschleunigt manche Dinge schonmal enorm ohne die vielen Nachteile der vorgegebenen Caching-Varianten zu besitzen.<br/>Ich w&uuml;rde mich &uuml;ber Kommentare mit Verbesserungsvorschl&auml;gen oder Dingen die euch aufgefallen sind nat&uuml;rlich wie immer freuen. :-)</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1338" onclick="set_comment_reference(1338)" title="auf diesen Kommentar antworten">#1338</a>:
+    19.Sep.2009 02:09
+    von
+    
+      
+        <a href="http://martin.ringehahn.de/blog/" target="_blank">
+          Martin Ringehahn
+        </a>
+</p>
+<p>MySQL f&uuml;r caching? Das will man doch gerade entlasten! Das hier klingt doch wie eine 1a Anwendung f&uuml;r key-value-stores wie memcache. Memcache hat alle ben&ouml;tigten features (key ist ein beliebiger string, ttl kann man setzen und content kann bis zu 1M gross sein). Man spart sich den ganzen kram den MySQL erledigen muss (hier insbesonsere das parsen der SQL query). Jeder thread in MySQL, auch wenn er nur eine MEMORY Anfrage bearbeitet, ben&ouml;tigt hunderte kilobyte RAM. Mal ganz abgesehen vom Thread management, context switches zwischen Threads etc. Einziges Problem w&auml;re, dass man einen leeren cache hat wenn man memcached neustartet. Aber das problem hat man ja bei MEMORY auch in MySQL. Da steigt die Last dann halt etwas an. Wenn der cluster nen caching-neustart nicht aushaelt muss man halt voruebergehend die Anzahl der clients runterfahren und entsprechende Limits haben dass die Webserver nicht den MySQL totfragen bei kaltem cache.</p>
+<p>Man kommt dann auch relativ schnell an den Punkt wo man, um MySQL zu entlasten, anf&auml;ngt den DB server zu replizieren. Da hat man meinetwegen einen Master und mehrere Read-only slaves.<br/>
+Lesende Zugriffe gehen zu einem Slave, schreibende zum Master. Hier bekommt man das Problem dass Master und Slave nie denselben Zustand haben (Replikationslag). Der Client sieht m&ouml;glicherweise nach einem UPDATE noch alte daten bei einem darauffolgenden SELECT.</p>
+<p>Ein Ansatz ist hier, einen write-through-cache zu fahren, der nicht nur beim lesen von Daten, sondern auch beim schreiben von Daten verwendet wird. Die Datenbank selber wird also nur noch als Persistierungschicht verwendet. Das ganze geht soweit dass man bestimmte listen/views/abfragen komplett in der Cache-ebene spiegelt und entsprechend aktualisiert.</p>
+<p>Generell muss man aufpassen dass einem die vielen versteckten API-calls (memcache oder hier MySQL) nicht auf die F&uuml;&szlig;e fallen: Auf Prototypen und Entwicklungssystemen hat man h&auml;ufig alle Prozesse auf dem selben Host, die latenz von Anfragen ist verschwindend gering. Wenn man dann den Kram deployed kann es sein dass man sich wundert warum die ~100 calls pro pageimpression nun doch etwas laenger brauchen, weil Webserver, Cache layer und DB server nun nicht mehr &uuml;ber loopback in mikrosekunden sondern &uuml;ber Ethernet in millisekunden erreichbar sind. Das summiert sich. Auf localhost f&auml;llt es nicht auf, wenn man eine liste seriell aus dem Memcache zieht (for id in ids: cache-&gt;getData(id)) ist doch etwas anderes als (cache-&gt;getData(ids)). Nur im letzteren fall ist es etwas komplizierter den cache-miss von einzelnen ids abzudecken.</p>
+<p>Zu dem function cache und seinen dateien: Das ganze kann unter umst&auml;nden Sinn machen. Wenn die Menge der zu sichernden calls relativ gering ist und die R&uuml;ckgabewerte der calls vergleichsweise gross sind kann man sicherlich Netzwerkkommunikation einsparen. Das Dateisystem sollte dann nat&uuml;rlich lokal liegen. Damit begrenzt man sich auf den Host des ausf&uuml;hrenden Webservers. Da muss die Caching-strategie auch mit dem Loadbalancing zusammenspielen. Man will ja nicht sitzungsabhaengige Daten &uuml;ber alle Webserver verteilen wenn man round-robin macht.</p>
+<p>Hach, caching..</p>
+
+<p class="infos">
+<a href="#comment_1339" onclick="set_comment_reference(1339)" title="auf diesen Kommentar antworten">#1339</a>:
+    13.Oct.2009 07:10
+    von
+    
+      
+        <a href="http://www.wangoo.de" target="_blank">
+          SirSnookie
+        </a>
+</p>
+<p>Ein passender Artikel f&uuml;r Key-&gt;Value Storages (gerade f&uuml;r dynamische Seiten) gibt es bei <a href="http://www.metabrew.com/article/anti-rdbms-a-list-of-distributed-key-value-stores/%3C/p%3E" rel="nofollow">http://www.metabrew.co...</a>
+</p><p>Bevor man mySQL nimmt, h&auml;tte man auch das Filesystem alleine als Filename(Key) Content(Value) Cache nehmen k&ouml;nnen ;)</p>
+
+<p class="infos">
+<a href="#comment_1340" onclick="set_comment_reference(1340)" title="auf diesen Kommentar antworten">#1340</a>:
+    13.Oct.2009 08:10
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Filesystem ist die Symfony-default-L&ouml;sung<br/>
+ist aber bei richtig vielen Aufrufen und geringen Datenmengen alles... nur nicht schnell</p>
+</div>

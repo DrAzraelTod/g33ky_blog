@@ -1,0 +1,37 @@
++++
+title = "Python -1"
+date = "2008-10-26T12:10:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/998"
+aliases = "blog/998"
++++
+
+<p>Nach langer abstinenz (immer nur Kleinkram) habe ich gestern mal wieder ernsthaft an neuen Funktionen f&uuml;r <a href="http://code.google.com/p/pychao/" target="_blank">pyChao</a> gearbeitet (&uuml;brigens einer <a href="http://code.google.com/p/pychao/issues/detail?id=16" target="_blank">Suchfunktion f&uuml;r rss-Feeds</a>). Dabei ist mir eine wirklich sehr unsch&ouml;ne Eigenschaft von Python aufgefallen.<!--more--></p>
+<p>Bei Verwendung als Boolean-Wert wird Int -1 zu True aufgel&ouml;st. Ohne jetzt gro&szlig; zu &uuml;berlegen klingt das ziemlich egal bis harmlos.</p>
+<p>Bl&ouml;d wird es jedoch bei Funktionen wie find(). Beispiel:<br/><code><br/><span><br/>if text.find(textschnipsel):<br/></span><br/></code><br/>Was macht dieser Code? Er sucht ob der String Textschnipsel im String Text vorkommt. Wenn der Text vorkommt gibt find aber keinen Boolean zur&uuml;ck, sondern die erste Stelle an der der Textschnipsel gefunden wird. Das kann ein Integer von 0 bis len(text)-1 sein.<br/>Was wenn keine Stelle gefunden wird? Dann wird -1 zur&uuml;ckgeliefert. Der Autor der Funktion kann ja nichtmal was daf&uuml;r... Was sollte er auch sonst tun? 0 zur&uuml;ckliefern geht ja nicht, das w&uuml;rde bedeuten dass Text gleich am Anfang Textschnipsel stehen hat.</p>
+<p>Der genannte Code evaluiert also IMMER zu True, egal welcher Text eingegeben wird. Imho ist dies ein Designfehler der Sprache. Man k&ouml;nnte auf derartige Situationen unterschiedlich reagieren... -1 k&ouml;nnte False ergeben (und mir f&auml;llt kein Grund ein warum &lt;=0 nicht immer False sein sollte), alternativ k&ouml;nnte man generell Exceptions werfen wenn negative Zahlen als Bool verwendet werden. Jede M&ouml;glichkeit w&auml;re besser. Auf keinen Fall sollte man auf ein derartiges Verhalten zur&uuml;ckgreifen wie es jetzt getan wird. Es sei denn man will Sprachneulinge bewusst verwirren.</p>
+<p>Die L&ouml;sung f&uuml;r das Problem ist nat&uuml;rlich einfach... man muss halt nur das Problem finden:<br/><code><br/><span><br/>if text.find(textschnipsel)!=-1:<br/></span><br/></code></p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_842" onclick="set_comment_reference(842)" title="auf diesen Kommentar antworten">#842</a>:
+    26.Oct.2008 01:10
+    von
+    
+      <a href="/blog/author/profmakx/">
+        profmakx
+      </a>
+</p>
+<p>Explicit is better than implicit. (Weniger kaputte Sprachen wie Haskell kotzen einem beim kompilieren schon auf den Tisch, weil man Integer nicht mit Booleans vergleichen kann)</p>
+
+<p class="infos">
+<a href="#comment_843" onclick="set_comment_reference(843)" title="auf diesen Kommentar antworten">#843</a>:
+    26.Oct.2008 01:10
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>wie gesagt... exception werfen w&auml;re besser.<br/>
+Das ist ja auch die Stelle die mich an PHP/HTML/Javascript und Konsorten so ankotzt.. egal was man tut es gibt nie nen kritischen Fehler, teilweise werden selbst Fehlende Funktionen oder wahlloser Text im Kot hingenommen (php: print_r(Das ist keine Konstante und auch kein String))</p>
+</div>

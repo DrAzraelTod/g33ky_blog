@@ -1,0 +1,46 @@
++++
+title = "Softwareschrott: string-parsing"
+date = "2010-06-14T11:06:00"
+author = "Dr. Azrael Tod"
+tags = ["PC", "Quählkot", "Softwareschrott", "Technik"]
+issoid = "blog/1523"
+aliases = "blog/1523"
++++
+
+<p>Ein weiteres Problem, das ich immer wieder sehe, ist dass Programme/Routinen/Bibliotheken untereinander Daten austauschen, indem sie ihre Daten in Strings verpacken, diese &uuml;bertragen und die andere Seite dann diese Strings anf&auml;ngt wieder zu zerlegen.</p>
+<p>Der offensichtliche Grund, warum das b&ouml;se ist, ist die Geschwindigkeit. Nat&uuml;rlich braucht ein Programm l&auml;nger wenn es eine XML-Struktur parsen soll, statt wenn es gesagt bekommt "mache XYZ, deine Parameter liegen an den Adressen 123, 345 und 0815". Vlt. ist das aber auch gleich ein Grund warum das warum dennoch so oft falsch verwendet wird, da das f&uuml;r uns Menschen relativ schwer vorstellbar klingt. Immerhin hat im einen Fall das Programm einen Text vorliegen, in dem bereits alle Daten enthalten sind und im anderen Fall muss es erst die Daten an anderen Stellen zusammensuchen.<br/>F&uuml;r einen Menschen w&auml;re da nat&uuml;rlich die sinnvollere Wahl die Daten gleich mitzuliefern, da wir verdammt langsam darin sind Daten zu suchen, beim Lesen aber die Unterscheidung zwischen Daten und Anweisung weitestgehend Verz&ouml;gerungsfrei vornehmen k&ouml;nnen.</p>
+<p>In der Tat beherrscht auch eine CPU diese F&auml;higkeit. Wenn Maschinencode vorliegt, wei&szlig; unsere CPU sofort bei jedem Befehl wie lang er ist und ob auf diesen noch Daten folgen und wie lang diese wieder sind. Bei Strings jedoch, f&auml;llt das schwerer. Ein String hat nunmal als einzige Verwaltungsdaten seine Gesamtl&auml;nge, keiner wei&szlig; von wo bis wo Anweisungen stehen und von wo bis wo Daten stehen. Schlimmer noch: Die Daten k&ouml;nnten Text beinhalten der mit einer Anweisung identisch ist. Eine einfache Textsuche nach allem was wie eine Anweisung aussieht und den ganzen Rest dann als Daten zu behandeln, funktioniert also auch nicht.</p>
+<p>Die &uuml;bliche Vorgehensweise ist also Trenn-Symbole einzuf&uuml;hren. Ein sehr beliebtes Symbol w&auml;re z.B. ', ', da es dem was wir Menschen uns notieren, sehr entgegen kommt. Doch was wenn wir einen solchen Text, wie diesen Artikel als Daten &uuml;bertragen will? Die Zeichenfolge ', ' kommt hier mehr als h&auml;ufig vor, also m&uuml;ssten wir diese Maskieren, um auch sie &uuml;bertragbar zu machen.<br/>Also ersetzen wir in diesem Text jedes vorkommen von ',' durch '\,' und ignorieren diese Stellen beim Parsen. Was jedoch wenn '\,' schon in den Daten vorgekommen w&auml;re? (Wir m&uuml;ssen \ auch Maskieren) Was wenn jemand '\\\\,\\\,\\,\,' in den Text geschrieben hat?</p>
+<p>Bereits hier wird klar dass es evtl. einfacher gewesen w&auml;re Befehle auf Buchstaben zu begrenzen und statt den Daten nur Zahlen mit Start- und End-Adressen zu &uuml;bertragen, an denen die Daten wirklich liegen (oder Adressen mit festen L&auml;ngen, oder der Beschr&auml;nkung dass Trennzeichen  in Adressen einfach nicht vorkommen k&ouml;nnen).</p>
+<p>Jetzt &uuml;bertragen wir aber nicht nur einfach Daten in Strings serialisiert, sondern wir verpacken diese Daten auch gerne mehrfach. Z.B. kann von diversen "HTML-Richtext-Editoren" gerne komplexer HTML-Code erzeugt werden, der CSS-Definitionen in Maskierter Form enth&auml;llt, dieser wird wieder maskiert, &uuml;ber HTTP &uuml;bertragen, von PHP demaskiert, anders maskiert, &uuml;ber SQL &uuml;bertragen, in eine Datenbank eingelagert und irgendwann wird das alles wieder r&uuml;ckg&auml;ngig gemacht und der CSS-Code von einem Browser interpretiert, der rausfinden muss was Selektor, was Bild-URL und was Farbwert in diesem Text darstellen soll.</p>
+<p>Bei derartig komplex verschachtelten Elementen geht nat&uuml;rlich alles verloren was jemals an Vorteilen da gewesen sein sollte. Das typische Argument "das ist einfacher", kann man sich v&ouml;llig schenken, menschenlesbar ist auch etwas anderes als<br/><code><pre><br/>  &amp;quot;&amp;lt;div style=\\\&amp;quot;background-image: url('/foobar.jpg');\\\&amp;quot;&amp;gt;\n&amp;quot;<br/></pre></code></p>
+<p>In der Tat hab ich auch schon h&auml;ufiger erlebt als mir lieb sein kann, dass Entwickler einfach nur noch verschiedene Codierungs-Funktionen und Dekodierungs-Funktionen auf bestehende Teststrings anwenden statt per &Uuml;berlegung darauf zu schlie&szlig;en was es sein k&ouml;nnte. Ja, auch ich selbst befand mich schon h&auml;ufiger in einer Situation in der ich ausprobieren musste weil ich nur irgendwelchen Schr&auml;gstrichsalat auf dem Teller hatte, den ich sonst nichtmehr auseinander sortiert bekommen h&auml;tte.</p>
+<p>Wen wundert es da noch dass bei solchen Vorg&auml;ngen auch gerne mal was durcheinander kommt? Und tats&auml;chlich: XSS, Injections jeder Art und &auml;hnlicher Bl&ouml;dsinn, sind langsam die h&auml;ufigsten Fehlerquellen f&uuml;r jegliches Sicherheitsproblem oder f&uuml;r obskure Problemmeldungen ("Ich kann meinen 50-Seitigen Beitrag nicht speichern! Er bring immer was von SQL-Fehler!").</p>
+<p>All das h&auml;tte man mit einem vern&uuml;nftigem &Uuml;bertragungsweg verhindern k&ouml;nnen oder wenigstens abschw&auml;chen k&ouml;nnen wenn man sich zentral auf eine Art escaping einigen k&ouml;nnte. Aber stattdessen muss ja heutzutage jeder Kot-Schreiber da drau&szlig;en seine eigene Variante eines Parsers bauen.. meistens irgendwas in der Gr&ouml;&szlig;enordnung von <q>$foo = $explode($param, ', ');</q></p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1394" onclick="set_comment_reference(1394)" title="auf diesen Kommentar antworten">#1394</a>:
+    17.Jun.2010 12:06
+    von
+    
+      
+        <a href="http://www.g33ky.de/blog/author/Dr_Azrael_Tod/" target="_blank">
+          Dr. Azrael Tod
+        </a>
+</p>
+<p>uupps... da sind einige Kommentare und Facts verloren gegangen<br/>
+&uuml;berhaupt ist mir erstmal die ganze Festplatte abgeraucht. Die DB hab ich erstmal aus Backups vom Vormittag bekommen. Es kann allerdings passieren dass hier bald erstmal ne Weile garnichts mehr geht. :-/</p>
+
+<p class="infos">
+<a href="#comment_1396" onclick="set_comment_reference(1396)" title="auf diesen Kommentar antworten">#1396</a>:
+    17.Jun.2010 08:06
+    von
+    
+      
+        <a href="http://www.g33ky.de/2010/6/17/Die-l%C3%A4cherlichste-Technologie-der-Welt/" target="_blank">
+          G33KY^2 - The Nerd Strikes Back
+        </a>
+</p>
+<p>Die l&auml;cherlichste Technologie der Welt - von Dr. Azrael Tod<br/>
+<a href="http://www.g33ky.de/2010/6/17/Die-l%C3%A4cherlichste-Technologie-der-Welt/&lt;/p&gt;" rel="nofollow">http://www.g33ky.de/20...</a>
+</p></div>

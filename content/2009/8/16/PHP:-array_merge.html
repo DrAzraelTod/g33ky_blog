@@ -1,0 +1,84 @@
++++
+title = "PHP: array_merge"
+date = "2009-08-16T06:08:00"
+author = "Dr. Azrael Tod"
+tags = ["Softwareschrott", "Technik"]
+issoid = "blog/1439"
+aliases = "blog/1439"
++++
+
+<p>Kommen wir mal wieder zu den wirklich ekligen Sachen im t&auml;glichen Berufsleben: z.B. die diversen Eigenarten von PHP. Jeder der sich schonmal mehr als 3-4 Sprachen angesehen hat wird wohl bemerken was f&uuml;r eine Qual die Arbeit mit dynamischer Typisierung manchmal wird.</p>
+<p>Wirklich schlimm wird das aber erst, wenn man an eine Stelle kommt, da man keinen direkten Einfluss auf die interpretierten Datentypen hat, sprich: wenn ich eine bereits vorliegende Funktion verwende und mit ihrer Funktionsweise leben muss. Ein typischer Fall f&uuml;r dies, der mich jedes Mal aufs neue nervt ist die Art wie die PHP-internen Array-Funktionen definiert sind. Erstmal grunds&auml;tzlich finde ich es ja nicht schlimm dass die Autoren von PHP sich offensichtlich nicht entscheiden konnten ob sie nun Arrays oder Dictioneries implementieren wollten. Nat&uuml;rlich kann man beide Konzepte f&uuml;r einfache Operationen gleich verwenden, wenn es jedoch an komplexere Sachen geht sollte man sich verdammt nochmal an ein Konzept halten!<!--more--></p>
+<p>Jedenfalls hat  PHP nun seine Dictionaries die als Arrays bezeichnet werden und Funktionen die sich nicht entscheiden k&ouml;nnen womit sie arbeiten wollen. Dies kombiniert mit der Schw&auml;che nicht entscheiden zu k&ouml;nnen ob es sich bei dem String den ein Nutzer gerade eingegeben hat um einen Integer oder einen String handelt, sorgt f&uuml;r Aktionen bei denen einem die Haare zu berge stehen.</p>
+<p>Wenn ich z.B. zwei assoziative Arrays mit <a href="http://de2.php.net/array_merge" target="_blank">array_merge</a> zu einem Zusammenschieben will, so reagiert PHP komplett unterschiedlich, je nachdem welche Keys vergeben werden.<br/>Werden reine Integer-Werte verwendet, so kann PHP nicht erkennen dass ess sich um manuell festgelegte Schl&uuml;ssel handelt, es sieht nach einem normalen Array aus in dem den Values keine bewusst gew&auml;hlten Keys zugewiesen wurden. In diesem Fall macht also array_merge nicht viel mehr als die beiden Arrays hintereinander zu h&auml;ngen.</p>
+<p>Wenn jedoch ganz eindeutige Strings als Keys vergeben werden, so reagiert die Funktion anders. Hier ist ja eindeutig sichtbar dass jemand einen Wert an einer ganz bestimmten Stelle speichern wollte, also werden die Werte &uuml;berschrieben.</p>
+<p>In der Praxis bedeutet das also, dass wenn ich folgende Arrays jeweils mit sich selbst merge, ich komplett unterschiedliche Ergebnisse erhalte</p>
+<p><code>array(1=&gt;1, 2=&gt;2)</code>ergibt mit sich selbst gemergt  ein 4-Stelliges Array: <code>array(1,2,1,2)</code><br/><code>array('a'=&gt;'a', 'b'=&gt;'b')</code> ergibt jedoch dank &uuml;berschreibung nur sich selbst, wenn man es mit sich selbst merged</p>
+<p>Das mag jetzt f&uuml;r sich genommen nervig sein und imho gibt es auch keinen Grund warum man eine Funktion braucht die auf Integer-Keys angewendet exakt das Selbe tut wie wenn ich einfach die Arrays mit <code>+</code> zusammenh&auml;nge.<br/>Wenn ich jetzt jedoch noch mit in Betracht ziehe, dass ein String-Key auch mal <code>'1234'</code> lauten kann, wird es endg&uuml;ltig verr&uuml;ckt.<br/>Da 1234=='1234' in PHP auf True evaluiert und array_merge nicht den Datentyp &uuml;berpr&uuml;ft sondern einfach nur nachsieht ob der Key IRGENDWIE als Zahl interpretiert werden kann, werden Arrays mit String-Index von Array-Merge manchmal auch wie solche mit Zahl-Index verwendet.</p>
+<p>Was soll das bringen? Hat hier irgendwer schonmal vor dem Problem gestanden dass er 2 assoziative Arrays mit String-Indices hat, von denen er gerne alle mit Text im String &uuml;berschrieben bekommen h&auml;tte und alle bei denen nur  Zahlen im Index stehen lieber angeh&auml;ngt bekommen m&ouml;chte?</p>
+<p>Oder mal aus Anwendungssicht: Stellen wir uns mal vor jemand schreibt eine Anwendung bei der die Objekte f&uuml;r einen Katalog gespeichert werden sollen. Der Einfachheit zuliebe schmei&szlig;en wir das also in ein assoziatives Array, bei dem der Key jeweils die Artikelnummer darstellt und die Value die Beschreibung enth&auml;llt. Jetzt erkl&auml;rt mal euren Kunden, warum sie <code>'12345678b'</code> als Artikelnummer vergeben d&uuml;rfen, das System sich aber die Nummer <code>'12345678'</code> irgendwie nicht merken kann!</p>
+<p>Diese Funktionsweise ist nicht nur unsinnig und kontraintuitiv, sie ist auch dumm und gef&auml;hrlich. Wirklich sinnvoll w&auml;re gewesen die Werte bei gleichen Keys IMMER zu &uuml;berschreiben, alles andere f&uuml;hrt einfach nur zu unsinniger Funktionalit&auml;t, die man beim Aufruf von array_merge nicht erwartet.<br/>Ich bin ja immer daf&uuml;r die eingebauten Funktionen zu verwenden, wenn schon aus keinem anderem Grund dann doch wenigstens weil diese meist schneller und besser optimiert sind als alles was man selbst schreibt oder weil man sich einfach nicht immer wieder damit abplagen will das Rad neu zu erfinden.<br/>Hier sah ich jedoch keinen anderen Ausweg, vor allem da PHP einfach keine vern&uuml;nftige Funktion anbietet.</p>
+<p></p><pre><code><br/>function my_array_merge($array1, $array2)<br/>{<br/>    foreach ($array1 as $key =&gt; $value)<br/>    {<br/>         $array2[$key] = $value;<br/>    }<br/>    return $array2;<br/>}<br/></code></pre>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1326" onclick="set_comment_reference(1326)" title="auf diesen Kommentar antworten">#1326</a>:
+    20.Jan.2010 06:01
+    von
+    
+      
+        Nox
+      
+    
+    
+  </p>
+<p>full ack kann ich da nur sagen ...</p>
+<p>Auch wenn dein Artikel schon etwas &auml;lter ist, er hat nix an Aktualit&auml;t eingeb&uuml;&szlig;t.</p>
+<p>Ich bin diesem Problem erst vor ner Woche wieder begegnet, wunderte mich das ein Objekt zwar als Schl&uuml;ssel '5' akzeptieren wollte, dann den Datensatz aber nicht unter '5' fand... array_merge h&auml;ngt die numerischen Arrays nicht nur aneinander, nein, es erneuert auch die keys. Somit war aus dem Schl&uuml;ssel '5' pl&ouml;tzlich die 0 geworden. Einfach herrlich.</p>
+<p>Wenn du Spa&szlig; haben willst dann schau dir auch mal den '+' Operator f&uuml;r Arrays an ;)</p>
+<p>Ciao<br/>
+Nox</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1327">
+<p class="infos">
+<a href="#comment_1327" onclick="set_comment_reference(1327)" title="auf diesen Kommentar antworten">#1327</a>:
+    20.Jan.2010 08:01
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Von zu gro&szlig;en Dosen PHP bekomm ich immer wieder &Uuml;belkeit, Verstopfung UND Durchfall... alles Gleichzeitig! -.-</p>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_1562" onclick="set_comment_reference(1562)" title="auf diesen Kommentar antworten">#1562</a>:
+    20.Jan.2012 10:01
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Sehr sch&ouml;n finde ich auch die folgende "L&ouml;sung" um das doch einigerma&szlig;en mit mitgelieferten Funktionen zu machen:</p>
+<pre><code>$result = array_diff_key($a, $b) + $b
+
+// example
+
+$array1 = array(0 =&gt; 'zero_a', 2 =&gt; 'two_a', 3 =&gt; 'three_a');
+$array2 = array(1 =&gt; 'one_b', 3 =&gt; 'three_b', 4 =&gt; 'four_b');
+
+$result = array_diff_key($array1, $array2) + $array2;
+
+//$result = array(
+//  0 =&gt; 'zero_a'
+//  2 =&gt; 'two_a'
+//  1 =&gt; 'one_b'
+//  3 =&gt; 'three_b'
+//  4 =&gt; 'four_b')
+</code></pre>
+<p>:wall:</p>
+</div>

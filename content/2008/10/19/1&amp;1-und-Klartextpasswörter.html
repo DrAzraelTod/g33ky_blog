@@ -1,0 +1,113 @@
++++
+title = "1&1 und Klartextpasswörter"
+date = "2008-10-19T03:10:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/973"
+aliases = "blog/973"
++++
+
+<p>Ich habe einen Fehler gemacht: Ich habe eine Domain &uuml;ber 1&amp;1 bezogen und bin nicht gleich panisch davongerannt als ich gesehen habe wie dieser Anbieter vorgeht.<!--more--></p>
+<p>Jedenfalls habe ich gerade festgestellt dass ich bei meiner Domain noch ein uraltes Passwort eingestellt habe, das irgendwann eher Allgemeingut statt geheim wurde. Also wollte ich es &auml;ndern, wo mich dann ein etwas schockierender Anblick erwartete:</p>
+<p>[caption id="attachment_974" align="alignnone" width="300" caption="Passwort &auml;ndern"]<a href="http://localhost/wordpress/wp-content/uploads/2008/10/1und1.jpg"><img alt="Passwort &auml;ndern" class="size-medium wp-image-974" height="139" src="http://localhost/wordpress/wp-content/uploads/2008/10/1und1.jpg?w=300" title="1und1" width="300"/></a>[/caption]</p>
+<p>Mein Passwort stand im Klartext auf der Seite! 1&amp;1 ist wirklich derartig unf&auml;hig dass sie Klartext-Passw&ouml;rter in ihrer Datenbank speichern statt Hashwerten oder &auml;hnlichem. &nbsp;Einfach untragbar...</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_793" onclick="set_comment_reference(793)" title="auf diesen Kommentar antworten">#793</a>:
+    19.Oct.2008 03:10
+    von
+    
+      
+        <a href="http://" target="_blank">
+          sirsnookie
+        </a>
+</p>
+<p>Obs in der Datenbank von 1und1 verschl&uuml;sselt ist kann man nicht sagen, was man sagen kann ist das die keine Einwegverschl&uuml;sselung wie md5 oder &auml;hnliches benutzen. Aber ist schon traurig das die bene dieses System nicht benutzen.</p>
+
+<p class="infos">
+<a href="#comment_794" onclick="set_comment_reference(794)" title="auf diesen Kommentar antworten">#794</a>:
+    19.Oct.2008 03:10
+    von
+    
+      
+        <a href="http://www.bunix.de" target="_blank">
+          reaper
+        </a>
+</p>
+<p>[ironie]Ach komm, bei millionen von Kunden kann man nicht noch die Passworte verschl&uuml;sseln. Ich will mir ja gar nicht vorstellen wieviel &Ouml;kostrom das im sauberen 1&amp;1 Rechenzentrum verschwenden w&uuml;rde die Passw&ouml;rter zu verschl&uuml;sseln. Und die armen Hacker erst, da m&uuml;ssten die ja dann erstmal die ganzen md5 summen f&uuml;r die W&ouml;rterbuchattacken erzeugent, das geht aber entschieden zu weit, denk doch mal an den Klimawandel.[/ironie]</p>
+
+<p class="infos">
+<a href="#comment_795" onclick="set_comment_reference(795)" title="auf diesen Kommentar antworten">#795</a>:
+    19.Oct.2008 03:10
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>umkehrbare verschl&uuml;sselungen sind nat&uuml;rlich auch m&ouml;glich...<br/>
+aber es gibt einen grund warum md5() allgemein das akzeptierteste verfahren f&uuml;r derartige anwendungen ist.<br/>
+Sonst steht man gleich wieder vor dem Problem wo man das Passwort f&uuml;r die umkehrung der verschl&uuml;sselung speichert, daf&uuml;r gibts meist au&szlig;er auf dem server selbst und in der DB keine gro&szlig;e auswahl.<br/>
+...was beides fast so schlimm wie &uuml;berhaupt nicht verschl&uuml;sselt ist.</p>
+
+<p class="infos">
+<a href="#comment_796" onclick="set_comment_reference(796)" title="auf diesen Kommentar antworten">#796</a>:
+    19.Oct.2008 03:10
+    von
+    
+      
+        <a href="http://" target="_blank">
+          sirsnookie
+        </a>
+</p>
+<p>oder halt Funktionen die das einfach nur berechnen - in die eine und die andere Richtung. Ohne zusatzpasswort ;)</p>
+
+<p class="infos">
+<a href="#comment_797" onclick="set_comment_reference(797)" title="auf diesen Kommentar antworten">#797</a>:
+    19.Oct.2008 03:10
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>ja.. genau.. weil ich einer firma die zu bl&ouml;d ist md5() zu verwenden zutrau dass sie einen richtig guten verschl&uuml;sselungsalgorithmus selber schreibt...<br/>
+Ganz zu schweigen davon dass dann auch noch immer jeder der den Server auslesen kann den algo auslesen kann.</p>
+
+<p class="infos">
+<a href="#comment_798" onclick="set_comment_reference(798)" title="auf diesen Kommentar antworten">#798</a>:
+    19.Oct.2008 03:10
+    von
+    
+      
+        <a href="http://" target="_blank">
+          sirsnookie
+        </a>
+</p>
+<p>Achwas die sind ein T&Uuml;V gepr&uuml;ftes Hochsicherheitsrechenzentrum ... schade nur das der T&Uuml;V afaik nur die Sicherheit vor Ort pr&uuml;ft ... ;)</p>
+<p>Nat&uuml;rlich trau ich 1und1 das nicht zu - aber dem Praktikanten der die programmiert hat <em>duck</em></p>
+
+<p class="infos">
+<a href="#comment_799" onclick="set_comment_reference(799)" title="auf diesen Kommentar antworten">#799</a>:
+    19.Oct.2008 11:10
+    von
+    
+      
+        <a href="http://gottweltkuehlschrank.de" target="_blank">
+          Friedenspanzer
+        </a>
+</p>
+<p>Ach, lasst doch die armen Jungs von 1&amp;1 in Ruhe, die haben bestimmt einen saustarken Verschl&uuml;sselungsalgorithmus benutzt. Rot13 oder vielleicht sogar Rot15, wer wei&szlig;?</p>
+<p>Nein, ist echt eine Sauerei. Wenn du dir das Passwort zuschicken l&auml;sst kommt es als komplett unverschl&uuml;sselte Mail an, oder?</p>
+
+<p class="infos">
+<a href="#comment_800" onclick="set_comment_reference(800)" title="auf diesen Kommentar antworten">#800</a>:
+    19.Oct.2008 11:10
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>keine Ahnung... ich habs nicht versucht und werde es auch lassen.<br/>
+1&amp;1 werde ich jedenfalls keines meiner wichtigen passw&ouml;rter anvertrauen, auch wenn die funktion eigentlich wichtig ist. Dort kommt jetzt ein zuf&auml;lliger string rein, den ich gut verschl&uuml;sselt auf nem alten usb-stick@home verwahre.</p>
+</div>

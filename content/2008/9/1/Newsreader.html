@@ -1,0 +1,148 @@
++++
+title = "Newsreader"
+date = "2008-09-01T10:09:00"
+author = "Dr. Azrael Tod"
+issoid = "blog/659"
+aliases = "blog/659"
++++
+
+<p>Wie neulich schon <a href="http://drazraeltod.wordpress.com/2008/08/28/newsfeeds-defective-by-design" target="_blank">angek&uuml;ndigt</a> werde ich hier mal eine Liste von Newsreadern zusammenstellen. Zielplatform ist (wie bei mir &uuml;blich) Linux, es werden also nur Reader erscheinen die f&uuml;r Linux vorhanden sind, &uuml;ber Browser verwendet werden oder sonst irgendwie unter Linux verwendbar sind.</p>
+<p>Ganz grob gesagt w&uuml;rde ich die Programme in 3 Kategorien unterteilen (integration im Browser oder Mail-Client mal nicht mitgez&auml;hlt):</p>
+<p><!--more--><br/></p><h2>lokale Clients:</h2><br/>Diese haben den Vorteil dass man nicht permanent den Browser laufen haben muss, der ja doch einiges an Speicher frisst. Dieser Vorteil erledigt sich dann aber meistens wieder, wenn man eingebettete Inhalte (wie Javascript oder Flash) sehen m&ouml;chte oder einfach nur einen Newsfeed liest der den Inhalt nicht mitliefert. (besonders auff&auml;lliger Vertreter dieser nervigen Unsitte: Heise)
+
+<p>Auff&auml;lligste Nachteile dieser Variante sind wohl die mangelnde Einbindung der Browserengine (es gibt komplexere Programme, die dann aber schon wieder den halben Browser mitschleppen) und die Bandbreitenverschwendung... wenn man 300 Newsfeeds liest st&uuml;ndlich auf dem Laufenden bleiben will (was f&uuml;r einige Anwendungen neuerdings sogar etwas knapp wird) darf man dann jede Stunde 300 XML-Dateien runterladen, nicht gerade das ideale f&uuml;r schwachbr&uuml;stige Leitungen oder Volumentarife.</p>
+<p>Beispiele f&uuml;r lokale Clients:<br/></p><h3>Akkregator</h3><br/>Der Standard-Client unter Qt-Systemen, viele Funktionen und HTML-Integration zu sehr gro&szlig;en Teilen. Diesen Client habe ich leider nicht wirklich ausf&uuml;hrlich getestet da ich haupts&auml;chlich Gnome-Systeme im Betrieb habe, f&uuml;r KDE-Systeme sollte dieser aber meistens die erste Anlaufstelle darstellen.<br/><h3>Liferea</h3><br/>Ebenfalls ein Standard-Client, diesmal jedoch auf GTK+. Sein Funktionsumfang ist beeindruckend, es kann f&uuml;r jeden Feed einzeln ein Aktualisierungsintervall festgelegt werden, Kommentare f&uuml;r die meisten Blogsysteme werden im Newsreader abgerufen und zus&auml;tzlich angezeigt, HTML wird zu den gr&ouml;&szlig;ten Teilen unterst&uuml;tzt, Podcasts werden intern abgespielt und nat&uuml;rlich werden auch Standardtechniken wie OPML-Import/Export, asynchrone Feedupdates und sortierung der Feeds in Ordnerstrukturen unterst&uuml;tzt.<br/><h3>RSSOwl</h3><br/>Ein weiterer der "gro&szlig;en" Clients, dieser basiert jedoch auf Java. Daraus ergeben sich bereits die meisten St&auml;rken und Schw&auml;chen: der Funktionsumfang ist v&ouml;llig ausreichend f&uuml;r die meisten, es ist jedoch fraglich warum man sich permanent den Schmerz im Allerwertesten antun sollte und die komplette Java-VM im Ram liegen zu haben, vor allem wenn es andere, native Programme gibt die das gleiche leisten.<br/><h3>Konsolen-Clients</h3><br/>Diese stellen noch einmal eine Unterabteilung der lokalen Clients dar. Auch wenn ich wirklich ein gro&szlig;er Fan Konsolenbaiserender Programme bin, den meisten RSS/Atom-Clients f&uuml;r die Shell fehlen einfach wichtige Funktionen, sie sind fast durchweg nicht in der Lage HTML anzuzeigen und das Aufrufen des Browsers ist auch nur &uuml;ber Umwege (Terminal-Intern?) m&ouml;glich, so dass ich diese Software nur SEHR eingeschr&auml;nkt empfehlen kann.
+
+<p>Beispiele w&auml;ren z.B. <a href="http://kiza.kcore.de/software/snownews/" target="_blank">Snownews</a>, <a href="http://www.codezen.org/nrss" target="_blank">NRSS</a>, <a href="http://synflood.at/newsbeuter/newsbeuter.html" target="_blank">newsbeuter</a> oder <a href="http://firepear.net/olive/" target="_blank">olive</a><br/></p><h2>Webclients von Drittanbietern</h2><br/>F&uuml;r viele Nutzer wird diese Abteilung sicher am interessantesten sein, mit einem Webbasierenden Reader spart man sich die installation von zus&auml;tzlicher Software, man hat auf allen Rechnern immer den gleichen Stand an gelesenen Artikeln und auch die Integration von Technologien wie Flash klappt verdammt gut. Als weiterer Bonus spart man sich bei den meisten Implementationen auch die bei den lokalen Clients &uuml;bliche Bandbreitenverschwendung, da nat&uuml;rlich nur die aktualisierten Posts zum lesen angefordert werden, dies bedingt dann auf der negativen Seite nat&uuml;rlich auch dass man in den wenigsten F&auml;llen einen einfluss auf die aktualisierungsrate hat.
+
+<p>Allerdings stellt sich bei den gro&szlig;en Anbietern immer die Frage was sie denn mit den ganzen Daten machen, die man ihnen in den Rachen wirft. Au&szlig;erdem erschwert eine derartige Anwendung nat&uuml;rlich das Lesen, sollte man mal offline sein.<br/></p><h3>Google Reader</h3><br/>Mein aktuell am h&auml;ufigsten verwendeter Reader ist eindeutig <a href="http://reader.google.com" target="_blank">die Google-Version</a>. Neben den zu erwartenden Funktionen bietet dieser mal eben noch die Exportierung von Tags als neue Newsfeeds, ich kann also alle Userfriendly-Items mit Comic-Inhalt auch wirklich mit einem Tag Webcomic markieren und wenn ich dieses Tag freigegeben habe, k&ouml;nnen andere dann dieses Tag mit reinem Comic-Inhalt als neuen RSS-Feed abbonieren. In diesem Zusammenhang fehlt leider noch eine Filterfunktion, es w&auml;re dann z.B. sch&ouml;n, k&ouml;nnte ich Reader sagen er soll alle Items die "GamesConvention" im Titel haben dem Tag "Messe" zuordnen.
+
+<p>Etwas bedenklich ist nat&uuml;rlich die Google-Zugeh&ouml;rigkeit, es muss wohl jeder selbst wissen wem er seine Daten in den Rachen wirft.</p>
+<p>Reader bietet als sehr deutliches Alleinstellungsmerkmal unter den Web-basierenden Readern unterst&uuml;tzung f&uuml;r Google Gears. Dies erm&ouml;glicht es auch die letzten 2000 Items herunter zu laden und offline zu lesen... sehr praktisch f&uuml;r l&auml;ngere Bahnfahrten und &auml;hnliches.<br/></p><h3>Bloglines</h3><br/>Bei <a href="http://www.bloglines.com/" target="_blank">Bloglines</a> handelt es sich um eine der 2-3 meistzitierten Onlinereader. Im Gegensatz zu Googles Reader bietet dieser eine etwas bessere Benutzerf&uuml;hrung, daf&uuml;r sortiert er die Feeds in Ordner statt in Tags, was etwas weniger Flexibel ist. Was leider auch komplett fehlt, ist eine Funktion mit der man gelesene Feeditems zu neuen Newsfeeds aggregieren kann.<br/><h3>Andere</h3><br/>Nat&uuml;rlich gibt es eine nahezu unbegrenzte Menge an weiteren Anbietern f&uuml;r Webbasierte Feedreader, es w&uuml;rde den Rahmen bei weitem sprengen alle aufzuz&auml;hlen.
+
+<p>Lokale Installationen Webbasierter Reader</p>
+<p>Bei dieser Variante handelt es sich um eine Kombination der beiden konkurierenden Technologien. Man installiert sich auf einen eigenen Webserver einen Newsreader, der dann, je nach geschmack, im lokalen Netzwerk oder auch global erreichbar ist.</p>
+<p>In der Verwendung zeigt sich das Ganze dann &auml;hnlich wie ein beliebiger Webbasierender Reader, allerdings wei&szlig; man ziemlich genau was mit den eigenen Daten passiert, hat aber im Gegenzug den Installations- und Wartungsaufwand. (Was ein nicht zu untersch&auml;tzendes Argument ist, nicht jeder Anf&auml;nger will sich einen kompletten Webserver installieren.) Zus&auml;tzlich hat man nat&uuml;rlich dann wieder die Trafic-belastung, wenn dies auch evtl. auf einen Server ausgelagert passiert.<br/></p><h3>Tiny Tiny RSS</h3><br/><a href="http://tt-rss.org" target="_blank">TTRSS</a> lehnt sich offenbar stark an das Vorbild von Google an, viele Funktionen sind sehr &auml;hnlich und, von der Gears-Unterst&uuml;tzung mal abgesehen, die meisten Funktionen werden mindestens genauso gut angeboten. In der Tat habe ich schon geplant meinen Server auch daf&uuml;r zu verwenden, so bald mein Internetanschluss endlich ordentlich funktioniert.<br/><h3>Planet Feedreader</h3><br/><a href="http://www.planetplanet.org/" target="_blank">Planet</a> ist eigentlich mehr ein System um mehrere Feeds zu einem einzigem zu aggregieren. Die Ausgabe ist sehr flexibel anpassbar und erm&ouml;glicht die Integration in die verschiedensten Webseiten. Daher wird Planet auch sehr h&auml;ufig von gro&szlig;en OpenSource-Projekten verwendet um Projektspezifische Nachrichten von diversen Entwicklerblogs zu sammeln.<br/><h3>Gregarius</h3><br/>Bei <a href="http://www.planetplanet.org/" target="_blank">Gregarius</a> scheint es sich ebenfalls um ein Projekt zu handeln, dass sich stark an Googles Vorbild orientiert. Genauere Erfahrungen konnte ich damit leider noch nicht sammeln, ich habe diesen Vorschlag erst neulich von <a href="http://ag7.alltagsgrauen.info/" target="_blank">fwolf</a> via <a href="http://drazraeltod.wordpress.com/2008/08/28/newsfeeds-defective-by-design/#comment-540" target="_blank">Kommentar</a> bekommen. (BTW: Danke!)
+
+<p>Nat&uuml;rlich stellt diese Liste keinerlei Anspr&uuml;che in Bezug auf Vollst&auml;ndigkeit oder inhaltlicher Korrektheit. Ich habe einfach nur mal wieder aufgeschrieben was mir durch den Kopf gegangen ist.</p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_485" onclick="set_comment_reference(485)" title="auf diesen Kommentar antworten">#485</a>:
+    01.Sep.2008 12:09
+    von
+    
+      
+        <a href="http://gottweltkuehlschrank.de" target="_blank">
+          Friedenspanzer
+        </a>
+</p>
+<p>Danke f&uuml;r diese kleine Aufz&auml;hlung, ich suche schon l&auml;nger einen Reader, der genau meinen W&uuml;nschen entspricht und glaube, ich hab ihn im Google Reader gefunden, auch wenn da das gro&szlig;e b&ouml;se G dahintersteckt.</p>
+
+<p class="infos">
+<a href="#comment_486" onclick="set_comment_reference(486)" title="auf diesen Kommentar antworten">#486</a>:
+    01.Sep.2008 01:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Man freut sich doch immer wenn man helfen kann...<br/>
+Eigentlich wollte ich noch so grob schreiben f&uuml;r welchen Zweck/Nutzer welche Art Reader geeignet w&auml;re, aber das h&auml;tte den Rahmen bei weitem gesprengt... wird vlt. noch nachgeliefert.</p>
+
+<p class="infos">
+<a href="#comment_487" onclick="set_comment_reference(487)" title="auf diesen Kommentar antworten">#487</a>:
+    01.Sep.2008 06:09
+    von
+    
+      
+        <a href="http://noqqe.de" target="_blank">
+          noqqe
+        </a>
+</p>
+<p>Der Artikel kommt ca 2 Monate zu sp&auml;t. hab mich sehr lange nach dem perfekten reader f&uuml;r mich umgesehen und &uuml;bergangsweise newsfox plugin f&uuml;r ff3 genutzt.<br/>
+jetzt ist es allerdings liferea geworden.</p>
+
+<p class="infos">
+<a href="#comment_488" onclick="set_comment_reference(488)" title="auf diesen Kommentar antworten">#488</a>:
+    01.Sep.2008 06:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Liferea ist als desktop-client auch ziemlich gut... (da ich gtk nutze sowieso), leider ist das ganze System eines Desktopclients f&uuml;r meine pers&ouml;nlichen Anspr&uuml;che nicht ganz so gut geeignet.</p>
+
+<p class="infos">
+<a href="#comment_489" onclick="set_comment_reference(489)" title="auf diesen Kommentar antworten">#489</a>:
+    02.Sep.2008 01:09
+    von
+    
+      
+        <a href="http://ag7.alltagsgrauen.info" target="_blank">
+          fwolf
+        </a>
+</p>
+<p>ich nutze ehrlich gesagt immer noch Sage (Extension f&uuml;r Firefox); aber auf Dauer werde ich wohl entweder zu Gregarius (in einer angepassten Variante f&uuml;r mich selbst) oder was Marke Eigenbau (gibt ja genug ATOM-/RSS/sonstige Feedformate-Reader-Klassen) wechseln - da ich aufgrund meines neuen Jobs relativ viel pendeln darf.</p>
+<p>cu, w0lf.</p>
+
+<p class="infos">
+<a href="#comment_490" onclick="set_comment_reference(490)" title="auf diesen Kommentar antworten">#490</a>:
+    10.Sep.2008 08:09
+    von
+    
+      
+        <a href="http://www.newsbeuter.org/" target="_blank">
+          ak
+        </a>
+</p>
+<p>Ich w&uuml;rde mal sagen, Konsolen-Feedreader hast du dir nicht angeschaut, sonst w&uuml;rdest du nicht mit so haarstr&auml;ubenden Behauptungen daherkommen, diese w&uuml;rden kein HTML anzeigen k&ouml;nnen, oder k&ouml;nnten Seiten im Browser nur &uuml;ber Umwege aufmachen. Tats&auml;chlich lassen sich Konsolen-Feedreader (und ich spreche hier inbesondere von newsbeuter) wesentlich effizienter als grafishe RSS-Feedreader bedienen, wenn man wei&szlig;, wie.</p>
+
+<p class="infos">
+<a href="#comment_491" onclick="set_comment_reference(491)" title="auf diesen Kommentar antworten">#491</a>:
+    10.Sep.2008 08:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>ah.. genau<br/>
+Dann zeigt dein Newsbeuter also HTML an? Also auch so dass ich was davon habe? Mit den ganz einfachen Erweiterungen wie CSS oder vlt. Javascript? Oder zeigt der sogar solche Sp&auml;&szlig;e wie Flash an?</p>
+<p>Nein mal ehrlich, das was der an HTML anzeigt ist vlt. ganz lustig, ich muss aber f&uuml;r jeden komplexeren Inhalt dann doch wieder nen Browser &ouml;ffnen. Ich habe nie behauptet dies w&auml;re nur ein Problem der Shell-Feedreader aber die leiden nunmal genauso darunter wie andere auch.</p>
+<p>Was das &ouml;ffnen eines Browserfensters betrifft habe ich mich wohl etwas verquer ausgedr&uuml;ckt. Bei mir gehe ich normalerweise immer davon aus dass ich interaktive Netzwerksoftware immer in einer Screen-Session auf meinem Server laufen habe, wie will Newsbeuter von dort aus bitte ein Browserfenster auf meinem Notebook &ouml;ffnen?</p>
+<p>Klar kann ich mir ein Terminal schnappen dass das &uuml;ber Umwege realisiert, auch kann ich mit X-Weiterleitung und Firefoxinterna etwas basteln was fast verwendbar ist, aber wirklich gute L&ouml;sungen sind da rar.</p>
+<p>Mein Problem mit diesen Clients ist nicht dass sie schlecht geschrieben w&auml;ren oder Sachen nicht beherrschen die andere ihnen unendlich vorraus sind. Mein Problem ist schlicht dass ich mit den meisten dieser Clients mehr Aufwand habe als mit z.B. Webbasierenden Readern.<br/>
+F&uuml;r mich pers&ouml;nlich ist das einfach derzeit am Thema vorbei.</p>
+
+<p class="infos">
+<a href="#comment_492" onclick="set_comment_reference(492)" title="auf diesen Kommentar antworten">#492</a>:
+    10.Sep.2008 09:09
+    von
+    
+      
+        <a href="http://www.newsbeuter.org/" target="_blank">
+          ak
+        </a>
+</p>
+<p>Newsbeuter rendet HTML. Multimedia-Inhalte sind nicht per se Bestandteil von HTML, und kommen auch ich in etwa 99 % aller Blogpostings nicht vor. Die Unterst&uuml;tzung von Javascript, CSS und Flash ist auch nicht notwendig, schlie&szlig;lich verwendet man RSS-Feedreader, um RSS-Feeds m&ouml;glichst effizient lesen zu k&ouml;nnen, und nicht, um sich an einem bunten Multimedia-Spektakel zu erg&ouml;tzen, oder?</p>
+<p>Wenn du eine Screen-Session &uuml;ber SSH verwendest... tja. Aber das ist ein Problem, das unabh&auml;ngig der Shell existiert. &Uuml;ber eine remote X11-Sesion, eine VNC-Session oder RDP-Session h&auml;ttest du die gleichen Probleme.</p>
+<p>Was du mit dem Mehraufwand meinst, versteh ich zwar nicht wirklich, aber bitte. Jeder ist seines eigenen Gl&uuml;ckes Schmied.</p>
+
+<p class="infos">
+<a href="#comment_493" onclick="set_comment_reference(493)" title="auf diesen Kommentar antworten">#493</a>:
+    11.Sep.2008 12:09
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Mein Problem ist halt dass ich ein paar hundert Newsfeeds gerne m&ouml;glichst effektiv lesen m&ouml;chte.<br/>
+Newsbeuter (und alle anderen &auml;hnlichen Clients) erbt da aufgrund seines Aufbaus eben diese Probleme.<br/>
+Newsfeeds enthalten nicht nur plain HTML, die 99% von denen du redest sind mit optimistisch schon garnicht mehr zu beschreiben (ich brauch ja nur mal einen Newsfeed irgendeines Webcomics nutzen, schon lande ich mit einem Konsolen-Client an einem Problem).</p>
+<p>Mit Mehraufwand meine ich den Unterschied zwischen "ich hab meinen Browser im RAM" und "ich habe meinen Browser und einen Newsreader im RAM". Sicherlich braucht der Newsreader erheblich weniger Ressourcen, aber ich h&auml;tte halt gerne eine L&ouml;sung die mir den Browser ganz erspart. Das kann weder Newsbeuter noch irgendein anderer Konsolenclient derzeit auch nur ann&auml;hernd bieten (aber grafische Clients auch nur unter starken Schmerzen, von daher sollte man das nicht gar so ernst nehmen).</p>
+<p>Au&szlig;erdem finde ich es interessant dass alle beim Thema Newsfeed automatisch von Blogs ausgehen, Newsfeeds wurden keinesfalls f&uuml;r Blogs speziell entwickelt und die Mehrzahl der Feeds kommt auch aus v&ouml;llig anderen Quellen.<br/>
+Nat&uuml;rlich sind auch bei mir die meisten Feeds bloggeneriert, aber dies als einzige M&ouml;glichkeit zu sehen finde ich etwas borniert.</p>
+</div>

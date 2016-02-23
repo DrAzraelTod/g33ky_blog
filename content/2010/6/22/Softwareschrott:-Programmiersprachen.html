@@ -1,0 +1,193 @@
++++
+title = "Softwareschrott: Programmiersprachen"
+date = "2010-06-22T10:06:00"
+author = "profmakx"
+tags = ["Softwareschrott"]
+issoid = "blog/1524"
+aliases = "blog/1524"
++++
+
+<p>Es ist unglaublich, dass angesichts der M&ouml;glichkeiten die es schon seit Jahren (teilweise schon seit Anbeginn der Programmiersprachen) gibt, es heutzutage immernoch Sprachen wie C, PHP oder C++ gibt. Und es gibt sie nicht nur als abschreckendes Beispiel, nein, sie werden tats&auml;chlich ernsthaft eingesetzt. Und es kommen auch noch Sprachen dazu. Sprachen wie Java zum Beispiel oder "Weiterentwicklungen" wie C++0x.</p>
+<p>Der durchschnittliche Programmierer denkt ja gerne, dass die Bedeutung eines Ausdrucks immer eindeutig bestimmt ist. Stimmt nicht, wie eins meiner Lieblingsbeispiele in einer der beschissensten Programmiersprachen der Welt. C. (Ja, C l&auml;uft wie PHP unter beschissen. Und ich will keine Entschuldigungen lesen)</p>
+<p></p><pre><code><br/>    int i = 5;<br/>    i = i++ + ++i;<br/></code></pre>
+<p>Ja, und was der Wert von i am ende dieser Sequenz ist ist <i>nicht definiert!</i> und das heisst, dass der Compiler das selber entscheiden darf oder sich sogar selber <i>irgendwie!</i> verhalten darf, zum Beispiel nethack starten oder FNORD rufen.</p>
+<p>Man sollte doch erwarten k&ouml;nnen, dass jeder syntaktisch korrekte elementare Ausdruck auch semantisch wohldefiniert ist.</p>
+<p>Dieses "undefined behaviour" wird in der Wikipedia sogar als "feature" verkauft um die Spezifikation zu vereinfachen. Unglaublich. Das mag in der Steinzeit der Programmiersprachen noch zu entschuldigen gewesen sein, aber wir haben 2010, wir haben Web 2.0 und Cloud Computing, Buzzwords bis der Arzt kommt und immernoch basieren alle Ernsthaften Betriebssysteme auf Steinzeitsprachen.</p>
+<p>Mein n&auml;chstes Lieblingsthema sind Typsysteme. Man mag sich noch streiten wollen ob man ein dynamisches oder ein statisches Typsystem vorzieht, wenn man sich auf eines festgelegt hat darf man aber gerne dabei bleiben. Strikt sollte man aber in jedem Fall sein. Wieder mal eine Gelegenheit auf Sprachen wie C oder PHP rumzuhacken.<br/>Ehrlich, man kann heute Typsysteme bauen die schon zur Compilezeit erkennen k&ouml;nnen ob man Mist gebaut hat. So Totalunf&auml;lle wie PHPs (und wenn man ehrlich ist auch Cs und C++s)</p>
+<p></p><pre><code><br/>    if $a = 5 foo();<br/>    if $a == 5 bar();<br/>    if $a === 5 baz();<br/></code></pre>
+<p>die vorgeben eine strikte Typisierung zu haben sind einfach nur unglaublicher Steinzeitmist. Da werden &uuml;berall noch L&ouml;sungen an Sprachen rangeschraubt um irgendwelche Probleme zu l&ouml;sen die man mit einem gescheiten Design nicht h&auml;tte. Aber auch bei Programmiersprachen setzt Schrott sich durch, hunderte Webseiten wie zum Beispiel auch Facebook k&ouml;nnen ja nicht irre sein richtig? Falsch.</p>
+<p>Ein weiterer Punkt der unglaublich bescheuert und nervt&ouml;tend ist ist Javas unglaubliche Explizitheit (welche sich im &Uuml;brigen auch in C, C++, PHP oder Assemblern zeigt aber in Java einfach nur extrem zu Tage tritt). Wer mir jetzt mit Abstraktion kommt hat noch nie eine Sprache gesehen, die Abstraktion wirklich beherrscht. Kurze, leicht zu erfassende und &uuml;berblickende Anweisungen sind das Geheimnis eines guten Designs. Java ist das <a href="http://java.sun.com/developer/technicalArticles/releases/nio/#code2">Gegenteil</a>. Python zeigt hier zum Beispiel, dass man mit einer knapp und simpel gehaltenen Syntax sehr viel erreichen kann. <br/>Ich pers&ouml;nlich bin ein gro&szlig;er Freund von funktionalen Programmiersprachen wie Haskell oder LISP und einige mehr (oh. und nein, F# ist keine funktionale Sprache sondern wieder so eine eierlegende Wollmilchsau wie Java). Aber diese Meinung muss man ja niemandem aufzwingen, jeder W&auml;hlt sein Kreuz. Probiert mal eine Funktion zu schreiben, die nat&uuml;rliche Zahlen von 1 bis n aufzusummiert.</p>
+<p> <br/>Ein letztes Thema welches auch irgendwie zu diesem Komplex geh&ouml;rt ist die Speicherverwaltung. Und ich h&ouml;re immer wieder wie mir Profis erz&auml;hlen wie High Performance ihr Code sein muss und da Garbage Collection nur st&ouml;rt oder bremst (das eigentliche Problem ist &uuml;brigens nicht, dass Garbage Collection st&ouml;rt oder bremst, sondern das sie meist zu automatisiert abl&auml;uft und deswegen nicht zu deterministischen Zeitpunkten l&auml;uft, and guess what, vielliecht w&auml;re es angebracht sowas als Sprachfeature anzubieten?). Ehrlich, so ein automatisiertes System macht einem die Speicherverwaltung beweisbar Fehlerarm, warum sollte man sowas <i>nicht</i> einsetzen wollen? Ich will mich beim L&ouml;sen eines Problems doch nicht in Details &uuml;ber Speicherverwaltung verlieren, es sei denn mein Problem heisst "Entwickle eine taugliche Speicherverwaltung f&uuml;r eine Programmiersprache". </p>
+<p>Das waren jetzt nur einige wenige zentrale Themen. Es gibt f&uuml;r jede Sprache die man auch nur l&auml;nger als zwei Zeilen lang genutzt hat unglaublich viele Dinge &uuml;ber die man Ranten kann.<br/>Warum ist niemand dahergegangen und hat mal eine sauber definierte Systemsprache entwickelt in der man gut auch Betriebssysteme entwickeln kann? Hat jemand. Viele sogar. Nur: Der Mensch ist faul und geizig. Die Codebasis in C ist da und ehe sich ein Betriebssystem oder ein ganzes System durchsetzen kann, das nicht auf C basiert werden wohl noch viele viele viele Jahre vergehen.<br/></p>
+<div class="old_comments"><h3>Importierte/Alte Kommentare:</h3>
+<p class="infos">
+<a href="#comment_1407" onclick="set_comment_reference(1407)" title="auf diesen Kommentar antworten">#1407</a>:
+    22.Jun.2010 11:06
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Java ist eh krank, da bringt man mehr Zeit damit zu, zu definieren welches Objekt wovon Abgeleitet wird als sich um die L&ouml;sung des Problemes zu k&uuml;mmern. Das hat selbst PHP besser gel&ouml;st (nicht dass es was bringen w&uuml;rde, bei PHP verwendet es halt keiner).<br/>
+Aber ich sollte garnicht erst von PHP anfangen, sonst fang ich nur wieder an mich aufzuregen warum Sachen wie http_persistent_handles_clean, getmxrr oder memcache_debug unbedingt von &uuml;berall aus direkt zugreifbar sein m&uuml;ssen und man sie nicht einfach in irgendeine Lib werfen kann.<br/>
+Alternativ w&auml;ren auch mal wieder so Sachen wie array_merge ( <a href="http://g33ky.de/blog/1439/" rel="nofollow">http://g33ky.de/blog/1...</a> ) &uuml;ber die ich mich aufregen kann oder warum es str_pad aber strchr lauten muss.. oder wer sich &uuml;berhaupt solche funktionsnamen merken soll (mit $string-&gt;length() statt strlen w&auml;re das nicht passiert).</p>
+<p>Aber wie gesagt... ich will nicht schon wieder &uuml;ber PHP ranten.</p>
+
+<p class="infos">
+<a href="#comment_1426" onclick="set_comment_reference(1426)" title="auf diesen Kommentar antworten">#1426</a>:
+    20.Jul.2010 09:07
+    von
+    
+      
+        <a href="http://www.g33ky.de/2010/6/22/Softwareschrott:-Programmiersprachen/" target="_blank">
+          Terminar
+        </a>
+</p>
+<p>Ich denke, das hier wieder allgemein der Fehler gemacht wird, alles &uuml;ber einen Kamm zu scheren. Objektivit&auml;t sowie Akzeptanz bleibt auch etwas auf der Strecke. <br/>
+Vielleicht einfach auch aus fehlender Erfahrung? Oder weil ranten cool ist?</p>
+<p>Wenn ich mich nah an der Hardware befinde (ein richtig gutes Beispiel sind Embedded Systeme) brauche ich gar nicht mit Java, Python, funktionalen Sprachen etc anfangen, das steht au&szlig;er Frage. Da brauche ich &uuml;brigens auch nicht mit GC hantieren. Wer jetzt versucht eine Gegenargumentation zu bringen bel&uuml;gt sich selbst oder hat keine Erfahrungen damit. Es gibt gute Beispiele f&uuml;r GC auf Embedded Systemen, wo genau sowas v&ouml;llig daneben geht und mehr &Auml;rger bringt als Vorteile - wo auf gleicher Hardware mit einer anderen Sprache (es war sogar das b&ouml;se C) erhebliche Vorteile und Stabilit&auml;t erwirtschaftet wurden.</p>
+<p>Was das Thema Scriptsprachen angeht: wer sich die Historie auch von PHP anschaut wird merken, das PHP einen ganz bestimmten Sinn verfolgt und sein Ziel erreicht hat. Ich bin auch kein Fan vom Syntax-W&uuml;rfeln, aber wenn man damit anf&auml;ngt, kann man auch gleich perl mit ins Boot holen. PHP hat nicht nur schw&auml;chen. <br/>
+Wozu brauche ich Python? Wozu denn Ruby? Hier wurde bisher noch gar nicht &uuml;ber Lua hergezogen. Jede der Sprachen hat schon seine Berechtigung.</p>
+<p>Ist es vielleicht m&ouml;glich, das jede "Sprache" egal welcher Art und Weise in bestimmten Richtungen und f&uuml;r bestimmte Zwecke einfach ihren Sinn erf&uuml;llen?</p>
+<p>Ich gie&szlig;e mal noch etwas &Ouml;l ins Feuer: RAD unter Windows wie Borland/Embarcadero Developer Studio oder Visual Studio ist Klasse. Was interessieren mich da Optimierungen? Interessieren mich schon, ich muss sie aber nicht in Assembler machen. Das Ding muss Laufen, von Kunden bedient werden und gut ist. </p>
+<p>Man sollte schon die grundlegenden Unterschiede machen, wof&uuml;r man programmieren will.<br/>
+- Hardware-Plattform?<br/>
+- OS?<br/>
+- GUI?<br/>
+- Open oder Closed Source? (da geht's dann los mit Wegstreichen von Scriptsprachen; ByteCode Compiler wie bei PHP sind f&uuml;r die wirkliche Arbeit und Wirtschaft, wenn man die Hardware und Installation nicht vorgeben kann, indiskutabel)<br/>
+- Cluster-Systeme?<br/>
+- HPC?<br/>
+- Zeitaufwand?<br/>
+- Prototyp?<br/>
+- Team-Eigenschaften wenn ich nicht zu Hause in meinem Keller koche, &auml;h code.</p>
+<p>Man sollte nicht vergessen:<br/>
+- dem Kunden ist es egal wie das Ding gebaut ist.<br/>
+- der Kunde will wenig bezahlen<br/>
+- es soll laufen und Wartungsarm sein</p>
+<p>etc.ppp.</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1427">
+<p class="infos">
+<a href="#comment_1427" onclick="set_comment_reference(1427)" title="auf diesen Kommentar antworten">#1427</a>:
+    20.Jul.2010 09:07
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>Also erstmal: FALSCH! (Es gibt ja keine falschen Meinungen, aber deine ist es.)</p>
+<p>Es hat nicht jede Sprache ihre sinnvollen Anwendungsgebiete. Cobol wird heute nur noch verwendet weil es Altlasten gibt, Brainfuck wurde nie f&uuml;r was ernstes verwendet und f&uuml;r Malbolge gibts gerade mal Computergenerierte Hello-World-Programme. Weiterhin wage ich zu behaupten dass ich jedes Problem, f&uuml;r das PHP ideal erscheint, besser mit Python l&ouml;sen kann. Wenn dem nicht so ist, dann liegt das sicher nicht daran dass PHP so toll ist, sondern eher daran dass auch Python seine Schwachstellen hat.</p>
+<p>Ich bestreite nicht dass man Software f&uuml;r ihren jeweiligen Zweck nutzen sollte. Z.B. Delphi (oder so Borland/Embacardero-Zeugs generell) ist ein prima Werkzeug. Ich fand das Zeug schon immer klasse.. f&uuml;r seinen Einsatzzweck. Ich bezweifel nur dass es sinnvoll ist alle Werkzeuge als gegeben hinzunehmen. Heutzutage verwendet doch keiner Java weil er sich alle m&ouml;glichen Sprachen angesehen hat und diese als ideal f&uuml;r seinen Bedarf ansieht. Java wird verwendet, weil es andere verwenden.<br/>
+Das selbe kann man &uuml;ber C++ sagen. Es steckt fest im Zwischenbereich zwischen Systemnahem Zeugs und einer echten, objektorientierten Sprache. F&uuml;r beides gibt es auch andere Werkzeuge, aber keiner sieht sie sich an weil es ja C++ gibt (und das ist auch objektorientiert, das MUSS ja quasi besser sein als sein Vorg&auml;nger C).</p>
+<p>Sprich: Ich muss profmakx recht geben. Da drau&szlig;en gibt es verdammt viel M&uuml;ll, der einfach nur verwendet wird ohne jegliches Anzeichen von Sinn und/oder Verstand.</p>
+<p>BTW: dein Kommentar ist auch beim ersten Mal schon angekommen, du musst dann nicht noch 3x auf absenden dr&uuml;cken ;-)</p>
+</div>
+</li>
+<li>
+<div class="comment" id="comment_1428">
+<p class="infos">
+<a href="#comment_1428" onclick="set_comment_reference(1428)" title="auf diesen Kommentar antworten">#1428</a>:
+    20.Jul.2010 10:07
+    von
+    
+      
+        <a href="http://www.g33ky.de/" target="_blank">
+          profmakx
+        </a>
+</p>
+<p>Ich weiss garnicht woher ich wusste, dass irgendwo ein Embedded-Hampel um die Ecke gebogen kommt und sagt "Ich muss superextraeffizient sein, und da ist NUR C m&ouml;glich am liebsten Assembler" oder irgendwas in der Richtung. Aber ich habs mir gedacht. Ich frag mich warum das so lange gedauert hat.<br/>
+Embedded ist KEINE FUCKING AUSREDE f&uuml;r eine Scheissprogrammiersprache. Niemals. Nicht. Es sind echt jedesmal die verblendeten E-Technik-Hampels die ein total abgefucktes "embedded"-SDK zusammenw&uuml;rfeln und behaupten "das liegt an C das das so ist, und es gibt keine Alternative".<br/>
+Fucking hell, warum gibt es keine Alternative? Oder gibt es sie und man kennt sie nur nicht? Ist der "Embedded"bereich nicht inzwischen so riesig, dass sogar Telefone darunterfallen? Darauf l&auml;uft auch Java. Ich hasse diese Embeddedausreden.</p>
+<p>C hat seine Berechtigung: So sollte nie wieder eine Programmiersprache aussehen. C++ auch: Bl&ouml;dsinniges aufpropfen von Features sollte man sein lassen und hoffentlich scheitert D daran. Und Java, diese Sprache hat eine Berechtigung weil durch eine supereffiziente VM versucht wurde die Sprache zu reparieren. Immerhin hat man nun effiziente VMs.<br/>
+PHP <em>ist Schrott</em>. Das ist ein Fakt des Lebens, genauso wie "Schrott setzt sich durch". Sieht man &uuml;berall: Windows, PHP, Linux, C++. Billiger Schrott, Verf&uuml;gbarer Schrott.</p>
+<p>Und dein Kommentar hat noch eine andere Schw&auml;che: Nein. Man guckt nicht auf das OS, GUI etc um eine gute Sprache auszumachen. Dieser soziale Stuhlkreisschwachsinn von wegen "Best tool for the job" geht in die v&ouml;llig falsche Richtung. Wenn du mal <em>gelesen</em> h&auml;ttest was ich geschrieben hab h&auml;ttest du das auch verstanden. </p>
+<p>Kunden sind mir &uuml;brigens auch SCHEISS EGAL! Stell Dir vor, dass nicht jeder sich mit etwas besch&auml;ftigt weil er Geld daraus pressen will. Es gibt Leute, die holen sich einen auf Eleganz, Pr&auml;zision, Fehlerfreiheit oder einfach nur "richtig gemacht" runter. Und ich bin so jemand.</p>
+</div>
+</li>
+<li>
+<div class="comment" id="comment_1429">
+<p class="infos">
+<a href="#comment_1429" onclick="set_comment_reference(1429)" title="auf diesen Kommentar antworten">#1429</a>:
+    20.Jul.2010 05:07
+    von
+    
+      
+        <a href="http://www.g33ky.de/" target="_blank">
+          profmakx
+        </a>
+</p>
+<p>Sag doch mal gleich wieso Fakebook, StasiVZ, Amazon etc. pp. so erfolgreich sind, wenn PHP f&uuml;r richtige Arbeit nicht verwendet werden kann?</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1431">
+<p class="infos">
+<a href="#comment_1431" onclick="set_comment_reference(1431)" title="auf diesen Kommentar antworten">#1431</a>:
+    21.Jul.2010 12:07
+    von
+    
+      
+        Snookie
+      
+    
+    
+  </p>
+<p>Weil sie kein PHP verwenden :)</p>
+<p>HipHop (PHP-&gt;C++ brhahahaw krank) z&auml;hl ich nu nicht zu PHP</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+
+<p class="infos">
+<a href="#comment_1485" onclick="set_comment_reference(1485)" title="auf diesen Kommentar antworten">#1485</a>:
+    06.Nov.2010 02:11
+    von
+    
+      
+        TheGuru
+      
+    
+    
+  </p>
+<p>Wenn ein Programmierer nicht wei&szlig; wann eine Sprache unklar ist, und jede Sprache ist irgendwo unklar und nicht eindeutig, hat er den falschen Beruf !!</p>
+<ul class="referencing_comments">
+<li>
+<div class="comment" id="comment_1486">
+<p class="infos">
+<a href="#comment_1486" onclick="set_comment_reference(1486)" title="auf diesen Kommentar antworten">#1486</a>:
+    06.Nov.2010 03:11
+    von
+    
+      <a href="/blog/author/Dr_Azrael_Tod/">
+        Dr. Azrael Tod
+      </a>
+</p>
+<p>&Auml;h.. ja.. klar..<br/>
+Weil logisch beschreibende Sprachen ja quasi als Naturgesetz unklare Definitionen haben. Klingt f&uuml;r mich vollkommen logisch.<br/>
+Au&szlig;erdem gibts ja nur vollkommen f&auml;hige und kompetente Programmierer da drau&szlig;en, da muss man nicht auf sinnvolle Sprachen achten.<br/>
+Ich w&uuml;nsche dir viel Spa&szlig; im Berufsleben mit so einer Einstellung.</p>
+<p>BTW: 'Multiple exclamation marks,' he went on, shaking his head, 'are a sure sign of a diseased mind.' - Terry Pratchett in Eric</p>
+</div>
+</li>
+<li>
+<div class="comment" id="comment_1487">
+<p class="infos">
+<a href="#comment_1487" onclick="set_comment_reference(1487)" title="auf diesen Kommentar antworten">#1487</a>:
+    06.Nov.2010 04:11
+    von
+    
+      
+        <a href="http://www.g33ky.de/" target="_blank">
+          profmakx
+        </a>
+</p>
+<p>Ich kann heute irgendwie von diesem Spruch nicht weg: Wenn man keine Ahnung hat...</p>
+</div>
+</li>
+</ul>
+</div>
