@@ -1,0 +1,69 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+{{ $baseurl := .Site.BaseURL }}
+{{ $categories := .Params.categories }}
+{{ $tags := .Params.tags }}
+    <script data-isso="/isso/" data-isso-css="true" data-isso-lang="de" data-isso-reply-to-self="false" data-isso-max-comments-top="10" data-isso-max-comments-nested="5" data-isso-reveal-on-click="5" data-isso-avatar="true" data-avatar-bg="#f0f0f0" data-avatar-fg="#9abf88 #5698c4 #e279a3 #9163b6 ..." src="/isso/js/embed.min.js" async></script>
+
+    <div class="container">
+        <div class="row">
+            <div class="sixteen columns">
+                <article class="li-article">
+                    <header class="li-article-header">
+                        <h1 class="li-article-title">{{ .Title }}</h1>
+                        <span class="li-article-taxonomies">
+                            {{ with $categories }}
+                                Posted in
+                                {{ range $categories }}
+                                    <a href="{{ $baseurl }}/categories/{{ . | urlize }}">{{ . }}</a>
+                                {{ end }}
+                            {{ end }}
+
+                            {{ with $tags }}
+                                with tags
+                                {{ range $tags }}
+                                    <a href="{{ $baseurl }}/tags/{{ . | urlize }}">{{ . }}</a>
+                                {{ end }}
+                            {{ end }}
+                        </span>
+                        {{ if or $categories $tags }} - {{ end }}
+                        <time class="li-article-date">{{ .Date.Format "Monday, January 2, 2006" }}</time>
+                    </header>
+                    <section>
+                        {{ .Content }}
+                    </section>
+                </article>
+            </div>
+        </div>
+
+        {{ partial "author.html" .}}
+
+        {{ if .Params.issoid }}<section id="isso-thread" data-isso-id="{{.Params.issoid}}"></section>{{end}}
+
+        <div class="row li-pagination">
+            <div class="eight columns">
+                <div class="li-pagination-previous">
+                    {{with .Prev}}
+                        Later article<br />
+                        <a href="{{.Permalink}}"> {{.Title}}</a>
+                    {{else}}
+                        &nbsp;
+                    {{end}}
+                </div>
+            </div>
+            <div class="eight columns">
+                <div class="li-pagination-next">
+                    {{with .Next}}
+                        Older article<br />
+                        <a href="{{.Permalink}}"> {{.Title}}</a>
+                    {{else}}
+                        &nbsp;
+                    {{end}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{ partial "footer.html" . }}
+{{ partial "tail.html" . }}
